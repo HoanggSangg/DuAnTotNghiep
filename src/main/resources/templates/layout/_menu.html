@@ -1,0 +1,155 @@
+<div xmlns:th="http://www.thymeleaf.org">
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-sm-2">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo1-test.png" alt="Young Creative"></a>
+					</div>
+				</div>
+				<div class="col-md-10 col-sm-10">
+					<div class="header_top">
+						<div class="row">
+							<div class="col-md-3">
+								<ul class="option_nav">
+									<li class="dorpdown"><a href="#">Eng</a>
+										<ul class="subnav">
+											<li><a href="#">Eng</a></li>
+											<li><a href="#">Vns</a></li>
+										</ul></li>
+								</ul>
+							</div>
+							<div class="col-md-6">
+								<ul class="topmenu">
+									<li><a href="#">Liên hệ</a></li>
+									<li><a href="#">Tin tức</a></li>
+									<li><a href="#">Dịch vụ</a></li>
+									<li><a href="#">Tuyển dụng</a></li>
+									<li><a href="#">Phương tiện truyền thông</a></li>
+									<li><a href="#">Hỗ trợ</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3">
+								<ul class="usermenu">
+									<li><a href="/login" class="log">Đăng nhập</a></li>
+									<li><a href="#" class="reg">Đăng ký</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="header_bottom">
+						<ul class="option">
+							<li id="search" class="search">
+								<form>
+									<input class="search-submit" type="submit" value=""><input
+										class="search-input" placeholder="Nhập sản phẩm mà bạn muốn tìm..."
+										type="text" value="" name="Tìm kiếm">
+								</form>
+							</li>
+							<li class="option-cart"><a href="#" class="cart-icon">Giỏ hàng
+									<span class="cart_no">02</span>
+							</a>
+								<ul class="option-cart-item">
+									<li>
+										<div class="cart-item">
+											<div class="image">
+												<img src="images/products/thum/products-01.png" alt="">
+											</div>
+											<div class="item-description">
+												<p class="name">Lincoln chair</p>
+												<p>
+													Kích cỡ: <span class="light-red">One size</span><br>Số lượng:
+													<span class="light-red">01</span>
+												</p>
+											</div>
+											<div class="right">
+												<p class="price">$30.00</p>
+												<a href="#" class="remove"><img src="images/remove.png"
+													alt="remove"></a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="cart-item">
+											<div class="image">
+												<img src="images/products/thum/products-02.png" alt="">
+											</div>
+											<div class="item-description">
+												<p class="name">Lincoln chair</p>
+												<p>
+													Kích cỡ: <span class="light-red">One size</span><br>Số lượng:
+													<span class="light-red">01</span>
+												</p>
+											</div>
+											<div class="right">
+												<p class="price">$30.00</p>
+												<a href="#" class="remove"><img src="images/remove.png"
+													alt="remove"></a>
+											</div>
+										</div>
+									</li>
+									<li><span class="total">Tổng tiền <strong>$60.00</strong></span>
+										<button class="checkout"
+											onClick="location.href='checkout.html'">Đặt hàng</button></li>
+								</ul></li>
+						</ul>
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span><span
+									class="icon-bar"></span><span class="icon-bar"></span><span
+									class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li class="active dropdown"><a href="#"
+									class="dropdown-toggle" data-toggle="dropdown">Trang chủ</a>
+									<div class="dropdown-menu">
+										<ul class="mega-menu-links">
+											<li><a href="/home">Trang chủ</a></li>
+											<li><a href="/productlitst">Danh sách sản phẩm</a></li>
+											<li><a href="/productgird">Loại sản phẩm</a></li>
+											<li><a href="/details">Chi tiết sản phẩm</a></li>
+											<li><a href="/cart">Giỏ hàng</a></li>
+											<li><a href="/checkout">Đặt hàng</a></li>
+											<li><a href="/checkout2">Đặt hàng 2</a></li>
+											<li><a href="/contact">Liên hệ</a></li>
+										</ul>
+									</div></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown">Danh mục</a>
+									<div class="dropdown-menu mega-menu">
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+												<ul class="mega-menu-links">
+													<li><a href="productgird.html">Điện thoại</a></li>
+													<li><a href="productgird.html">Laptop</a></li>
+													<li><a href="productgird.html">Ipad</a></li>
+													<li><a href="productgird.html">Đồng hồ thông minh</a></li>
+												</ul>
+											</div>
+											<div class="col-md-6 col-sm-6">
+												<ul class="mega-menu-links">
+													<li><a href="productgird.html">Điện thoại</a></li>
+													<li><a href="productgird.html">Laptop</a></li>
+													<li><a href="productgird.html">Ipad</a></li>
+													<li><a href="productgird.html">Đồng hồ thông minh</a></li>
+												</ul>
+											</div>
+										</div>
+									</div></li>
+								<li><a href="productgird.html">Quà tặng</a></li>
+								<li><a href="productgird.html">Trẻ em</a></li>
+								<li><a href="productgird.html">blog</a></li>
+								<li><a href="productgird.html">Điện tử</a></li>
+								<li><a href="contact.html">Liên hệ với chúng tôi</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
