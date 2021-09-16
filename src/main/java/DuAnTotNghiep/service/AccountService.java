@@ -1,11 +1,13 @@
 package DuAnTotNghiep.service;
 
+import DuAnTotNghiep.entity.Account;
+
 public interface AccountService {
 
-//	Account findById(String username);
-//
+	Account findById(String username);
+	
 //	List<Account> findAll();
-//
+	
 //	List<Account> getAdministrators();
 //
 //	Account update(Account account);

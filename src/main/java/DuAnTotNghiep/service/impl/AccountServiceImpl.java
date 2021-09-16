@@ -1,18 +1,21 @@
 package DuAnTotNghiep.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import DuAnTotNghiep.dao.AccountDao;
+import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.service.AccountService;
 
 @Service
 public class AccountServiceImpl implements AccountService{
 
-//	@Autowired AccountDao adao;
-//	
-//	@Override
-//	public Account findById(String username) {
-//		return adao.findById(username).get();
-//	}
+	@Autowired AccountDao adao;
+	
+	@Override
+	public Account findById(String username) {
+		return adao.findById(username).get();
+	}
 //
 //	@Override
 //	public List<Account> findAll() {

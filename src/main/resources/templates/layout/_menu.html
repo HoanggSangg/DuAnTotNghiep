@@ -122,20 +122,9 @@
 									data-toggle="dropdown">Danh mục</a>
 									<div class="dropdown-menu mega-menu">
 										<div class="row">
-											<div class="col-md-6 col-sm-6">
-												<ul class="mega-menu-links">
-													<li><a href="productgird.html">Điện thoại</a></li>
-													<li><a href="productgird.html">Laptop</a></li>
-													<li><a href="productgird.html">Ipad</a></li>
-													<li><a href="productgird.html">Đồng hồ thông minh</a></li>
-												</ul>
-											</div>
-											<div class="col-md-6 col-sm-6">
-												<ul class="mega-menu-links">
-													<li><a href="productgird.html">Điện thoại</a></li>
-													<li><a href="productgird.html">Laptop</a></li>
-													<li><a href="productgird.html">Ipad</a></li>
-													<li><a href="productgird.html">Đồng hồ thông minh</a></li>
+											<div class="col-md-6">
+												<ul class="mega-menu-links" th:each="c : ${cates}">
+													<li><a href="#">[[${c.name}]]</a></li>
 												</ul>
 											</div>
 										</div>

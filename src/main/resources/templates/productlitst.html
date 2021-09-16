@@ -17,24 +17,14 @@
 						<div class="col-md-3">
 							<div class="category leftbar">
 								<h3 class="title">Categories</h3>
-								<ul>
-									<li><a href="#"> Men </a></li>
-									<li><a href="#"> Women </a></li>
-									<li><a href="#"> Salon </a></li>
-									<li><a href="#"> New Trend </a></li>
-									<li><a href="#"> Living room </a></li>
-									<li><a href="#"> Bed room </a></li>
+								<ul th:each="cl : ${catesmall}">
+									<li><a href="#">[[${cl.name}]]</a></li>
 								</ul>
 							</div>
 							<div class="branch leftbar">
 								<h3 class="title">Branch</h3>
-								<ul>
-									<li><a href="#"> New </a></li>
-									<li><a href="#"> Sofa </a></li>
-									<li><a href="#"> Salon </a></li>
-									<li><a href="#"> New Trend </a></li>
-									<li><a href="#"> Living room </a></li>
-									<li><a href="#"> Bed room </a></li>
+								<ul th:each="c : ${cates}">
+									<li><a href="#">[[${c.name}]]</a></li>
 								</ul>
 							</div>
 							<div class="price-filter leftbar">
