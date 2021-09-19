@@ -24,7 +24,7 @@ public class Account  implements Serializable{
 	String fullname;
 	String email;
 	String photo;
-	Boolean trangthai;
+	Boolean trangthai=true;
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
 	List<Order> orders;

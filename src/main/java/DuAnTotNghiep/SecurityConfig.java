@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			.antMatchers("/order/**").authenticated()
 			.antMatchers("/admin/**").hasAnyRole("STAF", "DIRE")
-			.antMatchers("/rest/authorities").hasRole("DIRE")
+//			.antMatchers("/rest/authorities").hasRole("DIRE")
 			.anyRequest().permitAll();
 		
 		http.formLogin()
