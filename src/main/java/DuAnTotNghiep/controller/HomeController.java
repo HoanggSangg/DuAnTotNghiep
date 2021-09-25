@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-
+//test Tai
 	@RequestMapping("/123")
 	public String test() {
 		return "../static/authorize/index";
