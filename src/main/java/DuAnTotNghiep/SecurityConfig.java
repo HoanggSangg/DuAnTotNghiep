@@ -51,22 +51,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		http.authorizeRequests()
 			.antMatchers("/order/**").authenticated()
-			.antMatchers("/admin/**").hasAnyRole("STAF", "DIRE")
+			.antMatchers("/admin/**").hasAnyRole("AD", "CH")
 //			.antMatchers("/rest/authorities").hasRole("DIRE")
 			.anyRequest().permitAll();
 		
 		http.formLogin()
-			.loginPage("/security/login/form")
+			.loginPage("/login")
 			.loginProcessingUrl("/security/login")
-			.defaultSuccessUrl("/security/login/success", false)
-			.failureUrl("/security/login/error");
+			.defaultSuccessUrl("/success", false)
+			.failureUrl("/error1");
 		http.rememberMe()
 			.tokenValiditySeconds(86400);
 		http.exceptionHandling()
 			.accessDeniedPage("/security/unauthoried");
 		http.logout()
 			.logoutUrl("/security/logoff")
-			.logoutSuccessUrl("/security/logoff/success");
+			.logoutSuccessUrl("/logoff");
 	}
 	@Override
 	public void configure(WebSecurity web) throws Exception {

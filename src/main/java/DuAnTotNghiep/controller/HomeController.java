@@ -18,14 +18,10 @@ public class HomeController {
 	public String home() {
 		return "layout/_sanpham";
 	}
-	@RequestMapping("/login")
-	public String login() {
-		return "checkout.html";
-	}
-	@RequestMapping("/checkout")
-	public String checkout() {
-		return "checkout";
-	}
+//	@RequestMapping("/checkout")
+//	public String checkout() {
+//		return "checkout";
+//	}
 	@RequestMapping("/productgird")
 	public String productgird() {
 		return "productgird";
