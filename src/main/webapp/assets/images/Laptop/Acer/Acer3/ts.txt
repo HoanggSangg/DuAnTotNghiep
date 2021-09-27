@@ -1,0 +1,110 @@
+Laptop Acer Swift 3 SF314 511 56G1 i5 1135G7/16GB/512GB/Win10 (NX.ABLSV.002) 
+Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i5 Tiger Lake 1135G7
+Số nhân:
+
+4
+Số luồng:
+
+8
+Tốc độ CPU:
+
+2.40 GHz
+Tốc độ tối đa:
+
+Turbo Boost 4.2 GHz
+Bộ nhớ đệm:
+
+8 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+16 GB
+Loại RAM:
+
+LPDDR4X (On board)
+Tốc độ Bus RAM:
+
+4266 MHz
+Hỗ trợ RAM tối đa:
+
+Không hỗ trợ nâng cấp
+Ổ cứng:
+
+SSD 512 GB NVMe PCIe (Có thể tháo ra, lắp thanh khác tối đa 1TB)
+Màn hình
+
+Màn hình:
+
+14 inch
+Độ phân giải:
+
+Full HD (1920 x 1080)
+Tần số quét:
+
+60 Hz
+Công nghệ màn hình:
+
+Acer ComfyView
+
+LED Backlit
+
+TFT
+
+Tấm nền IPS
+
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card tích hợp - Intel Iris Xe Graphics
+Công nghệ âm thanh:
+
+Acer TrueHarmonyDTS Audio
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+Thunderbolt 4 USB-C
+
+2 x USB 3.2
+
+HDMI
+
+Jack tai nghe 3.5 mm
+
+Kết nối không dây:
+
+Wi-Fi 6 (802.11ax)Bluetooth 5.1
+Webcam:
+
+HD webcam
+Tính năng khác:
+
+Bảo mật vân tay
+Đèn bàn phím:
+
+Có
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 322.8 mm - Rộng 212.2 mm - Dày 15.9 mm - Nặng 1.19 kg
+Chất liệu:
+
+Vỏ kim loại
+Thông tin khác
+
+Thông tin Pin:
+
+Li-ion, 48 Wh
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2021

@@ -1,0 +1,111 @@
+Laptop Lenovo Ideapad 5 15ITL05 i5 1135G7/8GB/512GB/2GB MX450/Win10 (82FG00P5VN)
+Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i5 Tiger Lake 1135G7
+Số nhân:
+
+4
+Số luồng:
+
+8
+Tốc độ CPU:
+
+2.40 GHz
+Tốc độ tối đa:
+
+Turbo Boost 4.2 GHz
+Bộ nhớ đệm:
+
+8 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+8 GB
+Loại RAM:
+
+DDR4 (On board)
+Tốc độ Bus RAM:
+
+3200 MHz
+Hỗ trợ RAM tối đa:
+
+Không hỗ trợ nâng cấp
+Ổ cứng:
+
+Hỗ trợ khe cắm HDD SATASSD 512 GB NVMe PCIe
+Màn hình
+
+Màn hình:
+
+15.6 inch
+Độ phân giải:
+
+Full HD (1920 x 1080)
+Tần số quét:
+
+60 Hz
+Công nghệ màn hình:
+
+Chống chói Anti Glare
+
+Tấm nền IPS
+
+Độ sáng 300 nits
+
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card rời - NVIDIA GeForce MX450, 2 GB
+Công nghệ âm thanh:
+
+Dolby AudioPremium
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+HDMI
+
+USB Type-C (Power Delivery and DisplayPort)
+
+2 x USB 3.2
+
+Jack tai nghe 3.5 mm
+
+Kết nối không dây:
+
+Wi-Fi 6 (802.11ax)Bluetooth 5.1
+Khe đọc thẻ nhớ:
+
+SD
+Webcam:
+
+HD webcam
+Tính năng khác:
+
+Bảo mật vân tayCông tắc khóa camera
+Đèn bàn phím:
+
+Có
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 356.67 mm - Rộng 233.13 mm - Dày 19.9 mm - Nặng 1.66 kg
+Chất liệu:
+
+Vỏ nhựa - nắp lưng bằng kim loại
+Thông tin khác
+
+Thông tin Pin:
+
+57 Wh
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2020

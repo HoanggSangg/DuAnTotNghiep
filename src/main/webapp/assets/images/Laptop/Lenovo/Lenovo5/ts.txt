@@ -1,0 +1,108 @@
+Laptop Lenovo Yoga 9 14ITL5 i7/1185G7/16GB/1TB SSD/Touch/Pen/Win10 (82BG006EVN) 
+Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i7 Tiger Lake 1185G7
+Số nhân:
+
+4
+Số luồng:
+
+8
+Tốc độ CPU:
+
+3.00 GHz
+Tốc độ tối đa:
+
+Turbo Boost 4.8 GHz
+Bộ nhớ đệm:
+
+12 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+16 GB
+Loại RAM:
+
+LPDDR4 (On board)
+Tốc độ Bus RAM:
+
+4266 MHz
+Hỗ trợ RAM tối đa:
+
+Không hỗ trợ nâng cấp
+Ổ cứng:
+
+SSD 1 TB M.2 PCIe
+Màn hình
+
+Màn hình:
+
+14 inch
+Độ phân giải:
+
+4K/UHD (3840 x 2160)
+Công nghệ màn hình:
+
+90% DCI-P3
+
+Tấm nền IPS
+
+500 nits Glossy
+
+HDR Vesa400
+
+Màn hình cảm ứng:
+
+Có
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card tích hợp - Intel Iris Xe Graphics
+Công nghệ âm thanh:
+
+Stereo speakersDolby Atmos
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+2 x Thunderbolt 4 USB-C
+
+1 x USB 3.2
+
+Jack tai nghe 3.5 mm
+
+Kết nối không dây:
+
+Wi-Fi 6 (802.11ax)Bluetooth 5.1
+Webcam:
+
+HD webcam
+Tính năng khác:
+
+Bảo mật vân tayCông tắc khóa camera
+Đèn bàn phím:
+
+Có
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 319.4 mm - Rộng 216.4 mm - Dày 15.7 mm - Nặng 1.37 kg
+Chất liệu:
+
+Vỏ kim loại
+Thông tin khác
+
+Thông tin Pin:
+
+Li-Polymer, 60 Wh
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2021

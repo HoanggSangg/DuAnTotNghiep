@@ -1,0 +1,102 @@
+Màn hình
+Công nghệ màn hình	AMOLED
+Độ phân giải	Full HD+ (1080 x 2400 Pixels)
+Kích thước màn hình	6.43"
+Tần số quét	90 Hz
+Độ sáng tối đa	430 nits
+Mặt kính cảm ứng	Kính cường lực Corning Gorilla Glass 5
+Camera sau
+Độ phân giải	Chính 64 MP & Phụ 8 MP, 2 MP
+Quay phim	
+FullHD 1080p@60fps
+4K 2160p@30fps
+FullHD 1080p@30fps
+HD 720p@30fps
+HD 720p@60fps
+Đèn Flash	Có
+Tính năng	
+Lấy nét theo pha (PDAF)
+AI Camera
+Ban đêm (Night Mode)
+Xóa phông
+Chạm lấy nét
+Toàn cảnh (Panorama)
+Tự động lấy nét (AF)
+Nhận diện khuôn mặt
+HDR
+Chuyên nghiệp (Pro)
+Làm đẹp
+Góc rộng (Wide)
+Siêu cận (Macro)
+Camera trước
+Độ phân giải	32 MP
+Tính năng	
+Xóa phông
+Nhãn dán (AR Stickers)
+Toàn cảnh (Panorama)
+Nhận diện khuôn mặt
+Làm đẹp
+Quay video Full HD
+Tự động lấy nét (AF)
+HDR
+Hệ điều hành & CPU
+Hệ điều hành	Android 11
+Chip xử lý (CPU)	MediaTek Dimensity 900 5G
+Tốc độ CPU	2 nhân 2.4 GHz & 6 nhân 2 GHz
+Chip đồ họa (GPU)	Mali-G68 MC4
+Bộ nhớ & Lưu trữ
+RAM	8 GB
+Bộ nhớ trong	128 GB
+Bộ nhớ còn lại (khả dụng) khoảng	110 GB
+Danh bạ	Không giới hạn
+Kết nối
+Mạng di động	Hỗ trợ 5G
+SIM	2 Nano SIM
+Wifi	
+Wi-Fi 802.11 a/b/g/n/ac/ax
+Wi-Fi hotspot
+Dual-band (2.4 GHz/5 GHz)
+Wi-Fi Direct
+GPS	
+GALILEO
+BDS
+GLONASS
+A-GPS
+Bluetooth	
+v5.2
+A2DP
+LE
+Cổng kết nối/sạc	Type-C
+Jack tai nghe	Type-C
+Kết nối khác	OTG
+Pin & Sạc
+Dung lượng pin	4300 mAh
+Loại pin	Li-Po
+Hỗ trợ sạc tối đa	65 W
+Sạc kèm theo máy	65 W
+Công nghệ pin	Sạc siêu nhanh SuperVOOC
+Tiện ích
+Bảo mật nâng cao	Mở khoá khuôn mặt , Mở khoá vân tay dưới màn hình
+Tính năng đặc biệt	Chạm 2 lần sáng màn hình , Ứng dụng kép (Nhân bản ứng dụng)
+Kháng nước, bụi	Không có
+Ghi âm	Có
+Radio	Có
+Xem phim	
+3GP
+MP4
+AVI
+WMV
+Nghe nhạc	
+MP3
+AMR
+AAC
+WMA
+WAV
+Thông tin chung
+Thiết kế	Nguyên khối
+Chất liệu	Khung hợp kim & Mặt lưng kính Panda
+Dài	156.8 mm
+Ngang	72.1 mm
+Dày	7.59 mm
+Khối lượng	182 g
+Thời điểm ra mắt	07/2021

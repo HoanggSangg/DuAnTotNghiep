@@ -1,0 +1,108 @@
+Laptop HP Pavilion 15 eg0505TU i5 1135G7/8GB/512GB/Win10 (46M02PA) 
+Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i5 Tiger Lake 1135G7
+Số nhân:
+
+4
+Số luồng:
+
+8
+Tốc độ CPU:
+
+2.40 GHz
+Tốc độ tối đa:
+
+Turbo Boost 4.2 GHz
+Bộ nhớ đệm:
+
+8 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+8 GB
+Loại RAM:
+
+DDR4 2 khe (1 khe 4GB + 1 khe 4GB)
+Tốc độ Bus RAM:
+
+3200 MHz
+Hỗ trợ RAM tối đa:
+
+32 GB
+Ổ cứng:
+
+SSD 512 GB NVMe PCIe
+Màn hình
+
+Màn hình:
+
+15.6 inch
+Độ phân giải:
+
+Full HD (1920 x 1080)
+Tần số quét:
+
+60 Hz
+Công nghệ màn hình:
+
+Wled-backlit
+
+Tấm nền IPS
+
+Chống chói Anti Glare
+
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card tích hợp - Intel Iris Xe Graphics
+Công nghệ âm thanh:
+
+Bang & Olufsen audio
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+2 x USB 3.1
+
+HDMI
+
+USB Type-C
+
+Jack tai nghe 3.5 mm
+
+Kết nối không dây:
+
+Bluetooth 5.0Wi-Fi 802.11 a/b/g/n/ac
+Khe đọc thẻ nhớ:
+
+Micro SD
+Webcam:
+
+HD webcam
+Đèn bàn phím:
+
+Không có đèn
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 360.2 mm - Rộng 234 mm - Dày 17.9 mm - Nặng 1.677 kg
+Chất liệu:
+
+Nắp lưng và chiếu nghỉ tay bằng kim loại
+Thông tin khác
+
+Thông tin Pin:
+
+3-cell Li-ion, 41 Wh
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2021

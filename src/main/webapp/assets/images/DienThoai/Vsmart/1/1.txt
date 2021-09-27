@@ -1,0 +1,185 @@
+Màn hình
+
+Công nghệ màn hình:
+
+IPS LCD
+Độ phân giải:
+
+HD+ (720 x 1600 Pixels)
+Màn hình rộng:
+
+6.52" - Tần số quét 60 Hz
+Mặt kính cảm ứng:
+
+Kính cường lực
+Camera sau
+
+Độ phân giải:
+Chính 13 MP & Phụ 2 MP, 2 MP
+Quay phim:
+
+FullHD 1080p@30fpsHD 720p@30fps
+Đèn Flash:
+
+Có
+Tính năng:
+
+AI Camera
+
+Ban đêm (Night Mode)
+
+HDR
+
+Siêu cận (Macro)
+
+Tự động lấy nét (AF)
+
+Xóa phông
+
+Camera trước
+
+Độ phân giải:
+8 MP
+Tính năng:
+
+A.I Camera
+
+HDR
+
+Làm đẹp
+
+Tự động lấy nét (AF)
+
+Xóa phông
+
+Hệ điều hành & CPU
+
+Hệ điều hành:
+
+Android 11
+Chip xử lý (CPU):
+
+MediaTek Helio G35 8 nhân
+Tốc độ CPU:
+4 nhân 2.5 GHz & 4 nhân 1.8 GHz
+Chip đồ họa (GPU):
+
+IMG PowerVR GE8320
+Bộ nhớ & Lưu trữ
+
+RAM:
+4 GB
+Bộ nhớ trong:
+
+64 GB
+Bộ nhớ còn lại (khả dụng) khoảng:
+
+56 GB
+Thẻ nhớ:
+
+MicroSD, hỗ trợ tối đa 256 GB
+Danh bạ:
+
+Không giới hạn
+Kết nối
+
+Mạng di động:
+
+Hỗ trợ 4G
+SIM:
+
+2 Nano SIM
+Wifi:
+
+Dual-band (2.4 GHz/5 GHz)
+
+Wi-Fi 802.11 a/b/g/n/ac
+
+Wi-Fi hotspot
+
+GPS:
+
+A-GPS
+
+BDS
+
+GALILEO
+
+GLONASS
+
+Bluetooth:
+
+v5.0
+Cổng kết nối/sạc:
+
+Type-C
+Jack tai nghe:
+
+3.5 mm
+Kết nối khác:
+
+OTG
+Pin & Sạc
+
+Dung lượng pin:
+
+5000 mAh
+Loại pin:
+
+Li-Po
+Hỗ trợ sạc tối đa:
+
+15 W
+Sạc kèm theo máy:
+
+18 W
+Công nghệ pin:
+
+Sạc pin nhanh
+Tiện ích
+
+Bảo mật nâng cao:
+
+Mở khóa bằng vân tay
+Tính năng đặc biệt:
+
+Ghi âm cuộc gọi
+Ghi âm:
+
+Có
+Xem phim:
+
+3GP
+
+AVI
+
+MP4
+
+WMV
+
+Nghe nhạc:
+
+AAC
+
+AMR
+
+FLAC
+
+MP3
+
+Midi
+
+Thông tin chung
+
+Thiết kế:
+
+Nguyên khối
+Chất liệu:
+
+Khung & Mặt lưng nhựa
+Kích thước, khối lượng:
+
+Dài 163.91 mm - Ngang 75.67 mm - Dày 9.1 mm - Nặng 196.26 g
+Thời điểm ra mắt:
+
+05/2021

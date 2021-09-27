@@ -1,0 +1,110 @@
+Laptop Lenovo Ideapad Gaming 3 15IMH05 i7 10750H/8GB/512GB/4GB GTX1650Ti/120Hz/Win10 (81Y4013UVN)
+Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i7 Comet Lake 10750H
+Số nhân:
+
+6
+Số luồng:
+
+12
+Tốc độ CPU:
+
+2.60 GHz
+Tốc độ tối đa:
+
+Turbo Boost 5.0 GHz
+Bộ nhớ đệm:
+
+12 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+8 GB
+Loại RAM:
+
+DDR4 (2 khe)
+Tốc độ Bus RAM:
+
+2933 MHz
+Hỗ trợ RAM tối đa:
+
+16 GB
+Ổ cứng:
+
+SSD 512 GB NVMe PCIeHỗ trợ khe cắm HDD SATA
+Màn hình
+
+Màn hình:
+
+15.6 inch
+Độ phân giải:
+
+Full HD (1920 x 1080)
+Tần số quét:
+
+120 Hz
+Công nghệ màn hình:
+
+Tấm nền IPS
+
+Chống chói Anti-Glare
+
+250 nits
+
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card rời - NVIDIA GeForce GTX 1650Ti 4 GB
+Công nghệ âm thanh:
+
+Dolby Audio
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+Jack tai nghe 3.5 mm
+
+2 x USB 3.2
+
+HDMI
+
+LAN (RJ45)
+
+USB Type-C
+
+Kết nối không dây:
+
+Bluetooth 5.0Wi-Fi 6 (802.11ax)
+Webcam:
+
+HD webcam
+Tính năng khác:
+
+Công tắc khóa camera
+Đèn bàn phím:
+
+Có
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 359 mm - Rộng 249.6 mm - Dày 24.9 mm - Nặng 2.2 kg
+Chất liệu:
+
+Vỏ nhựa
+Thông tin khác
+
+Thông tin Pin:
+
+45 Wh
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2020

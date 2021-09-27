@@ -1,0 +1,104 @@
+Laptop MSI Katana Gaming GF66 11UC i7 11800H/8GB/512GB/4GB RTX3050/144HzBalo/Win10 (224VN)
+Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i7 Tiger Lake 11800H
+Số nhân:
+
+8
+Số luồng:
+
+16
+Tốc độ CPU:
+
+2.30 GHz
+Tốc độ tối đa:
+
+Turbo Boost 4.6 GHz
+Bộ nhớ đệm:
+
+24 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+8 GB
+Loại RAM:
+
+DDR4 2 khe (1 khe 8GB + 1 khe rời)
+Tốc độ Bus RAM:
+
+3200 MHz
+Hỗ trợ RAM tối đa:
+
+64 GB
+Ổ cứng:
+
+SSD 512 GB NVMe PCIeKhông hỗ trợ khe cắm SSD M2 mở rộng thêm
+Màn hình
+
+Màn hình:
+
+15.6 inch
+Độ phân giải:
+
+Full HD (1920 x 1080)
+Tần số quét:
+
+144 Hz
+Công nghệ màn hình:
+
+LEDTấm nền IPS
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card rời - NVIDIA GeForce RTX3050, 4 GB
+Công nghệ âm thanh:
+
+Nahimic Audio
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+Jack tai nghe 3.5 mm
+
+2 x USB 3.2
+
+HDMI
+
+LAN (RJ45)
+
+USB 2.0
+
+USB Type-C
+
+Kết nối không dây:
+
+Bluetooth 5.2Wi-Fi 6 (802.11ax)
+Webcam:
+
+HD webcam
+Đèn bàn phím:
+
+Có
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 359 mm - Rộng 259 mm - Dày 24.9 mm - Nặng 2.1 kg
+Chất liệu:
+
+Vỏ nhựa
+Thông tin khác
+
+Thông tin Pin:
+
+3-cell Li-ion, 53 Wh
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2021

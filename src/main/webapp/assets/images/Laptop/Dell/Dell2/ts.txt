@@ -1,0 +1,116 @@
+Laptop Dell Gaming G3 15 i7 10750H/16GB/256GB + 1TB/4GB GTX1650Ti/Win10 (P89F002G3500C) 
+
+Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i7 Comet Lake 10750H
+Số nhân:
+
+6
+Số luồng:
+
+12
+Tốc độ CPU:
+
+2.60 GHz
+Tốc độ tối đa:
+
+Turbo Boost 5.0 GHz
+Bộ nhớ đệm:
+
+12 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+16 GB
+Loại RAM:
+
+DDR4 2 khe (1 khe 8GB + 1 khe 8GB)
+Tốc độ Bus RAM:
+
+2933 MHz
+Hỗ trợ RAM tối đa:
+
+16 GB
+Ổ cứng:
+
+SSD 256 GB NVMe PCIe
+
+HDD 1 TB
+
+Hỗ trợ thêm 1 khe cắm SSD M.2 PCIe mở rộng
+
+Màn hình
+
+Màn hình:
+
+15.6 inch
+Độ phân giải:
+
+Full HD (1920 x 1080)
+Tần số quét:
+
+120 Hz
+Công nghệ màn hình:
+
+LEDWVA
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card rời - NVIDIA GeForce GTX 1650Ti 4 GB
+Công nghệ âm thanh:
+
+Nahimic 3
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+Jack tai nghe 3.5 mm
+
+1 x USB 3.2
+
+HDMI
+
+LAN (RJ45)
+
+2 x USB 2.0
+
+USB Type-C
+
+Kết nối không dây:
+
+Bluetooth 5.0Wi-Fi 802.11 a/b/g/n/ac
+Khe đọc thẻ nhớ:
+
+SD
+Webcam:
+
+HD webcam
+Tính năng khác:
+
+Bảo mật vân tay
+Đèn bàn phím:
+
+Có
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 364.46 mm - Rộng 254 mm - Dày 30.96 mm - Nặng 2.56 kg
+Chất liệu:
+
+Vỏ nhựa
+Thông tin khác
+
+Thông tin Pin:
+
+3-cell Li-ion, 51 Wh
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2020

@@ -1,0 +1,109 @@
+Laptop MSI Gaming Leopard 10SDK GL65 i7 10750H/16GB/512GB/144Hz/6GB GTX1660Ti/Balo/Win10 (242VN) Bộ xử lý
+
+Công nghệ CPU:
+
+Intel Core i7 Comet Lake 10750H
+Số nhân:
+
+6
+Số luồng:
+
+12
+Tốc độ CPU:
+
+2.60 GHz
+Tốc độ tối đa:
+
+Turbo Boost 5.0 GHz
+Bộ nhớ đệm:
+
+12 MB
+Bộ nhớ RAM, Ổ cứng
+
+RAM:
+
+16 GB
+Loại RAM:
+
+DDR4 (2 khe)
+Tốc độ Bus RAM:
+
+2666 MHz
+Hỗ trợ RAM tối đa:
+
+32 GB
+Ổ cứng:
+
+SSD 512 GB NVMe PCIeHỗ trợ khe cắm HDD SATA
+Màn hình
+
+Màn hình:
+
+15.6 inch
+Độ phân giải:
+
+Full HD (1920 x 1080)
+Tần số quét:
+
+144 Hz
+Công nghệ màn hình:
+
+Tấm nền IPS
+Đồ họa và Âm thanh
+
+Card màn hình:
+
+Card rời - NVIDIA GeForce GTX 1660Ti, 6 GB
+Công nghệ âm thanh:
+
+Stereo speakers
+Cổng kết nối & tính năng mở rộng
+
+Cổng giao tiếp:
+
+Jack tai nghe 3.5 mm
+
+3 x USB 3.2
+
+HDMI
+
+LAN (RJ45)
+
+Mini DisplayPort
+
+USB Type-C
+
+Kết nối không dây:
+
+Wi-Fi 6 (802.11ax)Bluetooth 5.1
+Khe đọc thẻ nhớ:
+
+SD
+Webcam:
+
+HD webcam
+Tính năng khác:
+
+Đèn bàn phím chuyển màu RGB
+Đèn bàn phím:
+
+Có
+Kích thước & trọng lượng
+
+Kích thước, trọng lượng:
+
+Dài 359 mm - Rộng 254 mm - Dày 21.7 mm - Nặng 2.3 kg
+Chất liệu:
+
+Vỏ nhựa
+Thông tin khác
+
+Thông tin Pin:
+
+6-cell Li-ion
+Hệ điều hành:
+
+Windows 10 Home SL
+Thời điểm ra mắt:
+
+2020
