@@ -1,7 +1,11 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+<<<<<<< HEAD
 encoding//src/main/resources/templates/checkout2.html=UTF-8
+=======
+encoding//src/main/resources/static/css/qltk.css=UTF-8
+>>>>>>> 5faccfa (qltkcss, quanlytaikhoanhtml)
 encoding//src/main/resources/templates/layout/_footer.html=UTF-8
 encoding//src/main/resources/templates/layout/_menu.html=UTF-8
 encoding//src/main/resources/templates/layout/_nen.html=UTF-8
