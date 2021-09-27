@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.formLogin()
 			.loginPage("/login")
-			.loginProcessingUrl("/security/login")
+			.loginProcessingUrl("/login")
 			.defaultSuccessUrl("/success", false)
 			.failureUrl("/error1");
 		http.rememberMe()

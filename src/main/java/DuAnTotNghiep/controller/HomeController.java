@@ -14,7 +14,7 @@ public class HomeController {
 	public String dangky() {
 		return "layout/_registration";
 	}
-	@RequestMapping("/home")
+	@RequestMapping("/home/index")
 	public String home() {
 		return "layout/_sanpham";
 	}
