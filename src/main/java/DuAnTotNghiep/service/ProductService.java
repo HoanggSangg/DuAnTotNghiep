@@ -8,9 +8,9 @@ import DuAnTotNghiep.entity.Product;
 public interface ProductService {
 
 //	List<Product> findAll();
-//
-//	Product findById(Integer id);
-//
+
+	Product findById(Integer id);
+
 //	List<Product> findByCategoryId(String cid);
 //
 //	Product create(Product product);

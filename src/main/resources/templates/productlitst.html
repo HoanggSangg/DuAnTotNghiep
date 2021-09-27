@@ -92,14 +92,6 @@
 											</select>
 										</div>
 									</div>
-									<div class="pager">
-										<a href="#" class="prev-page"> <i class="fa fa-angle-left">
-										</i>
-										</a> <a href="#" class="active"> 1 </a> <a href="#"> 2 </a> <a
-											href="#"> 3 </a> <a href="#" class="next-page"> <i
-											class="fa fa-angle-right"> </i>
-										</a>
-									</div>
 								</div>
 								<div th:each="p: ${items.content}">
 									<ul class="products-listItem">
@@ -158,11 +150,15 @@
 										</div>
 									</div>
 									<div class="pager">
-										<a href="#" class="prev-page"> <i class="fa fa-angle-left">
-										</i>
-										</a> <a href="#" class="active"> 1 </a> <a href="#"> 2 </a> <a
-											href="#"> 3 </a> <a href="#" class="next-page"> <i
-											class="fa fa-angle-right"> </i>
+										<a th:href="@{/productlitst?p=0}" class="prev-page"> <i
+											class="fa fa-angle-left"> </i>
+										</a> 
+										<a class="prev-page" th:href="@{|/productlitst?p=${items.number-1}|}"><<</a>
+										<a>[[${items.number+1}]]
+											of [[${items.totalPages}]]</a> 
+										<a class="prev-page" th:href="@{|/productlitst?p=${items.totalPages-1}|}">>></a>
+										<a th:href="@{|/productlitst?p=${items.totalPages-1}|}"
+											class="next-page"> <i class="fa fa-angle-right"> </i>
 										</a>
 									</div>
 								</div>

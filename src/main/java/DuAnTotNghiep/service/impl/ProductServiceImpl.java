@@ -18,12 +18,12 @@ public class ProductServiceImpl implements ProductService{
 //	public List<Product> findAll() {
 //		return pdao.findAll();
 //	}
-//
-//	@Override
-//	public Product findById(Integer id) {
-//		return pdao.findById(id).get();
-//	}
-//
+
+	@Override
+	public Product findById(Integer id) {
+		return pdao.findById(id).get();
+	}
+
 //	@Override
 //	public Product create(Product product) {
 //		return pdao.save(product);
