@@ -20,8 +20,8 @@ public class Image  implements Serializable{
 	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
-	String name;
+	String nameiamge;
 	
 	@ManyToOne @JoinColumn(name = "Productid")
-	private Product product;
+	Product product;
 }

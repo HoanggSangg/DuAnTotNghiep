@@ -99,8 +99,7 @@
 										<li class="products">
 											<div class="offer">New</div>
 											<div class="thumbnail">
-												<img src="images/products/small/products-05.png"
-													alt="Product Name">
+												<img th:src="@{|../../images/products/${p.image}|}">
 											</div>
 											<div class="product-list-description">
 												<div class="productname" th:utext="${p.name}"></div>
@@ -153,12 +152,11 @@
 									<div class="pager">
 										<a th:href="@{/productlitst?p=0}" class="prev-page"> <i
 											class="fa fa-angle-left"> </i>
-										</a> 
-										<a class="prev-page" th:href="@{|/productlitst?p=${items.number-1}|}"><<</a>
-										<a>[[${items.number+1}]]
-											of [[${items.totalPages}]]</a> 
-										<a class="prev-page" th:href="@{|/productlitst?p=${items.totalPages-1}|}">>></a>
-										<a th:href="@{|/productlitst?p=${items.totalPages-1}|}"
+										</a> <a class="prev-page"
+											th:href="@{|/productlitst?p=${items.number-1}|}"><<</a> <a>[[${items.number+1}]]
+											of [[${items.totalPages}]]</a> <a class="prev-page"
+											th:href="@{|/productlitst?p=${items.totalPages-1}|}">>></a> <a
+											th:href="@{|/productlitst?p=${items.totalPages-1}|}"
 											class="next-page"> <i class="fa fa-angle-right"> </i>
 										</a>
 									</div>

@@ -45,10 +45,10 @@ public class ProductController {
 //		return "product/listsp";
 //	}
 
-	@RequestMapping("/product/detail/{id}")
+	@RequestMapping("/detail/{id}")
 	public String detail(Model m, @PathVariable("id") Integer id) {
 		Product item = productService.findById(id);
 		m.addAttribute("item", item);
-		return "product/detail";
+		return "/details";
 	}
 }

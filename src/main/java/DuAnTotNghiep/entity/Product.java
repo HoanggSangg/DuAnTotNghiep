@@ -33,6 +33,7 @@ public class Product  implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Createdate")
 	Date createDate = new Date();
+	String image;
 	Boolean available;
 	
 	@ManyToOne
