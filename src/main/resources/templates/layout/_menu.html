@@ -4,7 +4,8 @@
 			<div class="row">
 				<div class="col-md-2 col-sm-2">
 					<div class="logo">
-						<a href="index.html"><img src="../../images/logo1-test.png" alt="Young Creative"></a>
+						<a href="index.html"><img src="../../images/logo1-test.png"
+							alt="Young Creative"></a>
 					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
@@ -44,12 +45,13 @@
 							<li id="search" class="search">
 								<form>
 									<input class="search-submit" type="submit" value=""><input
-										class="search-input" placeholder="Nhập sản phẩm mà bạn muốn tìm..."
-										type="text" value="" name="Tìm kiếm">
+										class="search-input"
+										placeholder="Nhập sản phẩm mà bạn muốn tìm..." type="text"
+										value="" name="Tìm kiếm">
 								</form>
 							</li>
-							<li class="option-cart"><a href="#" class="cart-icon">Giỏ hàng
-									<span class="cart_no">02</span>
+							<li class="option-cart"><a href="#" class="cart-icon">Giỏ
+									hàng <span class="cart_no">02</span>
 							</a>
 								<ul class="option-cart-item">
 									<li>
@@ -60,14 +62,14 @@
 											<div class="item-description">
 												<p class="name">Lincoln chair</p>
 												<p>
-													Kích cỡ: <span class="light-red">One size</span><br>Số lượng:
-													<span class="light-red">01</span>
+													Kích cỡ: <span class="light-red">One size</span><br>Số
+													lượng: <span class="light-red">01</span>
 												</p>
 											</div>
 											<div class="right">
 												<p class="price">$30.00</p>
-												<a href="#" class="remove"><img src="../../images/remove.png"
-													alt="remove"></a>
+												<a href="#" class="remove"><img
+													src="../../images/remove.png" alt="remove"></a>
 											</div>
 										</div>
 									</li>
@@ -79,14 +81,14 @@
 											<div class="item-description">
 												<p class="name">Lincoln chair</p>
 												<p>
-													Kích cỡ: <span class="light-red">One size</span><br>Số lượng:
-													<span class="light-red">01</span>
+													Kích cỡ: <span class="light-red">One size</span><br>Số
+													lượng: <span class="light-red">01</span>
 												</p>
 											</div>
 											<div class="right">
 												<p class="price">$30.00</p>
-												<a href="#" class="remove"><img src="../../images/remove.png"
-													alt="remove"></a>
+												<a href="#" class="remove"><img
+													src="../../images/remove.png" alt="remove"></a>
 											</div>
 										</div>
 									</li>
@@ -110,7 +112,7 @@
 									<div class="dropdown-menu">
 										<ul class="mega-menu-links">
 											<li><a href="/home/index">Trang chủ</a></li>
-											<li><a href="/productlitst">Danh sách sản phẩm</a></li>
+											<li><a href="/productlitst">DS sản phẩm</a></li>
 											<li><a href="/productgird">Loại sản phẩm</a></li>
 											<li><a href="/details">Chi tiết sản phẩm</a></li>
 											<li><a href="/cart">Giỏ hàng</a></li>
@@ -121,14 +123,12 @@
 									</div></li>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown">Danh mục</a>
-									<div class="dropdown-menu mega-menu">
-										<div class="row">
-											<div class="col-md-6">
-												<ul class="mega-menu-links" th:each="c : ${cates}">
-													<li><a href="#">[[${c.name}]]</a></li>
-												</ul>
-											</div>
-										</div>
+									<div class="dropdown-menu">
+										<ul class="mega-menu-links">
+											<th:block th:each="c : ${cates}">
+												<li><a href="#">[[${c.name}]]</a></li>
+											</th:block>
+										</ul>
 									</div></li>
 								<li><a href="productgird.html">Quà tặng ưu đãi</a></li>
 								<li><a href="productgird.html">Khung giờ săn sale</a></li>

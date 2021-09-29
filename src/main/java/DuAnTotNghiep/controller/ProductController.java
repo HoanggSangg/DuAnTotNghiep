@@ -38,13 +38,6 @@ public class ProductController {
 		return "/productlitst";
 	}
 
-//	@RequestMapping("/product/listsp")
-//	public String listsp(Model m, @RequestParam("cid") Optional<String> cid) {
-//		List<Product> list = productService.findByCategoryId(cid.get());
-//		m.addAttribute("items", list);
-//		return "product/listsp";
-//	}
-
 	@RequestMapping("/detail/{id}")
 	public String detail(Model m, @PathVariable("id") Integer id) {
 		Product item = productService.findById(id);

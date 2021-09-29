@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
-<!-- thiện ngu -->
 <body>
 	<main>
 		<div class="wrapper">
@@ -99,7 +98,9 @@
 										<li class="products">
 											<div class="offer">New</div>
 											<div class="thumbnail">
-												<img th:src="@{|../../images/products/${p.image}|}">
+												<a th:href="@{|/detail/${p.id}|}">
+													<img th:src="@{|../../images/products/${p.image}|}">
+												</a>
 											</div>
 											<div class="product-list-description">
 												<div class="productname" th:utext="${p.name}"></div>
@@ -110,7 +111,7 @@
 												<p th:utext="${p.catesmall.name}"></p>
 												<div class="list_bottom">
 													<div class="price">
-														<span class="new_price"> 450.00 <sup> $ </sup>
+														<span class="new_price" th:utext="${p.price}"> <sup> $ </sup>
 														</span> <span class="old_price"> 450.00 <sup> $ </sup>
 														</span>
 													</div>
