@@ -126,7 +126,7 @@
 									<div class="dropdown-menu">
 										<ul class="mega-menu-links">
 											<th:block th:each="c : ${cates}">
-												<li><a href="#">[[${c.name}]]</a></li>
+												<li><a th:href="@{|/productlitst?cid=${c.id}|}">[[${c.name}]]</a></li>
 											</th:block>
 										</ul>
 									</div></li>

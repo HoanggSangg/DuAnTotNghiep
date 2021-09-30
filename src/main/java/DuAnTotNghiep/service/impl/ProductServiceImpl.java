@@ -1,5 +1,7 @@
 package DuAnTotNghiep.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -53,10 +55,10 @@ public class ProductServiceImpl implements ProductService{
 	public Page<Product> findAvailable(Pageable pa) {
 		return pdao.findAvailable(pa);
 	}
-//
-//	@Override
-//	public List<Product> findByCategoryId(String cid) {
-//		return pdao.findByCategoryId(cid);
-//	}
+
+	@Override
+	public List<Product> findByCategoryId(String cid) {
+		return pdao.findByCategoryId(cid);
+	}
 
 }

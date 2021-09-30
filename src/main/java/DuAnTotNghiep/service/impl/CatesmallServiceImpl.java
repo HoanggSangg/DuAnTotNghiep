@@ -19,4 +19,9 @@ public class CatesmallServiceImpl implements CatesmallService{
 		return cdao.findAll();
 	}
 
+	@Override
+	public List<Catesmall> findByCate(String cid) {
+		return cdao.findByCate(cid);
+	}
+
 }

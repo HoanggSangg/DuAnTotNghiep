@@ -29,7 +29,7 @@ public class HomeController {
 	public String productgird() {
 		return "productgird";
 	}
-	@RequestMapping("/details")
+	@RequestMapping("/details/9/6")
 	public String details() {
 		return "details";
 	}

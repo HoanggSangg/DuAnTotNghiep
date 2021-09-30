@@ -15,9 +15,15 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-3">
+							<div class="category leftbar">
+								<h3 class="title">Categories</h3>
+								<ul th:each="cl : ${catesmall}">
+									<li><a href="#">[[${cl.name}]]</a></li>
+								</ul>
+							</div>
 							<div class="branch leftbar">
 								<h3 class="title">Branch</h3>
-								<ul th:each="c : ${catesmall}">
+								<ul th:each="c : ${cates}">
 									<li><a href="#">[[${c.name}]]</a></li>
 								</ul>
 							</div>
@@ -87,13 +93,13 @@
 										</div>
 									</div>
 								</div>
-								<div th:each="p: ${items.content}">
+								<div th:each="p: ${items}">
 									<ul class="products-listItem">
 										<li class="products">
 											<div class="offer">New</div>
 											<div class="thumbnail">
-												<a th:href="@{|/detail/${p.id}|}"> <img
-													th:src="@{|../../images/products/${p.image}|}">
+												<a th:href="@{|/detail/${p.id}|}">
+													<img th:src="@{|../../images/products/${p.image}|}">
 												</a>
 											</div>
 											<div class="product-list-description">
@@ -105,8 +111,7 @@
 												<p th:utext="${p.catesmall.name}"></p>
 												<div class="list_bottom">
 													<div class="price">
-														<span class="new_price" th:utext="${p.price}"> <sup>
-																$ </sup>
+														<span class="new_price" th:utext="${p.price}"> <sup> $ </sup>
 														</span> <span class="old_price"> 450.00 <sup> $ </sup>
 														</span>
 													</div>
@@ -144,16 +149,6 @@
 												<option value="9">9</option>
 											</select>
 										</div>
-									</div>
-									<div class="pager">
-										<a th:href="@{/productlitst?p=0}" class="prev-page"> <i
-											class="fa fa-angle-left"> </i>
-										</a> 
-										<a class="prev-page" th:href="@{|/productlitst?p=${items.number-1}|}"><<</a>
-										<a>[[${items.number+1}]] of [[${items.totalPages}]]</a> 
-										<a class="prev-page" th:href="@{|/productlitst?p=${items.number+1}|}">>></a> 
-										<a th:href="@{|/productlitst?p=${items.totalPages-1}|}" class="next-page"><i class="fa fa-angle-right"> </i>
-										</a>
 									</div>
 								</div>
 							</div>
