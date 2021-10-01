@@ -7,6 +7,7 @@ encoding//src/main/resources=UTF-8
 encoding//src/main/resources/static/css/qltk.css=UTF-8
 encoding//src/main/resources/templates/checkout2.html=UTF-8
 encoding//src/main/resources/templates/contact.html=UTF-8
+encoding//src/main/resources/templates/details.html=UTF-8
 encoding//src/main/resources/templates/layout/_footer.html=UTF-8
 encoding//src/main/resources/templates/layout/_menu.html=UTF-8
 encoding//src/main/resources/templates/layout/_nen.html=UTF-8

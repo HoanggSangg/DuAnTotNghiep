@@ -14,8 +14,8 @@ import DuAnTotNghiep.service.CatesmallService;
 @Component
 public class GlobalInterceptor implements HandlerInterceptor{
 
-	@Autowired CategoryService categoryService;
 	@Autowired CatesmallService catesmallService;
+	@Autowired CategoryService categoryService;
 	
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,

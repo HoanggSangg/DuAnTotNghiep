@@ -8,4 +8,6 @@ public interface CatesmallService {
 
 	List<Catesmall> findAll();
 
+	List<Catesmall> findByCate(String cid);
+
 }

@@ -147,11 +147,4 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			$scope.form = {};
 		})
 	}
-	$scope.item = [];
-	$scope.initialize = function() {
-		$http.get("/details/1").then(resp => {
-			$scope.item = resp.data;
-		})
-	}
-	$scope.initialize();
 })

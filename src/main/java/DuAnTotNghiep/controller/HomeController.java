@@ -5,10 +5,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-//test Tai
-	@RequestMapping("/123")
-	public String test() {
-		return "../static/authorize/index";
+	@RequestMapping("/qlsp")
+	public String qlsp() {
+		return "/quanlysanpham";
+	}
+	@RequestMapping("/qlch")
+	public String qlch() {
+		return "/quanlycuahang";
+	}
+	@RequestMapping("/qltk")
+	public String qltk() {
+		return "/quanlytaikhoan";
 	}
 	@RequestMapping("/dangky")
 	public String dangky() {
@@ -18,15 +25,11 @@ public class HomeController {
 	public String home() {
 		return "layout/_sanpham";
 	}
-//	@RequestMapping("/checkout")
-//	public String checkout() {
-//		return "checkout";
-//	}
 	@RequestMapping("/productgird")
 	public String productgird() {
 		return "productgird";
 	}
-	@RequestMapping("/details")
+	@RequestMapping("/details/9/6")
 	public String details() {
 		return "details";
 	}

@@ -1,5 +1,7 @@
 package DuAnTotNghiep.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -11,8 +13,8 @@ public interface ProductService {
 
 	Product findById(Integer id);
 
-//	List<Product> findByCategoryId(String cid);
-//
+	List<Product> findByCategoryId(String cid);
+
 //	Product create(Product product);
 //
 //	Product update(Product product);
