@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DuAnTotNghiep.entity.Product;
-import DuAnTotNghiep.service.CatesmallService;
 import DuAnTotNghiep.service.ProductService;
 
 @Controller
@@ -22,8 +21,7 @@ public class ProductController {
 
 	@Autowired
 	ProductService productService;
-	@Autowired CatesmallService catesmallService;
-	//tai oc cho
+	
 	@RequestMapping("/productlitst")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
@@ -54,10 +52,17 @@ public class ProductController {
 		return "/details";
 	}
 	
-//	@RequestMapping("/product/listsp")
-//	public String listsp(Model m, @RequestParam("cid") Optional<String> cid) {
-//		List<Product> list = productService.findByCategoryId(cid.get());
-//		m.addAttribute("items", list);
-//		return "/productlitstsp";
-//	}
+	@RequestMapping("/products/catename/{name}")
+	public String catename(Model m, @PathVariable("name") String name) {
+		List<Product> list = productService.findByCateName(name);
+		m.addAttribute("items", list);
+		return "/productlitstsp";
+	}
+	
+	@RequestMapping("/products/cate/{name}")
+	public String cates(Model m, @PathVariable("name") String name, @RequestParam("cateid") Optional<String> cateid) {
+		List<Product> list = productService.findByCateNameAndCateId(name, cateid.get());
+		m.addAttribute("items", list);
+		return "/productlitstsp";
+	}
 }

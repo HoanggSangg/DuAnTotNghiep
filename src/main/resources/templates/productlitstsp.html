@@ -17,14 +17,8 @@
 						<div class="col-md-3">
 							<div class="category leftbar">
 								<h3 class="title">Categories</h3>
-								<ul th:each="cl : ${catesmall}">
-									<li><a href="#">[[${cl.name}]]</a></li>
-								</ul>
-							</div>
-							<div class="branch leftbar">
-								<h3 class="title">Branch</h3>
-								<ul th:each="c : ${cates}">
-									<li><a href="#">[[${c.name}]]</a></li>
+								<ul th:each="c : ${catesmall}">
+									<li><a th:href="@{|/products/cate/${c.name}?cateid=${c.category.id}|}">[[${c.name}]]</a></li>
 								</ul>
 							</div>
 							<div class="price-filter leftbar">

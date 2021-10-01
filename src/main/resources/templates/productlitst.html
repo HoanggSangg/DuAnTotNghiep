@@ -18,7 +18,7 @@
 							<div class="branch leftbar">
 								<h3 class="title">Branch</h3>
 								<ul th:each="c : ${catesmall}">
-									<li><a href="#">[[${c.name}]]</a></li>
+									<li><a th:href="@{|/products/cate/${c.name}?cateid=${c.category.id}|}">[[${c.name}]]</a></li>
 								</ul>
 							</div>
 							<div class="price-filter leftbar">
@@ -54,11 +54,11 @@
 							<div class="banner">
 								<div class="bannerslide" id="bannerslide">
 									<ul class="slides">
-										<li><a href="#"> <img src="../../images/banner-01.png"
-												alt="" />
+										<li><a href="#"> <img
+												src="../../images/banner-01.png" alt="" />
 										</a></li>
-										<li><a href="#"> <img src="../../images/banner-02.png"
-												alt="" />
+										<li><a href="#"> <img
+												src="../../images/banner-02.png" alt="" />
 										</a></li>
 									</ul>
 								</div>
@@ -148,12 +148,12 @@
 									<div class="pager">
 										<a th:href="@{/productlitst?p=0}" class="prev-page"> <i
 											class="fa fa-angle-left"> </i>
-										</a> 
-										<a class="prev-page" th:href="@{|/productlitst?p=${items.number-1}|}"><<</a>
-										<a>[[${items.number+1}]] of [[${items.totalPages}]]</a> 
-										<a class="prev-page" th:href="@{|/productlitst?p=${items.number+1}|}">>></a> 
-										<a th:href="@{|/productlitst?p=${items.totalPages-1}|}" class="next-page"><i class="fa fa-angle-right"> </i>
-										</a>
+										</a> <a class="prev-page"
+											th:href="@{|/productlitst?p=${items.number-1}|}"><<</a> <a>[[${items.number+1}]]
+											of [[${items.totalPages}]]</a> <a class="prev-page"
+											th:href="@{|/productlitst?p=${items.number+1}|}">>></a> <a
+											th:href="@{|/productlitst?p=${items.totalPages-1}|}"
+											class="next-page"><i class="fa fa-angle-right"> </i> </a>
 									</div>
 								</div>
 							</div>
