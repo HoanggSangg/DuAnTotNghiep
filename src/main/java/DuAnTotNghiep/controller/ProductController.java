@@ -23,7 +23,7 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	@Autowired CatesmallService catesmallService;
-	
+	//tai oc cho
 	@RequestMapping("/productlitst")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
