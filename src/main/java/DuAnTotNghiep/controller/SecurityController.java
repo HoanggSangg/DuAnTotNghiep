@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SecurityController {
 
-	@RequestMapping("/login")
+	@RequestMapping("/security/login")
 	public String loginForm(Model m) {
 		m.addAttribute("message", "Vui lòng đăng nhập");
 		return "security/login";
@@ -15,7 +15,7 @@ public class SecurityController {
 	@RequestMapping("/success")
 	public String loginSuccess(Model m) {
 		m.addAttribute("message", "Đăng nhập thành công");
-		return "redirect:/home";
+		return "redirect:/home/index";
 	}
 	@RequestMapping("/error1")
 	public String loginError(Model m) {

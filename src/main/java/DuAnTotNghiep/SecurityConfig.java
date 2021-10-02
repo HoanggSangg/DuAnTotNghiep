@@ -52,12 +52,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			.antMatchers("/order/**").authenticated()
 			.antMatchers("/admin/**").hasAnyRole("AD", "CH")
-//			.antMatchers("/rest/authorities").hasRole("DIRE")
+			.antMatchers("/rest/authorities").hasRole("CH")
 			.anyRequest().permitAll();
 		
 		http.formLogin()
-			.loginPage("/login")
-			.loginProcessingUrl("/login")
+			.loginPage("/security/login")
+			.loginProcessingUrl("/security/login")
 			.defaultSuccessUrl("/success", false)
 			.failureUrl("/error1");
 		http.rememberMe()

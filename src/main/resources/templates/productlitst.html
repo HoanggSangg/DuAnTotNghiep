@@ -17,6 +17,13 @@
 						<div class="col-md-3">
 							<div class="branch leftbar">
 								<h3 class="title">Branch</h3>
+								<ul th:each="c : ${cates}">
+									<th:block><a th:href="@{|/products/cate/${c.name}|}"></a></th:block>
+									<li><a th:href="@{|/products/cate/${c.name}|}">[[${c.name}]]</a></li>
+								</ul>
+							</div>
+							<div class="branch leftbar">
+								<h3 class="title">Branch</h3>
 								<ul th:each="c : ${catesmall}">
 									<li><a th:href="@{|/products/cate/${c.name}?cateid=${c.category.id}|}">[[${c.name}]]</a></li>
 								</ul>
@@ -97,21 +104,20 @@
 												</a>
 											</div>
 											<div class="product-list-description">
-												<div class="productname" th:utext="${p.name}"></div>
-												<p>
-													<img src="images/star.png" alt=""> <a href="#"
+												<div class="productname"></div>
+												<!-- <p>
+													<img src="" alt=""> <a href="#"
 														class="review_num"> 02 Review(s) </a>
-												</p>
+												</p> -->
 												<p th:utext="${p.catesmall.name}"></p>
 												<div class="list_bottom">
 													<div class="price">
-														<span class="new_price" th:utext="${p.price}"> <sup>
-																$ </sup>
+														<span class="new_price" th:utext="${#numbers.formatDecimal(p.price, 1, 'COMMA', 0, 'POINT')} + ' VNĐ'">
 														</span> <span class="old_price"> 450.00 <sup> $ </sup>
 														</span>
 													</div>
 													<div class="button_group">
-														<button class="button">Add To Cart</button>
+														<button class="button" th:attr="ng-click=@{|cart.add(${p.id})|}">Add To Cart</button>
 														<button class="button compare">
 															<i class="fa fa-exchange"> </i>
 														</button>

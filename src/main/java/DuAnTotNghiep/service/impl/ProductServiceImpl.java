@@ -16,10 +16,10 @@ public class ProductServiceImpl implements ProductService{
 
 	@Autowired ProductDao pdao;
 
-//	@Override
-//	public List<Product> findAll() {
-//		return pdao.findAll();
-//	}
+	@Override
+	public List<Product> findAll() {
+		return pdao.findAll();
+	}
 
 	@Override
 	public Product findById(Integer id) {

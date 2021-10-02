@@ -40,7 +40,7 @@ public class Order  implements Serializable{
 	String nguoinhan;
 	String sdt;
 	String diachinn;
-	Boolean trangthai;
+	String trangthai;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "order")

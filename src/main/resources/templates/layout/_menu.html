@@ -22,6 +22,7 @@
 							</div>
 							<div class="col-md-6">
 								<ul class="topmenu">
+									<li><a th:href="@{/order/list}">Lịch sử</a></li>
 									<li><a href="#">Liên hệ</a></li>
 									<li><a href="#">Tin tức</a></li>
 									<li><a href="#">Dịch vụ</a></li>
@@ -32,7 +33,7 @@
 							</div>
 							<div class="col-md-3">
 								<ul class="usermenu">
-									<li><a href="/login" class="log">Đăng nhập</a></li>
+									<li><a href="/security/login" class="log">Đăng nhập</a></li>
 									<li><a href="/dangky" class="reg">Đăng ký</a></li>
 									<li><a href="/security/logoff" class="reg">Đăng Xuất</a></li>
 								</ul>
@@ -50,51 +51,17 @@
 										value="" name="Tìm kiếm">
 								</form>
 							</li>
-							<li class="option-cart"><a href="#" class="cart-icon">Giỏ
-									hàng <span class="cart_no">02</span>
+							<li class="option-cart"><a href="#" class="cart-icon">
+								<span class="cart_no">{{cart.count}}</span>
 							</a>
 								<ul class="option-cart-item">
-									<li>
-										<div class="cart-item">
-											<div class="image">
-												<img src="../../images/products/thum/products-01.png" alt="">
-											</div>
-											<div class="item-description">
-												<p class="name">Lincoln chair</p>
-												<p>
-													Kích cỡ: <span class="light-red">One size</span><br>Số
-													lượng: <span class="light-red">01</span>
-												</p>
-											</div>
-											<div class="right">
-												<p class="price">$30.00</p>
-												<a href="#" class="remove"><img
-													src="../../images/remove.png" alt="remove"></a>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="cart-item">
-											<div class="image">
-												<img src="../../images/products/thum/products-02.png" alt="">
-											</div>
-											<div class="item-description">
-												<p class="name">Lincoln chair</p>
-												<p>
-													Kích cỡ: <span class="light-red">One size</span><br>Số
-													lượng: <span class="light-red">01</span>
-												</p>
-											</div>
-											<div class="right">
-												<p class="price">$30.00</p>
-												<a href="#" class="remove"><img
-													src="../../images/remove.png" alt="remove"></a>
-											</div>
-										</div>
-									</li>
-									<li><span class="total">Tổng tiền <strong>$60.00</strong></span>
-										<button class="checkout"
-											onClick="location.href='checkout.html'">Đặt hàng</button></li>
+									<li><span class="total">Tổng tiền:<strong>{{cart.amount
+												| number}} VNĐ</strong></span>
+										<hr>
+										<button style="margin-right: 20px" class="checkout"
+											onClick="location.href='/cart/view'">Chi Tiết</button>
+										<button style="margin-right: 30px" class="checkout"
+											ng-click="cart.clear()">Clear</button></li>
 								</ul></li>
 						</ul>
 						<div class="navbar-header">
