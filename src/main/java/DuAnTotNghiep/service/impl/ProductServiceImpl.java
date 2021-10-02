@@ -61,4 +61,14 @@ public class ProductServiceImpl implements ProductService{
 		return pdao.findByCategoryId(cid);
 	}
 
+	@Override
+	public List<Product> findByCateName(String name) {
+		return pdao.findByCateName(name);
+	}
+
+	@Override
+	public List<Product> findByCateNameAndCateId(String name, String cateid) {
+		return pdao.findByCateNameAndCateId(name, cateid);
+	}
+
 }

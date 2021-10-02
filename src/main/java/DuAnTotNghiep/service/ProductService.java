@@ -27,5 +27,10 @@ public interface ProductService {
 
 	Page<Product> findAvailable(Pageable pa);
 
+	List<Product> findByCateName(String name);
+
+	List<Product> findByCateNameAndCateId(String name, String cateid);
+
+
 
 }
