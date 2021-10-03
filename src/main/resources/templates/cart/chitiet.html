@@ -3,15 +3,15 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
 	<main>
-		<div class="wrapper" th:fragment="shopping_cart">
+		<div class="wrapper">
 			<div class="clearfix"></div>
 			<div class="container_fullwidth">
-				<div class="container shopping-cart">
+				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<h3 class="title">Shopping Cart</h3>
 							<div class="clearfix"></div>
-							<table class="shop-table">
+							<table class="shop-table" th:fragment="shopping_cart">
 								<thead>
 									<tr>
 										<th>Image</th>

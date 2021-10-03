@@ -58,8 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.formLogin()
 			.loginPage("/security/login")
 			.loginProcessingUrl("/security/login")
-			.defaultSuccessUrl("/success", false)
-			.failureUrl("/error1");
+			.defaultSuccessUrl("/success/login", false)
+			.failureUrl("/error/login");
 		http.rememberMe()
 			.tokenValiditySeconds(86400);
 		http.exceptionHandling()

@@ -27,7 +27,7 @@ public class HomeController {
 	}
 	@RequestMapping("/home/contact")
 	public String contact() {
-		return "layout/contact";
+		return "layout/lienhe";
 	}
 	@RequestMapping("/account/edit")
 	public String edit() {
@@ -40,5 +40,9 @@ public class HomeController {
 	@RequestMapping("/account/quenmk")
 	public String quemk() {
 		return "layout/quenmk";
+	}
+	@RequestMapping("/bai2")
+	public String bai2() {
+		return "Bai2";
 	}
 }

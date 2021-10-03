@@ -12,12 +12,12 @@ public class SecurityController {
 		m.addAttribute("message", "Vui lòng đăng nhập");
 		return "security/login";
 	}
-	@RequestMapping("/success")
+	@RequestMapping("/success/login")
 	public String loginSuccess(Model m) {
 		m.addAttribute("message", "Đăng nhập thành công");
 		return "redirect:/home/index";
 	}
-	@RequestMapping("/error1")
+	@RequestMapping("/error/login")
 	public String loginError(Model m) {
 		m.addAttribute("message", "Sai thông tin đăng nhập");
 		return "security/login";

@@ -63,13 +63,13 @@ public class ProductController {
 	public String catename(Model m, @PathVariable("name") String name) {
 		List<Product> list = productService.findByCateName(name);
 		m.addAttribute("items", list);
-		return "/productlitstsp";
+		return "/product/listsp";
 	}
 
 	@RequestMapping("/products/cate/{name}")
 	public String cates(Model m, @PathVariable("name") String name, @RequestParam("cateid") Optional<String> cateid) {
 		List<Product> list = productService.findByCateNameAndCateId(name, cateid.get());
 		m.addAttribute("items", list);
-		return "/productlitstsp";
+		return "/product/listsp";
 	}
 }
