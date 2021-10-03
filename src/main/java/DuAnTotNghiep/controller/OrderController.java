@@ -19,6 +19,10 @@ public class OrderController {
 	public String checkout() {
 		return "order/checkout";
 	}
+	@RequestMapping("/order/checkout2")
+	public String checkout1() {
+		return "order/checkout2";
+	}
 	@RequestMapping("/order/list")
 	public String list(Model m, HttpServletRequest req) {
 		String username = req.getRemoteUser();

@@ -1,33 +1,132 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
-	<body>
-		 <main>
-		 	<form th:action="@{/security/login}" method="post" class="col-sm-8">
-				<div class="panel panel-primary">
-					<div class="panel-heading">SHOPPING CART LOGIN</div>
-					<div class="panel-body">
-						<div class="form-group">
-							<div>Username:</div>
-							<input name="username" class="form-control">
-						</div>
-						<div class="form-group">
-							<div>Password:</div>
-							<input type="password" name="password" class="form-control">
-						</div>
-						<div class="form-group">
-							<div class="form-control">
-								<label class="checkbox-inline">
-									<input type="checkbox" name="remember-me">Remember me?
-								</label>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="wrapper">
+			<div class="clearfix"></div>
+			<div class="page-index">
+				<div class="container">
+					<p>Trang chủ - Đặt hàng</p>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="container_fullwidth">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="special-deal leftbar" style="margin-top: 0;">
+							<h4 class="title">
+								Sản phẩm <strong> Đặc biệt </strong>
+							</h4>
+							<div class="special-item">
+								<div class="product-image">
+									<a href="details.html"> <img
+										src="images/products/thum/products-01.png" alt="">
+									</a>
+								</div>
+								<div class="product-info">
+									<p>
+										<a href="details.html"> Licoln Corner Unit </a>
+									</p>
+									<h5 class="price">$300.00</h5>
+								</div>
 							</div>
 						</div>
+						<div class="product-tag leftbar">
+							<h3 class="title">
+								Sản phẩm <strong> Ưu thích </strong>
+							</h3>
+							<ul>
+								<li><a href="#"> Lincoln us </a></li>
+								<li><a href="#"> SDress for Girl </a></li>
+								<li><a href="#"> Corner </a></li>
+								<li><a href="#"> Window </a></li>
+								<li><a href="#"> PG </a></li>
+								<li><a href="#"> Oscar </a></li>
+								<li><a href="#"> Bath room </a></li>
+								<li><a href="#"> PSD </a></li>
+							</ul>
+						</div>
+						<div class="get-newsletter leftbar">
+							<h3 class="title">
+								<strong> Bản tin </strong>
+							</h3>
+							<p>Thông tin kỹ thuật.</p>
+							<form>
+								<input class="email" type="text" name=""
+									placeholder=" Email của bạn ..."> <input class="submit"
+									type="submit" value="Xác nhận">
+							</form>
+						</div>
 					</div>
-					<div class="panel-footer text-right">
-						<i class="pull-left text-danger" th:text="${message}"></i>
-						<button class="btn btn-success">Login</button>
+					<div class="col-md-9">
+						<div class="checkout-page">
+							<ol class="checkout-steps">
+								<li class="steps active"><a role="button"
+									data-toggle="collapse" data-parent="#accordion"
+									href="#collapseOne" aria-expanded="true"
+									aria-controls="collapseOne">
+										<div class="panel-heading">
+											<span class="glyphicon glyphicon-th-list"></span> <strong>Chủng
+												loại</strong>
+										</div>
+								</a>
+									<div class="step-description">
+										<div class="row">
+											<div>
+												<div class="run-customer">
+													<h5>Đăng nhập khách hàng</h5>
+													<form th:action="@{/security/login}" method="post">
+														<div class="form-row">
+															<label class="lebel-abs"> Username: <strong
+																class="red"> * </strong>
+															</label> <input type="text" class="input namefild"
+																name="username">
+														</div>
+														<div class="form-row">
+															<label class="lebel-abs"> Mật khẩu <strong
+																class="red"> * </strong>
+															</label> <input class="input namefild" type="password"
+																name="password">
+														</div>
+														<div class="form-group">
+															<div class="form-control">
+																<label class="checkbox-inline"> <input
+																	type="checkbox" name="remember-me">Remember me?
+																</label>
+															</div>
+														</div>
+														<p class="forgoten">
+															<a href="#"> Quên mật khẩu ? </a>
+														</p>
+														<div class="panel-footer text-right">
+															<i class="pull-left text-danger" th:text="${message}"></i>
+															<button>Đăng nhập</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div></li>
+								<li class="steps"><a href="/order/checkout2"
+									class="step-title"> 02. Thông tin thanh toán </a>
+									<div th:replace="order/checkout2"></div></li>
+								<li class="steps"><a href="/checkout2" class="step-title">
+										03. Thông tin giao hàng </a></li>
+								<li class="steps"><a href="#" class="step-title"> 04.
+										Phương pháp giao hàng </a></li>
+								<li class="steps"><a href="#" class="step-title"> 05.
+										Thông tin thanh toán </a></li>
+								<li class="steps"><a href="#" class="step-title"> 06.
+										Đánh giá đơn hàng </a></li>
+							</ol>
+						</div>
 					</div>
 				</div>
-			</form>
-		 </main>
-	</body>
+			</div>
+		</div>
+	</main>
+</body>
 </html>

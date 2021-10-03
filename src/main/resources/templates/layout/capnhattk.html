@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<form>
+			<div class="container">
+				<div class="containerForm">
+					<h2>Edit Profile</h2>
+					<div class="formBox">
+						<div class="inputBox w50">
+							<input type="text" name="" required> <span>Username</span>
+						</div>
+						<div class="inputBox w50">
+							<input type="text" name="" required> <span>Password</span>
+						</div>
+						<div class="inputBox w50">
+							<input type="text" name="" required> <span>Fullname</span>
+						</div>
+						<div class="inputBox w50">
+							<input type="text" name="" required> <span>Email</span>
+						</div>
+						<div class="inputBox w100">
+							<input type="submit" value="Save">
+						</div>
+					</div>
+				</div>
+				<div class="containerForm1">
+					<div class="formBoxImage">
+						<br> <br> <label for="image"> <img
+							ng-src="{{'/assets/images/' + form.image}}"
+							style="width: 200px; height: 200px">
+						</label>
+						<div>
+							<br> Image <input type="file" class="form-control"
+								id="image"
+								onchange="angular.element(this).scope().imageChanged(this.files)">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
+</html>

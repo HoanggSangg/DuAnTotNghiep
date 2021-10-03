@@ -17,7 +17,7 @@ public class HomeController {
 	public String qltk() {
 		return "/quanlytaikhoan";
 	}
-	@RequestMapping("/dangky")
+	@RequestMapping("/security/dangky")
 	public String dangky() {
 		return "layout/_registration";
 	}
@@ -25,29 +25,20 @@ public class HomeController {
 	public String home() {
 		return "layout/_sanpham";
 	}
-	@RequestMapping("/productgird")
-	public String productgird() {
-		return "productgird";
-	}
-	@RequestMapping("/details/9/6")
-	public String details() {
-		return "details";
-	}
-	@RequestMapping("/cart")
-	public String cart() {
-		return "cart";
-	}
-	@RequestMapping("/checkout2")
-	public String checkout2() {
-		return "checkout2";
-	}
-	@RequestMapping("/contact")
+	@RequestMapping("/home/contact")
 	public String contact() {
-		return "contact";
+		return "layout/contact";
 	}
-	@RequestMapping("/hoangdinh")
-	public String HoangDinh() {
-		return "HoangDinh2";
+	@RequestMapping("/account/edit")
+	public String edit() {
+		return "layout/capnhattk";
 	}
-	
+	@RequestMapping("/home/gioithieu")
+	public String gioithieu() {
+		return "layout/gioithieu";
+	}
+	@RequestMapping("/account/quenmk")
+	public String quemk() {
+		return "layout/quenmk";
+	}
 }
