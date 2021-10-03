@@ -45,9 +45,9 @@ public class HomeController {
 	public String contact() {
 		return "contact";
 	}
-	@RequestMapping("/lienhe")
-	public String Lienhe() {
-		return "GioiThieu";
+	@RequestMapping("/hoangdinh")
+	public String HoangDinh() {
+		return "HoangDinh2";
 	}
 	
 }
