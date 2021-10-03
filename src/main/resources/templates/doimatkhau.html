@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+ <html lang="en">
+     <style>
+         *{
+     margin:0;
+     padding: 0;
+     font-family: 'Roboto', sans-serif;
+     box-sizing: border-box;
+ }
+ form{
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background: #bf3060;
+ }
+sform::before{
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width:50%;
+     height: 100%;
+     background: #03a9f4;
+ }
+ form .container{
+     position: relative;
+     min-width: 1100px;
+     min-height: 550px;
+     display:flex;
+     z-index: 100;
+ }
+ form .container .containerinfo{
+     position: absolute;
+     top: 40px;
+     width: 350px;
+     height: calc(100% - 80px);
+     background: #0f3959;
+     z-index: 1;
+     padding: 40px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+ }
+ form .container .containerinfo h2{
+     color: #fff;
+     font-size: 24px;
+     margin: 20px 0;
+ }
+ form .container .containerinfo li{
+     position: relative;
+     list-style: none;
+     display: flex;
+     margin: 20px 0;
+     cursor: pointer;
+     align-items: flex-start;
+ }
+ form .container .containerinfo li span{
+     color: #fff;
+     margin-left: 10px;
+     font-weight: 300;
+     opacity: 0.5;
+     font-size: 20px;
+ }
+ /*Hiệu Ứng Hover Cho Thẻ Li*/
+ form .container .containerinfo li:hover span{
+     opacity: 1;
+ }
+ form .container .containerinfo .sci{
+     position: relative;
+     display:flex;
+ }
+ form .container .containerinfo .sci li{
+     list-style: none;
+     margin-right: 15px;
+ }
+ form .container .containerinfo .sci li a{
+     text-decoration: none;
+     opacity: 0.5;
+     color: #fff;
+     font-size: 32px;
+ }
+ /*Hiệu Ứng Hover Icon*/
+ form .container .containerinfo .sci li:hover a{
+     opacity: 1;
+ }
+ form .container .containerForm{
+     position: absolute;
+     padding: 70px 50px;
+     background: #fff;
+     margin-left: 150px;
+     padding-left: 50px;
+     width: calc(85% - 150px);
+     height: 100%;
+     box-shadow: 0 50px 50px rgba(0,0,0,0.5);
+     
+ }
+ form .container .containerForm h2{
+     color: #0f3959;
+     font-size: 24px;
+     font-weight: 500;
+     
+ }
+ form .container .containerForm .formBox{
+     position: relative;
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     padding-top: 30px;
+     
+ }
+ form .container .containerForm .formBox .inputBox{
+     position: relative;
+     margin: 0 0 35px 0;
+ }
+ form .container .containerForm .formBox .inputBox.w50{
+     width: 100%;
+ }
+ form .container .containerForm .formBox .inputBox.w100{
+     width: 100%;
+ }
+ form .container .containerForm .formBox .inputBox textarea{
+     width: 100%;
+     padding: 5px 0;
+     resize: none;
+     font-size: 18px;
+     font-weight: 400;
+     color: #333;
+     border: none;
+     border-bottom: 1px solid #777;
+     outline: none;
+ }
+ form .container .containerForm .formBox input{
+     width: 100%;
+     padding: 5px 0;
+     resize: none;
+     font-size: 18px;
+     font-weight: 400;
+     color: #333;
+     border: none;
+     border-bottom: 1px solid #777;
+     outline: none;
+ }
+ form .container .containerForm .formBox .inputBox textarea{
+     min-height: 120px;
+ }
+ form .container .containerForm .formBox .inputBox input[type="submit"]{
+     position: relative;
+     cursor: pointer;
+     background: #0f3959;
+     color: #fff;
+     border: none;
+     max-width: 1500px;
+     padding: 12px;
+     
+ }
+ form .container .containerForm .formBox .inputBox input[type="submit"]:hover{
+     background:  #ff568c;
+     
+ }
+ form .container .containerForm .formBox .inputBox span{
+     position: absolute;
+     left: 0;
+     padding: 5px 0;
+     font-size: 18px;
+     font-weight: 400;
+     color: #333;
+     transition: 0.5s;
+     pointer-events: none;
+     
+ }
+ form .container .containerForm .formBox .inputBox input:focus ~ span,
+ form .container .containerForm .formBox .inputBox textarea:focus ~ span,
+ form .container .containerForm .formBox .inputBox input:valid ~ span,
+ form .container .containerForm .formBox .inputBox textarea:valid ~ span{
+     transform: translateY(-20px);
+     font-size: 12px;
+     font-weight: 400;
+     letter-spacing: 1px;
+     color: #ff568c
+     
+ }
+ h2{
+     text-align: center;
+ }
+     </style>
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Tạo Contact Form</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+    <form>
+        <div class="container">
+          
+          <div class="containerForm">
+            <h2>Đổi mật khẩu</h2>
+            <div class="formBox">
+                <div class="inputBox w50">
+                    <input type="text" name="" required>
+                    <span>Old password</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" name="" required>
+                    <span>New Password</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" name="" required>
+                    <span>Repeat Password</span>
+                </div>
+                
+                <div class="inputBox w100">
+                    <input type="submit" value="Change Password">
+                </div>
+            </div>
+        </div>
+        </div>
+     </form>
+ </body>
+ </html>
