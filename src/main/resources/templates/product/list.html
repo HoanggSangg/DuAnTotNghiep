@@ -44,7 +44,7 @@
 											</select>
 										</div>
 										<div class="limiter">
-											Show : <select name="show" >
+											Show : <select name="show">
 												<option id="howmuch" value="3" selected>3</option>
 												<option id="howmuch" value="6">6</option>
 												<option id="howmuch" value="9">9</option>
@@ -61,7 +61,7 @@
 									</div>
 								</div>
 								<div th:each="p: ${items.content}">
-									<ul class="products-listItem">
+									<ul class="products-listItem" th:fragment="product_list">
 										<li class="products">
 											<div class="offer">New</div>
 											<div class="thumbnail">
@@ -70,7 +70,7 @@
 												</a>
 											</div>
 											<div class="product-list-description">
-												<div class="productname"></div>
+												<div class="productname" th:utext="${p.name}"></div>
 												<!-- <p>
 													<img src="" alt=""> <a href="#"
 														class="review_num"> 02 Review(s) </a>

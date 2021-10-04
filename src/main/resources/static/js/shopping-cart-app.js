@@ -47,6 +47,15 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	}
 	$scope.cart.loadFromLocalStorage();
 
+	$scope.accounts = {};
+	$scope.account = function() {
+		var username = $("#username").text();
+		$http.get(`/rest/accounts/${username}`).then(resp => {
+			$scope.accounts = resp.data;
+		})
+	}
+	$scope.account();
+
 	$scope.order = {
 		createDate: new Date(),
 		address: "",
@@ -115,7 +124,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			$scope.form = {};
 		})
 	}
-	
+
 	$scope.nut = false;
 	$scope.check = function() {
 		var item = angular.copy($scope.form);

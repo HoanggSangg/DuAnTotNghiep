@@ -32,10 +32,10 @@ public class AccountRestController {
 //		}
 //		return accountService.findAll();
 //	}
-	@GetMapping("/t")
-	public List<Account> getAll(){
-		return accountService.findAll();
-	}
+//	@GetMapping("/t")
+//	public List<Account> getAll(){
+//		return accountService.findAll();
+//	}
 	@PostMapping
 	public Account create(@RequestBody Account account) {
 		return accountService.create(account);

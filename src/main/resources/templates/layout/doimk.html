@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main id= "doimk">
+		<div class="container">
+			<div class="containerForm">
+				<h2>Đổi mật khẩu</h2>
+				<div class="formBox">
+					<div class="inputBox w50">
+						<input type="text" name="" required> <span>Old
+							password</span>
+					</div>
+					<div class="inputBox w50">
+						<input type="text" name="" required> <span>New
+							Password</span>
+					</div>
+					<div class="inputBox w50">
+						<input type="text" name="" required> <span>Repeat
+							Password</span>
+					</div>
+					<div class="inputBox w100">
+						<input type="submit" value="Change Password">
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.option-cart a.user-icon {
+    float: right;
+    width: 32px;
+    height: 32px;
+    margin-right: 24px;
+    background: url(../images/carticon.png) center center no-repeat;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 0;
+}
+.them_logo {
+    float: left;
+    position: relative;
+    width: 70%;
+    height: 70%;
+}

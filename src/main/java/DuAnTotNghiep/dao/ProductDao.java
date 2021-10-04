@@ -23,4 +23,9 @@ public interface ProductDao extends JpaRepository<Product, Integer>{
 	@Query("SELECT p FROM Product p WHERE p.catesmall.name=?1 and p.catesmall.category.id=?2 and p.available=true")
 	List<Product> findByCateNameAndCateId(String name, String cateid);
 	
+	@Query("SELECT p FROM Product p WHERE p.name LIKE ?1")
+	List<Product> findByName(String name);
+	
+	List<Product> findByPriceBetween(double minPrice, double maxPrice);
+	
 }

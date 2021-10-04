@@ -27,7 +27,11 @@ public class HomeController {
 	}
 	@RequestMapping("/home/contact")
 	public String contact() {
-		return "layout/lienhe";
+		return "layout/contact";
+	}
+	@RequestMapping("/home/hotro")
+	public String hotro() {
+		return "layout/hotro";
 	}
 	@RequestMapping("/account/edit")
 	public String edit() {
@@ -41,8 +45,12 @@ public class HomeController {
 	public String quemk() {
 		return "layout/quenmk";
 	}
-	@RequestMapping("/bai2")
-	public String bai2() {
-		return "Bai2";
+	@RequestMapping("/account/doimk")
+	public String doimk() {
+		return "layout/doimk";
+	}
+	@RequestMapping("/order/lsmua")
+	public String lsmua() {
+		return "order/lsmuahang";
 	}
 }

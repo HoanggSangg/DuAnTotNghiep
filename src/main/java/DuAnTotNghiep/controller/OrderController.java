@@ -23,7 +23,7 @@ public class OrderController {
 	public String list(Model m, HttpServletRequest req) {
 		String username = req.getRemoteUser();
 		m.addAttribute("orders", orderService.findByUsername(username));
-		return "order/list";
+		return "order/chitietdonhang";
 	}
 	@RequestMapping("/order/detail/{id}")
 	public String detail(Model m, @PathVariable("id") Long id) {

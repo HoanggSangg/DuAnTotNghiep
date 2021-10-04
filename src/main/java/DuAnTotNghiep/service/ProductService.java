@@ -23,13 +23,15 @@ public interface ProductService {
 //
 //	List<Product> findByPrice(Double price);
 //
-//	List<Product> findByName(String name);
+	List<Product> findByName(String name);
 
 	Page<Product> findAvailable(Pageable pa);
 
 	List<Product> findByCateName(String name);
 
 	List<Product> findByCateNameAndCateId(String name, String cateid);
+
+	List<Product> findByPriceBetween(double minPrice, double maxPrice);
 
 
 

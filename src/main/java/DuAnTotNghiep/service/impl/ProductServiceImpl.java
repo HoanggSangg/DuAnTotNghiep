@@ -45,11 +45,11 @@ public class ProductServiceImpl implements ProductService{
 //	public List<Product> findByPrice(Double price) {
 //		return pdao.findByPrice(price);
 //	}
-//
-//	@Override
-//	public List<Product> findByName(String name) {
-//		return pdao.findByName(name);
-//	}
+
+	@Override
+	public List<Product> findByName(String name) {
+		return pdao.findByName(name);
+	}
 
 	@Override
 	public Page<Product> findAvailable(Pageable pa) {
@@ -69,6 +69,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<Product> findByCateNameAndCateId(String name, String cateid) {
 		return pdao.findByCateNameAndCateId(name, cateid);
+	}
+
+	@Override
+	public List<Product> findByPriceBetween(double minPrice, double maxPrice) {
+		return pdao.findByPriceBetween(minPrice, maxPrice);
 	}
 
 }

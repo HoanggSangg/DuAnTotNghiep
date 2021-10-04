@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +27,7 @@ public class ProductController {
 	ProductService productService;
 	@Autowired
 	HttpServletRequest request;
-
+	
 	@RequestMapping("/product/list")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
@@ -55,7 +56,7 @@ public class ProductController {
 	@RequestMapping("/product/detail/{id}")
 	public String detail(Model m, @PathVariable("id") Integer id) {
 		Product item = productService.findById(id);
-		m.addAttribute("item", item);
+		m.addAttribute("items", item);
 		return "/product/detail";
 	}
 
@@ -70,6 +71,21 @@ public class ProductController {
 	public String cates(Model m, @PathVariable("name") String name, @RequestParam("cateid") Optional<String> cateid) {
 		List<Product> list = productService.findByCateNameAndCateId(name, cateid.get());
 		m.addAttribute("items", list);
+		return "/product/listsp";
+	}
+	@RequestMapping("/products/tkname")
+	public String getName(Model m, @RequestParam("name") String name) {
+		List<Product> list = productService.findByName("%" + name + "%");
+		m.addAttribute("items", list);
+		return "/product/listsp"; 
+	}
+	
+	@RequestMapping("/products/tkprice")
+	public String search(Model model, @RequestParam("min") Optional<Double> min, @RequestParam("max") Optional<Double> max) {
+		double minPrice = min.orElse(Double.MIN_VALUE);
+		double maxPrice = max.orElse(Double.MAX_VALUE);
+		List<Product> list = productService.findByPriceBetween(minPrice, maxPrice);
+		model.addAttribute("items", list);
 		return "/product/listsp";
 	}
 }
