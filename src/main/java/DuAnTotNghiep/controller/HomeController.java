@@ -53,4 +53,8 @@ public class HomeController {
 	public String lsmua() {
 		return "order/lsmuahang";
 	}
+	@RequestMapping({"/admin", "/admin/home/index"})
+	public String admin() {
+		return "redirect:/admin/indexAdmin.html";
+	}
 }

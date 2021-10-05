@@ -8,19 +8,22 @@
 				<h2>Đổi mật khẩu</h2>
 				<div class="formBox">
 					<div class="inputBox w50">
-						<input type="text" name="" required> <span>Old
+						<div id="username">[[${#request.remoteUser}]]</div>
+					</div>
+					<div class="inputBox w50">
+						<input type="password" ng-model="form.password" required> <span>Old
 							password</span>
 					</div>
 					<div class="inputBox w50">
-						<input type="text" name="" required> <span>New
+						<input type="password" ng-model="form.newPass" required> <span>New
 							Password</span>
 					</div>
 					<div class="inputBox w50">
-						<input type="text" name="" required> <span>Repeat
+						<input type="password" ng-model="form.confirm" required> <span>Repeat
 							Password</span>
 					</div>
 					<div class="inputBox w100">
-						<input type="submit" value="Change Password">
+						<input ng-click="doimk()" type="submit" value="Change Password">
 					</div>
 				</div>
 			</div>

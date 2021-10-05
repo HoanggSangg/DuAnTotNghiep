@@ -1,0 +1,62 @@
+<div>
+	<div class="panel panel-default">
+		<div class="panel-heading" style="color: red">DANH SÁCH ĐƠN HÀNG</div>
+		<div class="input-group">
+			<div class="input-group-btn"></div>
+		</div>
+		<table class="table table-condensed">
+			<thead class="bg-success" style="font-variant: small-caps;">
+				<tr>
+					<th>Id Cửa hàng</th>
+					<th>Tên cửa hàng</th>
+					<th>Username</th>
+					<th>Trạng thái</th>
+					<th class="glyphicon glyphicon-wrench"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in pager.items">
+					<td>01</td>
+					<td>Cửa hàng 1</td>
+					<td>Duc Tai</td>
+					<td>Yes</td>
+					<td>
+						<div class="btn-group btn-group-xs">
+							<button ng-click="edit(item)"
+								class="btn btn-warning glyphicon glyphicon-edit"></button>
+							<button ng-click="delete(item)"
+								class="btn btn-danger glyphicon glyphicon-trash"></button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="panel-footer text-center">
+			<button ng-click="pager.first()" class="btn btn-danger">
+				<b class="glyphicon glyphicon-hand-up"></b>
+			</button>
+			<button ng-click="pager.prev()" class="btn btn-primary">
+				<b class="glyphicon glyphicon-hand-left"></b>
+			</button>
+			<button class="btn btn-success">Trang 1 of 5</button>
+			<button ng-click="pager.next()" class="btn btn-primary">
+				<b class="glyphicon glyphicon-hand-right"></b>
+			</button>
+			<button ng-click="pager.last()" class="btn btn-danger">
+				<b class="glyphicon glyphicon-hand-down"></b>
+			</button>
+		</div>
+		<hr>
+		<button ng-click="reset1()" class="btn btn-info">
+			<b class="glyphicon glyphicon-refresh"></b>Reset
+		</button>
+		<div class="panel-footer text-right">
+			<div>Tìm kiếm theo tên cửa hàng</div>
+			<input ng-model="form.name" class="form-control">
+		</div>
+		<div class="panel-footer text-right">
+			<button ng-click="timkiemName()" class="btn btn-success">Tìm
+				kiếm</button>
+		</div>
+	</div>
+</div>

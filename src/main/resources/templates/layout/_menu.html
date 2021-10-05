@@ -72,13 +72,8 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li class="active dropdown"><a href="#"
-									class="dropdown-toggle" data-toggle="dropdown">Trang chủ</a>
-									<div class="dropdown-menu">
-										<ul class="mega-menu-links">
-											
-										</ul>
-									</div></li>
+								<li class="active dropdown"><a href="/home/index">Trang
+										chủ</a></li>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown">Danh mục</a>
 									<div class="dropdown-menu">
@@ -95,7 +90,7 @@
 									th:if="${#request.isUserInRole('CH') or #request.isUserInRole('AD')}">
 									<a th:href="@{/admin/home/index}">Quản Lý</a>
 								</li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
+								<li th:if="${#request.remoteUser}" class="dropdown"><a href="#" class="dropdown-toggle"
 									id="username" data-toggle="dropdown"
 									th:text="${#request.remoteUser}"></a>
 									<div class="dropdown-menu">
@@ -106,8 +101,8 @@
 											<li><a th:href="@{/order/list}">LS mua hàng</a></li>
 											<li><a href="/security/logoff">Đăng Xuất</a></li>
 										</ul>
-									</div></li>
-
+									</div>
+								</li>
 							</ul>
 						</div>
 					</div>

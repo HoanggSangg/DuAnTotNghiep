@@ -1,5 +1,5 @@
 const app = angular.module("shopping-cart-app", []);
-app.controller("shopping-cart-ctrl", function($scope, $http) {
+app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 
 	$scope.cart = {
 		items: [],
@@ -18,14 +18,19 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		},
 		remove(id) {
 			var index = this.items.findIndex(item => item.id == id);
-			this.items.splice(index, 1);
-			this.saveToLocalStorage();
+			var item = this.items.find(item => item.id == id);
+			if(item.qty > 1){
+				item.qty--;
+				this.saveToLocalStorage();
+			}else{
+				this.items.splice(index, 1);
+				this.saveToLocalStorage();
+			}
 		},
 		clear() {
 			this.items = []
 			this.saveToLocalStorage();
 		},
-		amt_of(item) { },
 		get count() {
 			return this.items
 				.map(item => item.qty)
@@ -115,6 +120,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					$http.put(`/rest/accounts/${username}`, item).then(resp => {
 						alert("Mật khẩu mới là: " + item.password)
 					})
+					$location.href = '/logoff';
 				} else {
 					alert("Nhập lại mật khẩu không đúng")
 				}
@@ -124,35 +130,15 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			$scope.form = {};
 		})
 	}
-
-	$scope.nut = false;
-	$scope.check = function() {
-		var item = angular.copy($scope.form);
-		$http.get(`/rest/accounts/${item.username}`).then(resp => {
-			item = resp.data;
-			if (item.email == $scope.form.email) {
-				$scope.kiemtra = true;
-				$scope.nut = true;
-			} else {
-				alert("Sai Email hoặc tài khoản")
-			}
-		}).catch(error => {
-			alert("Tài khoản không tồn tại");
-			console.log("Error", error);
-		})
-	}
 	$scope.quenmk = function() {
 		var item = angular.copy($scope.form);
 		$http.get(`/rest/accounts/${item.username}`).then(resp => {
 			item = resp.data;
-			if ($scope.form.newPass == $scope.form.confirm) {
-				item.password = $scope.form.newPass;
-				$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
-					alert("Mật khẩu mới là: " + item.password)
-				})
-			} else {
-				alert("Nhập lại mật khẩu không đúng")
-			}
+			alert(item.email)
+			alert($scope.form.email)
+			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
+				alert("Mật khẩu mới là: " + item.password)
+			})
 			$scope.form = {};
 		})
 	}

@@ -1,0 +1,24 @@
+<style>
+    .contaner {
+        border: 5px solid;
+    }
+</style>
+<body>
+    <div style="text-align: center;"><h2> THÔNG TIN CỬA HÀNG<img src="static/images/logo1.jpg" width="200px" height="200px" ></h2></div>    
+    <div style="text-align: right;"><b>Đức Tài</b><img src="static/images/logo1.jpg" width="100px" height="100px"></div>
+    <div class="contaner">
+        <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" data-target="#edit" href="">QUẢN LÝ ĐƠN HÀNG</a></li>
+            <li class="active"><a data-toggle="tab" data-target="#list" href="">DANH SÁCH ĐƠN HÀNG</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="edit" class="tab-pane fade">
+                <div ng-include="'/admin/store/_form.html'"></div>
+            </div>
+            <div id="list" class="tab-pane fade in active">
+                <div ng-include="'/admin/store/_table.html'"></div>
+            </div>
+        </div>
+    </div>
+ <script src="https://uhchat.net/code.php?f=fcdf3f"></script>
+</body>
