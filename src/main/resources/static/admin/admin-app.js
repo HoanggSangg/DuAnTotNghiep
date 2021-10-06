@@ -7,7 +7,7 @@ app.config(function($routeProvider) {
 		})
 		.when("/account", {
 			templateUrl: "/admin/account/indexAccount.html",
-			controller: ""
+			controller: "account-ctrl"
 		})
 		.when("/authorize", {
 			templateUrl: "/admin/authorize/indexAuthority.html",

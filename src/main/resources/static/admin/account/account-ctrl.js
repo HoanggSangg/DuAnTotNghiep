@@ -43,8 +43,6 @@ app.controller("account-ctrl", function($scope, $http) {
 			var index = $scope.items.findIndex(p => p.id == item.username);
 			$scope.items.splice(index, 1);
 			$scope.reset();
-			alert(index);
-			alert(item.username);
 			alert("Xóa thành công");
 		}).catch(error => {
 			alert("Lỗi xóa tài khoản");

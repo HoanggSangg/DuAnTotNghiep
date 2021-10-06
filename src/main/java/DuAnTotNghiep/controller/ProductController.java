@@ -31,8 +31,8 @@ public class ProductController {
 	@RequestMapping("/product/list")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
-//			String name  = request.getRemoteUser();
-//			System.out.println("số"+name);
+			String name  = request.getRemoteUser();
+			m.addAttribute("name", name);
 			if (cid.isPresent()) {
 				List<Product> list = productService.findByCategoryId(cid.get());
 				m.addAttribute("items", list);

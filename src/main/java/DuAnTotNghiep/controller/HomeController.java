@@ -1,10 +1,18 @@
 package DuAnTotNghiep.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	HttpServletRequest request;
+	
 	@RequestMapping("/qlsp")
 	public String qlsp() {
 		return "/quanlysanpham";
@@ -54,7 +62,9 @@ public class HomeController {
 		return "order/lsmuahang";
 	}
 	@RequestMapping({"/admin", "/admin/home/index"})
-	public String admin() {
+	public String admin(Model m) {
+		String name = request.getRemoteUser();
+		m.addAttribute("name", name);
 		return "redirect:/admin/indexAdmin.html";
 	}
 }

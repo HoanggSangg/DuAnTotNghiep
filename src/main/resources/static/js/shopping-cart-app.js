@@ -19,10 +19,10 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 		remove(id) {
 			var index = this.items.findIndex(item => item.id == id);
 			var item = this.items.find(item => item.id == id);
-			if(item.qty > 1){
+			if (item.qty > 1) {
 				item.qty--;
 				this.saveToLocalStorage();
-			}else{
+			} else {
 				this.items.splice(index, 1);
 				this.saveToLocalStorage();
 			}
@@ -55,9 +55,11 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 	$scope.accounts = {};
 	$scope.account = function() {
 		var username = $("#username").text();
-		$http.get(`/rest/accounts/${username}`).then(resp => {
-			$scope.accounts = resp.data;
-		})
+		if (username != "") {
+			$http.get(`/rest/accounts/${username}`).then(resp => {
+				$scope.accounts = resp.data;
+			})
+		}
 	}
 	$scope.account();
 
