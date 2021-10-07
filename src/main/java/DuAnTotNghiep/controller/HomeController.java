@@ -13,18 +13,6 @@ public class HomeController {
 	@Autowired
 	HttpServletRequest request;
 	
-	@RequestMapping("/qlsp")
-	public String qlsp() {
-		return "/quanlysanpham";
-	}
-	@RequestMapping("/qlch")
-	public String qlch() {
-		return "/quanlycuahang";
-	}
-	@RequestMapping("/qltk")
-	public String qltk() {
-		return "/quanlytaikhoan";
-	}
 	@RequestMapping("/security/dangky")
 	public String dangky() {
 		return "layout/_registration";
@@ -66,5 +54,9 @@ public class HomeController {
 		String name = request.getRemoteUser();
 		m.addAttribute("name", name);
 		return "redirect:/admin/indexAdmin.html";
+	}
+	@RequestMapping("/product/productgird.html")
+	public String ird() {
+		return "/product/productgird.html";
 	}
 }

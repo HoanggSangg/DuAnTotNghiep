@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DuAnTotNghiep.entity.Product;
+import DuAnTotNghiep.entity.Specification;
 import DuAnTotNghiep.service.ProductService;
+import DuAnTotNghiep.service.SpecificationService;
 
 @Controller
 public class ProductController {
@@ -27,6 +29,8 @@ public class ProductController {
 	ProductService productService;
 	@Autowired
 	HttpServletRequest request;
+	@Autowired
+	SpecificationService specificationService;
 	
 	@RequestMapping("/product/list")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
@@ -57,6 +61,8 @@ public class ProductController {
 	public String detail(Model m, @PathVariable("id") Integer id) {
 		Product item = productService.findById(id);
 		m.addAttribute("items", item);
+		List<Specification> spe = specificationService.findByIdProduct(id);
+		m.addAttribute("spe", spe);
 		return "/product/detail";
 	}
 

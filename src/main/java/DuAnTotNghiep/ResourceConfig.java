@@ -1,5 +1,4 @@
 package DuAnTotNghiep;
-//test
 import java.util.Locale;
 
 import org.springframework.context.MessageSource;
