@@ -38,7 +38,7 @@ public class Product  implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "Cuahangid")
-	Cuahang cuahang;
+	Store cuahang;
 	
 	@ManyToOne
 	@JoinColumn(name = "Categoryid")

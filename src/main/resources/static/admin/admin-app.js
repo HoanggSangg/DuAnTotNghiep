@@ -3,7 +3,7 @@ app.config(function($routeProvider) {
 	$routeProvider
 		.when("/product", {
 			templateUrl: "/admin/product/indexProduct.html",
-			controller: ""
+			controller: "product-ctrl"
 		})
 		.when("/account", {
 			templateUrl: "/admin/account/indexAccount.html",
@@ -15,7 +15,7 @@ app.config(function($routeProvider) {
 		})
 		.when("/store", {
 			templateUrl: "/admin/store/indexStore.html",
-			controller: ""
+			controller: "store-ctrl"
 		})
 		.when("/unauthorized", {
 			templateUrl: "/admin/authority/unauthorized.html",

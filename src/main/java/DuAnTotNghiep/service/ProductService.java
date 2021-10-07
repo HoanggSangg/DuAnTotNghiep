@@ -15,11 +15,11 @@ public interface ProductService {
 
 	List<Product> findByCategoryId(String cid);
 
-//	Product create(Product product);
-//
-//	Product update(Product product);
-//
-//	void delete(Integer id);
+	Product create(Product product);
+
+	Product update(Product product);
+
+	void delete(Integer id);
 //
 //	List<Product> findByPrice(Double price);
 //

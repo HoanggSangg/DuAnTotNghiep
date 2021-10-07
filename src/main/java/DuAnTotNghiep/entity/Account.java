@@ -35,5 +35,5 @@ public class Account  implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
-	List<Cuahang> cuahang;
+	List<Store> cuahang;
 }

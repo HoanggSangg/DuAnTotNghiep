@@ -1,17 +1,14 @@
-app.controller("product-ctrl", function($scope, $http) {
+app.controller("store-ctrl", function($scope, $http) {
 	$scope.items = [];
 	$scope.cates = [];
 	$scope.form = {};
 
 	$scope.initialize = function() {
-		$http.get("/rest/products").then(resp => {
+		$http.get("/rest/store").then(resp => {
 			$scope.items = resp.data;
 			$scope.items.forEach(item => {
 				item.createDate = new Date(item.createDate)
 			})
-		})
-		$http.get("/rest/categories").then(resp => {
-			$scope.cates = resp.data;
 		})
 	}
 	$scope.initialize();
@@ -29,7 +26,7 @@ app.controller("product-ctrl", function($scope, $http) {
 	}
 	$scope.create = function() {
 		var item = angular.copy($scope.form);
-		$http.post(`/rest/products`, item).then(resp => {
+		$http.post(`/rest/store`, item).then(resp => {
 			resp.data.createDate = new Date(resp.data.createDate)
 			$scope.items.push(resp.data);
 			$scope.reset();
@@ -41,7 +38,7 @@ app.controller("product-ctrl", function($scope, $http) {
 	}
 	$scope.update = function() {
 		var item = angular.copy($scope.form);
-		$http.put(`/rest/products/${item.id}`, item).then(resp => {
+		$http.put(`/rest/store/${item.id}`, item).then(resp => {
 			var index = $scope.items.findIndex(p => p.id == item.id);
 			$scope.items[index] = item;
 			alert("Cập nhật thành công");
@@ -51,7 +48,7 @@ app.controller("product-ctrl", function($scope, $http) {
 		});
 	}
 	$scope.delete = function(item) {
-		$http.delete(`/rest/products/${item.id}`).then(resp => {
+		$http.delete(`/rest/store/${item.id}`).then(resp => {
 			var index = $scope.items.findIndex(p => p.id == item.id);
 			$scope.items.splice(index, 1);
 			$scope.reset();
@@ -102,17 +99,5 @@ app.controller("product-ctrl", function($scope, $http) {
 		last() {
 			this.page = this.count - 1;
 		}
-	}
-	$scope.timkiemPrice = function() {
-		var item = angular.copy($scope.form);
-		$http.get(`/rest/products/timkiemPrice/${item.price}`).then(resp => {
-			$scope.items = angular.copy(resp.data);
-		})
-	}
-	$scope.timkiemName = function() {
-		var item = angular.copy($scope.form);
-		$http.get(`/rest/products/timkiemName/${item.name}`).then(resp => {
-			$scope.items = angular.copy(resp.data);
-		})
 	}
 });

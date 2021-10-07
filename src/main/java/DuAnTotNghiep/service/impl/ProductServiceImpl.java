@@ -26,20 +26,20 @@ public class ProductServiceImpl implements ProductService{
 		return pdao.findById(id).get();
 	}
 
-//	@Override
-//	public Product create(Product product) {
-//		return pdao.save(product);
-//	}
-//
-//	@Override
-//	public Product update(Product product) {
-//		return pdao.save(product);
-//	}
-//
-//	@Override
-//	public void delete(Integer id) {
-//		pdao.deleteById(id);
-//	}
+	@Override
+	public Product create(Product product) {
+		return pdao.save(product);
+	}
+
+	@Override
+	public Product update(Product product) {
+		return pdao.save(product);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		pdao.deleteById(id);
+	}
 //
 //	@Override
 //	public List<Product> findByPrice(Double price) {

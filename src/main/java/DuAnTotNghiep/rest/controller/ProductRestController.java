@@ -34,20 +34,20 @@ public class ProductRestController {
 		return productService.findAll();
 	}
 
-//	@PostMapping
-//	public Product create(@RequestBody Product product) {
-//		return productService.create(product);
-//	}
+	@PostMapping
+	public Product create(@RequestBody Product product) {
+		return productService.create(product);
+	}
 
-//	@PutMapping("{id}")
-//	public Product update(@PathVariable("id") Integer id, @RequestBody Product product) {
-//		return productService.update(product);
-//	}
+	@PutMapping("{id}")
+	public Product update(@PathVariable("id") Integer id, @RequestBody Product product) {
+		return productService.update(product);
+	}
 
-//	@DeleteMapping("{id}")
-//	public void delete(@PathVariable("id") Integer id) {
-//		productService.delete(id);
-//	}
+	@DeleteMapping("{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		productService.delete(id);
+	}
 
 //	@GetMapping("/timkiemPrice/{price}")
 //	public List<Product> getPrice(@PathVariable("price") Double price) {

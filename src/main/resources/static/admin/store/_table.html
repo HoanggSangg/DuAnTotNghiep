@@ -7,19 +7,19 @@
 		<table class="table table-condensed">
 			<thead class="bg-success" style="font-variant: small-caps;">
 				<tr>
-					<th>Id Cửa hàng</th>
-					<th>Tên cửa hàng</th>
-					<th>Username</th>
-					<th>Trạng thái</th>
+					<th>STT</th>
+					<th>Name</th>
+					<th>Account</th>
+					<th>Status?</th>
 					<th class="glyphicon glyphicon-wrench"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="item in pager.items">
-					<td>01</td>
-					<td>Cửa hàng 1</td>
-					<td>Duc Tai</td>
-					<td>Yes</td>
+					<td>{{item.id}}</td>
+					<td>{{item.tencuahang}}</td>
+					<td>{{item.account.username}}</td>
+					<td>{{item.trangthai?'Có':'Không'}}</td>
 					<td>
 						<div class="btn-group btn-group-xs">
 							<button ng-click="edit(item)"
@@ -38,25 +38,14 @@
 			<button ng-click="pager.prev()" class="btn btn-primary">
 				<b class="glyphicon glyphicon-hand-left"></b>
 			</button>
-			<button class="btn btn-success">Trang 1 of 5</button>
+			<button class="btn btn-success">{{pager.page + 1}} of
+				{{pager.count}}</button>
 			<button ng-click="pager.next()" class="btn btn-primary">
 				<b class="glyphicon glyphicon-hand-right"></b>
 			</button>
 			<button ng-click="pager.last()" class="btn btn-danger">
 				<b class="glyphicon glyphicon-hand-down"></b>
 			</button>
-		</div>
-		<hr>
-		<button ng-click="reset1()" class="btn btn-info">
-			<b class="glyphicon glyphicon-refresh"></b>Reset
-		</button>
-		<div class="panel-footer text-right">
-			<div>Tìm kiếm theo tên cửa hàng</div>
-			<input ng-model="form.name" class="form-control">
-		</div>
-		<div class="panel-footer text-right">
-			<button ng-click="timkiemName()" class="btn btn-success">Tìm
-				kiếm</button>
 		</div>
 	</div>
 </div>
