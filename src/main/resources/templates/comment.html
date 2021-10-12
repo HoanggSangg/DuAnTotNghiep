@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style type="text/css">
+body {
+    background-color: #f7f6f6
+}
+
+.card {
+    border: none;
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    border-radius: 4px
+}
+
+.dots {
+    height: 4px;
+    width: 4px;
+    margin-bottom: 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.badge {
+    padding: 7px;
+    padding-right: 9px;
+    padding-left: 16px;
+    box-shadow: 5px 6px 6px 2px #e9ecef
+}
+
+.user-img {
+    margin-top: 4px
+}
+
+.check-icon {
+    font-size: 17px;
+    color: #c3bfbf;
+    top: 1px;
+    position: relative;
+    margin-left: 3px
+}
+
+.form-check-input {
+    margin-top: 6px;
+    margin-left: -24px !important;
+    cursor: pointer
+}
+
+.form-check-input:focus {
+    box-shadow: none
+}
+
+.icons i {
+    margin-left: 8px
+}
+
+.reply {
+    margin-left: 12px
+}
+
+.reply small {
+    color: #b7b4b4
+}
+
+.reply small:hover {
+    color: green;
+    cursor: pointer
+}
+button {
+  background-color: rgb(69, 69, 238); /* màu của Quản trị mạng ^^ */
+  border-radius: 8px;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+<body>
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="headings d-flex justify-content-between align-items-center mb-3">
+                    <h5>Unread comments(6)</h5>
+                    <div class="buttons"> 
+                        <span class="badge bg-white d-flex flex-row align-items-center"> 
+                            <span class="text-primary">Comments "ON"</span>
+                            <div class="form-check form-switch"> 
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked> </div>
+                        </span> </div>
+                </div>
+                
+                <div class="card p-3">
+                    <form id="algin-form">
+                        <div class="form-group">
+                            <h4>Leave a comment</h4> 
+                            <label for="message">Message</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: white;"></textarea><br>
+                        </div>
+                        <button name="button" type="button">Post Comment</button>
+                    </form>
+                </div><br>
+                <div class="card p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="user d-flex flex-row align-items-center"> 
+                            <img src="images/yasuo.jpg" width="30" class="user-img rounded-circle mr-2"> 
+                            <span><small class="font-weight-bold text-primary">Yasuo</small>
+                                 <small class="font-weight-bold">"Cái chết như một cơn gió—luôn luôn bên cạnh ta."
+
+                                    ~ Yasuo</small></span> </div> 
+                                 <small>2 days ago</small>
+                    </div>
+                    <div class="action d-flex justify-content-between mt-2 align-items-center">
+                        <div class="reply px-4">
+                            <small>Remove</small> 
+                            <span class="dots"></span> 
+                            <small>Reply</small> <span class="dots"></span> 
+                            <small>Translate</small> 
+                        </div>
+                        <div class="icons align-items-center"> 
+                            <i class="fa fa-star text-warning"></i> 
+                            <i class="fa fa-check-circle-o check-icon"></i> </div>
+                    </div>
+                </div>
+                <div class="card p-3 mt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="user d-flex flex-row align-items-center"> 
+                            <img src="images/sett.jpg" width="30" class="user-img rounded-circle mr-2"> 
+                            <span><small class="font-weight-bold text-primary">Sett</small> 
+                                <small class="font-weight-bold">“Làm đại ca... tốt hơn nhiều so với không làm đại ca.”
+
+                                    ~ Sett</small></span> </div> 
+                                <small>3 days ago</small>
+                    </div>
+                    <div class="action d-flex justify-content-between mt-2 align-items-center">
+                        <div class="reply px-4"> 
+                            <small>Remove</small> 
+                            <span class="dots"></span> 
+                            <small>Reply</small> 
+                            <span class="dots"></span>
+                            <small>Translate</small> 
+                        </div>
+                        <div class="icons align-items-center"> 
+                            <i class="fa fa-check-circle-o check-icon text-primary"></i> </div>
+                    </div>
+                </div>
+                <div class="card p-3 mt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="user d-flex flex-row align-items-center"> 
+                            <img src="images/ez.jpg" width="30" class="user-img rounded-circle mr-2"> <span>
+                                <small class="font-weight-bold text-primary">Ezreal</small> 
+                                <small class="font-weight-bold">"Nếu không nắm được luật lệ thì làm sao tôi phá vỡ chúng được?"
+
+                                    ~ Ezreal</small></span> </div>
+                                <small>3 days ago</small>
+                    </div>
+                    <div class="action d-flex justify-content-between mt-2 align-items-center">
+                        <div class="reply px-4"> 
+                            <small>Remove</small> 
+                            <span class="dots"></span> 
+                            <small>Reply</small> 
+                            <span class="dots"></span> 
+                            <small>Translate</small> 
+                        </div>
+                        <div class="icons align-items-center"> 
+                            <i class="fa fa-user-plus text-muted"></i> 
+                            <i class="fa fa-star-o text-muted"></i> 
+                            <i class="fa fa-check-circle-o check-icon text-primary"></i> </div>
+                    </div>
+                </div>
+                <div class="card p-3 mt-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="user d-flex flex-row align-items-center"> 
+                            <img src="images/draven.jpg" width="30" class="user-img rounded-circle mr-2"> <span>
+                                <small class="font-weight-bold text-primary">Dravennnn</small> 
+                                <small class="font-weight-bold">"Cụm từ 'đỉnh của đỉnh' sinh ra chính là để dành riêng cho ta."
+
+                                    ~ Draven</small></span> </div> 
+                                    <small>3 days ago</small>
+                    </div>
+                    <div class="action d-flex justify-content-between mt-2 align-items-center">
+                        <div class="reply px-4"> 
+                            <small>Remove</small> 
+                            <span class="dots"></span>
+                            <small>Reply</small> 
+                            <span class="dots"></span> 
+                            <small>Translate</small> 
+                        </div>
+                        <div class="icons align-items-center"> <i class="fa fa-check-circle-o check-icon text-primary"></i> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
