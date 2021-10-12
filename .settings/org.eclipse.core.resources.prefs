@@ -28,6 +28,7 @@ encoding//src/main/resources/templates/layout/gioithieu.html=UTF-8
 encoding//src/main/resources/templates/layout/hotro.html=UTF-8
 encoding//src/main/resources/templates/order/_splienquan.html=UTF-8
 encoding//src/main/resources/templates/order/checkout.html=UTF-8
+encoding//src/main/resources/templates/product/_menucates.html=UTF-8
 encoding//src/main/resources/templates/product/detail.html=UTF-8
 encoding//src/main/resources/templates/product/list.html=UTF-8
 encoding//src/main/resources/templates/product/listsp.html=UTF-8

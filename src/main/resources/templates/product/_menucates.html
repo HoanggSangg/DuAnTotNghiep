@@ -5,13 +5,6 @@
 	<main>
 		<div class="col-md-3" th:fragment="product_menu">
 			<div class="branch leftbar">
-				<h3 class="title">Category</h3>
-				<ul th:each="c : ${cates}">
-					<li><a th:href="@{|/product/list?cid=${c.id}|}">[[${c.name}]]</a></li>
-				</ul>
-			</div>
-			<div class="branch leftbar">
-				<h3 class="title">Branch</h3>
 				<ul th:each="c : ${catesmall}">
 					<li><a
 						th:href="@{|/products/cate/${c.name}?cateid=${c.category.id}|}">[[${c.name}]]</a></li>
@@ -41,7 +34,6 @@
 					<li><a href="#"> PSD </a></li>
 				</ul>
 			</div>
-
 			<div class="leftbanner">
 				<img src="../../images/banner-small-01.png" alt="">
 			</div>

@@ -5,20 +5,20 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import DuAnTotNghiep.entity.Catesmall;
 import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.entity.Specification;
+import DuAnTotNghiep.service.CatesmallService;
 import DuAnTotNghiep.service.ProductService;
 import DuAnTotNghiep.service.SpecificationService;
 
@@ -28,6 +28,8 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	@Autowired
+	CatesmallService catesmallService;
+	@Autowired
 	HttpServletRequest request;
 	@Autowired
 	SpecificationService specificationService;
@@ -35,11 +37,11 @@ public class ProductController {
 	@RequestMapping("/product/list")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
-			String name  = request.getRemoteUser();
-			m.addAttribute("name", name);
 			if (cid.isPresent()) {
 				List<Product> list = productService.findByCategoryId(cid.get());
 				m.addAttribute("items", list);
+				List<Catesmall> list1 = catesmallService.findByCate(cid.get());
+				m.addAttribute("catesmall", list1);
 				return "/product/listsp";
 			} else {
 				Pageable pa = PageRequest.of(p.orElse(0), 6);

@@ -48,6 +48,8 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 		loadFromLocalStorage() {
 			var json = localStorage.getItem("cart");
 			this.items = json ? JSON.parse(json) : [];
+			var kytu = Math.random().toString(36).substr(2, 6);
+			alert(kytu)
 		}
 	}
 	$scope.cart.loadFromLocalStorage();
@@ -136,8 +138,9 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 		var item = angular.copy($scope.form);
 		$http.get(`/rest/accounts/${item.username}`).then(resp => {
 			item = resp.data;
-			alert(item.email)
-			alert($scope.form.email)
+			//từ 100000-999999
+			var a = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
+			item.password = a;
 			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
 				alert("Mật khẩu mới là: " + item.password)
 			})
