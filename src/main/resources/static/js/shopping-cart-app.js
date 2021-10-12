@@ -48,8 +48,8 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 		loadFromLocalStorage() {
 			var json = localStorage.getItem("cart");
 			this.items = json ? JSON.parse(json) : [];
-			var kytu = Math.random().toString(36).substr(2, 6);
-			alert(kytu)
+			/*var kytu = Math.random().toString(36).substr(2, 6);
+			alert(kytu)*/
 		}
 	}
 	$scope.cart.loadFromLocalStorage();

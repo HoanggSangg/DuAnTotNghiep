@@ -65,7 +65,7 @@
 										<li class="products">
 											<div class="offer">New</div>
 											<div class="thumbnail">
-												<a th:href="@{|/product/detail/${p.id}|}"> <img
+												<a th:href="@{|/product/detail/${p.id}?cid=${p.catesmall.category.id}|}"> <img
 													th:src="@{|../../images/${p.image}|}">
 												</a>
 											</div>

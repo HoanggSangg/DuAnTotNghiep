@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DuAnTotNghiep.entity.Catesmall;
+import DuAnTotNghiep.entity.Image;
 import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.entity.Specification;
 import DuAnTotNghiep.service.CatesmallService;
+import DuAnTotNghiep.service.ImagesService;
 import DuAnTotNghiep.service.ProductService;
 import DuAnTotNghiep.service.SpecificationService;
 
@@ -33,6 +35,8 @@ public class ProductController {
 	HttpServletRequest request;
 	@Autowired
 	SpecificationService specificationService;
+	@Autowired
+	ImagesService imagesService;
 	
 	@RequestMapping("/product/list")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
@@ -60,11 +64,13 @@ public class ProductController {
 	}
 
 	@RequestMapping("/product/detail/{id}")
-	public String detail(Model m, @PathVariable("id") Integer id) {
+	public String detail(Model m, @PathVariable("id") Integer id, @RequestParam("cid") Optional<String> cid) {
 		Product item = productService.findById(id);
 		m.addAttribute("items", item);
 		List<Specification> spe = specificationService.findByIdProduct(id);
 		m.addAttribute("spe", spe);
+		List<Product> list = productService.findByCategoryId(cid.get());
+		m.addAttribute("image", list);
 		return "/product/detail";
 	}
 

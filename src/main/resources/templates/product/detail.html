@@ -17,31 +17,11 @@
 									</div>
 									<div class="thum-image">
 										<ul id="gallery_01" class="prev-thum">
-											<li><a href="#"
-												data-image="images/products/medium/products-01.jpg"
-												data-zoom-image="images/products/Large/products-01.jpg">
-													<img src="images/products/thum/products-01.png" alt="">
-											</a></li>
-											<li><a href="#"
-												data-image="images/products/medium/products-02.jpg"
-												data-zoom-image="images/products/Large/products-02.jpg">
-													<img src="images/products/thum/products-02.png" alt="">
-											</a></li>
-											<li><a href="#"
-												data-image="images/products/medium/products-03.jpg"
-												data-zoom-image="images/products/Large/products-03.jpg">
-													<img src="images/products/thum/products-03.png" alt="">
-											</a></li>
-											<li><a href="#"
-												data-image="images/products/medium/products-04.jpg"
-												data-zoom-image="images/products/Large/products-04.jpg">
-													<img src="images/products/thum/products-04.png" alt="">
-											</a></li>
-											<li><a href="#"
-												data-image="../../images/medium/products-05.jpg"
-												data-zoom-image="images/products/Large/products-05.jpg">
-													<img src="images/products/thum/products-05.png" alt="">
-											</a></li>
+											<th:block th:each="i : ${image}">
+												<li><a th:href="@{|/product/detail/${i.id}?cid=${i.catesmall.category.id}|}">
+														<img th:src="@{|../../images/${i.image}|}" alt="">
+												</a></li>
+											</th:block>
 										</ul>
 										<a class="control-left" id="thum-prev"
 											href="javascript:void(0);"> <i class="fa fa-chevron-left">
@@ -76,7 +56,9 @@
 											</select>
 										</div>
 										<div class="button_group">
-											<button class="button">Add To Cart</button>
+											<button class="button"
+												th:attr="ng-click=@{|cart.add(${p.id})|}">Add To
+												Cart</button>
 											<button class="button compare">
 												<i class="fa fa-exchange"> </i>
 											</button>
