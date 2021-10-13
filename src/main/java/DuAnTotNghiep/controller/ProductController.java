@@ -71,6 +71,8 @@ public class ProductController {
 		m.addAttribute("spe", spe);
 		List<Product> list = productService.findByCategoryId(cid.get());
 		m.addAttribute("image", list);
+		List<Image> image = imagesService.findByIdProduct(id);
+		m.addAttribute("images", image);
 		return "/product/detail";
 	}
 

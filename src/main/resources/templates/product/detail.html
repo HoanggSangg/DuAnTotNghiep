@@ -18,7 +18,8 @@
 									<div class="thum-image">
 										<ul id="gallery_01" class="prev-thum">
 											<th:block th:each="i : ${image}">
-												<li><a th:href="@{|/product/detail/${i.id}?cid=${i.catesmall.category.id}|}">
+												<li><a
+													th:href="@{|/product/detail/${i.id}?cid=${i.catesmall.category.id}|}">
 														<img th:src="@{|../../images/${i.image}|}" alt="">
 												</a></li>
 											</th:block>
@@ -34,10 +35,6 @@
 								</div>
 								<div class="products-description">
 									<h5 class="name" th:utext="${p.name}"></h5>
-									<!-- <p>
-										<img alt="" src="images/star.png"> <a class="review_num"
-											href="#"> 02 Review(s) </a>
-									</p> -->
 									<th:block th:each="s : ${spe}">
 										<p th:utext="${s.tenthuoctinh} + ' : ' + ${s.giatri}"></p>
 									</th:block>
@@ -82,6 +79,7 @@
 										<li><a href="#Descraption"> DESCRIPTION </a></li>
 										<li><a href="#Reviews"> REVIEW </a></li>
 										<li><a href="#tags"> PRODUCT TAGS </a></li>
+										<li><a href="#image"> Image </a></li>
 									</ul>
 								</div>
 								<div class="tab-content-wrap">
@@ -110,6 +108,22 @@
 											laoreet congue. Proin lectus ipsum, gravida et mattis
 											vulputate, tristique ut lectus. Sed et lorem nunc...</p>
 									</div>
+									<div class="tab-content" id="image">
+										<div class="thum-image">
+											<ul id="gallery_01" class="prev-thum">
+												<th:block th:each="ima : ${images}">
+													<li><img th:src="@{|../../images/${ima.nameimage}|}" alt=""></li>
+												</th:block>
+											</ul>
+											<a class="control-left" id="thum-prev"
+												href="javascript:void(0);"> <i
+												class="fa fa-chevron-left"> </i>
+											</a> <a class="control-right" id="thum-next"
+												href="javascript:void(0);"> <i
+												class="fa fa-chevron-right"> </i>
+											</a>
+										</div>
+									</div>
 									<div class="tab-content" id="Reviews">
 										<form>
 											<table>
@@ -126,8 +140,7 @@
 												<tbody>
 													<tr>
 														<td>Quality</td>
-														<td><input type="radio" name="quality" value="Blue" />
-														</td>
+														<td><input type="radio" name="quality" value="Blue" /></td>
 														<td><input type="radio" name="quality" value="">
 														</td>
 														<td><input type="radio" name="quality" value="">
