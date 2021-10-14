@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main id="indivi">
+		<div class="container">
+			<div class="containerForm">
+				<div class="sen">
+					<img
+						src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+						width="150" height="150" border="1"><br> <br>
+				</div>
+				<div class="formBox">
+					<div class="inputBox w50">
+						<div id="username">[[${#request.remoteUser}]]</div>
+					</div>
+					<div class="inputBox w50">
+						<input type="password" ng-model="form.password" required>
+						<span>Old password</span>
+					</div>
+					<div class="inputBox w50">
+						<input type="password" ng-model="form.newPass" required> <span>New
+							Password</span>
+					</div>
+					<div class="inputBox w50">
+						<input type="password" ng-model="form.confirm" required> <span>Repeat
+							Password</span>
+					</div>
+					<div class="inputBox w100">
+						<input ng-click="doimk()" type="submit" value="Change Password">
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

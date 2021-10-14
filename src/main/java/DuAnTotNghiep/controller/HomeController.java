@@ -55,8 +55,12 @@ public class HomeController {
 		m.addAttribute("name", name);
 		return "redirect:/admin/indexAdmin.html";
 	}
-	@RequestMapping("/product/productgird.html")
-	public String ird() {
-		return "/product/productgird.html";
+	@RequestMapping("/account/individual")
+	public String individual() {
+		return "/layout/individual";
+	}
+	@RequestMapping("/test")
+	public String test() {
+		return "/manageeachstore";
 	}
 }

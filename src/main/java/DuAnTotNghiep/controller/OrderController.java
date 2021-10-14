@@ -28,6 +28,6 @@ public class OrderController {
 	@RequestMapping("/order/detail/{id}")
 	public String detail(Model m, @PathVariable("id") Long id) {
 		m.addAttribute("order", orderService.findById(id));
-		return "order/detail";
+		return "order/details";
 	}
 }

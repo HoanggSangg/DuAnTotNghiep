@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<html>
 <body>
-	<main>
-		<div class="col-md-3" th:fragment="product_menu">
-			<div class="branch leftbar">
-				<ul th:each="c : ${catesmall}">
-					<li><a
-						th:href="@{|/products/cate/${c.name}?cateid=${c.category.id}|}">[[${c.name}]]</a></li>
-				</ul>
-			</div>
-			<div class="price-filter leftbar">
-				<h3 class="title">Price</h3>
-				<form class="pricing" action="/products/tkprice">
-					<label> $ <input type="number" name="min">
-					</label> <span class="separate"> - </span> <label> $ <input
-						type="number" name="max">
-					</label> <input type="submit" value="Go">
-				</form>
-			</div>
-			<div class="product-tag leftbar">
-				<h3 class="title">
-					Products <strong> Tags </strong>
-				</h3>
-				<ul>
-					<li><a href="#"> Lincoln us </a></li>
-					<li><a href="#"> SDress for Girl </a></li>
-					<li><a href="#"> Corner </a></li>
-					<li><a href="#"> Window </a></li>
-					<li><a href="#"> PG </a></li>
-					<li><a href="#"> Oscar </a></li>
-					<li><a href="#"> Bath room </a></li>
-					<li><a href="#"> PSD </a></li>
-				</ul>
-			</div>
-			<div class="leftbanner">
-				<img src="../../images/banner-small-01.png" alt="">
-			</div>
+	<div class="col-md-3" th:fragment="product_menu">
+		<div class="branch leftbar">
+			<ul th:each="c : ${catesmall}">
+				<li><a
+					th:href="@{|/products/cate/${c.name}?cateid=${c.category.id}|}">[[${c.name}]]</a></li>
+			</ul>
 		</div>
-	</main>
+		<div class="price-filter leftbar">
+			<h3 class="title">Price</h3>
+			<form class="pricing" action="/products/tkprice">
+				<label> $ <input type="number" name="min">
+				</label> <span class="separate"> - </span> <label> $ <input
+					type="number" name="max">
+				</label> <input type="submit" value="Go">
+			</form>
+		</div>
+		<div class="product-tag leftbar">
+			<h3 class="title">
+				Products <strong> Tags </strong>
+			</h3>
+			<ul>
+				<li><a href="#"> Lincoln us </a></li>
+				<li><a href="#"> SDress for Girl </a></li>
+				<li><a href="#"> Corner </a></li>
+				<li><a href="#"> Window </a></li>
+				<li><a href="#"> PG </a></li>
+				<li><a href="#"> Oscar </a></li>
+				<li><a href="#"> Bath room </a></li>
+				<li><a href="#"> PSD </a></li>
+			</ul>
+		</div>
+		<div class="leftbanner">
+			<img src="../../images/banner-small-01.png" alt="">
+		</div>
+	</div>
 </body>
 </html>

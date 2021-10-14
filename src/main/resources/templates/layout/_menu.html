@@ -28,7 +28,6 @@
 									<li><a href="/home/gioithieu">Giới Thiệu</a></li>
 									<li><a href="#">Truyền thông</a></li>
 									<li><a href="/home/hotro">Hỗ trợ</a></li>
-									<!-- <li><a th:href="@{/order/list}">Lịch sử</a></li> -->
 								</ul>
 							</div>
 							<div class="col-md-3">
@@ -63,7 +62,7 @@
 								</ul></li>
 						</ul>
 						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
+							<ul class="nav navbar-nav1">
 								<li class="active dropdown"><a href="/home/index">Trang
 										chủ</a></li>
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -87,7 +86,7 @@
 									th:text="${#request.remoteUser}"></a>
 									<div class="dropdown-menu">
 										<ul class="mega-menu-links">
-											<li><a href="#">Thông tin TK</a></li>
+											<li><a href="/account/individual">Thông tin TK</a></li>
 											<li><a href="/account/doimk">Đổi MK</a></li>
 											<li><a href="/account/edit">Cập nhật TK</a></li>
 											<li><a th:href="@{/order/list}">LS mua hàng</a></li>
