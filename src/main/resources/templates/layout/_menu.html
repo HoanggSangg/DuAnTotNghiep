@@ -31,7 +31,7 @@
 								</ul>
 							</div>
 							<div class="col-md-3">
-								<ul class="usermenu">
+								<ul class="usermenu" th:unless="${#request.remoteUser}">
 									<li><a href="/security/login" class="log">Đăng nhập</a></li>
 									<li><a href="/security/dangky" class="reg">Đăng ký</a></li>
 								</ul>

@@ -24,7 +24,7 @@
 														<span class="input-group-addon"><i
 															class="glyphicon glyphicon-user color-blue"></i></span>
 														<div class="inputBox w50">
-															<input ng-model="form.username" name="username" required
+															<input ng-model="accounts.username" name="username" required
 																placeholder="Username" class="form-control" type="text">
 														</div>
 													</div>
@@ -36,7 +36,7 @@
 														<span class="input-group-addon"><i
 															class="glyphicon glyphicon-envelope color-blue"></i></span>
 														<div class="inputBox w50">
-															<input ng-model="form.email" name="email" required
+															<input ng-model="accounts.email" name="email" required
 																placeholder="Email address" class="form-control"
 																type="email">
 														</div>
@@ -44,7 +44,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<input name="recover-submit" ng-click="quenmk()"
+												<input name="recover-submit" ng-click="accounts.quenmk()"
 													class="btn btn-lg btn-primary btn-block"
 													value="Reset Password" type="submit">
 											</div>

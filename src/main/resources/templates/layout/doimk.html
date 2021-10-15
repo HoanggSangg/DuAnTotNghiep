@@ -11,19 +11,19 @@
 						<div id="username">[[${#request.remoteUser}]]</div>
 					</div>
 					<div class="inputBox w50">
-						<input type="password" ng-model="form.password" required> <span>Old
+						<input type="password" ng-model="accounts.password" required> <span>Old
 							password</span>
 					</div>
 					<div class="inputBox w50">
-						<input type="password" ng-model="form.newPass" required> <span>New
+						<input type="password" ng-model="accounts.newPass" required> <span>New
 							Password</span>
 					</div>
 					<div class="inputBox w50">
-						<input type="password" ng-model="form.confirm" required> <span>Repeat
+						<input type="password" ng-model="accounts.confirm" required> <span>Repeat
 							Password</span>
 					</div>
 					<div class="inputBox w100">
-						<input ng-click="doimk()" type="submit" value="Change Password">
+						<input ng-click="accounts.doimk()" type="submit" value="Change Password">
 					</div>
 				</div>
 			</div>

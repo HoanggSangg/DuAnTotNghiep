@@ -1,6 +1,7 @@
 const app = angular.module("shopping-cart-app", []);
-app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
+app.controller("shopping-cart-ctrl", function($scope, $http) {
 
+	//------------------------------------Code JS Cart----------------------------
 	$scope.cart = {
 		items: [],
 		add(id) {
@@ -54,17 +55,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 	}
 	$scope.cart.loadFromLocalStorage();
 
-	$scope.accounts = {};
-	$scope.account = function() {
-		var username = $("#username").text();
-		if (username != "") {
-			$http.get(`/rest/accounts/${username}`).then(resp => {
-				$scope.accounts = resp.data;
-			})
-		}
-	}
-	$scope.account();
-
+	//----------------------------------Code JS Order-----------------------------
 	$scope.order = {
 		createDate: new Date(),
 		address: "",
@@ -90,61 +81,89 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 			})
 		}
 	}
-	$scope.form = {};
-	$scope.imageChanged = function(files) {
-		var data = new FormData();
-		data.append('file', files[0]);
-		$http.post('/rest/upload/images', data, {
-			transformRequest: angular.indentity,
-			headers: { 'Content-Type': undefined }
-		}).then(resp => {
-			$scope.form.photo = resp.data.name;
-		}).catch(error => {
-			alert("Lỗi upload hình ảnh");
-			console.log("Error", error);
-		})
-	}
-	$scope.dangky = function() {
-		var item = angular.copy($scope.form);
-		$http.post(`/rest/accounts`, item).then(resp => {
-			alert("Thêm mới thành công");
-		}).catch(error => {
-			alert("Lỗi thêm mới tài khoản");
-			console.log("Error", error);
-		});
-	}
-	$scope.doimk = function() {
-		var item = angular.copy($scope.form);
-		var username = $("#username").text();
-		$http.get(`/rest/accounts/${username}`).then(resp => {
-			item = resp.data;
-			if (item.password == $scope.form.password) {
-				if ($scope.form.newPass == $scope.form.confirm) {
-					item.password = $scope.form.newPass;
-					$http.put(`/rest/accounts/${username}`, item).then(resp => {
-						alert("Mật khẩu mới là: " + item.password)
-					})
-					$location.href = '/logoff';
-				} else {
-					alert("Nhập lại mật khẩu không đúng")
-				}
-			} else {
-				alert("Sai mật khẩu hoặc tài khoản")
+
+	//-----------------------------Code JS Accounts------------------------------
+	$scope.accounts = {
+		loadtk() {
+			var username = $("#username").text();
+			if (username != "") {
+				$http.get(`/rest/accounts/${username}`).then(resp => {
+					$scope.accounts = resp.data;
+				})
 			}
-			$scope.form = {};
-		})
-	}
-	$scope.quenmk = function() {
-		var item = angular.copy($scope.form);
-		$http.get(`/rest/accounts/${item.username}`).then(resp => {
-			item = resp.data;
-			//từ 100000-999999
-			var a = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
-			item.password = a;
-			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
-				alert("Mật khẩu mới là: " + item.password)
+		},
+		imageChanged(files) {
+			var data = new FormData();
+			data.append('file', files[0]);
+			$http.post('/rest/upload/images', data, {
+				transformRequest: angular.indentity,
+				headers: { 'Content-Type': undefined }
+			}).then(resp => {
+				this.photo = resp.data.name;
+			}).catch(error => {
+				alert("Lỗi upload hình ảnh");
+				console.log("Error", error);
 			})
-			$scope.form = {};
-		})
+		},
+		dangky() {
+			var accounts = angular.copy(this);
+			$http.post(`/rest/accounts`, accounts).then(resp => {
+				alert("Thêm mới thành công");
+				location.href = '/security/login';
+			}).catch(error => {
+				alert("Lỗi thêm mới tài khoản");
+				console.log("Error", error);
+			});
+		},
+		doimk() {
+			var accounts = angular.copy(this);
+			var username = $("#username").text();
+			$http.get(`/rest/accounts/${username}`).then(resp => {
+				accounts = resp.data;
+				if (accounts.password == this.password) {
+					if (this.newPass == this.confirm) {
+						accounts.password = this.newPass;
+						$http.put(`/rest/accounts/${username}`, accounts).then(resp => {
+							alert("Mật khẩu mới là: " + accounts.password)
+						})
+						location.href = '/security/logoff';
+					} else {
+						alert("Nhập lại mật khẩu không đúng")
+					}
+				} else {
+					alert("Sai mật khẩu hoặc tài khoản")
+				}
+			})
+		},
+		quenmk() {
+			var accounts = angular.copy(this);
+			$http.get(`/rest/accounts/${accounts.username}`).then(resp => {
+				accounts = resp.data;
+				//từ 100000-999999
+				var a = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
+				accounts.password = a;
+				$http.put(`/rest/accounts/${accounts.username}`, accounts).then(resp => {
+					alert("Mật khẩu mới là: " + accounts.password)
+					location.href = "/security/login";
+				})
+			})
+		}
 	}
+	$scope.accounts.loadtk();
+	
+	//---------------------------Code JS Products--------------------------
+	$scope.products = {
+		load() {
+			
+		}
+	}
+	$scope.products.load();
+	
+	//-------------------------Code JS Comments---------------------------
+	$scope.comments = {
+		load() {
+			
+		}
+	}
+	$scope.comments.load();
 })
