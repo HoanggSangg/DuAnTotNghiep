@@ -14,14 +14,15 @@ import lombok.Data;
 
 @SuppressWarnings("serial")
 @Data
-@Entity 
+@Entity
 @Table(name = "Image")
-public class Image  implements Serializable{
-	@Id	
+public class Image implements Serializable {
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	String nameimage;
-	
-	@ManyToOne @JoinColumn(name = "Productid")
+
+	@ManyToOne
+	@JoinColumn(name = "Productid")
 	Product product;
 }

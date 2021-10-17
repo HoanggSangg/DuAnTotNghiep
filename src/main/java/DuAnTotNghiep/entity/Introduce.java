@@ -19,25 +19,16 @@ import lombok.Data;
 
 @SuppressWarnings("serial")
 @Data
-@Entity
-@Table(name = "Cuahang")
-public class Store implements Serializable {
+@Entity 
+@Table(name = "Introduce")
+public class Introduce  implements Serializable{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
-	String tencuahang;
-
-	@ManyToOne
-	@JoinColumn(name = "Username")
-	private Account account;
-
-	Boolean trangthai;
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
-	List<Product> product;
+	String data;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
-	List<Cmtstore> cmtstore;
+	@ManyToOne
+	@JoinColumn(name = "Productid")
+	Product product;
 }

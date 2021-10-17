@@ -3,6 +3,8 @@ package DuAnTotNghiep.rest.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +26,7 @@ public class AuthorityRestController {
 	@Autowired AuthorityDao authrityDao;
 	@Autowired RoleDao roleDao;
 	@Autowired AccountDao accountDao;
+	@Autowired HttpServletRequest request;
 	
 	@RequestMapping("/rest/authorities")
 	public Map<String, Object> getAuthorities(){
@@ -31,6 +34,7 @@ public class AuthorityRestController {
 		data.put("authorities", authrityDao.findAll());
 		data.put("roles", roleDao.findAll());
 		data.put("accounts", accountDao.findAll());
+		data.put("user", request.getRemoteUser());
 		return data;
 	}
 	@DeleteMapping("/rest/authorities/{id}")

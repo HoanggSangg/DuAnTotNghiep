@@ -1,8 +1,10 @@
 package DuAnTotNghiep.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,24 +22,25 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Data
 @Entity
-@Table(name = "Cuahang")
-public class Store implements Serializable {
+@Table(name = "CmtProduct")
+public class Cmtproduct implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
-	String tencuahang;
-
+	String comment;
+	@Column(name = "date")
+	Date date = new Date();
+	
+	@ManyToOne
+	@JoinColumn(name = "Productid")
+	Product product;
+	
 	@ManyToOne
 	@JoinColumn(name = "Username")
 	private Account account;
-
-	Boolean trangthai;
-
-	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
-	List<Product> product;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
-	List<Cmtstore> cmtstore;
+	@OneToMany(mappedBy = "cmtproduct")
+	List<Repcmtproduct> repcmtproduct;
 }

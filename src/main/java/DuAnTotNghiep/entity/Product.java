@@ -55,4 +55,16 @@ public class Product  implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "product")
 	List<Specification> specification;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "product")
+	List<Introduce> introduce;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "product")
+	List<Likes> likes;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "product")
+	List<Cmtproduct> cmtproduct;
 }

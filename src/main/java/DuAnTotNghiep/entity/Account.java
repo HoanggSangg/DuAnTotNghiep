@@ -36,4 +36,24 @@ public class Account  implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
 	List<Store> cuahang;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Likes> likes;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Cmtstore> cmtstore;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Repcmtstore> repcmtstore;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Cmtproduct> cmtproduct;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Codedmk> codedmk;
 }

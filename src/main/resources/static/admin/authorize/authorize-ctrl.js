@@ -10,7 +10,6 @@ app.controller("ctrl", function($scope, $http) {
 
 	$scope.update = function(username, role) {
 		var index = $scope.index_of(username, role);
-		alert(index)
 		if (index >= 0) {
 			var id = $scope.db.authorities[index].id;
 			var username = $scope.db.authorities[index].account.username;
