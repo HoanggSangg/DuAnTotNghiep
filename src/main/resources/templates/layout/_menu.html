@@ -78,7 +78,7 @@
 								<li><a href="#">Quà tặng</a></li>
 								<li><a href="#">Khung giờ săn sale</a></li>
 								<li
-									th:if="${#request.isUserInRole('CH') or #request.isUserInRole('AD')}">
+									th:if="${#request.isUserInRole('AD')}">
 									<a th:href="@{/admin/home/index}">Quản Lý</a>
 								</li>
 								<li th:if="${#request.remoteUser}" class="dropdown"><a href="#" class="dropdown-toggle"

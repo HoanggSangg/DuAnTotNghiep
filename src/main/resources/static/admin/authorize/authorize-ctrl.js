@@ -1,7 +1,10 @@
 app.controller("ctrl", function($scope, $http) {
-	$http.get("/rest/authorities").then(resp => {
-		$scope.db = resp.data;
-	})
+	$scope.load = function() {
+		$http.get("/rest/authorities").then(resp => {
+			$scope.db = resp.data;
+		})
+	}
+	$scope.load();
 
 	$scope.index_of = function(username, role) {
 		return $scope.db.authorities
@@ -13,9 +16,13 @@ app.controller("ctrl", function($scope, $http) {
 		if (index >= 0) {
 			var id = $scope.db.authorities[index].id;
 			var username = $scope.db.authorities[index].account.username;
-			if (username == "hsang") {
+			if (username == $scope.db.user) {
+				alert("Không được xóa quyền chính mình")
+				$scope.load();
+			}else{
 				$http.delete(`/rest/authorities/${id}`).then(resp => {
 					$scope.db.authorities.splice(index, 1);
+					alert("Xóa quyền thành công")
 				})
 			}
 		} else {
@@ -25,6 +32,7 @@ app.controller("ctrl", function($scope, $http) {
 			};
 			$http.post('/rest/authorities', authority).then(resp => {
 				$scope.db.authorities.push(resp.data);
+				alert("Thêm quyền thành công")
 			});
 		}
 	}

@@ -33,6 +33,11 @@
 										<td>
 											<h5>{{item.price | number:2}}</h5>
 										</td>
+										<td>
+											<div class="shop-details">
+												<div class="productname">{{item.cuahang.tencuahang}}</div>
+											</div>
+										</td>
 										<td><input ng-change="cart.saveToLocalStorage()"
 											ng-model="item.qty" type="number" min="1" style="width: 70px"></td>
 										<td class="red">{{item.qty*item.price | number : 2}}</td>
