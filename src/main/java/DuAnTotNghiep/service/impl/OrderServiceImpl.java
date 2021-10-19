@@ -12,8 +12,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import DuAnTotNghiep.dao.OrderDao;
 import DuAnTotNghiep.dao.OrderDetailDao;
+import DuAnTotNghiep.dao.ProductDao;
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
+import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.service.OrderService;
 
 @Service
@@ -29,8 +31,10 @@ public class OrderServiceImpl implements OrderService{
 		odao.save(order);
 		
 		TypeReference<List<Orderdetail>> type = new TypeReference<List<Orderdetail>>() {};
-		List<Orderdetail> details = mapper.convertValue(orderData.get("orderDetails"), type)
-				.stream().peek(d -> d.setOrder(order)).collect(Collectors.toList());
+		List<Orderdetail> details = mapper
+				.convertValue(orderData.get("orderDetails"), type).stream()
+				.peek(d -> d.setOrder(order))
+				.collect(Collectors.toList());
 		ddao.saveAll(details);
 		
 		return order;

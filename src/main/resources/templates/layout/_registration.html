@@ -13,42 +13,48 @@
 								<div class="icon-food"></div>
 							</div>
 							<h1 class="title">Young Creative</h1>
-							<div class="slogan">The world of technology, where you can
-								shop freely</div>
+							<div class="slogan">Thế giới công nghệ, nơi bạn có thể mua sắm tự do</div>
 						</div>
-
 					</div>
 					<div class="signup-form ">
 						<div class="wrapper-2">
-							<div class="form-title">Sign up today!</div>
+							<div class="form-title">Đăng ký ngay !!!</div>
 							<div class="form">
 								<form>
 									<p class="content-item">
-										<label>full name <input type="text"
-											placeholder="Please enter username !" required>
-										</label>
-									</p>
-
-									<p class="content-item">
-										<label>email address <input type="text"
-											placeholder="lorem@loremipsum.com" name="email" required>
-										</label>
-									</p>
-
-									<p class="content-item">
-										<label>password <input type="password"
-											placeholder="*****" name="psw" required>
+										<label>Tài Khoản: <input type="text"
+											ng-model="accounts.username"
+											placeholder="Nhập tên tài khoản !!!" required>
 										</label>
 									</p>
 									<p class="content-item">
-										<label>Re-enter the password <input type="password"
-											placeholder="*****" name="psw" required>
+										<label>Mật khẩu: <input type="password"
+											ng-model="accounts.password" placeholder="Nhập mật khẩu !!!"
+											name="psw" required>
 										</label>
 									</p>
-
-
-									<button type="submit" class="signup">Sign up</button>
-									<a href="#" class="login">login</a>
+									<p class="content-item">
+										<label>Họ và tên: <input type="text" ng-model="accounts.fullname" 
+										placeholder="Nhập họ và tên !!!"
+											name="psw" required>
+										</label>
+									</p>
+									<p class="content-item">
+										<label>Email: <input type="text"
+											ng-model="accounts.email"
+											placeholder="shopvip@youngcreative.com" name="email" required>
+										</label>
+									</p>
+									<p class="content-item">
+										<label>Hình ảnh: <input type="file" id="photo"
+											onchange="angular.element(this).scope().accounts.imageChanged(this.files)">
+										</label>
+									</p>
+									<hr>
+									<div class="panel-footer text-right">
+										<button ng-click="accounts.dangky()">Đăng
+											ký</button>
+									</div>
 								</form>
 							</div>
 						</div>

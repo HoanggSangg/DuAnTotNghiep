@@ -87,7 +87,7 @@ p {
 
 .signup-wrapper .signup-form .form .content-item {
 	text-transform: uppercase;
-	color: #A19F9C;
+	color: black;
 	font-size: 0.7em;
 	letter-spacing: 1px;
 	margin-top: 35px;
@@ -98,11 +98,8 @@ p {
 	{
 	border: none;
 	border-bottom: 1px solid #e4e4e4;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	display: block;
-	text-align: center;
-	width: 100%;
+	width: 130%;
 }
 
 .signup-wrapper .signup-form .signup {
@@ -176,7 +173,9 @@ input::placeholder {
 		padding-top: 160px;
 	}
 	.signup-wrapper .company-details .slogan {
-		position: absolute; width : 74%; margin-left : 50px; margin-top : -100px;
+		position: absolute;
+		width: 74%;
+		padding: 5px;
 		color: #fff;
 		font-size: 1.2em;
 		text-align: center;

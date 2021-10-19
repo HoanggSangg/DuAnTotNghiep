@@ -11,19 +11,19 @@ import DuAnTotNghiep.entity.Product;
 
 public interface ProductDao extends JpaRepository<Product, Integer>{
 
-	@Query("SELECT p FROM Product p WHERE p.available=true")
+	@Query("SELECT p FROM Product p WHERE p.available=true and p.soluong>0")
 	Page<Product> findAvailable(Pageable pa);
 	
-	@Query("SELECT p FROM Product p WHERE p.catesmall.category.id=?1 and p.available=true")
+	@Query("SELECT p FROM Product p WHERE p.catesmall.category.id=?1 and p.available=true and p.soluong>0")
 	List<Product> findByCategoryId(String cid);
 
-	@Query("SELECT p FROM Product p WHERE p.catesmall.name=?1 and p.available=true")
+	@Query("SELECT p FROM Product p WHERE p.catesmall.name=?1 and p.available=true and p.soluong>0")
 	List<Product> findByCateName(String name);
 
-	@Query("SELECT p FROM Product p WHERE p.catesmall.name=?1 and p.catesmall.category.id=?2 and p.available=true")
+	@Query("SELECT p FROM Product p WHERE p.catesmall.name=?1 and p.catesmall.category.id=?2 and p.available=true and p.soluong>0")
 	List<Product> findByCateNameAndCateId(String name, String cateid);
 	
-	@Query("SELECT p FROM Product p WHERE p.name LIKE ?1")
+	@Query("SELECT p FROM Product p WHERE p.name LIKE ?1 and p.available=true and p.soluong>0")
 	List<Product> findByName(String name);
 	
 	List<Product> findByPriceBetween(double minPrice, double maxPrice);
