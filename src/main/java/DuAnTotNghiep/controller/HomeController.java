@@ -62,6 +62,6 @@ public class HomeController {
 	}
 	@RequestMapping("/test")
 	public String test() {
-		return "/manageeachstore";
+		return "layout/huongdan";
 	}
 }
