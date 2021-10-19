@@ -1,10 +1,14 @@
 app.controller("account-ctrl", function($scope, $http) {
 	$scope.items = [];
+	$scope.acc = [];
 	$scope.form = {};
 
 	$scope.initialize = function() {
-		$http.get("/rest/accounts/t").then(resp => {
+		$http.get("/rest/accounts/load").then(resp => {
 			$scope.items = resp.data;
+		})
+		$http.get("/rest/accounts/user").then(resp => {
+			$scope.acc = resp.data;
 		})
 	}
 	$scope.reset = function() {
@@ -21,6 +25,7 @@ app.controller("account-ctrl", function($scope, $http) {
 		$http.post(`/rest/accounts`, item).then(resp => {
 			$scope.items.push(resp.data);
 			$scope.reset();
+			$scope.initialize();
 			alert("Thêm mới thành công");
 		}).catch(error => {
 			alert("Lỗi thêm mới tài khoản");
@@ -32,6 +37,7 @@ app.controller("account-ctrl", function($scope, $http) {
 		$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
 			var index = $scope.items.findIndex(p => p.id == item.id);
 			$scope.items[index] = item;
+			$scope.initialize();
 			alert("Cập nhật thành công");
 		}).catch(error => {
 			alert("Lỗi cập nhật tài khoản");
@@ -43,11 +49,44 @@ app.controller("account-ctrl", function($scope, $http) {
 			var index = $scope.items.findIndex(p => p.id == item.username);
 			$scope.items.splice(index, 1);
 			$scope.reset();
+			$scope.initialize();
 			alert("Xóa thành công");
 		}).catch(error => {
 			alert("Lỗi xóa tài khoản");
 			console.log("Error", error);
 		});
+	}
+	$scope.stttrue = function(item) {
+		if ($scope.acc.user == item.username) {
+			alert("Không được chuyển trạng thái tài khoản đang đăng nhập")
+		} else {
+			item.trangthai = true;
+			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
+				var index = $scope.items.findIndex(p => p.id == item.id);
+				$scope.items[index] = item;
+				$scope.initialize();
+				alert("Chuyển trạng thái thành công");
+			}).catch(error => {
+				alert("Lỗi cập nhật tài khoản");
+				console.log("Error", error);
+			});
+		}
+	}
+	$scope.sttfalse = function(item) {
+		if ($scope.acc.user == item.username) {
+			alert("Không được chuyển trạng thái tài khoản đang đăng nhập")
+		} else {
+			item.trangthai = false;
+			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
+				var index = $scope.items.findIndex(p => p.id == item.id);
+				$scope.items[index] = item;
+				$scope.initialize();
+				alert("Chuyển trạng thái thành công");
+			}).catch(error => {
+				alert("Lỗi cập nhật tài khoản");
+				console.log("Error", error);
+			});
+		}
 	}
 	$scope.imageChanged = function(files) {
 		var data = new FormData();
@@ -92,12 +131,11 @@ app.controller("account-ctrl", function($scope, $http) {
 		}
 	}
 	$scope.initialize();
-	
+
 	$scope.timkiem = function() {
 		var item = angular.copy($scope.form);
 		$http.get(`/rest/accounts/${item.username}`).then(resp => {
 			$scope.form = angular.copy(resp.data);
-			alert($scope.form.fullname)
 			$(".nav-tabs a:eq(0)").tab('show')
 		})
 	}

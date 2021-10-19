@@ -16,6 +16,8 @@
 						<th class="hidden-xs">STT</th>
 						<th>Họ tên</th>
 						<th>Email</th>
+						<th>Email</th>
+						<th>Chuyển trạng thái</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -24,12 +26,19 @@
 						<td>{{item.fullname}}</td>
 						<td>{{item.email}}</td>
 						<td>{{item.photo}}</td>
+						<td>{{item.trangthai?'Đang mở':'Đã khóa'}}</td>
 						<td>
 							<div class="btn-group btn-group-xs">
 								<button ng-click="edit(item)"
 									class="btn btn-warning glyphicon glyphicon-edit"></button>
 								<button ng-click="delete(item)"
 									class="btn btn-danger  	glyphicon glyphicon-trash"></button>
+							</div>
+						</td>
+						<td th:unless="${#request.isUser(${item.username})}">
+							<div class="btn-group btn-group-xs">
+								<button ng-click="stttrue(item)" class="btn btn-warning">True</button>
+								<button ng-click="sttfalse(item)" class="btn btn-danger">False</button>
 							</div>
 						</td>
 					</tr>

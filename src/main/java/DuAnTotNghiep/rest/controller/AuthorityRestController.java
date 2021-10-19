@@ -18,6 +18,7 @@ import DuAnTotNghiep.dao.AccountDao;
 import DuAnTotNghiep.dao.AuthorityDao;
 import DuAnTotNghiep.dao.RoleDao;
 import DuAnTotNghiep.entity.Authority;
+import DuAnTotNghiep.service.AuthorityService;
 
 @CrossOrigin("*")
 @RestController
@@ -27,6 +28,7 @@ public class AuthorityRestController {
 	@Autowired RoleDao roleDao;
 	@Autowired AccountDao accountDao;
 	@Autowired HttpServletRequest request;
+	@Autowired AuthorityService authorityService;
 	
 	@RequestMapping("/rest/authorities")
 	public Map<String, Object> getAuthorities(){
@@ -41,8 +43,8 @@ public class AuthorityRestController {
 	public void delete(@PathVariable("id") Integer id) {
 		authrityDao.deleteById(id);
 	}
-	@PostMapping("/rest/authorities")
-	public Authority create(@RequestBody Authority authority) {
-		return authrityDao.save(authority);
+	@PostMapping("/rest/authority")
+	public Authority save(@RequestBody Authority authority) {
+		return authorityService.create(authority);
 	}
 }

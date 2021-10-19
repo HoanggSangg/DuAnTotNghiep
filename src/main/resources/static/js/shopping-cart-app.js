@@ -71,6 +71,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		},
 		purchase() {
 			var order = angular.copy(this);
+			order.trangthai = "Đã đặt hàng"
 			$http.post("/rest/orders", order).then(resp => {
 				alert("Đặt hàng thành công");
 				$scope.cart.clear();
@@ -107,9 +108,18 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		},
 		dangky() {
 			var accounts = angular.copy(this);
+			accounts.trangthai = true;
 			$http.post(`/rest/accounts`, accounts).then(resp => {
-				alert("Thêm mới thành công");
-				location.href = '/security/login';
+				var authority = {
+					account: { username: accounts.username },
+					role: { id: "KH" }
+				};
+				$http.post(`/rest/authority`, authority).then(resp => {
+					alert("Đăng ký thành công")
+					location.href = ('/security/login');
+				}).catch(error => {
+					console.log("Error", error);
+				})
 			}).catch(error => {
 				alert("Lỗi thêm mới tài khoản");
 				console.log("Error", error);
@@ -150,19 +160,19 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		}
 	}
 	$scope.accounts.loadtk();
-	
+
 	//---------------------------Code JS Products--------------------------
 	$scope.products = {
 		load() {
-			
+
 		}
 	}
 	$scope.products.load();
-	
+
 	//-------------------------Code JS Comments---------------------------
 	$scope.comments = {
 		load() {
-			
+
 		}
 	}
 	$scope.comments.load();

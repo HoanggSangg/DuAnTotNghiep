@@ -1,12 +1,18 @@
 package DuAnTotNghiep.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import DuAnTotNghiep.service.AccountService;
+
 @Controller
 public class SecurityController {
 
+	@Autowired AccountService accountService;
+	
 	@RequestMapping("/security/login")
 	public String loginForm(Model m) {
 		m.addAttribute("message", "Vui lòng đăng nhập");

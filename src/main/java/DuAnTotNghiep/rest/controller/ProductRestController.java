@@ -49,11 +49,6 @@ public class ProductRestController {
 		productService.delete(id);
 	}
 
-//	@GetMapping("/timkiemPrice/{price}")
-//	public List<Product> getPrice(@PathVariable("price") Double price) {
-//		return productService.findByPrice(price);
-//	}
-
 	@GetMapping("/timkiemName/{name}")
 	public List<Product> getName(@PathVariable("name") String name) {
 		return productService.findByName("%" + name + "%");

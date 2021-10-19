@@ -30,7 +30,7 @@ app.controller("ctrl", function($scope, $http) {
 				account: { username: username },
 				role: { id: role }
 			};
-			$http.post('/rest/authorities', authority).then(resp => {
+			$http.post('/rest/authority', authority).then(resp => {
 				$scope.db.authorities.push(resp.data);
 				alert("Thêm quyền thành công")
 			});

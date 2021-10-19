@@ -40,11 +40,6 @@ public class ProductServiceImpl implements ProductService{
 	public void delete(Integer id) {
 		pdao.deleteById(id);
 	}
-//
-//	@Override
-//	public List<Product> findByPrice(Double price) {
-//		return pdao.findByPrice(price);
-//	}
 
 	@Override
 	public List<Product> findByName(String name) {

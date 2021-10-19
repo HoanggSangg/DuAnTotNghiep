@@ -41,6 +41,7 @@ app.controller("product-ctrl", function($scope, $http) {
 			resp.data.createDate = new Date(resp.data.createDate)
 			$scope.items.push(resp.data);
 			$scope.reset();
+			$scope.initialize();
 			alert("Thêm mới thành công");
 		}).catch(error => {
 			alert("Lỗi thêm mới sản phẩm");
@@ -52,6 +53,7 @@ app.controller("product-ctrl", function($scope, $http) {
 		$http.put(`/rest/products/${item.id}`, item).then(resp => {
 			var index = $scope.items.findIndex(p => p.id == item.id);
 			$scope.items[index] = item;
+			$scope.initialize();
 			alert("Cập nhật thành công");
 		}).catch(error => {
 			alert("Lỗi cập nhật sản phẩm");
@@ -63,6 +65,7 @@ app.controller("product-ctrl", function($scope, $http) {
 			var index = $scope.items.findIndex(p => p.id == item.id);
 			$scope.items.splice(index, 1);
 			$scope.reset();
+			$scope.initialize();
 			alert("Xóa thành công");
 		}).catch(error => {
 			alert("Lỗi xóa sản phẩm");

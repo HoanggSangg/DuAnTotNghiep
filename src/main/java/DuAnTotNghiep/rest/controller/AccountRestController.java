@@ -1,9 +1,13 @@
 package DuAnTotNghiep.rest.controller;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import DuAnTotNghiep.entity.Account;
@@ -24,17 +27,17 @@ import DuAnTotNghiep.service.AccountService;
 public class AccountRestController {
 
 	@Autowired AccountService accountService;
+	@Autowired HttpServletRequest request;
 	
-//	@GetMapping
-//	public List<Account> getAccount(@RequestParam("admin") Optional<Boolean> admin){
-//		if(admin.orElse(false)) {
-//			return accountService.getAdministrators();
-//		}
-//		return accountService.findAll();
-//	}
-	@GetMapping("/t")
+	@GetMapping("/load")
 	public List<Account> getAll(){
 		return accountService.findAll();
+	}
+	@GetMapping("/user")
+	public Map<String, Object> getAuthorities(){
+		Map<String, Object> data = new HashMap<>();
+		data.put("user", request.getRemoteUser());
+		return data;
 	}
 	@PostMapping
 	public Account create(@RequestBody Account account) {
