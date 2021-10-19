@@ -3,6 +3,8 @@ package DuAnTotNghiep;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	AccountService accountService;
 	@Autowired
 	BCryptPasswordEncoder pe;
+	@Autowired HttpSession session;
 
 	@Bean
 	public BCryptPasswordEncoder getPasswordEncoder() {
@@ -42,6 +45,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				String password = pe.encode(user.getPassword());
 				String[] roles = user.getAuthorities().stream().map(er -> er.getRole().getId())
 						.collect(Collectors.toList()).toArray(new String[0]);
+				if(user.getTrangthai() == false) {
+					session.setAttribute("error", user.getUsername());
+					return User.withUsername(username).password(password).roles(roles).accountLocked(true).build();
+				}
 				return User.withUsername(username).password(password).roles(roles).build();
 			} catch (NoSuchElementException e) {
 				throw new UsernameNotFoundException(username + "not found");

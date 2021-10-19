@@ -1,5 +1,7 @@
 package DuAnTotNghiep.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import DuAnTotNghiep.service.AccountService;
 public class SecurityController {
 
 	@Autowired AccountService accountService;
+	@Autowired HttpSession session;
 	
 	@RequestMapping("/security/login")
 	public String loginForm(Model m) {
@@ -25,7 +28,12 @@ public class SecurityController {
 	}
 	@RequestMapping("/error/login")
 	public String loginError(Model m) {
-		m.addAttribute("message", "Sai thông tin đăng nhập");
+		String user = session.getAttribute("error").toString();
+		if(!user.isEmpty()) {
+			m.addAttribute("message","Tài khoản đã bị khóa");
+		}else {
+			m.addAttribute("message", "Sai thông tin đăng nhập");
+		}
 		return "security/login";
 	}
 	@RequestMapping("/unauthoried")

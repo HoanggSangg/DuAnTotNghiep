@@ -3,37 +3,59 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
 	<main>
-		<div class="panel panel-primary">
-			<div class="panel-heading">Registration</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class="form-group col-sm-6">
-						<div>Username</div>
-						<input ng-model="accounts.username" class="form-control">
+		<div class="content-wrapper">
+			<div class="content">
+				<div class="signup-wrapper shadow-box">
+					<div class="company-details ">
+						<div class="shadow"></div>
+						<div class="wrapper-1">
+							<div class="logo">
+								<div class="icon-food"></div>
+							</div>
+							<h1 class="title">Young Creative</h1>
+							<div class="slogan">The world of technology, where you can
+								shop freely</div>
+						</div>
+
 					</div>
-					<div class="form-group col-sm-6">
-						<div>Password</div>
-						<input type="password" ng-model="accounts.password"
-							class="form-control">
+					<div class="signup-form ">
+						<div class="wrapper-2">
+							<div class="form-title">Sign up today!</div>
+							<div class="form">
+								<form>
+									<p class="content-item">
+										<label>full name <input type="text"
+											placeholder="Please enter username !" required>
+										</label>
+									</p>
+
+									<p class="content-item">
+										<label>email address <input type="text"
+											placeholder="lorem@loremipsum.com" name="email" required>
+										</label>
+									</p>
+
+									<p class="content-item">
+										<label>password <input type="password"
+											placeholder="*****" name="psw" required>
+										</label>
+									</p>
+									<p class="content-item">
+										<label>Re-enter the password <input type="password"
+											placeholder="*****" name="psw" required>
+										</label>
+									</p>
+
+
+									<button type="submit" class="signup">Sign up</button>
+									<a href="#" class="login">login</a>
+								</form>
+							</div>
+						</div>
+
 					</div>
-					<div class="form-group col-sm-6">
-						<div>Fullname</div>
-						<input ng-model="accounts.fullname" class="form-control">
-					</div>
-					<div class="form-group col-sm-6">
-						<div>Email</div>
-						<input ng-model="accounts.email" class="form-control">
-					</div>
+
 				</div>
-				<div class="row">
-                    <div class="form-group col-sm-6">
-                        <div>Photo</div>
-                        <input type="file" id="photo" class="form-control" onchange="angular.element(this).scope().accounts.imageChanged(this.files)">
-                    </div>
-                </div>
-			</div>
-			<div class="panel-footer text-right">
-				<button ng-click="accounts.dangky()" class="btn btn-success">Đăng ký</button>
 			</div>
 		</div>
 	</main>

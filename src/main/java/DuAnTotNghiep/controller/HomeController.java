@@ -15,7 +15,6 @@ public class HomeController {
 	
 	@RequestMapping("/security/dangky")
 	public String dangky() {
-		
 		return "layout/_registration";
 	}
 	@RequestMapping("/home/index")
