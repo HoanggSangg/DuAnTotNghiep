@@ -12,7 +12,7 @@ public class HomeController {
 	
 	@Autowired
 	HttpServletRequest request;
-	//123
+	//1234
 	
 	@RequestMapping("/security/dangky")
 	public String dangky() {
