@@ -193,10 +193,26 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	$scope.products.load();
 
 	//-------------------------Code JS Comments---------------------------
-	$scope.comments = {
-		load() {
+	$scope.cmtproduct = {
+		post(id) {
+			var cmtproduct = {
+				account: { username: $("#username").text() },
+				product: { id: id },
+				date: new Date(),
+				comment: $scope.cmtproduct.comment
+			};
+			if (cmtproduct.account.username == "") {
+				location.href = "/security/login";
+			} else {
+				$http.post(`/rest/cmtproduct`, cmtproduct).then(resp => {
+					$http.get(`/rest/products/${id}`).then(resp => {
+						location.href = "/product/detail/" + id + "?cid=" + resp.data.catesmall.category.id;
+					})
+				}).catch(error => {
+					console.log("Error", error);
+				})
+			}
 
 		}
 	}
-	$scope.comments.load();
 })

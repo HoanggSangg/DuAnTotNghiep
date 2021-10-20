@@ -47,10 +47,9 @@
 									</div>
 									<hr class="border">
 									<div class="wided">
-										<div class="qty">
-											Qty &nbsp;&nbsp;: <select>
-												<option>1</option>
-											</select>
+										<div class="price">
+											Qty : <span style="font-size: 18px; color: red" th:utext="${p.soluong}">
+											</span>
 										</div>
 										<div class="button_group">
 											<button class="button"
@@ -112,7 +111,8 @@
 										<div class="thum-image">
 											<ul id="gallery_01" class="prev-thum">
 												<th:block th:each="ima : ${images}">
-													<li><img th:src="@{|../../images/${ima.nameimage}|}" alt=""></li>
+													<li><img th:src="@{|../../images/${ima.nameimage}|}"
+														alt=""></li>
 												</th:block>
 											</ul>
 											<a class="control-left" id="thum-prev"
