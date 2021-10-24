@@ -1,0 +1,75 @@
+<h3 class="text-center">Account Management</h3>
+<div class="panel panel-default" id="a">
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-3 text-center">
+				<label for="image"> <img
+					ng-src="{{'/images/' + form.image}}" style="width: 195px; height: 195px">
+				</label>
+			</div>
+			<div class="col-sm-9">
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Name</div>
+						<input ng-model="form.name" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Price</div>
+						<input ng-model="form.price" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Quantity</div>
+						<input ng-model="form.soluong" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Trademark</div>
+						<select ng-model="form.catesmall.id" class="form-control">
+                            <option ng-repeat="c in catesmall" ng-value="c.id">{{c.name}}</option>
+                        </select>
+					</div>
+                    <div class="form-group col-sm-6">
+                        <div>Store</div>
+                        <select ng-model="form.cuahang.id" class="form-control">
+                            <option ng-repeat="s in store" ng-value="s.id">{{s.tencuahang}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+						<div>Status?</div>
+						<div class="form-control">
+							<label class="radio-inline"> <input
+								ng-model="form.available" ng-value="true" name="available"
+								type="radio">Yes
+							</label> <label class="radio-inline"> <input
+								ng-model="form.available" ng-value="false" name="available"
+								type="radio">No
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Photo</div>
+						<input type="file" class="form-control" id="image"
+							onchange="angular.element(this).scope().imageChanged(this.files)">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer text-center">
+		<button ng-click="create()" class="btn btn-primary">
+			<b class="glyphicon glyphicon-plus"></b> Create
+		</button>
+		<button ng-click="update()" class="btn btn-success">
+			<b class="glyphicon glyphicon-save"></b> Update
+		</button>
+		<button ng-click="delete(form)" class="btn btn-danger">
+			<b class="glyphicon glyphicon-trash"></b> Delete
+		</button>
+		<button ng-click="reset()" class="btn btn-info">
+			<b class="glyphicon glyphicon-refresh"></b> Reset
+		</button>
+	</div>
+</div>

@@ -76,10 +76,13 @@
 										</ul>
 									</div></li>
 								<li><a href="#">Quà tặng</a></li>
-								<li><a href="#">Khung giờ săn sale</a></li>
 								<li
 									th:if="${#request.isUserInRole('AD')}">
 									<a th:href="@{/admin/home/index}">Quản Lý</a>
+								</li>
+								<li
+									th:if="${#request.isUserInRole('CH')}">
+									<a th:href="@{/store/home/index}">Quản Lý CH</a>
 								</li>
 								<li th:if="${#request.remoteUser}" class="dropdown"><a href="#" class="dropdown-toggle"
 									id="username" data-toggle="dropdown"

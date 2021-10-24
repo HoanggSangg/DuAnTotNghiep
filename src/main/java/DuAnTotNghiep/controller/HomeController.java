@@ -12,7 +12,6 @@ public class HomeController {
 	
 	@Autowired
 	HttpServletRequest request;
-	//1234
 	
 	@RequestMapping("/security/dangky")
 	public String dangky() {
@@ -56,12 +55,12 @@ public class HomeController {
 		m.addAttribute("name", name);
 		return "redirect:/admin/indexAdmin.html";
 	}
+	@RequestMapping("/store/home/index")
+	public String store(Model m) {
+		return "redirect:/store/indexStore.html";
+	}
 	@RequestMapping("/account/individual")
 	public String individual() {
 		return "/layout/individual";
-	}
-	@RequestMapping("/test")
-	public String test() {
-		return "layout/huongdan";
 	}
 }

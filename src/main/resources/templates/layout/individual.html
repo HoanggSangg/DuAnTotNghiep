@@ -15,15 +15,13 @@
 						<div id="username">[[${#request.remoteUser}]]</div>
 					</div>
 					<div class="inputBox w50">
-						<input ng-model="accounts.fullname"> <span>Fullname</span>
+						<input ng-model="accounts.fullname" readonly="readonly">
 					</div>
 					<div class="inputBox w50">
-						<input ng-model="accounts.email"> <span>
-							Email</span>
+						<input ng-model="accounts.email" readonly="readonly">
 					</div>
 					<div class="inputBox w50">
-						<input ng-model="accounts.trangthai?'Mở':'Khóa'"> <span>
-							Status ???</span>
+						<input ng-model="accounts.trangthai?'Mở':'Khóa'">
 					</div>
 					<div class="inputBox w100">
 						<input onclick="location.href='/account/edit'" type="submit"

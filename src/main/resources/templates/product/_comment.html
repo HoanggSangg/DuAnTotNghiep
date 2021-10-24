@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body id="comment" th:fragment="product_comment">
-	<div class="container">
+<body th:fragment="product_comment">
+	<div id="comment" class="container">
 		<div class="row d-flex justify-content-center" th:object = "${cmtproduct}">
 			<div style="width: 100%">
 				<div
@@ -48,7 +48,6 @@
 								class="fa fa-check-circle-o check-icon"></i>
 						</div>
 					</div>
-					
 					<div class="detailBox">   
                         <div class="actionBox">
                             <ul class="commentList">
@@ -83,10 +82,9 @@
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Your comments" />
                                 </div><br>
-                                <button type="button" class="btn btn-primary">Post Comment</button>
+                                <button type="button">Post Comment</button>
                             </form>
                         </div>  
-                        
                     </div>
 				</div>
 			</div>
