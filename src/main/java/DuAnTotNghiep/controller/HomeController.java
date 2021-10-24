@@ -63,4 +63,8 @@ public class HomeController {
 	public String individual() {
 		return "/layout/individual";
 	}
+	@RequestMapping("/test")
+	public String test() {
+		return "/layout/manageeachstore";
+	}
 }
