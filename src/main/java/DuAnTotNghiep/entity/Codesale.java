@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -23,31 +21,25 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Data
 @Entity 
-@Table(name = "Orders")
-public class Order  implements Serializable{
+@Table(name = "Codesale")
+public class Codesale implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String address;
+	String code;
+	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Createdate")
-	Date createDate = new Date();
+	@Column(name = "starday")
+	Date starday = new Date();
 	
-	@ManyToOne
-	@JoinColumn(name = "Username")
-	Account account;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "endday")
+	Date endday = new Date();
 	
-	String nguoinhan;
-	String sdt;
-	String diachinn;
-	String trangthai;
-	String tongtien;
+	Integer percents;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "order")
-	List<Orderdetail> orderDetails;
-	
-	@ManyToOne
-	@JoinColumn(name = "Codeid")
-	Codesale codesale;
+	@OneToMany(mappedBy = "codesale")
+	List<Order> order;
 }

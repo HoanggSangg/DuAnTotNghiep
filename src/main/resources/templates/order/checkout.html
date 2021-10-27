@@ -62,14 +62,16 @@
 														</label> <input type="text" class="input namefild"
 															ng-model="order.address">
 													</div>
+													<div class="form-row">
+														<div class="form-control">{{cart.amount | number}} VNĐ</div>
+													</div>
 													<div class="text-right">
 														<button ng-click="order.purchase()">Buying</button>
 													</div>
 												</div>
 											</div>
 										</form>
-									</div>
-								</li>
+									</div></li>
 							</ol>
 						</div>
 					</div>

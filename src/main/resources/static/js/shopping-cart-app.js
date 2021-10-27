@@ -61,8 +61,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		loadFromLocalStorage() {
 			var json = localStorage.getItem("cart");
 			this.items = json ? JSON.parse(json) : [];
-			/*var kytu = Math.random().toString(36).substr(2, 6);
-			alert(kytu)*/
 		}
 	}
 	$scope.cart.loadFromLocalStorage();
@@ -70,8 +68,12 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	//----------------------------------Code JS Order-----------------------------
 	$scope.order = {
 		createDate: new Date(),
-		address: "",
 		account: { username: $("#username").text() },
+		tongtien() {
+			return $scope.cart.items
+				.map(item => item.qty * item.price)
+				.reduce((total, qty) => total += qty, 0)
+		},
 		get orderDetails() {
 			return $scope.cart.items.map(item => {
 				return {
@@ -84,7 +86,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		loadcart() {
 			return $scope.cart.items.map(item => {
 				$http.put(`/rest/products/${item.id}`, item).then(resp => {
-
 				}).catch(error => {
 					alert("Lỗi cập nhật sản phẩm");
 					console.log("Error", error);
@@ -94,6 +95,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		purchase() {
 			var order = angular.copy(this);
 			order.trangthai = "Đã đặt hàng"
+			order.tongtien = this.tongtien();
 			$http.post("/rest/orders", order).then(resp => {
 				alert("Đặt hàng thành công");
 				$scope.order.loadcart();
@@ -148,26 +150,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				console.log("Error", error);
 			});
 		},
-		doimk() {
-			var accounts = angular.copy(this);
-			var username = $("#username").text();
-			$http.get(`/rest/accounts/${username}`).then(resp => {
-				accounts = resp.data;
-				if (accounts.password == this.password) {
-					if (this.newPass == this.confirm) {
-						accounts.password = this.newPass;
-						$http.put(`/rest/accounts/${username}`, accounts).then(resp => {
-							alert("Mật khẩu mới là: " + accounts.password)
-						})
-						location.href = '/security/logoff';
-					} else {
-						alert("Nhập lại mật khẩu không đúng")
-					}
-				} else {
-					alert("Sai mật khẩu hoặc tài khoản")
-				}
-			})
-		},
 		quenmk() {
 			var accounts = angular.copy(this);
 			$http.get(`/rest/accounts/${accounts.username}`).then(resp => {
@@ -183,11 +165,67 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		}
 	}
 	$scope.accounts.loadtk();
+	$scope.doimk = function() {
+		var item = angular.copy($scope.form);
+		var username = $("#username").text();
+		$http.get(`/rest/accounts/${username}`).then(resp => {
+			item = resp.data;
+			if (item.password == $scope.form.password) {
+				if ($scope.form.newPass == $scope.form.confirm) {
+					item.password = $scope.form.newPass;
+					$http.put(`/rest/accounts/${username}`, item).then(resp => {
+						alert("Mật khẩu mới là: " + item.password)
+						location.href = ('/security/logoff');
+					})
+				} else {
+					alert("Nhập lại mật khẩu không đúng")
+				}
+			} else {
+				alert("Sai mật khẩu hoặc tài khoản")
+			}
+			$scope.form = {};
+		})
+	}
 
-	//---------------------------Code JS Products--------------------------
+	//---------------------------Code JS Likes--------------------------
+	$scope.likes = [];
+	$scope.index_of = function(username, id) {
+		return $scope.likes
+			.findIndex(a => a.account.username == username && a.product.id == id);
+	}
 	$scope.products = {
 		load() {
-
+			$http.get("/rest/likes").then(resp => {
+				$scope.likes = resp.data;
+			})
+		},
+		loadcart() {
+			return $scope.likes.map(item => {
+				var username = $("#username").text();
+				index = $scope.index_of(username, item.product.id);
+				alert(index)
+			});
+		},
+		like(id) {
+			var username = $("#username").text();
+			var likes = {
+				account: { username: username },
+				product: { id: id },
+				date: new Date(),
+				likes: "1",
+			};
+			$http.post('/rest/likes', likes).then(resp => {
+				alert("Thích thành công")
+			});
+		},
+		dislike(id) {
+			var username = $("#username").text();
+			index = $scope.index_of(username, id);
+			var id = $scope.likes[index].id;
+			$http.delete(`/rest/likes/${id}`).then(resp => {
+				$scope.likes.splice(index, 1);
+				alert("Xóa thích thành công")
+			})
 		}
 	}
 	$scope.products.load();
