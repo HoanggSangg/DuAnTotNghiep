@@ -33,6 +33,8 @@ public interface ProductService {
 
 	List<Product> findByPriceBetween(double minPrice, double maxPrice);
 
+	List<Product> findByStore(String store);
+
 
 
 }

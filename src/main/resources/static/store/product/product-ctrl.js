@@ -6,10 +6,11 @@ app.controller("product-ctrl", function($scope, $http) {
 	$scope.form = {};
 
 	$scope.initialize = function() {
-		$http.get("/rest/products").then(resp => {
-			$scope.items = resp.data;
-			$scope.items.forEach(item => {
-				item.createDate = new Date(item.createDate)
+		$http.get("/rest/accounts/user").then(resp => {
+			var user = "4";
+			alert(user)
+			$http.get("/rest/products/find/${user}").then(resp => {
+				alert(resp.data.id)
 			})
 		})
 		$http.get("/rest/categories").then(resp => {

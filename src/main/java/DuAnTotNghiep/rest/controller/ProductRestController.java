@@ -28,7 +28,11 @@ public class ProductRestController {
 	public Product getOne(@PathVariable("id") Integer id) {
 		return productService.findById(id);
 	}
-
+	@GetMapping("/find/{store}")
+	public List<Product> getStore(@PathVariable("store") String store) {
+		return productService.findByStore(store);
+	}
+	
 	@GetMapping()
 	public List<Product> getAll() {
 		return productService.findAll();

@@ -71,4 +71,10 @@ public class ProductServiceImpl implements ProductService{
 		return pdao.findByPriceBetween(minPrice, maxPrice);
 	}
 
+	@Override
+	public List<Product> findByStore(String store) {
+		
+		return pdao.findByStore(store);
+	}
+
 }

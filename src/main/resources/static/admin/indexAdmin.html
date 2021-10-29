@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Giao diện Administration</title>
+<link href="../../css/bootstrap.css" rel="stylesheet">
+<link href="../../css/sequence-looptheme.css" rel="stylesheet" />
+<link href="../../css/style.css" rel="stylesheet">
+<link href="../../css/them.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -20,37 +25,57 @@
 	<header class="row">
 		<h2 class="alert alert-success">Quản trị Trang web</h2>
 	</header>
-	<div class="row">
-		<nav class="navbar navbar-inverse" style="font-variant: small-caps;">
-			<div class="container-fluid">
-				<ul class="nav navbar-nav">
-					<li><a href="/home/index">Trang chủ</a></li>
-					<li><a href="#!product">QUẢN LÝ SẢN PHẨM</a></li>
-					<li><a href="#!account">QUẢN LÝ TÀI KHOẢN</a></li>
-					<li><a href="#!authorize">Ủy quyền</a></li>
-					<li><a href="#!store">Quản lý cửa hàng</a></li>
-					<li><a href="/security/logoff"
-						class="glyphicon glyphicon-log-out">ĐĂNG XUẤT</a></li>
-				</ul>
-			</div>
-		</nav>
-	</div>
-	<main>
-		<p class="ng-view" />
-	</main>
-	<footer>
-		<div class="panel panel-default" style="background-color: aqua">
-			<div class="panel-body text-center">
-				<ul>
-					<li class="contact-1">305E - Nguyễn Văn Linh - Ninh Kiều - Cần
-						Thơ</li>
-					<li class="contact-2">0828937654( Zalo)</li>
-					<li class="contact-4">hotro@ShopNDT.com</li>
-					<li class="contact-5"><a href="">www.ShopNDT.com</a></li>
-				</ul>
+	<div class="wrapper">
+		<div class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2 col-sm-2">
+						<div class="them_logo">
+							<a href="/home/index"><img src="../../images/logo1-test.png"
+								alt="FlatShop"></a>
+						</div>
+					</div>
+					<div class="col-md-10 col-sm-10">
+						<div class="header_bottom">
+							<div class="navbar-collapse collapse">
+								<ul class="nav navbar-nav1">
+									<li><a href="/home/index">Trang chủ</a></li>
+									<li><a href="#!product">QUẢN LÝ SẢN PHẨM</a></li>
+									<li><a href="#!account">QUẢN LÝ TÀI KHOẢN</a></li>
+									<li><a href="#!authorize">ỦY QUYỀN</a></li>
+									<li><a href="#!store">QUẢN LÝ CỬA HÀNG</a></li>
+									<li><a href="/security/logoff" class="glyphicon glyphicon-log-out">ĐĂNG XUẤT</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</footer>
+		<main>
+			<p class="ng-view" />
+		</main>
+		<div class="copyright-info">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<p>
+							Copyright © 2012. Designed by <a href="#">Michael Lee</a>. All
+							rights reseved
+						</p>
+					</div>
+					<div class="col-md-6">
+						<ul class="social-icon">
+							<li><a href="#" class="linkedin"></a></li>
+							<li><a href="#" class="google-plus"></a></li>
+							<li><a href="#" class="twitter"></a></li>
+							<li><a href="#" class="facebook"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script src="/admin/admin-app.js"></script>
 	<script src="/admin/authorize/authorize-ctrl.js"></script>
 	<script src="/admin/account/account-ctrl.js"></script>
