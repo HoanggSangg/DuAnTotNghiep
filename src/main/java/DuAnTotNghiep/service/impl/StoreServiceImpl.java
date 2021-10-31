@@ -43,4 +43,10 @@ public class StoreServiceImpl implements StoreService{
 		sdao.deleteById(id);
 	}
 
+	@Override
+	public List<Store> findByStore(String username) {
+		// TODO Auto-generated method stub
+		return sdao.findByStore(username);
+	}
+
 }

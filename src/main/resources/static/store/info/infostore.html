@@ -1,19 +1,25 @@
 <body>
-	<div class="container_fullwidth">
+	<main id="indivi">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="category leftbar">
-						<h3 class="title" style="color: red;">Thông tin cửa hàng</h3>
-						<ul>
-							<li><a href="#"> Tên cửa hàng : ABC </a></li>
-							<li><a href="#"> Sản phẩm kinh doanh : </a></li>
-							<li><a href="#"> Địa chỉ : </a></li>
-						</ul>
+			<div class="containerForm" ng-repeat="item in pager.items">
+				<div class="sen">
+					<img ng-src="{{'/images/' }}" width="150"
+						height="150" border="1"><br> <br>
+				</div>
+				<div class="formBox">
+					<div class="inputBox w50">
+						<div>${username}</div>
 					</div>
-
+					<div class="inputBox w50">
+						<input ng-model="item.tencuahang" readonly="readonly">
+					</div>
+					
+					<div class="inputBox w100">
+						<input onclick="" type="submit"
+							value="Change information">
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</main>
 </body>

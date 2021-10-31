@@ -32,6 +32,12 @@ public class StoreRestController {
 	public Store getOne(@PathVariable("id") Integer id) {
 		return storeService.findById(id);
 	}
+	
+	@GetMapping("/find/{username}")
+	public List<Store> getStore(@PathVariable("username") String username) {
+		return storeService.findByStore(username);
+	}
+	
 	@PostMapping
 	public Store create(@RequestBody Store store) {
 		return storeService.create(store);
