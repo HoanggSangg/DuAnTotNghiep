@@ -29,7 +29,7 @@ public interface ProductDao extends JpaRepository<Product, Integer>{
 	List<Product> findByPriceBetween(double minPrice, double maxPrice);
 	
 
-	@Query("SELECT p FROM Product p WHERE p.cuahang.id=?1 and p.available=true and p.soluong>0")
+	@Query("SELECT p FROM Product p WHERE p.cuahang.account.username=?1 and p.available=true and p.soluong>0")
 	List<Product> findByStore(String store);
 	
 }

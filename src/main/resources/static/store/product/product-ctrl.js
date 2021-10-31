@@ -7,10 +7,12 @@ app.controller("product-ctrl", function($scope, $http) {
 
 	$scope.initialize = function() {
 		$http.get("/rest/accounts/user").then(resp => {
-			var user = "4";
-			alert(user)
-			$http.get("/rest/products/find/${user}").then(resp => {
-				alert(resp.data.id)
+			var user = resp.data.user;
+			$http.get("/rest/products/find/" + user).then(resp => {
+				$scope.items = resp.data;
+				$scope.items.forEach(item => {
+					item.createDate = new Date(item.createDate)
+				})
 			})
 		})
 		$http.get("/rest/categories").then(resp => {
