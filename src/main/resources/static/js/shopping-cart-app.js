@@ -97,9 +97,9 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			order.trangthai = "Đã đặt hàng"
 			order.tongtien = this.tongtien();
 			$http.post("/rest/orders", order).then(resp => {
-				alert("Đặt hàng thành công");
 				$scope.order.loadcart();
 				$scope.cart.clear();
+				alert("Đặt hàng thành công mời bạn check email đăng ký")
 				location.href = "/order/detail/" + resp.data.id;
 			}).catch(error => {
 				alert("Đặt hàng lỗi")
@@ -151,20 +151,34 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			});
 		},
 		quenmk() {
-			var accounts = angular.copy(this);
-			$http.get(`/rest/accounts/${accounts.username}`).then(resp => {
-				accounts = resp.data;
-				//từ 100000-999999
-				var a = Math.floor(Math.random() * (1000000 - 100000)) + 100000;
-				accounts.password = a;
-				$http.put(`/rest/accounts/${accounts.username}`, accounts).then(resp => {
-					alert("Mật khẩu mới là: " + accounts.password)
-					location.href = "/security/login";
-				})
+			var code = Math.floor(((Math.random() * 899999) + 100000));
+			var codeqmk = {
+				code: code,
+				account: { username: $scope.username },
+				date: new Date()
+			}
+			$http.get(`/rest/accounts/` + $scope.username).then(resp => {
+				if (resp.data.email == $scope.email) {
+					$http.post(`/rest/codeqmk`, codeqmk).then(resp => {
+						location.href = "/codeqmk"
+					})
+				}
+			}).catch(error => {
+				alert("Không tìm thấy tài khoản");
+				console.log("Error", error);
+			})
+		},
+		codeqmk() {
+			var forgot = {
+				codeqmk: $scope.code
+			}
+			$http.put(`/rest/accounts/forgot`, forgot).then(resp => {
+				location.href = "/security/login"
 			})
 		}
 	}
 	$scope.accounts.loadtk();
+
 	$scope.doimk = function() {
 		var item = angular.copy($scope.form);
 		var username = $("#username").text();

@@ -7,11 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import DuAnTotNghiep.MailService;
+
 @Controller
 public class HomeController {
 	
 	@Autowired
 	HttpServletRequest request;
+	@Autowired
+	MailService mail;
 	
 	@RequestMapping("/security/dangky")
 	public String dangky() {
@@ -63,8 +67,8 @@ public class HomeController {
 	public String individual() {
 		return "/layout/individual";
 	}
-	@RequestMapping("/test")
-	public String test() {
-		return "/layout/manageeachstore";
+	@RequestMapping("/codeqmk")
+	public String codeqmk() {
+		return "/layout/code";
 	}
 }

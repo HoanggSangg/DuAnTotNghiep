@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import DuAnTotNghiep.dto.forgot;
 import DuAnTotNghiep.entity.Account;
+import DuAnTotNghiep.entity.Codedmk;
 import DuAnTotNghiep.service.AccountService;
 
 @CrossOrigin("*")
@@ -46,6 +48,10 @@ public class AccountRestController {
 	@PutMapping("{username}")
 	public Account update(@PathVariable("username") String username, @RequestBody Account account) {
 		return accountService.update(account);
+	}
+	@PutMapping("/forgot")
+	public Account update1(@RequestBody forgot forgot) {
+		return accountService.update(forgot);
 	}
 	@DeleteMapping("{username}")
 	public void delete(@PathVariable("username") String username) {

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,9 +28,9 @@ public class Store implements Serializable {
 	Integer id;
 	String tencuahang;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "Username")
-	private Account account;
+	Account account;
 
 	Boolean trangthai;
 

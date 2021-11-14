@@ -34,7 +34,7 @@ public class StoreRestController {
 	}
 	
 	@GetMapping("/find/{username}")
-	public List<Store> getStore(@PathVariable("username") String username) {
+	public Store getStore(@PathVariable("username") String username) {
 		return storeService.findByStore(username);
 	}
 	

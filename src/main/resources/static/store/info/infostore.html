@@ -1,22 +1,20 @@
 <body>
 	<main id="indivi">
 		<div class="container">
-			<div class="containerForm" ng-repeat="item in pager.items">
+			<div class="containerForm">
 				<div class="sen">
 					<img ng-src="{{'/images/' }}" width="150"
 						height="150" border="1"><br> <br>
 				</div>
 				<div class="formBox">
 					<div class="inputBox w50">
-						<div>${username}</div>
+						<input ng-model="store.account.username" readonly="readonly">
 					</div>
 					<div class="inputBox w50">
-						<input ng-model="item.tencuahang" readonly="readonly">
+						<input ng-model="store.tencuahang" readonly="readonly">
 					</div>
-					
-					<div class="inputBox w100">
-						<input onclick="" type="submit"
-							value="Change information">
+					<div class="inputBox w50">
+						<input ng-model="store.trangthai?'Mở':'Khóa'" readonly="readonly">
 					</div>
 				</div>
 			</div>

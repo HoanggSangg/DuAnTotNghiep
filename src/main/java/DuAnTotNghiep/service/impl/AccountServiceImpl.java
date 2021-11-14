@@ -2,18 +2,32 @@ package DuAnTotNghiep.service.impl;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import DuAnTotNghiep.MailService;
+import DuAnTotNghiep.SessionService;
 import DuAnTotNghiep.dao.AccountDao;
+import DuAnTotNghiep.dao.CodedmkDao;
+import DuAnTotNghiep.dto.forgot;
 import DuAnTotNghiep.entity.Account;
+import DuAnTotNghiep.entity.Codedmk;
 import DuAnTotNghiep.service.AccountService;
 
 @Service
-public class AccountServiceImpl implements AccountService{
+public class AccountServiceImpl implements AccountService {
 
-	@Autowired AccountDao adao;
-	
+	@Autowired
+	AccountDao adao;
+	@Autowired
+	CodedmkDao cdao;
+	@Autowired
+	MailService mail;
+	@Autowired
+	SessionService session;
+
 	@Override
 	public Account findById(String username) {
 		return adao.findById(username).get();
@@ -23,11 +37,6 @@ public class AccountServiceImpl implements AccountService{
 	public List<Account> findAll() {
 		return adao.findAll();
 	}
-
-//	@Override
-//	public List<Account> getAdministrators() {
-//		return adao.getAdministrators();
-//	}
 
 	@Override
 	public Account create(Account account) {
@@ -42,6 +51,32 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public void delete(String username) {
 		adao.deleteById(username);
+	}
+
+	@Override
+	public Account update(forgot forgot) {
+		// TODO Auto-generated method stub
+		Account acc = adao.findById(session.get("sUser")).get();
+		Codedmk dmk = cdao.findUsername(acc.getUsername());
+		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < 6; i++) {
+			int index = (int) (AlphaNumericString.length() * Math.random());
+			sb.append(AlphaNumericString.charAt(index));
+		}
+		String password = sb.toString();
+		if(dmk.getCode().equals(forgot.getCodeqmk())) {
+			acc.setPassword(password);
+			try {
+				mail.send(acc.getEmail(), "Mật khẩu mới của bạn", password);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			cdao.deleteById(dmk.getId());
+		}else {
+			System.err.println("ngu");
+		}
+		return adao.save(acc);
 	}
 
 }

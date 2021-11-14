@@ -16,6 +16,6 @@ public interface StoreService {
 
 	void delete(Integer id);
 
-	List<Store> findByStore(String username);
+	Store findByStore(String username);
 
 }
