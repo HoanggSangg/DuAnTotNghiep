@@ -1,0 +1,46 @@
+<body>
+	<div class="container">
+		<div class="row">
+			<ul class="nav nav-tabs">
+				<li><a data-toggle="tab" data-target="#edit">QUẢN LÝ ĐƠN
+						HÀNG</a></li>
+				<li class="active"><a data-toggle="tab" data-target='#list'>DANH
+						SÁCH ĐƠN HÀNG</a></li>
+			</ul>
+			<h3 class="text-center">Account Management</h3>
+			<div class="col-md-10 col-md-offset-1">
+				<div class="panel panel-default panel-table">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col col-xs-6">
+								<h3 class="panel-title">List of accounts</h3>
+							</div>
+						</div>
+					</div>
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-list">
+							<thead>
+								<tr>
+									<th class="hidden-xs">STT</th>
+									<th>Name</th>
+									<th>Price</th>
+									<th>Quantity</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in items">
+									<td>{{item.product.id}}</td>
+									<td>{{item.order.account.username}}</td>
+									<td>{{item.quantity}}</td>
+									<td>{{item.price}}</td>
+									<td>{{item.order.trangthai}}</td>
+									<td>{{item.order.createDate}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

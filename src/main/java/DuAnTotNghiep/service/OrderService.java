@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import DuAnTotNghiep.entity.Order;
+import DuAnTotNghiep.entity.Orderdetail;
 
 public interface OrderService {
 
@@ -13,5 +14,7 @@ public interface OrderService {
 	Order findById(Long id);
 
 	List<Order> findByUsername(String username);
+
+	List<Orderdetail> findByDetails(String username);
 
 }

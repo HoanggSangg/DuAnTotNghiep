@@ -9,9 +9,9 @@ app.config(function($routeProvider) {
 			templateUrl: "/store/info/infostore.html",
 			controller: "info-ctrl"
 		})
-		.when("/authorize", {
-			templateUrl: "/admin/authorize/indexAuthority.html",
-			controller: "ctrl"
+		.when("/revenue", {
+			templateUrl: "/store/revenue/thongke.html",
+			controller: "revenue-ctrl"
 		})
 		.otherwise({
 			templete: "<h1 class='text-center'> FPT Polytecnich Administration</h1>"

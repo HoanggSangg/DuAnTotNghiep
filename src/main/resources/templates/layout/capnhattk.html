@@ -11,23 +11,20 @@
 						<div id="username">[[${#request.remoteUser}]]</div>
 					</div>
 					<div class="inputBox w50">
-						<input type="text" name="" required> <span>Password</span>
+						<input type="text" ng-model="fullname" name="fullname" required> <span>Fullname</span>
 					</div>
 					<div class="inputBox w50">
-						<input type="text" name="" required> <span>Fullname</span>
-					</div>
-					<div class="inputBox w50">
-						<input type="text" name="" required> <span>Email</span>
+						<input type="email" ng-model="email" name="email" required> <span>Email</span>
 					</div>
 					<div class="inputBox w100">
-						<input type="submit" value="Save">
+						<input ng-click="capnhattk()" type="submit" value="Cập nhật">
 					</div>
 				</div>
 			</div>
 			<div class="containerForm1">
 				<div class="formBoxImage">
 					<br> <br> <label for="image"> <img
-						ng-src="{{'/assets/images/' + form.image}}"
+						ng-src="{{'/images/' + photo}}"
 						style="width: 200px; height: 200px">
 					</label>
 					<div>

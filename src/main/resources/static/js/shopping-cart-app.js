@@ -86,6 +86,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		loadcart() {
 			return $scope.cart.items.map(item => {
 				$http.put(`/rest/products/${item.id}`, item).then(resp => {
+
 				}).catch(error => {
 					alert("Lỗi cập nhật sản phẩm");
 					console.log("Error", error);
@@ -117,19 +118,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					$scope.accounts = resp.data;
 				})
 			}
-		},
-		imageChanged(files) {
-			var data = new FormData();
-			data.append('file', files[0]);
-			$http.post('/rest/upload/images', data, {
-				transformRequest: angular.indentity,
-				headers: { 'Content-Type': undefined }
-			}).then(resp => {
-				this.photo = resp.data.name;
-			}).catch(error => {
-				alert("Lỗi upload hình ảnh");
-				console.log("Error", error);
-			})
 		},
 		dangky() {
 			var accounts = angular.copy(this);
@@ -176,6 +164,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				location.href = "/security/login"
 			})
 		}
+
 	}
 	$scope.accounts.loadtk();
 
@@ -200,6 +189,36 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			$scope.form = {};
 		})
 	}
+	$scope.imageChanged = function(files) {
+		var data = new FormData();
+		data.append('file', files[0]);
+		$http.post('/rest/upload/images', data, {
+			transformRequest: angular.indentity,
+			headers: { 'Content-Type': undefined }
+		}).then(resp => {
+			$scope.photo = resp.data.name;
+		}).catch(error => {
+			alert("Lỗi upload hình ảnh");
+			console.log("Error", error);
+		})
+	}
+	$scope.capnhattk = function() {
+		var username = $("#username").text();
+		$http.get(`/rest/accounts/${username}`).then(resp => {
+			var item = {
+				username: username,
+				password: resp.data.password,
+				fullname: $scope.fullname,
+				email: $scope.email,
+				photo: $scope.photo,
+				trangthai: resp.data.trangthai
+			}
+			$http.put(`/rest/accounts/` + username, item).then(resp => {
+				alert("Cập nhật thành công")
+			})
+			this.item = {};
+		})
+	}
 
 	//---------------------------Code JS Likes--------------------------
 	$scope.likes = [];
@@ -211,13 +230,13 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		load() {
 			$http.get("/rest/likes").then(resp => {
 				$scope.likes = resp.data;
+				this.loadcart();
 			})
 		},
 		loadcart() {
 			return $scope.likes.map(item => {
 				var username = $("#username").text();
 				index = $scope.index_of(username, item.product.id);
-				alert(index)
 			});
 		},
 		like(id) {
@@ -230,6 +249,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			};
 			$http.post('/rest/likes', likes).then(resp => {
 				alert("Thích thành công")
+				$scope.products.load();
 			});
 		},
 		dislike(id) {

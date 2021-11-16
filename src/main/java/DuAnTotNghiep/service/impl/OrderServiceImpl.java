@@ -14,11 +14,9 @@ import DuAnTotNghiep.MailService;
 import DuAnTotNghiep.dao.AccountDao;
 import DuAnTotNghiep.dao.OrderDao;
 import DuAnTotNghiep.dao.OrderDetailDao;
-import DuAnTotNghiep.dao.ProductDao;
 import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
-import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.service.OrderService;
 
 @Service
@@ -63,7 +61,14 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<Order> findByUsername(String username) {
+		// TODO Auto-generated method stub
 		return odao.findByUsername(username);
+	}
+
+	@Override
+	public List<Orderdetail> findByDetails(String username) {
+		// TODO Auto-generated method stub
+		return ddao.findByDetails(username);
 	}
 
 }
