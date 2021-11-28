@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import DuAnTotNghiep.dao.OrderDetailDao;
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
+import DuAnTotNghiep.entity.ReportDetail;
 import DuAnTotNghiep.service.OrderService;
 
 @CrossOrigin("*")
@@ -32,5 +34,10 @@ public class OrderRestController {
 	@GetMapping("{username}")
 	public List<Orderdetail> getOne(@PathVariable("username") String username) {
 		return orderService.findByDetails(username);
+	}
+	
+	@GetMapping()
+	public List<ReportDetail> getdoanhthu() {
+		return orderService.thongKeDoanhThu();
 	}
 }

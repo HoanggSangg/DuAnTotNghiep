@@ -52,8 +52,10 @@
 											</div>
 											<div class="product-list-description">
 												<div class="productname" th:utext="${p.name}"></div>
-												<p th:utext="${p.catesmall.name}"></p>
-												<p id="id" th:utext="${p.id}"></p>
+												<p th:text="${p.catesmall.name}"></p>
+												<p th:text="${p.id}"></p>
+												<p th:text="${like}"></p>
+												<span th:text="${#arrays.contains(like, p.id)}"></span>
 												<div class="list_bottom">
 													<div class="price">
 														<span class="new_price"

@@ -57,11 +57,6 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Product> findByCateName(String name) {
-		return pdao.findByCateName(name);
-	}
-
-	@Override
 	public List<Product> findByCateNameAndCateId(String name, String cateid) {
 		return pdao.findByCateNameAndCateId(name, cateid);
 	}
@@ -73,7 +68,6 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<Product> findByStore(String store) {
-		
 		return pdao.findByStore(store);
 	}
 

@@ -39,8 +39,4 @@ public class Cmtstore implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "Username")
 	private Account account;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "cmtstore")
-	List<Repcmtstore> repcmtstore;
 }

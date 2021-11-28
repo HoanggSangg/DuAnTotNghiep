@@ -42,31 +42,43 @@
 														<label class="lebel-abs"> Receiver <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild"
-															ng-model="order.nguoinhan">
+															ng-model="order.nguoinhan" required>
 													</div>
 													<div class="form-row">
 														<label class="lebel-abs"> Phone <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild"
-															ng-model="order.sdt">
+															ng-model="order.sdt" required>
 													</div>
 													<div class="form-row">
 														<label class="lebel-abs"> Địa chỉ NN <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild"
-															ng-model="order.diachinn">
+															ng-model="order.diachinn" required>
 													</div>
 													<div class="form-row">
 														<label class="lebel-abs"> Address <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild"
-															ng-model="order.address">
+															ng-model="order.address" required>
 													</div>
 													<div class="form-row">
-														<div class="form-control">{{cart.amount | number}} VNĐ</div>
+														<div class="form-control">{{cart.amount | number}}
+															VNĐ</div>
 													</div>
+													<div class="form-group" style="margin-left: -10px; margin-right: 10px">
+														<select name="prepay" ng-model="order.prepay" class="form-control">
+															<option value="">Cách thức thanh toán</option>
+															<option value="10">Trả trước 10%</option>
+														</select>
+													</div>
+													<div class="form-row">
+														<input class="form-control" value="Ngân hàng NCB"
+															readonly="readonly">
+													</div>
+													<i class="pull-left text-danger" th:text="${pay}"></i>
 													<div class="text-right">
-														<button ng-click="order.purchase()">Buying</button>
+														<button ng-click="order.pay()">Buying</button>
 													</div>
 												</div>
 											</div>

@@ -83,7 +83,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				}
 			});
 		},
-		loadcart() {
+		/*loadcart() {
 			return $scope.cart.items.map(item => {
 				$http.put(`/rest/products/${item.id}`, item).then(resp => {
 
@@ -92,8 +92,34 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					console.log("Error", error);
 				});
 			});
+		},*/
+		pay() {
+			if (this.tongtien() > 20000000) {
+				if ($scope.order.prepay == null) {
+					alert("Do số tiền lớn hơn 20.000.000 VND quý khách vui lòng chọn cách thức thanh toán")
+				} else {
+					var order = angular.copy(this);
+					order.trangthai = "Đơn hàng đang xử lí"
+					order.tongtien = this.tongtien();
+					$http.post("/rest/pay", order).then(resp => {
+						$scope.payment = resp.data;
+						$scope.cart.clear();
+						location.href = $scope.payment.url;
+					})
+				}
+			} else {
+				var order = angular.copy(this);
+				order.trangthai = "Đơn hàng đang xử lí"
+				order.tongtien = this.tongtien();
+				alert($scope.bankcode)
+				$http.post("/rest/pay", order).then(resp => {
+					$scope.payment = resp.data;
+					$scope.cart.clear();
+					location.href = $scope.payment.url;
+				})
+			}
 		},
-		purchase() {
+		/*purchase() {
 			var order = angular.copy(this);
 			order.trangthai = "Đã đặt hàng"
 			order.tongtien = this.tongtien();
@@ -106,7 +132,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				alert("Đặt hàng lỗi")
 				console.log(error)
 			})
-		}
+		}*/
 	}
 
 	//-----------------------------Code JS Accounts------------------------------
@@ -230,14 +256,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		load() {
 			$http.get("/rest/likes").then(resp => {
 				$scope.likes = resp.data;
-				this.loadcart();
 			})
-		},
-		loadcart() {
-			return $scope.likes.map(item => {
-				var username = $("#username").text();
-				index = $scope.index_of(username, item.product.id);
-			});
 		},
 		like(id) {
 			var username = $("#username").text();

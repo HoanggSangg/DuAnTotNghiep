@@ -12,4 +12,6 @@ public interface LikeService {
 
 	Likes create(Likes like);
 
+	List<Integer> findUsername(String username);
+
 }

@@ -13,6 +13,10 @@ app.config(function($routeProvider) {
 			templateUrl: "/store/revenue/thongke.html",
 			controller: "revenue-ctrl"
 		})
+		.when("/order", {
+			templateUrl: "/store/order/indexOrder.html",
+			controller: "order-ctrl"
+		})
 		.otherwise({
 			templete: "<h1 class='text-center'> FPT Polytecnich Administration</h1>"
 		});

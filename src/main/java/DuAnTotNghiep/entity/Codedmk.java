@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 
@@ -23,8 +25,11 @@ public class Codedmk implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	Date date = new Date();
+	
 	String code;
 
 	@ManyToOne

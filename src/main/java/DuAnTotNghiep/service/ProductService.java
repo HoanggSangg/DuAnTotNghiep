@@ -20,14 +20,10 @@ public interface ProductService {
 	Product update(Product product);
 
 	void delete(Integer id);
-//
-//	List<Product> findByPrice(Double price);
-//
+	
 	List<Product> findByName(String name);
 
 	Page<Product> findAvailable(Pageable pa);
-
-	List<Product> findByCateName(String name);
 
 	List<Product> findByCateNameAndCateId(String name, String cateid);
 

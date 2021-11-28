@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DuAnTotNghiep.entity.Catesmall;
 import DuAnTotNghiep.entity.Cmtproduct;
 import DuAnTotNghiep.entity.Image;
+import DuAnTotNghiep.entity.Likes;
 import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.entity.Specification;
 import DuAnTotNghiep.service.CatesmallService;
 import DuAnTotNghiep.service.CmtproductService;
 import DuAnTotNghiep.service.ImagesService;
+import DuAnTotNghiep.service.LikeService;
 import DuAnTotNghiep.service.ProductService;
 import DuAnTotNghiep.service.SpecificationService;
 
@@ -33,6 +35,8 @@ public class ProductController {
 	ProductService productService;
 	@Autowired
 	CatesmallService catesmallService;
+	@Autowired
+	LikeService likeService;
 	@Autowired
 	HttpServletRequest request;
 	@Autowired
@@ -50,6 +54,11 @@ public class ProductController {
 				m.addAttribute("items", list);
 				List<Catesmall> list1 = catesmallService.findByCate(cid.get());
 				m.addAttribute("catesmall", list1);
+				if(request.getRemoteUser() != null) {
+					String username = request.getRemoteUser();
+					List<Integer> like = likeService.findUsername(username);
+					m.addAttribute("like", like);
+				}
 				return "/product/listsp";
 			} else {
 				Pageable pa = PageRequest.of(p.orElse(0), 6);
@@ -82,13 +91,6 @@ public class ProductController {
 		return "/product/detail";
 	}
 
-	@RequestMapping("/products/catename/{name}")
-	public String catename(Model m, @PathVariable("name") String name) {
-		List<Product> list = productService.findByCateName(name);
-		m.addAttribute("items", list);
-		return "/product/listsp";
-	}
-
 	@RequestMapping("/products/cate/{name}")
 	public String cates(Model m, @PathVariable("name") String name, @RequestParam("cateid") Optional<String> cateid) {
 		List<Product> list = productService.findByCateNameAndCateId(name, cateid.get());
@@ -108,6 +110,11 @@ public class ProductController {
 		double maxPrice = max.orElse(Double.MAX_VALUE);
 		List<Product> list = productService.findByPriceBetween(minPrice, maxPrice);
 		model.addAttribute("items", list);
+		return "/product/listsp";
+	}
+	@RequestMapping("/sort")
+	public String sort(Model model) {
+		System.err.println(request.getParameter("sort"));
 		return "/product/listsp";
 	}
 }

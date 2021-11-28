@@ -30,4 +30,9 @@ public class LikeServiceImpl implements LikeService{
 		return ldao.save(like);
 	}
 
+	@Override
+	public List<Integer> findUsername(String username) {
+		return ldao.findUsername(username);
+	}
+
 }

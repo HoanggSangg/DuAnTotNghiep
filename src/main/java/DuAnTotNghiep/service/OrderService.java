@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
+import DuAnTotNghiep.entity.ReportDetail;
 
 public interface OrderService {
 
@@ -16,5 +17,7 @@ public interface OrderService {
 	List<Order> findByUsername(String username);
 
 	List<Orderdetail> findByDetails(String username);
+
+	List<ReportDetail> thongKeDoanhThu();
 
 }

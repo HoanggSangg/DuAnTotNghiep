@@ -48,10 +48,6 @@ public class Account  implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
-	List<Repcmtstore> repcmtstore;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "account")
 	List<Cmtproduct> cmtproduct;
 	
 	@JsonIgnore

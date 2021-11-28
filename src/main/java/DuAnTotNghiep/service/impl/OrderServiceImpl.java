@@ -17,6 +17,7 @@ import DuAnTotNghiep.dao.OrderDetailDao;
 import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
+import DuAnTotNghiep.entity.ReportDetail;
 import DuAnTotNghiep.service.OrderService;
 
 @Service
@@ -46,11 +47,6 @@ public class OrderServiceImpl implements OrderService {
 		Order list = odao.findById(order.getId()).get();
 		Account acc = adao.findById(order.getAccount().getUsername()).get();
 
-		try {
-			mail.send(acc.getEmail(), "Tổng tiền bạn thanh toán", list.getTongtien());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
 		return order;
 	}
 
@@ -69,6 +65,11 @@ public class OrderServiceImpl implements OrderService {
 	public List<Orderdetail> findByDetails(String username) {
 		// TODO Auto-generated method stub
 		return ddao.findByDetails(username);
+	}
+
+	@Override
+	public List<ReportDetail> thongKeDoanhThu() {
+		return ddao.thongKeDoanhThu();
 	}
 
 }

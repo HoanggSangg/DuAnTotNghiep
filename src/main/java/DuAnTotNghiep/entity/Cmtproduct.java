@@ -39,8 +39,4 @@ public class Cmtproduct implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "Username")
 	private Account account;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "cmtproduct")
-	List<Repcmtproduct> repcmtproduct;
 }
