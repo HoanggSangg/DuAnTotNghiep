@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Giao diện Administration</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Welcome to FlatShop</title>
 <link href="../../css/bootstrap.css" rel="stylesheet">
 <link href="../../css/sequence-looptheme.css" rel="stylesheet" />
 <link href="../../css/style.css" rel="stylesheet">
 <link href="../../css/them.css" rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<!-- jQuery library -->
+<link href="../../css/indivi.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script
@@ -21,10 +17,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 </head>
-<body class="container" ng-app="admin-app">
-	<header class="row">
-		<h2 class="alert alert-success">Quản trị Trang web</h2>
-	</header>
+<body id="home" ng-app="admin-app">
 	<div class="wrapper">
 		<div class="header">
 			<div class="container">
@@ -40,11 +33,18 @@
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav1">
 									<li><a href="/home/index">Trang chủ</a></li>
-									<li><a href="#!product">QUẢN LÝ SẢN PHẨM</a></li>
-									<li><a href="#!account">QUẢN LÝ TÀI KHOẢN</a></li>
+									<li class="dropdown"><a href="#" class="dropdown-toggle"
+										data-toggle="dropdown">QUẢN LÝ</a>
+										<div class="dropdown-menu">
+											<ul class="mega-menu-links">
+												<li><a href="#!product">QUẢN LÝ SẢN PHẨM</a></li>
+												<li><a href="#!product">QUẢN LÝ SẢN PHẨM</a></li>
+												<li><a href="#!account">QUẢN LÝ TÀI KHOẢN</a></li>
+												<li><a href="#!store">QUẢN LÝ CỬA HÀNG</a></li>
+											</ul>
+										</div></li>
 									<li><a href="#!authorize">ỦY QUYỀN</a></li>
-									<li><a href="#!store">QUẢN LÝ CỬA HÀNG</a></li>
-									<li><a href="/security/logoff" class="glyphicon glyphicon-log-out">ĐĂNG XUẤT</a></li>
+									<li><a href="/security/logoff">ĐĂNG XUẤT</a></li>
 								</ul>
 							</div>
 						</div>
@@ -82,4 +82,5 @@
 	<script src="/admin/product/product-ctrl.js"></script>
 	<script src="/admin/store/store-ctrl.js"></script>
 </body>
+
 </html>

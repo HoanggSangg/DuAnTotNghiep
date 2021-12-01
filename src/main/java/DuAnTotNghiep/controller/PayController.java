@@ -108,8 +108,6 @@ public class PayController {
 							Order order = odao.findById(id).get();
 							order.setTrangthai("Thanh toán thất bại");
 							odao.save(order);
-							List<Orderdetail> details = order.getOrderDetails();
-							ddao.deleteAll(details);
 							model.addAttribute("pay", "Giao dịch thất bại mời bạn thử lại - Mã đơn hàng: " + id);
 							return "/order/checkout";
 						}

@@ -11,7 +11,7 @@ import DuAnTotNghiep.entity.Codedmk;
 public interface CodedmkDao extends JpaRepository<Codedmk, Integer>{
 
 	@Query("SELECT p FROM Codedmk p WHERE p.account.username=?1")
-	Codedmk findUsername(String username);
+	List<Codedmk> findUsername(String username);
 
 	
 

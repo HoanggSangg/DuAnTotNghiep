@@ -25,7 +25,6 @@ public class CodeqmkServiceImpl implements CodeqmkService {
 	
 	@Override
 	public Codedmk create(Codedmk codedmk) {
-		System.err.println(codedmk.getAccount().getUsername());
 		Account acc = adao.findById(codedmk.getAccount().getUsername()).get();
 		session.set("sUser", acc.getUsername());
 		try {

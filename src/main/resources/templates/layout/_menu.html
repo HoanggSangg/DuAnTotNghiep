@@ -15,11 +15,12 @@
 								<ul class="topmenu">
 									<li><a href="/home/contact">Liên hệ</a></li>
 									<li><a href="#">Tin tức</a></li>
+									<li><a href="/home/huongdan">Hướng Dẫn</a></li>
 									<li><a href="/home/gioithieu">Giới Thiệu</a></li>
 									<li><a href="/home/hotro">Hỗ trợ</a></li>
 								</ul>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-6">
 								<ul class="usermenu" th:unless="${#request.remoteUser}">
 									<li><a href="/security/login" class="log">Đăng nhập</a></li>
 									<li><a href="/security/dangky" class="reg">Đăng ký</a></li>
@@ -58,13 +59,11 @@
 									data-toggle="dropdown">Danh mục</a>
 									<div class="dropdown-menu">
 										<ul class="mega-menu-links">
-											<li><a href="/product/list">DS sản phẩm</a></li>
 											<th:block th:each="c : ${cates}">
 												<li><a th:href="@{|/product/list?cid=${c.id}|}">[[${c.name}]]</a></li>
 											</th:block>
 										</ul>
 									</div></li>
-								<li><a href="#">Quà tặng</a></li>
 								<li
 									th:if="${#request.isUserInRole('AD')}">
 									<a th:href="@{/admin/home/index}">Quản Lý</a>

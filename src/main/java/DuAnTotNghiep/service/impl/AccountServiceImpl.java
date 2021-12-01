@@ -1,11 +1,12 @@
 package DuAnTotNghiep.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-
-import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import DuAnTotNghiep.MailService;
 import DuAnTotNghiep.SessionService;
@@ -57,7 +58,7 @@ public class AccountServiceImpl implements AccountService {
 	public Account update(forgot forgot) {
 		// TODO Auto-generated method stub
 		Account acc = adao.findById(session.get("sUser")).get();
-		Codedmk dmk = cdao.findUsername(acc.getUsername());
+		List<Codedmk> dmk = cdao.findUsername(acc.getUsername());
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 6; i++) {
@@ -65,17 +66,32 @@ public class AccountServiceImpl implements AccountService {
 			sb.append(AlphaNumericString.charAt(index));
 		}
 		String password = sb.toString();
-		if(dmk.getCode().equals(forgot.getCodeqmk())) {
-			acc.setPassword(password);
-			try {
-				mail.send(acc.getEmail(), "Mật khẩu mới của bạn", password);
-			} catch (Exception e) {
-				// TODO: handle exception
+		
+		Date now = new Date();
+
+		for(int i = 0; i < dmk.size(); i++) {
+			if(dmk.get(i).getDate().getTime()+900000 > now.getTime()) {
+				if(dmk.get(i).getCode().equals(forgot.getCodeqmk()) && dmk.get(i).isTrangthai()) {
+					acc.setPassword(password);
+					try {
+						mail.send(acc.getEmail(), "Mật khẩu mới của bạn", password);
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					cdao.deleteById(dmk.get(i).getId());
+				}else {
+					try {
+						mail.send(acc.getEmail(), "Mật khẩu mới của bạn", "Code đã hết hạn sử dụng. Mời bạn thử lại !!!");
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+				}
+			}else {
+				dmk.get(i).setTrangthai(false);
+				cdao.saveAll(dmk);
 			}
-			cdao.deleteById(dmk.getId());
-		}else {
-			System.err.println("ngu");
 		}
+		
 		return adao.save(acc);
 	}
 

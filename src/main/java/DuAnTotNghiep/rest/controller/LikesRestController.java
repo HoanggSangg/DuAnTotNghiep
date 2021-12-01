@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import DuAnTotNghiep.entity.Authority;
 import DuAnTotNghiep.entity.Likes;
-import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.service.LikeService;
 
 @CrossOrigin("*")

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -20,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,11 +33,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import DuAnTotNghiep.Config;
 import DuAnTotNghiep.dao.OrderDao;
 import DuAnTotNghiep.dao.OrderDetailDao;
-import DuAnTotNghiep.dao.prepayDao;
+import DuAnTotNghiep.dao.ProductDao;
 import DuAnTotNghiep.dto.payment;
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
-import DuAnTotNghiep.entity.prepay;
+import DuAnTotNghiep.entity.Product;
+import DuAnTotNghiep.service.LikeService;
 import DuAnTotNghiep.service.OrderService;
 
 @CrossOrigin("*")
@@ -48,42 +49,59 @@ public class PayRestController {
 	@Autowired
 	OrderDao odao;
 	@Autowired
+	LikeService likeService;
+	@Autowired
 	OrderService orderService;
 	@Autowired
 	OrderDetailDao ddao;
 	@Autowired
-	prepayDao pdao;
+	ProductDao pdao;
 	@Autowired
 	HttpServletRequest req;
 
+	@RequestMapping("/like/load")
+	public void like(Model m) {
+		if(req.getRemoteUser() != null) {
+			String username = req.getRemoteUser();
+			List<Integer> like = likeService.findUsername(username);
+			m.addAttribute("like", like);
+		}
+	}
+	
 	@PostMapping()
 	public payment pay(HttpServletRequest req, HttpServletResponse resp, @RequestBody JsonNode orderData)
 			throws ServletException, IOException {
 
 		ObjectMapper mapper = new ObjectMapper();
 		Order order = mapper.convertValue(orderData, Order.class);
-		odao.save(order);
-
+//		odao.save(order);
+		
+		Map<String, Order> data = new HashMap<>();
+		
 		TypeReference<List<Orderdetail>> type = new TypeReference<List<Orderdetail>>() {
 		};
 		List<Orderdetail> details = mapper.convertValue(orderData.get("orderDetails"), type).stream()
-				.peek(d -> d.setOrder(order)).collect(Collectors.toList());
-		ddao.saveAll(details);
-
-		prepay prepay = new prepay();
-		prepay.setPercents(10);
-		prepay.setTien(Integer.parseInt(order.getTongtien()) * 10/100);
-		prepay.setDate(new Date());
-		prepay.setOrder(order);
-		pdao.save(prepay);
+				.peek(d -> d.setOrder(order))
+				.collect(Collectors.toList());
 		
-		Long vnp_TxnRef = order.getId();
+		List<String> ch = new ArrayList<>();
+		for (int i = 0; i < details.size(); i++) {
+			String id = details.get(i).getProduct().getId().toString() ;
+			Product pro = pdao.findById(Integer.parseInt(id)).get();
+			ch.add(pro.getCuahang().getTencuahang());
+		}
+		
+		List<String> s = ch.stream().distinct().collect(Collectors.toList());
+			odao.save(order);
+//		ddao.saveAll(details);
+		
+		Long vnp_TxnRef = Long.parseLong("123");
 
 		String vnp_Version = "2.1.0";
 		String vnp_Command = "pay";
 		String vnp_OrderInfo = "Thanh Toán";
 		String orderType = "Thanh toán đơn hàng";
-		int amount = prepay.getTien() * 100;
+		int amount = Integer.parseInt(order.getTongtien()) * 100;
 		String vnp_IpAddr = Config.getIpAddress(req);
 		String vnp_TmnCode = Config.vnp_TmnCode;
 
@@ -149,12 +167,9 @@ public class PayRestController {
 			}
 		}
 		String queryUrl = query.toString();
-		// String vnp_SecureHash = Config.Sha256(Config.vnp_HashSecret +
-		// hashData.toString());
 		String vnp_SecureHash = Config.hmacSHA512(Config.vnp_HashSecret, hashData.toString());
 		queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
 		String paymentUrl = Config.vnp_PayUrl + "?" + queryUrl;
-		System.err.println(paymentUrl);
 
 		payment payment = new payment();
 		payment.setCode("00");

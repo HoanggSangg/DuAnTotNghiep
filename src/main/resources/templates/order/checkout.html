@@ -3,20 +3,10 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
 	<main>
-		<div class="wrapper">
-			<div class="clearfix"></div>
-			<div class="page-index">
-				<div class="container">
-					<p>Trang chủ - Thanh toán</p>
-				</div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
 		<div class="container_fullwidth">
 			<div class="container">
 				<div class="row">
-					<div th:replace="~{/order/_splienquan :: order_splienquan}"></div>
-					<div class="col-md-9">
+					<div class="col-md-12">
 						<div class="checkout-page">
 							<ol class="checkout-steps">
 								<li class="steps"><a href="/security/login"
@@ -65,12 +55,6 @@
 													<div class="form-row">
 														<div class="form-control">{{cart.amount | number}}
 															VNĐ</div>
-													</div>
-													<div class="form-group" style="margin-left: -10px; margin-right: 10px">
-														<select name="prepay" ng-model="order.prepay" class="form-control">
-															<option value="">Cách thức thanh toán</option>
-															<option value="10">Trả trước 10%</option>
-														</select>
 													</div>
 													<div class="form-row">
 														<input class="form-control" value="Ngân hàng NCB"

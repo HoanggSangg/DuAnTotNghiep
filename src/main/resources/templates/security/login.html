@@ -3,20 +3,10 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
 	<main>
-		<div class="wrapper">
-			<div class="clearfix"></div>
-			<div class="page-index">
-				<div class="container">
-					<p>Trang chủ - Đặt hàng</p>
-				</div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
 		<div class="container_fullwidth">
 			<div class="container">
 				<div class="row">
-					<div th:replace="~{/order/_splienquan :: order_splienquan}"></div>
-					<div class="col-md-9">
+					<div class="col-md-12">
 						<div class="checkout-page">
 							<ol class="checkout-steps">
 								<li class="steps active"><a href="/security/login"

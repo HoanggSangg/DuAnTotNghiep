@@ -4,46 +4,27 @@
 <body>
 	<main>
 		<div class="wrapper">
-			<div class="clearfix"></div>
-			<div class="page-index">
-				<div class="container">
-					<p>Home - Products List</p>
-				</div>
-			</div>
-			<div class="clearfix"></div>
 			<div class="container_fullwidth">
 				<div class="container">
 					<div class="row">
-						<div th:replace="~{/product/_menucates :: product_menu}"></div>
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<div class="banner">
 								<div class="bannerslide" id="bannerslide">
 									<ul class="slides">
 										<li><a href="#"> <img
-												src="../../images/banner-01.png" alt="" />
+												src="../../images/banner-01.png" width="100%" alt="" />
 										</a></li>
 										<li><a href="#"> <img
-												src="../../images/banner-02.png" alt="" />
+												src="../../images/banner-02.png" width="100%" alt="" />
 										</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="clearfix"></div>
 							<div class="products-list">
-								<div class="toolbar">
-									<div class="pager">
-										<a th:href="@{|/product/list?p=${items.number-1}|}"
-											class="prev-page"> <i class="fa fa-angle-left"></i>
-										</a> <a class="active">[[${items.number+1}]] /
-											[[${items.totalPages}]]</a> <a
-											th:href="@{|/product/list?p=${items.number+1}|}"
-											class="next-page"> <i class="fa fa-angle-right"> </i></a>
-									</div>
-								</div>
-								<div th:each="p: ${items.content}">
+								<div th:each="p: ${items}">
 									<ul class="products-listItem" th:fragment="product_list">
 										<li class="products">
-											<div class="offer">New</div>
 											<div class="thumbnail">
 												<a
 													th:href="@{|/product/detail/${p.id}?cid=${p.catesmall.category.id}|}">
@@ -54,8 +35,6 @@
 												<div class="productname" th:utext="${p.name}"></div>
 												<p th:text="${p.catesmall.name}"></p>
 												<p th:text="${p.id}"></p>
-												<p th:text="${like}"></p>
-												<span th:text="${#arrays.contains(like, p.id)}"></span>
 												<div class="list_bottom">
 													<div class="price">
 														<span class="new_price"
@@ -66,28 +45,19 @@
 														<button class="button"
 															th:attr="ng-click=@{|cart.add(${p.id})|}">Add To
 															Cart</button>
-														<button class="button"
-															th:attr="ng-click=@{|products.like(${p.id})|}">Like</button>
-														<button class="button"
-															th:attr="ng-click=@{|products.dislike(${p.id})|}">Dislike</button>
-														<button class="button favorite">
-															<i class="fa fa-heart-o"></i>
-														</button>
+														<th:block th:if="${#request.remoteUser}">
+															<button class="button"
+																th:unless="${#arrays.contains(like, p.id)}"
+																th:attr="ng-click=@{|products.like(${p.id})|}">Like</button>
+															<button class="button"
+																th:if="${#arrays.contains(like, p.id)}"
+																th:attr="ng-click=@{|products.dislike(${p.id})|}">Dislike</button>
+														</th:block>
 													</div>
 												</div>
 											</div>
 										</li>
 									</ul>
-								</div>
-								<div class="toolbar">
-									<div class="pager">
-										<a th:href="@{|/product/list?p=${items.number-1}|}"
-											class="prev-page"> <i class="fa fa-angle-left"></i>
-										</a> <a class="active">[[${items.number+1}]] /
-											[[${items.totalPages}]]</a> <a
-											th:href="@{|/product/list?p=${items.number+1}|}"
-											class="next-page"> <i class="fa fa-angle-right"> </i></a>
-									</div>
 								</div>
 							</div>
 						</div>

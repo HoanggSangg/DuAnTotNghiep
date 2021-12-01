@@ -83,56 +83,16 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				}
 			});
 		},
-		/*loadcart() {
-			return $scope.cart.items.map(item => {
-				$http.put(`/rest/products/${item.id}`, item).then(resp => {
-
-				}).catch(error => {
-					alert("Lỗi cập nhật sản phẩm");
-					console.log("Error", error);
-				});
-			});
-		},*/
 		pay() {
-			if (this.tongtien() > 20000000) {
-				if ($scope.order.prepay == null) {
-					alert("Do số tiền lớn hơn 20.000.000 VND quý khách vui lòng chọn cách thức thanh toán")
-				} else {
-					var order = angular.copy(this);
-					order.trangthai = "Đơn hàng đang xử lí"
-					order.tongtien = this.tongtien();
-					$http.post("/rest/pay", order).then(resp => {
-						$scope.payment = resp.data;
-						$scope.cart.clear();
-						location.href = $scope.payment.url;
-					})
-				}
-			} else {
-				var order = angular.copy(this);
-				order.trangthai = "Đơn hàng đang xử lí"
-				order.tongtien = this.tongtien();
-				alert($scope.bankcode)
-				$http.post("/rest/pay", order).then(resp => {
-					$scope.payment = resp.data;
-					$scope.cart.clear();
-					location.href = $scope.payment.url;
-				})
-			}
-		},
-		/*purchase() {
 			var order = angular.copy(this);
-			order.trangthai = "Đã đặt hàng"
+			order.trangthai = "Đơn hàng đang xử lí"
 			order.tongtien = this.tongtien();
-			$http.post("/rest/orders", order).then(resp => {
-				$scope.order.loadcart();
-				$scope.cart.clear();
-				alert("Đặt hàng thành công mời bạn check email đăng ký")
-				location.href = "/order/detail/" + resp.data.id;
-			}).catch(error => {
-				alert("Đặt hàng lỗi")
-				console.log(error)
+			$http.post("/rest/pay", order).then(resp => {
+				$scope.payment = resp.data;
+				/*$scope.cart.clear();*/
+				/*location.href = $scope.payment.url;*/
 			})
-		}*/
+		},
 	}
 
 	//-----------------------------Code JS Accounts------------------------------
@@ -169,13 +129,16 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			var codeqmk = {
 				code: code,
 				account: { username: $scope.username },
-				date: new Date()
+				date: new Date(),
+				trangthai: true
 			}
 			$http.get(`/rest/accounts/` + $scope.username).then(resp => {
 				if (resp.data.email == $scope.email) {
 					$http.post(`/rest/codeqmk`, codeqmk).then(resp => {
 						location.href = "/codeqmk"
 					})
+				}else{
+					alert("Sai mail")
 				}
 			}).catch(error => {
 				alert("Không tìm thấy tài khoản");
@@ -187,6 +150,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				codeqmk: $scope.code
 			}
 			$http.put(`/rest/accounts/forgot`, forgot).then(resp => {
+				alert("Mời bạn xem lại email");
 				location.href = "/security/login"
 			})
 		}
@@ -254,9 +218,9 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	}
 	$scope.products = {
 		load() {
-			$http.get("/rest/likes").then(resp => {
+			$http.get('/rest/likes').then(resp => {
 				$scope.likes = resp.data;
-			})
+			});
 		},
 		like(id) {
 			var username = $("#username").text();
@@ -268,7 +232,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			};
 			$http.post('/rest/likes', likes).then(resp => {
 				alert("Thích thành công")
-				$scope.products.load();
 			});
 		},
 		dislike(id) {
@@ -284,6 +247,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	$scope.products.load();
 
 	//-------------------------Code JS Comments---------------------------
+	$scope.now = new Date();
 	$scope.cmtproduct = {
 		post(id) {
 			var cmtproduct = {

@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body th:fragment="product_comment">
-	<div id="comment" class="container">
-		<div class="row d-flex justify-content-center" th:object = "${cmtproduct}">
+	<div id="comment" class="container" style="margin-left: -15px">
+		<div class="row d-flex justify-content-center"
+			th:object="${cmtproduct}">
 			<div style="width: 100%">
 				<div
 					class="headings d-flex justify-content-between align-items-center mb-3">
 					<h5>Comments([[${cmtproduct.size}]])</h5>
-					<div class="buttons">
-						<span class="badge bg-white d-flex flex-row align-items-center">
-							<span class="text-primary">Comments "ON"</span>&lt; <span
-							class="form-check form-switch"> <input
-								class="form-check-input" type="checkbox" id="comment" checked>
-						</span>
-						</span>
-					</div>
 				</div>
 				<div class="card p-3">
 					<form th:each="p : ${items}">
 						<div class="form-group">
 							<h4>Leave a comment</h4>
 							<br>
-							<textarea ng-model="cmtproduct.comment" name="msg" msg cols="30" rows="5" class="form-control"></textarea>
+							<textarea ng-model="cmtproduct.comment" name="msg" msg cols="30"
+								rows="5" class="form-control"></textarea>
 							<br>
 						</div>
-						<button name="button" th:attr="ng-click=@{|cmtproduct.post(${p.id})|}">Post Comment</button>
+						<button name="button"
+							th:attr="ng-click=@{|cmtproduct.post(${p.id})|}">Post
+							Comment</button>
 					</form>
 				</div>
 				<br>
@@ -38,54 +34,6 @@
 						</div>
 						<small>[[${cmt.date}]]</small>
 					</div>
-					<div
-						class="action d-flex justify-content-between mt-2 align-items-center">
-						<div class="reply px-4"><span class="dots"></span> <small>Reply</small>
-							<span class="dots"></span> <small>Translate</small>
-						</div>
-						<div class="icons align-items-center">
-							<i class="fa fa-star text-warning"></i> <i
-								class="fa fa-check-circle-o check-icon"></i>
-						</div>
-					</div>
-					<div class="detailBox">   
-                        <div class="actionBox">
-                            <ul class="commentList">
-                                <li>
-                                    <div class="commenterImage">
-                                      <img src="images/draven.jpg" />
-                                    </div>
-                                    <div class="commentText">
-                                        <p class="">"Cụm từ 'đỉnh của đỉnh' sinh ra chính là để dành riêng cho ta." ~ Draven</p> <span class="date sub-text">on March 5th, 2014</span>
-                    
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commenterImage">
-                                      <img src="images/sett.jpg" />
-                                    </div>
-                                    <div class="commentText">
-                                        <p class="">“Làm đại ca... tốt hơn nhiều so với không làm đại ca.” ~ Sett</p> <span class="date sub-text">on March 5th, 2014</span>
-                    
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commenterImage">
-                                      <img src="images/ez.jpg" />
-                                    </div>
-                                    <div class="commentText">
-                                        <p class="">"Nếu không nắm được luật lệ thì làm sao tôi phá vỡ chúng được?" ~ Ezreal</p> <span class="date sub-text">on March 5th, 2014</span>
-                                    </div>
-                                </li>
-                            </ul>
-                            <form id="algin-form">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Your comments" />
-                                </div><br>
-                                <button type="button">Post Comment</button>
-                            </form>
-                        </div>  
-                    </div>
 				</div>
 			</div>
 		</div>
