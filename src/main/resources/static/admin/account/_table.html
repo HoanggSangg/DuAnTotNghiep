@@ -1,5 +1,5 @@
 <h3 class="text-center">Account Management</h3>
-<div class="col-md-10 col-md-offset-1">
+<div class="panel panel-default">
 	<div class="panel panel-default panel-table">
 		<div class="panel-heading">
 			<div class="row">
@@ -16,8 +16,10 @@
 						<th class="hidden-xs">STT</th>
 						<th>Họ tên</th>
 						<th>Email</th>
-						<th>Email</th>
+						<th>Trạng thái</th>
 						<th>Chuyển trạng thái</th>
+						<th>Chỉnh sửa</th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -27,20 +29,25 @@
 						<td>{{item.email}}</td>
 						<td>{{item.photo}}</td>
 						<td>{{item.trangthai?'Đang mở':'Đã khóa'}}</td>
-						<td>
-							<div class="btn-group btn-group-xs">
-								<button ng-click="edit(item)"
-									class="btn btn-warning glyphicon glyphicon-edit"></button>
-								<button ng-click="delete(item)"
-									class="btn btn-danger  	glyphicon glyphicon-trash"></button>
-							</div>
-						</td>
 						<td th:unless="${#request.isUser(${item.username})}">
 							<div class="btn-group btn-group-xs">
 								<button ng-click="stttrue(item)" class="btn btn-warning">True</button>
 								<button ng-click="sttfalse(item)" class="btn btn-danger">False</button>
 							</div>
 						</td>
+						<td>
+							<div class="btn-group btn-group-xs">
+								<button ng-click="edit(item)" class=" glyphicon glyphicon-edit"
+									style="background: #50C7C7"></button>
+									
+								<div class="btn-group btn-group-xs">
+									<button ng-click="delete(item)"
+										class=" glyphicon glyphicon-trash" style="background: #50C7C7"></button>
+								</div>
+							</div>
+						</td>
+
+						
 					</tr>
 				</tbody>
 			</table>

@@ -1,12 +1,13 @@
-<h3>Authorizing</h3>
-<table ng-if="db" style="width: 100%" border="1">
-	<thead>
-		<tr>
-			<th></th>
-			<th ng-repeat="role in db.roles">{{role.name}}</th>
+<center style="color: red"><h2>Authorizing</h2></center>
+<br>
+<table ng-if="db" style="width: 100% "  border="1"class="table table-bordered table-list " >
+	<thead >
+		<tr style="color: white">
+			<th>Tài khoản</th>
+			<th ng-repeat="role in db.roles">{{role.name}} </th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody style="color: white">
 		<tr ng-repeat="acc in db.accounts">
 			<th>{{acc.username}}</th>
 			<th ng-repeat="role in db.roles"><input type="checkbox"

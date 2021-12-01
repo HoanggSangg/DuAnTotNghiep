@@ -1,6 +1,6 @@
 <div>
 	<div class="panel panel-default">
-		<div class="panel-heading" style="color: red">DANH SÁCH ĐƠN HÀNG</div>
+		<div class="panel-heading" style="color: white; background-color: #0066CC">DANH SÁCH CỬA HÀNG</div>
 		<div class="input-group">
 			<div class="input-group-btn"></div>
 		</div>
@@ -22,10 +22,14 @@
 					<td>{{item.trangthai?'Có':'Không'}}</td>
 					<td>
 						<div class="btn-group btn-group-xs">
-							<button ng-click="edit(item)"
-								class="btn btn-warning glyphicon glyphicon-edit"></button>
-							<button ng-click="delete(item)"
-								class="btn btn-danger glyphicon glyphicon-trash"></button>
+							<button ng-click="edit(item)" class="glyphicon glyphicon-edit"
+								style="background: #50C7C7;"></button>
+
+							<div class="btn-group btn-group-xs">
+								<button ng-click="delete(item)"
+									class="glyphicon glyphicon-trash "
+									style="background: #50C7C7; text-align: center;"></button>
+							</div>
 						</div>
 					</td>
 				</tr>
