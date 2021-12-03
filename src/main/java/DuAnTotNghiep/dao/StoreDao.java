@@ -10,5 +10,8 @@ public interface StoreDao extends JpaRepository<Store, Integer>{
 	@Query("SELECT p FROM Store p WHERE p.account.username=?1")
 	Store findByStore(String username);
 
+	@Query("SELECT p FROM Store p WHERE p.tencuahang=?1")
+	Store findByTen(String cuahang);
+
 
 }

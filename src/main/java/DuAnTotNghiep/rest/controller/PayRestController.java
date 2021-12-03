@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
@@ -19,25 +20,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import DuAnTotNghiep.Config;
+import DuAnTotNghiep.dao.CartDao;
 import DuAnTotNghiep.dao.OrderDao;
 import DuAnTotNghiep.dao.OrderDetailDao;
 import DuAnTotNghiep.dao.ProductDao;
+import DuAnTotNghiep.dao.StoreDao;
 import DuAnTotNghiep.dto.payment;
+import DuAnTotNghiep.entity.Cart;
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
 import DuAnTotNghiep.entity.Product;
+import DuAnTotNghiep.entity.Store;
+import DuAnTotNghiep.entity.Total;
+import DuAnTotNghiep.service.CartService;
 import DuAnTotNghiep.service.LikeService;
 import DuAnTotNghiep.service.OrderService;
 
@@ -57,45 +62,52 @@ public class PayRestController {
 	@Autowired
 	ProductDao pdao;
 	@Autowired
-	HttpServletRequest req;
-
-	@RequestMapping("/like/load")
-	public void like(Model m) {
-		if(req.getRemoteUser() != null) {
-			String username = req.getRemoteUser();
-			List<Integer> like = likeService.findUsername(username);
-			m.addAttribute("like", like);
-		}
-	}
+	StoreDao sdao;
+	@Autowired
+	CartDao cdao;
+	@Autowired
+	CartService cartservice;
 	
 	@PostMapping()
 	public payment pay(HttpServletRequest req, HttpServletResponse resp, @RequestBody JsonNode orderData)
 			throws ServletException, IOException {
 
+		String user = req.getRemoteUser();
+		
 		ObjectMapper mapper = new ObjectMapper();
 		Order order = mapper.convertValue(orderData, Order.class);
-//		odao.save(order);
 		
-		Map<String, Order> data = new HashMap<>();
+		String id = "";
+		List<Total> total = cartservice.getTotalByUser(user);
 		
-		TypeReference<List<Orderdetail>> type = new TypeReference<List<Orderdetail>>() {
-		};
-		List<Orderdetail> details = mapper.convertValue(orderData.get("orderDetails"), type).stream()
-				.peek(d -> d.setOrder(order))
-				.collect(Collectors.toList());
-		
-		List<String> ch = new ArrayList<>();
-		for (int i = 0; i < details.size(); i++) {
-			String id = details.get(i).getProduct().getId().toString() ;
-			Product pro = pdao.findById(Integer.parseInt(id)).get();
-			ch.add(pro.getCuahang().getTencuahang());
+		for(Total t: total) {
+			Store store = sdao.findByTen(t.getCuahang());
+			Order order1 = new Order();
+			order1.setAccount(order.getAccount());
+			order1.setCreateDate(new Date());
+			order1.setAddress(order.getAddress());
+			order1.setNguoinhan(order.getNguoinhan());
+			order1.setSdt(order.getSdt());
+			order1.setDiachinn(order.getDiachinn());
+			order1.setTrangthai(order.getTrangthai());
+			order1.setTongtien(t.getTong()+"");
+			order1.setCuahang(store);
+			Order or = odao.save(order1);
+			id += or.getId() + "-";
+			List<Cart> cart = cartservice.getfindUserAndStore(t.getUsername(), t.getCuahang());
+			for(Cart c : cart) {
+				Product pro = pdao.getById(c.getProductid());
+				Orderdetail detail = new Orderdetail();
+				detail.setOrder(or);
+				detail.setProduct(pro);
+				detail.setPrice(c.getPrice());
+				detail.setQuantity(c.getQty());
+				ddao.save(detail);
+				cdao.deleteById(c.getId());
+			}
 		}
-		
-		List<String> s = ch.stream().distinct().collect(Collectors.toList());
-			odao.save(order);
-//		ddao.saveAll(details);
-		
-		Long vnp_TxnRef = Long.parseLong("123");
+
+		String vnp_TxnRef = id;
 
 		String vnp_Version = "2.1.0";
 		String vnp_Command = "pay";

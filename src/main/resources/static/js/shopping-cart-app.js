@@ -83,14 +83,28 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				}
 			});
 		},
+		savecart() {
+			return $scope.cart.items.map(item => {
+				var carttest = {
+					productid: item.id,
+					username: this.account.username,
+					cuahang: item.cuahang.tencuahang,
+					price: item.price,
+					qty: item.qty
+				}
+				$http.post(`/rest/cart`, carttest).then(resp => {
+				})
+			});
+		},
 		pay() {
 			var order = angular.copy(this);
 			order.trangthai = "Đơn hàng đang xử lí"
 			order.tongtien = this.tongtien();
+			$scope.order.savecart();
 			$http.post("/rest/pay", order).then(resp => {
 				$scope.payment = resp.data;
 				/*$scope.cart.clear();*/
-				/*location.href = $scope.payment.url;*/
+				location.href = $scope.payment.url;
 			})
 		},
 	}
@@ -137,7 +151,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					$http.post(`/rest/codeqmk`, codeqmk).then(resp => {
 						location.href = "/codeqmk"
 					})
-				}else{
+				} else {
 					alert("Sai mail")
 				}
 			}).catch(error => {

@@ -1,7 +1,6 @@
 package DuAnTotNghiep.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,11 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReportDetail implements Serializable{
+public class Total implements Serializable{
 	
 	@Id
-	String name;
-	Date date;
-	double doanhThu;
-	long soLuong;
+	String cuahang;
+	String username;
+	double tong;
+	long soluong;
 }

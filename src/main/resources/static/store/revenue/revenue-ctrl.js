@@ -5,9 +5,11 @@ app.controller("revenue-ctrl", function($scope, $http) {
 		load() {
 			$http.get("/rest/orders/").then(resp => {
 				$scope.items = resp.data;
-				console.log($scope.items)
 			})
 		}
+	}
+	$scope.tim = function() {
+		alert("alo")
 	}
 	$scope.initialize.load();
 

@@ -7,6 +7,15 @@
 				<li class="active"><a data-toggle="tab" data-target='#list'>DANH
 						SÁCH ĐƠN HÀNG</a></li>
 			</ul>
+			<div class="price-filter leftbar ">
+				<h3 class="title">Price</h3>
+				<form>
+					<input class="col-md-6" type="number" name="min" min="0" max="12" width="100%">
+					<div class="text-right">
+						<button type="submit" ng-click="tim()">Tìm</button>
+					</div>
+				</form>
+			</div>
 			<h3 class="text-center">Account Management</h3>
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default panel-table">
@@ -24,6 +33,7 @@
 									<th>Name</th>
 									<th>Price</th>
 									<th>Quantity</th>
+									<th>Date</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -31,6 +41,7 @@
 									<td>{{item.name}}</td>
 									<td>{{item.doanhThu}}</td>
 									<td>{{item.soLuong}}</td>
+									<td>{{item.date}}</td>
 								</tr>
 							</tbody>
 						</table>

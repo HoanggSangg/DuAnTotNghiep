@@ -14,7 +14,7 @@ public interface OrderDetailDao extends JpaRepository<Orderdetail, Long>{
 	@Query("SELECT p FROM Orderdetail p WHERE p.product.cuahang.account.username=?1")
 	List<Orderdetail> findByDetails(String username);
 
-	@Query("SELECT new ReportDetail(d.order.account.username, sum(d.price * d.quantity), sum(d.quantity)) FROM Orderdetail d GROUP BY d.order.account.username")
+	@Query("SELECT new ReportDetail(d.order.account.username, d.order.createDate, sum(d.price * d.quantity), sum(d.quantity)) FROM Orderdetail d GROUP BY d.order.account.username, d.order.createDate")
 	List<ReportDetail> thongKeDoanhThu();
 
 }

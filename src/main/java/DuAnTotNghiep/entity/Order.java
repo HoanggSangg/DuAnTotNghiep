@@ -54,4 +54,8 @@ public class Order  implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "Codeid")
 	Codesale codesale;
+	
+	@ManyToOne
+	@JoinColumn(name = "Chid")
+	Store cuahang;
 }

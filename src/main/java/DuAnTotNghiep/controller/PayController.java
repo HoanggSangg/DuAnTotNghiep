@@ -8,6 +8,8 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -52,14 +54,13 @@ public class PayController {
 			// String fieldName = (String) params.nextElement();
 			// String fieldValue = request.getParameter(fieldName);
 			String fieldName = URLEncoder.encode((String) params.nextElement(), StandardCharsets.US_ASCII.toString());
-			String fieldValue = URLEncoder.encode(req.getParameter(fieldName),
-					StandardCharsets.US_ASCII.toString());
+			String fieldValue = URLEncoder.encode(req.getParameter(fieldName), StandardCharsets.US_ASCII.toString());
 			if ((fieldValue != null) && (fieldValue.length() > 0)) {
 				fields.put(fieldName, fieldValue);
 			}
 		}
-		Long id = Long.parseLong(req.getParameter("vnp_TxnRef"));
-		
+		String id = req.getParameter("vnp_TxnRef");
+
 		String vnp_SecureHash = req.getParameter("vnp_SecureHash");
 		if (fields.containsKey("vnp_SecureHashType")) {
 			fields.remove("vnp_SecureHashType");
@@ -84,30 +85,38 @@ public class PayController {
 				if (checkAmount) {
 					if (checkOrderStatus) {
 						if ("00".equals(req.getParameter("vnp_ResponseCode"))) {
-							Order order = odao.findById(id).get();
-							order.setTrangthai("Đã đặt hàng");
-							odao.save(order);
-							NumberFormat currentLocale = NumberFormat.getInstance();
-							String tongtien = currentLocale.format(Double.parseDouble(order.getTongtien()));
-							try {
-								mail.send(order.getAccount().getEmail(), "Tổng tiền bạn thanh toán", tongtien);
-							} catch (Exception e) {
-								// TODO: handle exception
-							}
-							List<Orderdetail> details = order.getOrderDetails();
-							for (int i = 0; i < details.size(); i++) {
-								String detailsid = details.get(i).getProduct().getId().toString() ;
-								Product pro = pdao.findById(Integer.parseInt(detailsid)).get();
-								pro.setSoluong(pro.getSoluong() - details.get(i).getQuantity());
-								pdao.save(pro);
-							}
-							return "redirect:/order/detail/" + id;
+							List<String> stringList = Pattern.compile("-").splitAsStream(id)
+									.collect(Collectors.toList());
+							stringList.forEach(s -> {
+								Order order = odao.findById(Long.parseLong(s)).get();
+								order.setTrangthai("Đã đặt hàng");
+								odao.save(order);
+								NumberFormat currentLocale = NumberFormat.getInstance();
+								String tongtien = currentLocale.format(Double.parseDouble(order.getTongtien()));
+								try {
+									mail.send(order.getAccount().getEmail(), "Tổng tiền bạn thanh toán", tongtien);
+								} catch (Exception e) {
+									// TODO: handle exception
+								}
+								List<Orderdetail> details = order.getOrderDetails();
+								for (int i = 0; i < details.size(); i++) {
+									String detailsid = details.get(i).getProduct().getId().toString();
+									Product pro = pdao.findById(Integer.parseInt(detailsid)).get();
+									pro.setSoluong(pro.getSoluong() - details.get(i).getQuantity());
+									pdao.save(pro);
+								}
+							});
+							return "redirect:/order/list";
 						} else {
 							// Xu ly thanh toan khong thanh cong
 							// out.print("GD Khong thanh cong");
-							Order order = odao.findById(id).get();
-							order.setTrangthai("Thanh toán thất bại");
-							odao.save(order);
+							List<String> stringList = Pattern.compile("-").splitAsStream(id)
+									.collect(Collectors.toList());
+							stringList.forEach(s -> {
+								Order order = odao.findById(Long.parseLong(s)).get();
+								order.setTrangthai("Thanh toán thất bại");
+								odao.save(order);
+							});
 							model.addAttribute("pay", "Giao dịch thất bại mời bạn thử lại - Mã đơn hàng: " + id);
 							return "/order/checkout";
 						}
@@ -127,6 +136,7 @@ public class PayController {
 		} else {
 //			out.print("{\"RspCode\":\"97\",\"Message\":\"Invalid Checksum\"}");
 		}
-		return null;
+		model.addAttribute("pay", "Giao dịch thất bại mời bạn thử lại - Mã đơn hàng: " + id);
+		return "/order/checkout";
 	}
 }
