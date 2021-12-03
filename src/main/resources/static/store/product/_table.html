@@ -19,6 +19,7 @@
 						<th>Trademark</th>
 						<th>Category</th>
 						<th>Store</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,12 +32,13 @@
 						<td>{{item.catesmall.category.name}}</td>
 						<td>{{item.cuahang.tencuahang}}</td>
 						<td>
-							<div class="btn-group btn-group-xs">
-								<button ng-click="edit(item)"
-									class="btn btn-warning glyphicon glyphicon-edit"></button>
-								<button ng-click="delete(item)"
-									class="btn btn-danger  	glyphicon glyphicon-trash"></button>
-							</div>
+
+							<button ng-click="edit(item)"
+								class="btn btn-warning glyphicon glyphicon-edit" style="height: 30px ; width: 50px"></button>
+						</td>
+						<td>
+							<button ng-click="delete(item)"
+								class="btn btn-danger  	glyphicon glyphicon-trash" style="height: 30px ; width: 50px"></button>
 						</td>
 					</tr>
 				</tbody>
