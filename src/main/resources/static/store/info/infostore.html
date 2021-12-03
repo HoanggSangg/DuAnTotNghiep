@@ -1,20 +1,26 @@
 <body>
 	<main id="indivi">
 		<div class="container">
-			<div class="containerForm">
-				<div class="sen">
-					<img ng-src="{{'/images/' }}" width="150"
-						height="150" border="1"><br> <br>
-				</div>
-				<div class="formBox">
-					<div class="inputBox w50">
-						<input ng-model="store.account.username" readonly="readonly">
+			<div class="containerForm"
+				style="background-image: url('/images/hinhnen.jpg'); width: 1000px; height: 100%">
+				<div>
+					<div class="sen">
+						<img src="{{'/images/1.1.jpg' }}" width="150" height="150"
+							border="1"><br> <br>
 					</div>
-					<div class="inputBox w50">
-						<input ng-model="store.tencuahang" readonly="readonly">
-					</div>
-					<div class="inputBox w50">
-						<input ng-model="store.trangthai" readonly="readonly">
+					<div class="formBox">
+						<div class="inputBox w50" style="background-color: red">
+							Tên tài khoản <br> <input ng-model="store.account.username"
+								readonly="readonly">
+						</div>
+						<div class="inputBox w50" style="background-color: red">
+							Tên cửa hàng<br> <input ng-model="store.tencuahang"
+								readonly="readonly">
+						</div>
+						<div class="inputBox w50" style="background-color: red">
+							Trạng thái<br> <input ng-model="store.trangthai"
+								readonly="readonly">
+						</div>
 					</div>
 				</div>
 			</div>
