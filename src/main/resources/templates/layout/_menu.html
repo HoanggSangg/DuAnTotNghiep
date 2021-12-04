@@ -14,7 +14,7 @@
 							<div class="col-md-6">
 								<ul class="topmenu">
 									<li><a href="/home/contact">Liên hệ</a></li>
-									<li><a href="#">Tin tức</a></li>
+									<li><a href="/home/tintuc">Tin tức</a></li>
 									<li><a href="/home/huongdan">Hướng Dẫn</a></li>
 									<li><a href="/home/gioithieu">Giới Thiệu</a></li>
 									<li><a href="/home/hotro">Hỗ trợ</a></li>
@@ -67,6 +67,10 @@
 								<li
 									th:if="${#request.isUserInRole('AD')}">
 									<a th:href="@{/admin/home/index}">Quản Lý</a>
+								</li>
+								<li
+									th:if="${#request.isUserInRole('AD')} or ${#request.isUserInRole('CH')}">
+									<a href="/tintuc/post">Đăng Bài</a>
 								</li>
 								<li
 									th:if="${#request.isUserInRole('CH')}">

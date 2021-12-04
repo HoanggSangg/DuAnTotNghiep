@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import DuAnTotNghiep.MailService;
 import DuAnTotNghiep.entity.Catesmall;
 import DuAnTotNghiep.entity.Product;
+import DuAnTotNghiep.entity.tintuc;
 import DuAnTotNghiep.service.CatesmallService;
 import DuAnTotNghiep.service.CmtproductService;
 import DuAnTotNghiep.service.ImagesService;
 import DuAnTotNghiep.service.LikeService;
 import DuAnTotNghiep.service.ProductService;
 import DuAnTotNghiep.service.SpecificationService;
+import DuAnTotNghiep.service.tintucService;
 
 @Controller
 public class HomeController {
@@ -43,6 +45,8 @@ public class HomeController {
 	ImagesService imagesService;
 	@Autowired
 	CmtproductService cmtproductService;
+	@Autowired
+	tintucService tintucService;
 
 	@RequestMapping("/security/dangky")
 	public String dangky() {
@@ -139,5 +143,17 @@ public class HomeController {
 	@RequestMapping("/codeqmk")
 	public String codeqmk() {
 		return "/layout/code";
+	}
+	
+	@RequestMapping("/home/tintuc")
+	public String tintuc(Model m) {
+		List<tintuc> item = tintucService.findAll();
+		m.addAttribute("items", item);
+		return "layout/show_post";
+	}
+	
+	@RequestMapping("/tintuc/post")
+	public String post() {
+		return "layout/post_bai";
 	}
 }

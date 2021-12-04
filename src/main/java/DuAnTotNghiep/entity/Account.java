@@ -40,6 +40,10 @@ public class Account  implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
+	List<tintuc> tintuc;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
 	List<Likes> likes;
 	
 	@JsonIgnore

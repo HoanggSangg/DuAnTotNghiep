@@ -209,16 +209,16 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	}
 	$scope.imageChanged = function(files) {
 		var data = new FormData();
-			data.append('file', files[0]);
-			$http.post('/rest/upload/images', data, {
-				transformRequest: angular.indentity,
-				headers: { 'Content-Type': undefined }
-			}).then(resp => {
-				$scope.photo = resp.data.name;
-			}).catch(error => {
-				alert("Lỗi upload hình ảnh");
-				console.log("Error", error);
-			})
+		data.append('file', files[0]);
+		$http.post('/rest/upload/images', data, {
+			transformRequest: angular.indentity,
+			headers: { 'Content-Type': undefined }
+		}).then(resp => {
+			$scope.photo = resp.data.name;
+		}).catch(error => {
+			alert("Lỗi upload hình ảnh");
+			console.log("Error", error);
+		})
 	}
 	$scope.capnhattk = function() {
 		var username = $("#username").text();
@@ -296,6 +296,21 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				})
 			}
 
+		}
+	}
+	//---------------------------------Code Post--------------------------------------
+	$scope.tintuc = {
+		post() {
+			var post = {
+				account: { username: $("#username").text() },
+				noidung: $scope.noidung,
+				image: $scope.photo
+			};
+			$http.post(`/rest/post`, post).then(resp => {
+				location.href = "/home/tintuc"
+			}).catch(error => {
+				console.log("Error", error);
+			})
 		}
 	}
 })
