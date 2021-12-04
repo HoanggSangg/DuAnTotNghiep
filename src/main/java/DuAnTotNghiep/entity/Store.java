@@ -33,6 +33,7 @@ public class Store implements Serializable {
 	Account account;
 
 	Boolean trangthai;
+	String image;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "cuahang")

@@ -20,7 +20,7 @@ public class GuimailController {
 	public String hotro() {
 		String ho = req.getParameter("ho");
 		String ten = req.getParameter("ten");
-		String email = req.getParameter("email");
+		String email = "taolasang2k1@gmail.com";
 		String sdt = req.getParameter("sdt");
 		String tinnhan = req.getParameter("tinnhan");
 		
@@ -34,7 +34,7 @@ public class GuimailController {
 	@RequestMapping("/lienhe/guimail")
 	public String lienhe() {
 		String ten = req.getParameter("ten");
-		String email = req.getParameter("email");
+		String email = "taolasang2k1@gmail.com";
 		String tinnhan = req.getParameter("tinnhan");
 		
 		try {

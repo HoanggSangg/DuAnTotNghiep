@@ -1,4 +1,3 @@
-<h3 class="text-center">Account Management</h3>
 <div class="col-md-10 col-md-offset-1">
 	<div class="panel panel-default panel-table">
 		<div class="panel-heading">
@@ -24,18 +23,18 @@
 				<tbody>
 					<tr ng-repeat="item in pager.items">
 						<td>{{item.id}}</td>
-						<td>{{item.name}}</td>
-						<td>{{item.price}}</td>
-						<td>{{item.soluong}}</td>
-						<td>{{item.catesmall.name}}</td>
-						<td>{{item.catesmall.category.name}}</td>
+						<td>{{item.account.username}}</td>
+						<td>{{item.address}}</td>
+						<td>{{item.nguoinhan}}</td>
+						<td>{{item.diachinn}}</td>
+						<td>{{item.sdt}}</td>
 						<td>{{item.cuahang.tencuahang}}</td>
+						<td>{{item.tongtien}}</td>
+						<td>{{item.createDate}}</td>
 						<td>
 							<div class="btn-group btn-group-xs">
-								<button ng-click="edit(item)"
-									class="btn btn-warning glyphicon glyphicon-edit"></button>
-								<button ng-click="delete(item)"
-									class="btn btn-danger  	glyphicon glyphicon-trash"></button>
+								<button ng-click="trangthai(item.id)"
+									class="btn btn-warning">{{item.trangthai}}</button>
 							</div>
 						</td>
 					</tr>

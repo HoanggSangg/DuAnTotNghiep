@@ -1,14 +1,15 @@
 app.controller("store-ctrl", function($scope, $http) {
 	$scope.items = [];
 	$scope.cates = [];
+	$scope.acc = [];
 	$scope.form = {};
 
 	$scope.initialize = function() {
 		$http.get("/rest/store").then(resp => {
 			$scope.items = resp.data;
-			$scope.items.forEach(item => {
-				item.createDate = new Date(item.createDate)
-			})
+		})
+		$http.get("/rest/accounts/user").then(resp => {
+			$scope.acc = resp.data;
 		})
 	}
 	$scope.initialize();
@@ -37,26 +38,34 @@ app.controller("store-ctrl", function($scope, $http) {
 		});
 	}
 	$scope.update = function() {
-		var item = angular.copy($scope.form);
-		$http.put(`/rest/store/${item.id}`, item).then(resp => {
-			var index = $scope.items.findIndex(p => p.id == item.id);
-			$scope.items[index] = item;
-			alert("Cập nhật thành công");
-		}).catch(error => {
-			alert("Lỗi cập nhật sản phẩm");
-			console.log("Error", error);
-		});
+		if ($scope.acc.user == $scope.form.account.username) {
+			alert("Không được sửa thông tin tài khoản đang đăng nhập")
+		} else {
+			var item = angular.copy($scope.form);
+			$http.put(`/rest/store/${item.id}`, item).then(resp => {
+				var index = $scope.items.findIndex(p => p.id == item.id);
+				$scope.items[index] = item;
+				alert("Cập nhật thành công");
+			}).catch(error => {
+				alert("Lỗi cập nhật sản phẩm");
+				console.log("Error", error);
+			});
+		}
 	}
 	$scope.delete = function(item) {
-		$http.delete(`/rest/store/${item.id}`).then(resp => {
-			var index = $scope.items.findIndex(p => p.id == item.id);
-			$scope.items.splice(index, 1);
-			$scope.reset();
-			alert("Xóa thành công");
-		}).catch(error => {
-			alert("Lỗi xóa sản phẩm");
-			console.log("Error", error);
-		});
+		if ($scope.acc.user == item.account.username) {
+			alert("Không được xóa tài khoản đang đăng nhập")
+		} else {
+			$http.delete(`/rest/store/${item.id}`).then(resp => {
+				var index = $scope.items.findIndex(p => p.id == item.id);
+				$scope.items.splice(index, 1);
+				$scope.reset();
+				alert("Xóa thành công");
+			}).catch(error => {
+				alert("Lỗi xóa sản phẩm");
+				console.log("Error", error);
+			});
+		}
 	}
 	$scope.imageChanged = function(files) {
 		var data = new FormData();

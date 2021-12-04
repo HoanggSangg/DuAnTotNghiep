@@ -4,30 +4,34 @@
 <body>
 	<main id="doimk">
 		<div class="container">
-			<div class="containerForm">
-				<h2>Đổi mật khẩu</h2>
-				<div class="formBox">
-					<div class="inputBox w50">
-						<div id="username">[[${#request.remoteUser}]]</div>
-					</div>
-					<div class="inputBox w50">
-						<input type="password" ng-model="form.password" required>
-						<span>Old password</span>
-					</div>
-					<div class="inputBox w50">
-						<input type="password" ng-model="form.newPass" required>
-						<span>New Password</span>
-					</div>
-					<div class="inputBox w50">
-						<input type="password" ng-model="form.confirm" required>
-						<span>Repeat Password</span>
-					</div>
-					<div class="inputBox w100">
-						<input ng-click="doimk()" type="submit"
-							value="Change information">
+			<form name="frmBonus">
+				<div class="containerForm">
+					<h2>Đổi mật khẩu</h2>
+					<div class="formBox">
+						<div class="inputBox w50">
+							<div id="username">[[${#request.remoteUser}]]</div>
+						</div>
+						<div class="inputBox w50">
+							<input type="password" ng-model="form.password" required>
+							<span>Old password</span>
+						</div>
+						<div class="inputBox w50">
+							<input type="password" ng-model="form.newPass" required>
+							<span>New Password</span>
+						</div>
+						<div class="inputBox w50">
+							<input type="password" ng-model="form.confirm" required>
+							<span>Repeat Password</span>
+						</div>
+						<div class="inputBox w100">
+							<input ng-show="frmBonus.$valid" ng-click="doimk()" type="submit"
+								value="Change information">
+						</div>
+						<div class="inputBox w100" style="font-size: 15px" ng-show="frmBonus.$invalid">Vui
+							lòng nhập đầy đủ thông tin</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</main>
 </body>

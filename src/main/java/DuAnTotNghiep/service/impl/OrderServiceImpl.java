@@ -62,14 +62,20 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<Orderdetail> findByDetails(String username) {
+	public List<Order> findByDetails(String username) {
 		// TODO Auto-generated method stub
-		return ddao.findByDetails(username);
+		return odao.findByDetails(username);
 	}
 
 	@Override
-	public List<ReportDetail> thongKeDoanhThu() {
-		return ddao.thongKeDoanhThu();
+	public List<ReportDetail> thongKeDoanhThu(String trangthai) {
+		return ddao.thongKeDoanhThu(trangthai);
+	}
+
+	@Override
+	public Order create(Order order) {
+		// TODO Auto-generated method stub
+		return odao.save(order);
 	}
 
 }

@@ -33,28 +33,36 @@ app.controller("account-ctrl", function($scope, $http) {
 		});
 	}
 	$scope.update = function() {
-		var item = angular.copy($scope.form);
-		$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
-			var index = $scope.items.findIndex(p => p.id == item.id);
-			$scope.items[index] = item;
-			$scope.initialize();
-			alert("Cập nhật thành công");
-		}).catch(error => {
-			alert("Lỗi cập nhật tài khoản");
-			console.log("Error", error);
-		});
+		if ($scope.acc.user == $scope.form.username) {
+			alert("Không được sửa thông tin tài khoản đang đăng nhập")
+		} else {
+			var item = angular.copy($scope.form);
+			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
+				var index = $scope.items.findIndex(p => p.id == item.id);
+				$scope.items[index] = item;
+				$scope.initialize();
+				alert("Cập nhật thành công");
+			}).catch(error => {
+				alert("Lỗi cập nhật tài khoản");
+				console.log("Error", error);
+			});
+		}
 	}
 	$scope.delete = function(item) {
-		$http.delete(`/rest/accounts/${item.username}`).then(resp => {
-			var index = $scope.items.findIndex(p => p.id == item.username);
-			$scope.items.splice(index, 1);
-			$scope.reset();
-			$scope.initialize();
-			alert("Xóa thành công");
-		}).catch(error => {
-			alert("Lỗi xóa tài khoản");
-			console.log("Error", error);
-		});
+		if ($scope.acc.user == item.username) {
+			alert("Không được xóa tài khoản đang đăng nhập")
+		} else {
+			$http.delete(`/rest/accounts/${item.username}`).then(resp => {
+				var index = $scope.items.findIndex(p => p.id == item.username);
+				$scope.items.splice(index, 1);
+				$scope.reset();
+				$scope.initialize();
+				alert("Xóa thành công");
+			}).catch(error => {
+				alert("Lỗi xóa tài khoản");
+				console.log("Error", error);
+			});
+		}
 	}
 	$scope.stttrue = function(item) {
 		if ($scope.acc.user == item.username) {

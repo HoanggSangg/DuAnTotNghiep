@@ -13,14 +13,15 @@
 								<div class="icon-food"></div>
 							</div>
 							<h1 class="title">Young Creative</h1>
-							<div class="slogan">Thế giới công nghệ, nơi bạn có thể mua sắm tự do</div>
+							<div class="slogan">Thế giới công nghệ, nơi bạn có thể mua
+								sắm tự do</div>
 						</div>
 					</div>
 					<div class="signup-form ">
 						<div class="wrapper-2">
 							<div class="form-title">Đăng ký ngay !!!</div>
 							<div class="form">
-								<form>
+								<form name="frmBonus">
 									<p class="content-item">
 										<label>Tài Khoản: <input type="text"
 											ng-model="accounts.username"
@@ -34,33 +35,35 @@
 										</label>
 									</p>
 									<p class="content-item">
-										<label>Họ và tên: <input type="text" ng-model="accounts.fullname" 
-										placeholder="Nhập họ và tên !!!"
+										<label>Họ và tên: <input type="text"
+											ng-model="accounts.fullname" placeholder="Nhập họ và tên !!!"
 											name="psw" required>
 										</label>
 									</p>
 									<p class="content-item">
 										<label>Email: <input type="text"
 											ng-model="accounts.email"
-											placeholder="shopvip@youngcreative.com" name="email" required>
+											placeholder="Email sử dụng khi mất tài khoản !!!"
+											name="email" required>
 										</label>
 									</p>
 									<p class="content-item">
 										<label>Hình ảnh: <input type="file" id="photo"
-											onchange="angular.element(this).scope().accounts.imageChanged(this.files)">
+											onchange="angular.element(this).scope().accounts.imageChanged(this.files)"
+											required>
 										</label>
 									</p>
 									<hr>
 									<div class="panel-footer text-right">
-										<button ng-click="accounts.dangky()">Đăng
+										<button ng-show="frmBonus.$valid" ng-click="accounts.dangky()">Đăng
 											ký</button>
 									</div>
+									<div class="panel-footer" ng-show="frmBonus.$invalid">Vui
+										lòng nhập đầy đủ thông tin</div>
 								</form>
 							</div>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 		</div>

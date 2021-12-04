@@ -3,7 +3,7 @@ app.controller("revenue-ctrl", function($scope, $http) {
 
 	$scope.initialize = {
 		load() {
-			$http.get("/rest/orders/").then(resp => {
+			$http.get("/rest/orders/report").then(resp => {
 				$scope.items = resp.data;
 			})
 		}

@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import DuAnTotNghiep.dao.OrderDetailDao;
 import DuAnTotNghiep.entity.Order;
-import DuAnTotNghiep.entity.Orderdetail;
 import DuAnTotNghiep.entity.ReportDetail;
 import DuAnTotNghiep.service.OrderService;
 
@@ -31,13 +29,24 @@ public class OrderRestController {
 		return orderService.create(orderData);
 	}
 	
-	@GetMapping("{username}")
-	public List<Orderdetail> getOne(@PathVariable("username") String username) {
-		return orderService.findByDetails(username);
+	@PostMapping("/trangthai")
+	public Order create(@RequestBody Order order) {
+		return orderService.create(order);
 	}
 	
 	@GetMapping()
+	public Order getOrder(Long id) {
+		return orderService.findById(id);
+	}
+	
+	@GetMapping("{username}")
+	public List<Order> getOne(@PathVariable("username") String username) {
+		return orderService.findByDetails(username);
+	}
+	
+	@GetMapping("/report")
 	public List<ReportDetail> getdoanhthu() {
-		return orderService.thongKeDoanhThu();
+		String trangthai = "Đã giao hàng";
+		return orderService.thongKeDoanhThu(trangthai);
 	}
 }

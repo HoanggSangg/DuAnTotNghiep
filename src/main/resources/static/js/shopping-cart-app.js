@@ -119,6 +119,19 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				})
 			}
 		},
+		imageChanged(files) {
+			var data = new FormData();
+			data.append('file', files[0]);
+			$http.post('/rest/upload/images', data, {
+				transformRequest: angular.indentity,
+				headers: { 'Content-Type': undefined }
+			}).then(resp => {
+				$scope.accounts.photo = resp.data.name;
+			}).catch(error => {
+				alert("Lỗi upload hình ảnh");
+				console.log("Error", error);
+			})
+		},
 		dangky() {
 			var accounts = angular.copy(this);
 			accounts.trangthai = true;
@@ -181,30 +194,31 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				if ($scope.form.newPass == $scope.form.confirm) {
 					item.password = $scope.form.newPass;
 					$http.put(`/rest/accounts/${username}`, item).then(resp => {
-						alert("Mật khẩu mới là: " + item.password)
+						alert("Đổi mật khẩu thành công")
 						location.href = ('/security/logoff');
 					})
 				} else {
 					alert("Nhập lại mật khẩu không đúng")
+					$scope.form = {};
 				}
 			} else {
 				alert("Sai mật khẩu hoặc tài khoản")
+				$scope.form = {};
 			}
-			$scope.form = {};
 		})
 	}
 	$scope.imageChanged = function(files) {
 		var data = new FormData();
-		data.append('file', files[0]);
-		$http.post('/rest/upload/images', data, {
-			transformRequest: angular.indentity,
-			headers: { 'Content-Type': undefined }
-		}).then(resp => {
-			$scope.photo = resp.data.name;
-		}).catch(error => {
-			alert("Lỗi upload hình ảnh");
-			console.log("Error", error);
-		})
+			data.append('file', files[0]);
+			$http.post('/rest/upload/images', data, {
+				transformRequest: angular.indentity,
+				headers: { 'Content-Type': undefined }
+			}).then(resp => {
+				$scope.photo = resp.data.name;
+			}).catch(error => {
+				alert("Lỗi upload hình ảnh");
+				console.log("Error", error);
+			})
 	}
 	$scope.capnhattk = function() {
 		var username = $("#username").text();

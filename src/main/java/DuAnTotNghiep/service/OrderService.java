@@ -16,8 +16,10 @@ public interface OrderService {
 
 	List<Order> findByUsername(String username);
 
-	List<Orderdetail> findByDetails(String username);
+	List<Order> findByDetails(String username);
 
-	List<ReportDetail> thongKeDoanhThu();
+	List<ReportDetail> thongKeDoanhThu(String trangthai);
+
+	Order create(Order order);
 
 }
