@@ -29,7 +29,7 @@ public class Order  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String address;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "Createdate")
 	Date createDate = new Date();
 	

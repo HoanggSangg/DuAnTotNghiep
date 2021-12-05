@@ -26,6 +26,7 @@ public class Account  implements Serializable{
 	String email;
 	String photo;
 	Boolean trangthai;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
 	List<Order> orders;
@@ -57,4 +58,8 @@ public class Account  implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
 	List<Codedmk> codedmk;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Saleuser> sale;
 }

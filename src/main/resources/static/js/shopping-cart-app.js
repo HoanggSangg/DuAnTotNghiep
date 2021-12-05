@@ -103,7 +103,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			$scope.order.savecart();
 			$http.post("/rest/pay", order).then(resp => {
 				$scope.payment = resp.data;
-				/*$scope.cart.clear();*/
+				$scope.cart.clear();
 				location.href = $scope.payment.url;
 			})
 		},

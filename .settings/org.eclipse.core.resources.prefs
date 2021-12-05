@@ -7,6 +7,7 @@ encoding//src/main/resources=UTF-8
 encoding//src/main/resources/static/admin/account/_form.html=UTF-8
 encoding//src/main/resources/static/admin/account/_table.html=UTF-8
 encoding//src/main/resources/static/admin/account/indexAccount.html=UTF-8
+encoding//src/main/resources/static/admin/authorize/indexAuthority.html=UTF-8
 encoding//src/main/resources/static/admin/product/_form.html=UTF-8
 encoding//src/main/resources/static/admin/product/_table.html=UTF-8
 encoding//src/main/resources/static/admin/product/indexProduct.html=UTF-8

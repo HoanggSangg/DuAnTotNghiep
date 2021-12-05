@@ -46,4 +46,8 @@ public class Store implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "cuahang")
 	List<Cmtstore> cmtstore;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "cuahang")
+	List<Codesale> codesale;
 }
