@@ -23,25 +23,6 @@
 							</div>
 							<div class="clearfix"></div>
 							<div class="products-list">
-								<div class="toolbar">
-									<div class="sorter">
-										<form action="/sort">
-											<div class="sort-by">
-												<input class="search-submit" value="Sort" type="submit"><select name="sort">
-													<option value="Name">Name</option>
-													<option value="Price">Price</option>
-												</select>
-											</div>
-										</form>
-										<div class="limiter">
-											Show : <select name="">
-												<option value="3">3</option>
-												<option value="6" selected>6</option>
-												<option value="9">9</option>
-											</select>
-										</div>
-									</div>
-								</div>
 								<div th:each="p: ${items}">
 									<div th:replace="~{/product/list :: product_list}"></div>
 								</div>

@@ -6,15 +6,15 @@
 		<div class="container" style="padding-top: 20px">
 			<div class="containerForm">
 				<div class="panel panel-primary">
-					<div class="panel-heading" style="background-color: #0066CC">YOUR
-						ORDERS PURCHASED</div>
+					<div class="panel-heading" style="background-color: #0066CC">
+						ĐƠN HÀNG CỦA BẠN ĐÃ MUA</div>
 					<table class="table">
 						<thead>
 							<tr>
 								<th>No.</th>
-								<th>Order No.</th>
-								<th>Order Date</th>
-								<th>Shipping Address</th>
+								<th>Id đặt hàng</th>
+								<th>Ngày đặt hàng</th>
+								<th>Địa chỉ nhận hàng</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -25,7 +25,8 @@
 								<td>[[${order.createDate}]]</td>
 								<td>[[${order.address}]]</td>
 								<td>[[${order.cuahang.tencuahang}]]</td>
-								<td>[[${#numbers.formatDecimal(order.tongtien, 0, 'COMMA', 0, 'POINT')}]]</td>
+								<td>[[${#numbers.formatDecimal(order.tongtien, 0, 'COMMA',
+									0, 'POINT')}]]</td>
 								<td>[[${order.trangthai}]]</td>
 								<td><a th:href="@{|/order/detail/${order.id}|}"
 									class="btn btn-default"> <b

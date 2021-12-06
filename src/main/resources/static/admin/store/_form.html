@@ -14,21 +14,21 @@
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="form-group col-sm-6">
-							<div>Name</div>
+							<div>Tên cửa hàng</div>
 							<input ng-model="form.tencuahang" class="form-control">
 						</div>
 						<div class="form-group col-sm-6">
-							<div>Photo</div>
+							<div>Hình</div>
 							<input type="file" class="form-control" id="image"
 								onchange="angular.element(this).scope().imageChanged(this.files)">
 						</div>
 						<div class="form-group col-sm-6">
-							<div>Account</div>
+							<div>Tên tài khoản</div>
 							<input ng-model="form.account.username" class="form-control"
 								readonly="readonly">
 						</div>
 						<div class="form-group col-sm-6">
-							<div>Status?</div>
+							<div>Trạng thái?</div>
 							<div class="form-control">
 								<label class="radio-inline"> <input
 									ng-model="form.trangthai" ng-value="true" name="available"

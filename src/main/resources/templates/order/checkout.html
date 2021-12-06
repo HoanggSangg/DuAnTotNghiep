@@ -24,18 +24,18 @@
 													</div>
 													<div class="form-row">
 														<div class="form-control">
-															Order Date <strong class="red"> * </strong>
+															Ngày nhận hàng <strong class="red"> * </strong>
 															{{order.createDate | date: 'dd-MM-yyyy'}}
 														</div>
 													</div>
 													<div class="form-row">
-														<label class="lebel-abs"> Receiver <strong
+														<label class="lebel-abs"> Người nhận <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild"
 															ng-model="order.nguoinhan" required>
 													</div>
 													<div class="form-row">
-														<label class="lebel-abs"> Phone <strong
+														<label class="lebel-abs"> Số điện thoại <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild"
 															ng-model="order.sdt" required>
@@ -47,13 +47,13 @@
 															ng-model="order.diachinn" required>
 													</div>
 													<div class="form-row">
-														<label class="lebel-abs"> Address <strong
+														<label class="lebel-abs"> Địa chỉ <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild"
 															ng-model="order.address" required>
 													</div>
 													<div class="form-row">
-														<label class="lebel-abs"> Code <strong
+														<label class="lebel-abs"> Mã giảm giá <strong
 															class="red"> * </strong>
 														</label> <input type="text" class="input namefild" ng-model="order.codesale.code">
 													</div>
@@ -67,7 +67,7 @@
 													</div>
 													<i class="pull-left text-danger" th:text="${pay}"></i>
 													<div class="text-right">
-														<button ng-click="order.pay()">Buying</button>
+														<button ng-click="order.pay()">Mua hàng</button>
 													</div>
 												</div>
 											</div>

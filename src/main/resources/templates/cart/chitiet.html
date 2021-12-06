@@ -9,23 +9,24 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h3 class="title">Shopping Cart</h3>
+							<h3 class="title">Giỏ hàng của bạn</h3>
 							<div class="clearfix"></div>
 							<table class="shop-table" th:fragment="shopping_cart">
 								<thead>
 									<tr>
-										<th>Image</th>
-										<th>Detail</th>
-										<th>Price</th>
-										<th>Quantity</th>
-										<th>Price</th>
-										<th>Delete</th>
+										<th>Hình ảnh</th>
+										<th>Tên sản phẩm</th>
+										<th>Giá</th>
+										<th>Tên cửa hàng</th>
+										<th>Số lượng</th>						
+										<th>Tổng tiền</th>
+										<th>Xóa</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="item in cart.items">
 										<td><a th:href="@{|/product/detail/{{item.id}}?cid={{item.catesmall.category.id}}|}">
-											<img src="../../images/{{item.image}}"></td></a>
+											<img src="../../images/{{item.image}}"></a></td>
 										<td>
 											<div class="shop-details">
 												<div class="productname">{{item.name}}</div>
@@ -52,8 +53,8 @@
 								<tfoot>
 									<tr>
 										<td colspan="6">
-											<button onClick="location.href='/product/list'" class="pull-left">Continue Shopping</button>
-											<button onClick="location.href='/order/checkout'" class=" pull-right">Checkout</button>
+											<button onClick="location.href='/product/list'" class="pull-left">Tiếp tục mua hàng</button>
+											<button onClick="location.href='/order/checkout'" class=" pull-right">Đặt hàng</button>
 										</td>
 									</tr>
 								</tfoot>

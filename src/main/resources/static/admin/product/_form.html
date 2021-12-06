@@ -1,4 +1,4 @@
-<h3 class="text-center">Product Management</h3>
+<h3 class="text-center">Quản lý sản phẩm</h3>
 <div class="panel panel-default" id="a">
 	<div class="panel-body">
 		<div class="row">
@@ -10,47 +10,47 @@
 			<div class="col-sm-9">
 				<div class="row">
 					<div class="form-group col-sm-6">
-						<div>Name</div>
+						<div>Tên sản phẩm</div>
 						<input ng-model="form.name" class="form-control">
 					</div>
 					<div class="form-group col-sm-6">
-						<div>Price</div>
+						<div>Giá</div>
 						<input ng-model="form.price" class="form-control">
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-sm-6">
-						<div>Quantity</div>
+						<div>Số lượng</div>
 						<input ng-model="form.soluong" class="form-control">
 					</div>
 					<div class="form-group col-sm-6">
-						<div>Trademark</div>
+						<div>Nhãn hiệu</div>
 						<select ng-model="form.catesmall.id" class="form-control">
                             <option ng-repeat="c in catesmall" ng-value="c.id">{{c.name}}</option>
                         </select>
 					</div>
                     <div class="form-group col-sm-6">
-                        <div>Store</div>
+                        <div>Tên cửa hàng</div>
                         <select ng-model="form.cuahang.id" class="form-control">
                             <option ng-repeat="s in store" ng-value="s.id">{{s.tencuahang}}</option>
                         </select>
                     </div>
                     <div class="form-group col-sm-6">
-						<div>Status?</div>
+						<div>Trạng thái?</div>
 						<div class="form-control">
 							<label class="radio-inline"> <input
 								ng-model="form.available" ng-value="true" name="available"
-								type="radio">Yes
+								type="radio">Còn
 							</label> <label class="radio-inline"> <input
 								ng-model="form.available" ng-value="false" name="available"
-								type="radio">No
+								type="radio">Hết
 							</label>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-sm-6">
-						<div>Photo</div>
+						<div>Hình</div>
 						<input type="file" class="form-control" id="image"
 							onchange="angular.element(this).scope().imageChanged(this.files)">
 					</div>
@@ -60,16 +60,16 @@
 	</div>
 	<div class="panel-footer text-center">
 		<button ng-click="create()" class="btn btn-primary">
-			<b class="glyphicon glyphicon-plus"></b> Create
+			<b class="glyphicon glyphicon-plus"></b> Thêm
 		</button>
 		<button ng-click="update()" class="btn btn-success">
-			<b class="glyphicon glyphicon-save"></b> Update
+			<b class="glyphicon glyphicon-save"></b> Sửa
 		</button>
 		<button ng-click="delete(form)" class="btn btn-danger">
-			<b class="glyphicon glyphicon-trash"></b> Delete
+			<b class="glyphicon glyphicon-trash"></b> Xóa
 		</button>
 		<button ng-click="reset()" class="btn btn-info">
-			<b class="glyphicon glyphicon-refresh"></b> Reset
+			<b class="glyphicon glyphicon-refresh"></b> Tạo mới
 		</button>
 	</div>
 </div>

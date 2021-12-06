@@ -46,13 +46,12 @@
 									<hr class="border">
 									<div class="wided">
 										<div class="price">
-											Qty : <span style="font-size: 18px; color: red"
+											Số lượng : <span style="font-size: 18px; color: red"
 												th:utext="${p.soluong}"> </span>
 										</div>
 										<div class="button_group">
 											<button class="button"
-												th:attr="ng-click=@{|cart.add(${p.id})|}">Add To
-												Cart</button>
+												th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào giỏ</button>
 										</div>
 									</div>
 								</div>
@@ -61,8 +60,8 @@
 							<div class="tab-box">
 								<div id="tabnav">
 									<ul>
-										<li><a href="#Descraption"> DESCRIPTION </a></li>
-										<li><a href="#image"> Image </a></li>
+										<li><a href="#Descraption"> Mô tả </a></li>
+										<li><a href="#image"> Hình ảnh </a></li>
 									</ul>
 								</div>
 								<div class="tab-content-wrap">

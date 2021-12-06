@@ -43,8 +43,7 @@
 													</div>
 													<div class="button_group">
 														<button class="button"
-															th:attr="ng-click=@{|cart.add(${p.id})|}">Add To
-															Cart</button>
+															th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào giỏ</button>
 														<th:block th:if="${#request.remoteUser}">
 															<button class="button"
 																th:unless="${#arrays.contains(like, p.id)}"

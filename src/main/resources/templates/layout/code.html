@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
-	<main id = "quenmk">
+	<main id="quenmk">
 		<div class="container1">
 			<div class="container">
 				<div class="row">
@@ -13,8 +13,8 @@
 									<h3>
 										<i class="fa fa-lock fa-4x"></i>
 									</h3>
-									<h2 class="text-center">Forgot Password?</h2>
-									<p>You can reset your password here.</p>
+									<h2 class="text-center">Quên mật khẩu?</h2>
+									<p>Bạn có thể khôi phục lại mật khẩu ở đây.</p>
 									<div class="panel-body">
 										<div id="register-form" role="form" autocomplete="off"
 											class="form" method="post">
@@ -24,14 +24,15 @@
 														<span class="input-group-addon"><i
 															class="glyphicon glyphicon-envelope color-blue"></i></span>
 														<div class="inputBox w50">
-															<input ng-model="code" name="code" required class="form-control">
+															<input ng-model="code" name="code" required
+																class="form-control">
 														</div>
 													</div>
 												</div>
 											</div>
 											<div class="form-group">
-												<i class="pull-left text-danger" th:text="${message}"></i>
-												<input name="recover-submit" ng-click="accounts.codeqmk()"
+												<i class="pull-left text-danger" th:text="${message}"></i> <input
+													name="recover-submit" ng-click="accounts.codeqmk()"
 													class="btn btn-lg btn-primary btn-block"
 													value="Reset Password" type="submit">
 											</div>
