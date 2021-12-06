@@ -106,7 +106,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				$scope.cart.clear();
 				location.href = $scope.payment.url;
 			})
-		},
+		}
 	}
 
 	//-----------------------------Code JS Accounts------------------------------

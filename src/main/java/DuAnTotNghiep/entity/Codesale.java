@@ -29,7 +29,7 @@ public class Codesale implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	Integer id;
 	String code;
 	
 	@Temporal(TemporalType.DATE)

@@ -115,6 +115,7 @@ public class PayController {
 							stringList.forEach(s -> {
 								Order order = odao.findById(Long.parseLong(s)).get();
 								order.setTrangthai("Thanh toán thất bại");
+								order.setHoanthanh(false);
 								odao.save(order);
 							});
 							model.addAttribute("pay", "Giao dịch thất bại mời bạn thử lại - Mã đơn hàng: " + id);
@@ -136,6 +137,13 @@ public class PayController {
 		} else {
 //			out.print("{\"RspCode\":\"97\",\"Message\":\"Invalid Checksum\"}");
 		}
+		List<String> stringList = Pattern.compile("-").splitAsStream(id).collect(Collectors.toList());
+		stringList.forEach(s -> {
+			Order order = odao.findById(Long.parseLong(s)).get();
+			order.setTrangthai("Thanh toán thất bại");
+			order.setHoanthanh(false);
+			odao.save(order);
+		});
 		model.addAttribute("pay", "Giao dịch thất bại mời bạn thử lại - Mã đơn hàng: " + id);
 		return "/order/checkout";
 	}

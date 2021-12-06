@@ -18,8 +18,10 @@ public interface OrderService {
 
 	List<Order> findByDetails(String username);
 
-	List<ReportDetail> thongKeDoanhThu(String trangthai);
+	List<ReportDetail> thongKeDoanhThu(boolean trangthai);
 
 	Order create(Order order);
+
+	void delete(Long id);
 
 }

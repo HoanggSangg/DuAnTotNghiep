@@ -29,7 +29,7 @@ app.controller("order-ctrl", function($scope, $http) {
 		}else if(order.trangthai == "Đã giao hàng"){
 			alert("Đơn hàng đã hoàn thành")
 		}else{
-			alert("Đơn hàng lỗi");
+			alert("Đơn hàng đã hủy hoặc chưa được thanh toán");
 		}
 		
 	}

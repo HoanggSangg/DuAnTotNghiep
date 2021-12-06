@@ -21,7 +21,6 @@ public class tintuc implements Serializable{
 	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
-	
 	String noidung;
 	String image;
 	

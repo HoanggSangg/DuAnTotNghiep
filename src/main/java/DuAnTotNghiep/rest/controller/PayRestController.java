@@ -139,6 +139,7 @@ public class PayRestController {
 			order1.setTrangthai(order.getTrangthai());
 			order1.setTongtien(tong + "");
 			order1.setCuahang(store);
+			order1.setHoanthanh(true);
 			Order or = odao.save(order1);
 			id += or.getId() + "-";
 			List<Cart> cart = cartservice.getfindUserAndStore(t.getUsername(), t.getCuahang());

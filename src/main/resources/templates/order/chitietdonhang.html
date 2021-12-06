@@ -3,10 +3,11 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
 	<main id="chitietdonhang">
-		<div class="container">
+		<div class="container" style="padding-top: 20px">
 			<div class="containerForm">
 				<div class="panel panel-primary">
-					<div class="panel-heading"style="background-color: #0066CC">YOUR ORDERS PURCHASED</div>
+					<div class="panel-heading" style="background-color: #0066CC">YOUR
+						ORDERS PURCHASED</div>
 					<table class="table">
 						<thead>
 							<tr>
@@ -24,11 +25,15 @@
 								<td>[[${order.createDate}]]</td>
 								<td>[[${order.address}]]</td>
 								<td>[[${order.cuahang.tencuahang}]]</td>
-								<td>[[${order.tongtien}]]</td>
+								<td>[[${#numbers.formatDecimal(order.tongtien, 0, 'COMMA', 0, 'POINT')}]]</td>
 								<td>[[${order.trangthai}]]</td>
 								<td><a th:href="@{|/order/detail/${order.id}|}"
 									class="btn btn-default"> <b
 										class="glyphicon glyphicon-search"></b>
+								</a></td>
+								<td><a th:href="@{|/order/delete/${order.id}|}"
+									class="btn btn-default"> <b
+										class="glyphicon glyphicon-trash"></b>
 								</a></td>
 							</tr>
 						</tbody>

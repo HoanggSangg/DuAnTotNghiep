@@ -3,8 +3,8 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <body>
-	<main th:object="${order}">
-		<div class="panel panel-primary" >
+	<main th:object="${order}" style="padding: 20px">
+		<div class="panel panel-primary">
 			<div class="panel-heading" style="background-color: #0066CC; color: white" >ORDER INFORMATION</div>
 			<div class="panel-body">
 				<div class="row">
@@ -47,11 +47,11 @@
 						<td>[[*{product.id}]]</td>
 						<td>[[*{product.name}]]</td>
 						<td>[[*{product.cuahang.tencuahang}]]</td>
-						<td>$[[*{#numbers.formatDecimal(price, 0, 'COMMA', 2,
+						<td>[[*{#numbers.formatDecimal(price, 0, 'COMMA', 2,
 							'POINT')}]]</td>
 						<td>[[*{quantity}]]</td>
-						<td>$[[*{#numbers.formatDecimal(price*quantity, 0, 'COMMA',
-							2, 'POINT')}]]</td>
+						<td>[[*{#numbers.formatDecimal(price*quantity, 0, 'COMMA',
+							0, 'POINT')}]]</td>
 					</tr>
 				</tbody>
 			</table>

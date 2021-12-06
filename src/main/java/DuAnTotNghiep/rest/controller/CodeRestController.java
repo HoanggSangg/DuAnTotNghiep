@@ -13,41 +13,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import DuAnTotNghiep.entity.Cmtproduct;
-import DuAnTotNghiep.entity.Product;
-import DuAnTotNghiep.entity.tintuc;
-import DuAnTotNghiep.service.tintucService;
+import DuAnTotNghiep.entity.Codesale;
+import DuAnTotNghiep.service.CodeService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/post")
-public class tintucRestController {
+@RequestMapping("/rest/code")
+public class CodeRestController {
 
 	@Autowired
-	tintucService tintucService;
+	CodeService codeservice;
 
 	@GetMapping()
-	public List<tintuc> getAll() {
-		return tintucService.findAll();
+	public List<Codesale> getAll() {
+		return codeservice.findAll();
 	}
 	
 	@GetMapping("{user}")
-	public List<tintuc> getByUser(@PathVariable("user") String user) {
-		return tintucService.findByUser(user);
+	public List<Codesale> getByUser(@PathVariable("user") String user) {
+		return codeservice.findByUser(user);
 	}
 	
 	@PostMapping
-	public tintuc create(@RequestBody tintuc tintuc) {
-		return tintucService.create(tintuc);
-	}
-	
-	@PutMapping("{id}")
-	public tintuc update(@PathVariable("id") Integer id, @RequestBody tintuc tintuc) {
-		return tintucService.update(tintuc);
+	public Codesale create(@RequestBody Codesale codesale) {
+		return codeservice.create(codesale);
 	}
 	
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable("id") Integer id) {
-		tintucService.delete(id);
+		codeservice.delete(id);
 	}
 }

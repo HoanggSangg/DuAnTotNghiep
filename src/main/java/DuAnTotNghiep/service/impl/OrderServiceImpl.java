@@ -68,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<ReportDetail> thongKeDoanhThu(String trangthai) {
+	public List<ReportDetail> thongKeDoanhThu(boolean trangthai) {
 		return ddao.thongKeDoanhThu(trangthai);
 	}
 
@@ -76,6 +76,15 @@ public class OrderServiceImpl implements OrderService {
 	public Order create(Order order) {
 		// TODO Auto-generated method stub
 		return odao.save(order);
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		Order order = odao.findById(id).get();
+		order.setTrangthai("Đơn hàng đã hủy");
+		order.setHoanthanh(false);
+		odao.save(order);
 	}
 
 }

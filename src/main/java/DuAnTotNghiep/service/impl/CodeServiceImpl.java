@@ -5,37 +5,37 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import DuAnTotNghiep.dao.tintucDao;
-import DuAnTotNghiep.entity.tintuc;
-import DuAnTotNghiep.service.tintucService;
+import DuAnTotNghiep.dao.CodesaleDao;
+import DuAnTotNghiep.entity.Codesale;
+import DuAnTotNghiep.service.CodeService;
 
 @Service
-public class tintucServiceImpl implements tintucService{
+public class CodeServiceImpl implements CodeService{
 
-	@Autowired tintucDao dao;
+	@Autowired CodesaleDao dao;
 
 	@Override
-	public tintuc create(tintuc tintuc) {
+	public Codesale create(Codesale codesale) {
 		// TODO Auto-generated method stub
-		return dao.save(tintuc);
+		return dao.save(codesale);
 	}
 
 	@Override
-	public List<tintuc> findAll() {
+	public List<Codesale> findAll() {
 		// TODO Auto-generated method stub
 		return dao.findAll();
 	}
 
 	@Override
-	public List<tintuc> findByUser(String user) {
+	public List<Codesale> findByUser(String user) {
 		// TODO Auto-generated method stub
 		return dao.findByUser(user);
 	}
 
 	@Override
-	public tintuc update(tintuc tintuc) {
+	public Codesale update(Codesale codesale) {
 		// TODO Auto-generated method stub
-		return dao.save(tintuc);
+		return dao.save(codesale);
 	}
 
 	@Override

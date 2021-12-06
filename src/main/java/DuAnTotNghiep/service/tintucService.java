@@ -10,5 +10,11 @@ public interface tintucService {
 
 	List<tintuc> findAll();
 
+	List<tintuc> findByUser(String user);
+
+	tintuc update(tintuc tintuc);
+
+	void delete(Integer id);
+
 
 }
