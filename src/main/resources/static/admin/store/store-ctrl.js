@@ -16,7 +16,6 @@ app.controller("store-ctrl", function($scope, $http) {
 
 	$scope.reset = function() {
 		$scope.form = {
-			createDate: new Date(),
 			image: 'cloud-upload.jpg',
 			available: true,
 		};
@@ -36,6 +35,7 @@ app.controller("store-ctrl", function($scope, $http) {
 			alert("Lỗi thêm mới sản phẩm");
 			console.log("Error", error);
 		});
+		$scope.reset();
 	}
 	$scope.update = function() {
 		if ($scope.acc.user == $scope.form.account.username) {
@@ -50,6 +50,7 @@ app.controller("store-ctrl", function($scope, $http) {
 				alert("Lỗi cập nhật sản phẩm");
 				console.log("Error", error);
 			});
+			$scope.reset();
 		}
 	}
 	$scope.delete = function(item) {
@@ -65,6 +66,7 @@ app.controller("store-ctrl", function($scope, $http) {
 				alert("Lỗi xóa sản phẩm");
 				console.log("Error", error);
 			});
+			$scope.reset();
 		}
 	}
 	$scope.imageChanged = function(files) {
