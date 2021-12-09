@@ -68,6 +68,7 @@ public class AccountServiceImpl implements AccountService {
 		Date now = new Date();
 
 		for(int i = 0; i < dmk.size(); i++) {
+			System.err.println(dmk.get(i).getDate().getTime());
 			if(dmk.get(i).getDate().getTime()+900000 > now.getTime()) {
 				if(dmk.get(i).getCode().equals(forgot.getCodeqmk()) && dmk.get(i).isTrangthai()) {
 					acc.setPassword(password);
@@ -91,6 +92,12 @@ public class AccountServiceImpl implements AccountService {
 		}
 		
 		return adao.save(acc);
+	}
+
+	@Override
+	public List<Account> findByName(String name) {
+		// TODO Auto-generated method stub
+		return adao.findByName(name);
 	}
 
 }

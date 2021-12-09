@@ -50,4 +50,8 @@ public class tintucRestController {
 	public void delete(@PathVariable("id") Integer id) {
 		tintucService.delete(id);
 	}
+	@GetMapping("/timkiem/{name}")
+	public List<tintuc> getName(@PathVariable("name") String name) {
+		return tintucService.findByName("%" + name + "%");
+	}
 }

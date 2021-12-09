@@ -43,6 +43,12 @@ public class tintucServiceImpl implements tintucService{
 		// TODO Auto-generated method stub
 		dao.deleteById(id);
 	}
+
+	@Override
+	public List<tintuc> findByName(String name) {
+		// TODO Auto-generated method stub
+		return dao.findByName(name);
+	}
 	
 	
 }

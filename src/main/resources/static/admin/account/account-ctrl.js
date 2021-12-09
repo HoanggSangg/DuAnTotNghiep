@@ -142,9 +142,10 @@ app.controller("account-ctrl", function($scope, $http) {
 
 	$scope.timkiem = function() {
 		var item = angular.copy($scope.form);
-		$http.get(`/rest/accounts/${item.username}`).then(resp => {
-			$scope.form = angular.copy(resp.data);
-			$(".nav-tabs a:eq(0)").tab('show')
-		})
+		if (item.name != null) {
+			$http.get(`/rest/accounts/timkiem/${item.name}`).then(resp => {
+				$scope.items = angular.copy(resp.data);
+			})
+		}
 	}
 });

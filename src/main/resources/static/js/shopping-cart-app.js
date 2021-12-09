@@ -298,6 +298,27 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 
 		}
 	}
+	//-----------------------------------Code CommentStore------------------------------
+	$scope.cmtstore = {
+		post(id) {
+			var cmtstore = {
+				account: { username: $("#username").text() },
+				cuahang: { id: id },
+				date: new Date(),
+				comment: $scope.cmtstore.comment
+			};
+			if (cmtstore.account.username == "") {
+				location.href = "/security/login";
+			} else {
+				$http.post(`/rest/cmtstore`, cmtstore).then(resp => {
+					location.href = "/product/store/" + id;
+				}).catch(error => {
+					console.log("Error", error);
+				})
+			}
+
+		}
+	}
 	//---------------------------------Code Post--------------------------------------
 	$scope.tintuc = {
 		post() {

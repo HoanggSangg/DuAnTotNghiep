@@ -11,6 +11,24 @@
 						</div>
 					</div>
 					<div class="panel-body">
+						<div>
+							<div class="form-group col-sm-5">
+								<div style="padding-top: 10px">
+									<input type="number" min="0" max="12" placeholder="Nhập tháng đơn hàng bạn cần tìm !!!"
+										ng-model="thang" class="form-control">
+								</div>
+							</div>
+							<div class="form-group col-sm-5">
+								<div style="padding-top: 10px">
+									<input type="number" min="2000" placeholder="Nhập năm đơn hàng bạn cần tìm !!!"
+										ng-model="nam" class="form-control">
+								</div>
+							</div>
+							<div class="panel-footer text-right">
+								<button ng-click="timkiem()" class="btn btn-success">Tìm
+									Kiếm</button>
+							</div>
+						</div>
 						<table class="table table-striped table-bordered table-list">
 							<thead>
 								<tr>
@@ -25,7 +43,7 @@
 									<td>{{item.name}}</td>
 									<td>{{item.doanhThu}}</td>
 									<td>{{item.soLuong}}</td>
-									<td>{{item.date}}</td>
+									<td>{{item.date | date: 'dd-MM-yyyy'}}</td>
 								</tr>
 							</tbody>
 						</table>

@@ -15,7 +15,7 @@
 										<img th:src="@{|../../images/${p.image}|}">
 									</a>
 								</div>
-								<div class="productname" th:utext="${p.name}"></div>
+								<div style="padding-top: 30px; text-align: center;" class="productname" th:utext="${p.name}"></div>
 								<div class="price">
 									<span class="new_price"
 										th:utext="${#numbers.formatDecimal(p.price, 1, 'COMMA', 0, 'POINT')} + ' VNĐ'">
@@ -24,7 +24,8 @@
 								<div class="button_group">
 									<div class="button_group">
 										<button class="button"
-											th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào giỏ</button>
+											th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào
+											giỏ</button>
 										<th:block th:if="${#request.remoteUser}">
 											<button class="button"
 												th:unless="${#arrays.contains(like, p.id)}"

@@ -18,4 +18,6 @@ public interface StoreService {
 
 	Store findByStore(String username);
 
+	List<Store> findByName(String name);
+
 }

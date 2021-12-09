@@ -117,15 +117,9 @@ app.controller("product-ctrl", function($scope, $http) {
 			this.page = this.count - 1;
 		}
 	}
-	$scope.timkiemPrice = function() {
+	$scope.timkiem = function() {
 		var item = angular.copy($scope.form);
-		$http.get(`/rest/products/timkiemPrice/${item.price}`).then(resp => {
-			$scope.items = angular.copy(resp.data);
-		})
-	}
-	$scope.timkiemName = function() {
-		var item = angular.copy($scope.form);
-		$http.get(`/rest/products/timkiemName/${item.name}`).then(resp => {
+		$http.get(`/rest/products/timkiem/${item.name}`).then(resp => {
 			$scope.items = angular.copy(resp.data);
 		})
 	}

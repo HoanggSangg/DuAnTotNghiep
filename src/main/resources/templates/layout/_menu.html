@@ -60,7 +60,7 @@
 									<div class="dropdown-menu">
 										<ul class="mega-menu-links">
 											<th:block th:each="c : ${cates}">
-												<li><a th:href="@{|/product/list?cid=${c.id}|}">[[${c.name}]]</a></li>
+												<li><a th:href="@{|/home/index?cid=${c.id}|}">[[${c.name}]]</a></li>
 											</th:block>
 										</ul>
 									</div></li>
@@ -85,6 +85,7 @@
 											<li><a href="/account/doimk">Đổi MK</a></li>
 											<li><a href="/account/edit">Cập nhật TK</a></li>
 											<li><a th:href="@{/order/list}">LS mua hàng</a></li>
+											<li><a th:href="@{/product/list}">SP đã thích</a></li>
 											<li><a href="/security/logoff">Đăng Xuất</a></li>
 										</ul>
 									</div>

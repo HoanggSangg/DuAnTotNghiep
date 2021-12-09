@@ -18,4 +18,6 @@ public interface AccountService {
 	Account create(Account account);
 
 	Account update(forgot forgot);
+
+	List<Account> findByName(String name);
 }

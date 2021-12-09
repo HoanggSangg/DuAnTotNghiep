@@ -71,4 +71,10 @@ public class ProductServiceImpl implements ProductService{
 		return pdao.findByStore(store);
 	}
 
+	@Override
+	public List<Product> findByStoreId(Integer id) {
+		// TODO Auto-generated method stub
+		return pdao.findByStoreId(id);
+	}
+
 }

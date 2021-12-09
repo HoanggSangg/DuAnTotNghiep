@@ -16,5 +16,7 @@ public interface tintucService {
 
 	void delete(Integer id);
 
+	List<tintuc> findByName(String name);
+
 
 }

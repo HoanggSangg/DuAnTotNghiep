@@ -109,4 +109,12 @@ app.controller("store-ctrl", function($scope, $http) {
 			this.page = this.count - 1;
 		}
 	}
+	$scope.timkiem = function() {
+		var item = angular.copy($scope.form);
+		if (item.name != null) {
+			$http.get(`/rest/store/timkiem/${item.name}`).then(resp => {
+				$scope.items = angular.copy(resp.data);
+			})
+		}
+	}
 });

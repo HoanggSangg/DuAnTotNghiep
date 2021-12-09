@@ -34,6 +34,10 @@
 								</div>
 								<div class="products-description">
 									<h5 class="name" th:utext="${p.name}"></h5>
+									<p>
+										Tên cửa hàng: <a th:href="@{|/product/store/${p.cuahang.id}|}"><span
+											style="color: red;" th:text="${p.cuahang.tencuahang}"></span></a>
+									</p>
 									<th:block th:each="s : ${spe}">
 										<p th:utext="${s.tenthuoctinh} + ' : ' + ${s.giatri}"></p>
 									</th:block>
@@ -51,7 +55,8 @@
 										</div>
 										<div class="button_group">
 											<button class="button"
-												th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào giỏ</button>
+												th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào
+												giỏ</button>
 										</div>
 									</div>
 								</div>

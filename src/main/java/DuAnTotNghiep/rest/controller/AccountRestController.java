@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import DuAnTotNghiep.dto.forgot;
 import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.entity.Codedmk;
+import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.service.AccountService;
 
 @CrossOrigin("*")
@@ -60,5 +61,10 @@ public class AccountRestController {
 	@GetMapping("{id}")
 	public Account getOne(@PathVariable("id") String id) {
 		return accountService.findById(id);
+	}
+	
+	@GetMapping("/timkiem/{name}")
+	public List<Account> getName(@PathVariable("name") String name) {
+		return accountService.findByName("%" + name + "%");
 	}
 }

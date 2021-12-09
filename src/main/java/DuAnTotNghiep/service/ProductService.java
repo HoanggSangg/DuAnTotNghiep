@@ -31,6 +31,8 @@ public interface ProductService {
 
 	List<Product> findByStore(String store);
 
+	List<Product> findByStoreId(Integer id);
+
 
 
 }

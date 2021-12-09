@@ -53,7 +53,7 @@ public class ProductRestController {
 		productService.delete(id);
 	}
 
-	@GetMapping("/timkiemName/{name}")
+	@GetMapping("/timkiem/{name}")
 	public List<Product> getName(@PathVariable("name") String name) {
 		return productService.findByName("%" + name + "%");
 	}

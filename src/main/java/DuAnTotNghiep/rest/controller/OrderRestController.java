@@ -2,9 +2,10 @@ package DuAnTotNghiep.rest.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import DuAnTotNghiep.entity.Order;
-import DuAnTotNghiep.entity.ReportDetail;
+import DuAnTotNghiep.entity.Reportdetail;
 import DuAnTotNghiep.service.OrderService;
 
 @CrossOrigin("*")
@@ -24,6 +25,7 @@ import DuAnTotNghiep.service.OrderService;
 public class OrderRestController {
 
 	@Autowired OrderService orderService;
+	@Autowired HttpServletRequest req;
 	
 	@PostMapping()
 	public Order create(@RequestBody JsonNode orderData) {
@@ -46,8 +48,27 @@ public class OrderRestController {
 	}
 	
 	@GetMapping("/report")
-	public List<ReportDetail> getdoanhthu() {
+	public List<Reportdetail> getdoanhthu() {
 		boolean trangthai = true;
-		return orderService.thongKeDoanhThu(trangthai);
+		String username = req.getRemoteUser();
+		return orderService.thongKeDoanhThu(trangthai, username);
+	}
+	
+	@GetMapping("/thang/{thang}")
+	public List<Reportdetail> getdoanhthuThang(@PathVariable("thang") Integer thang) {
+		String username = req.getRemoteUser();
+		return orderService.thongKeDoanhThuThang(thang, username);
+	}
+	
+	@GetMapping("/nam/{nam}")
+	public List<Reportdetail> getdoanhthuNam(@PathVariable("nam") Integer nam) {
+		String username = req.getRemoteUser();
+		return orderService.thongKeDoanhThuNam(nam, username);
+	}
+	
+	@GetMapping("/{thang}/{nam}")
+	public List<Reportdetail> getdoanhthu(@PathVariable("thang") Integer thang, @PathVariable("nam") Integer nam) {
+		String username = req.getRemoteUser();
+		return orderService.TKDoanhThu(thang, nam, username);
 	}
 }

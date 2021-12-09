@@ -17,7 +17,7 @@ import DuAnTotNghiep.dao.OrderDetailDao;
 import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
-import DuAnTotNghiep.entity.ReportDetail;
+import DuAnTotNghiep.entity.Reportdetail;
 import DuAnTotNghiep.service.OrderService;
 
 @Service
@@ -68,8 +68,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<ReportDetail> thongKeDoanhThu(boolean trangthai) {
-		return ddao.thongKeDoanhThu(trangthai);
+	public List<Reportdetail> thongKeDoanhThu(boolean trangthai, String username) {
+		return ddao.thongKeDoanhThu(trangthai, username);
 	}
 
 	@Override
@@ -85,6 +85,25 @@ public class OrderServiceImpl implements OrderService {
 		order.setTrangthai("Đơn hàng đã hủy");
 		order.setHoanthanh(false);
 		odao.save(order);
+	}
+
+	@Override
+	public List<Reportdetail> thongKeDoanhThuThang(Integer thang, String username) {
+		// TODO Auto-generated method stub
+		System.err.println(thang);
+		return ddao.thongKeDoanhThuThang(thang, username);
+	}
+
+	@Override
+	public List<Reportdetail> thongKeDoanhThuNam(Integer nam, String username) {
+		// TODO Auto-generated method stub
+		return ddao.thongKeDoanhThuNam(nam, username);
+	}
+
+	@Override
+	public List<Reportdetail> TKDoanhThu(Integer thang, Integer nam, String username) {
+		// TODO Auto-generated method stub
+		return ddao.TKDoanhThu(thang, nam, username);
 	}
 
 }

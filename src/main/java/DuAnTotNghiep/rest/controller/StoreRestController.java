@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.entity.Store;
 import DuAnTotNghiep.service.StoreService;
@@ -51,5 +52,10 @@ public class StoreRestController {
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable("id") Integer id) {
 		storeService.delete(id);
+	}
+	
+	@GetMapping("/timkiem/{name}")
+	public List<Store> getName(@PathVariable("name") String name) {
+		return storeService.findByName("%" + name + "%");
 	}
 }

@@ -49,4 +49,10 @@ public class StoreServiceImpl implements StoreService{
 		return sdao.findByStore(username);
 	}
 
+	@Override
+	public List<Store> findByName(String name) {
+		// TODO Auto-generated method stub
+		return sdao.findByName(name);
+	}
+
 }

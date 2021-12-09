@@ -22,7 +22,7 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Data
 @Entity
-@Table(name = "CmtStore")
+@Table(name = "Cmtstore")
 public class Cmtstore implements Serializable {
 
 	@Id

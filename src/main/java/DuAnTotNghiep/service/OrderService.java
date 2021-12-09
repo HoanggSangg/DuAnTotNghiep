@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import DuAnTotNghiep.entity.Order;
 import DuAnTotNghiep.entity.Orderdetail;
-import DuAnTotNghiep.entity.ReportDetail;
+import DuAnTotNghiep.entity.Reportdetail;
 
 public interface OrderService {
 
@@ -18,10 +18,17 @@ public interface OrderService {
 
 	List<Order> findByDetails(String username);
 
-	List<ReportDetail> thongKeDoanhThu(boolean trangthai);
+	List<Reportdetail> thongKeDoanhThu(boolean trangthai, String username);
 
 	Order create(Order order);
 
 	void delete(Long id);
+
+	List<Reportdetail> thongKeDoanhThuThang(Integer thang, String username);
+
+	List<Reportdetail> thongKeDoanhThuNam(Integer nam, String username);
+
+	List<Reportdetail> TKDoanhThu(Integer thang, Integer nam, String username);
+
 
 }
