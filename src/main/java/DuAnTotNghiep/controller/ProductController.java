@@ -66,11 +66,13 @@ public class ProductController {
 				List<Integer> like = likeService.findUsername(username);
 				m.addAttribute("like", like);
 
-				Pageable pa = PageRequest.of(p.orElse(0), 6);
+				Pageable pa = PageRequest.of(p.orElse(0), 2);
 				Page<Likes> list = likeService.findByUser(username, pa);
 				int t = list.getTotalPages();
-				if (list.getNumber() == t) {
-					return "redirect:/product/list?p=0";
+				if(list.getNumber() != 0) {
+					if (list.getNumber() == t) {
+						return "redirect:/product/list?p=0";
+					}
 				}
 				m.addAttribute("items", list);
 			}

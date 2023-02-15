@@ -54,6 +54,22 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				.map(item => item.qty * item.price)
 				.reduce((total, qty) => total += qty, 0)
 		},
+		save(id) {
+			$http.get(`/rest/products/${id}`).then(resp => {
+				var item = this.items.find(item => item.id == id);
+				if (item) {
+					if (resp.data.soluong >= item.qty) {
+						this.saveToLocalStorage();
+						var json = JSON.stringify(angular.copy(this.items));
+						localStorage.setItem("cart", json);
+					} else {
+						item.qty = item.soluong + 1;
+						this.saveToLocalStorage();
+						alert("Hết hàng !!!")
+					}
+				}
+			})
+		},
 		saveToLocalStorage() {
 			var json = JSON.stringify(angular.copy(this.items));
 			localStorage.setItem("cart", json);
@@ -97,15 +113,34 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			});
 		},
 		pay() {
-			var order = angular.copy(this);
-			order.trangthai = "Đơn hàng đang xử lí"
-			order.tongtien = this.tongtien();
-			$scope.order.savecart();
-			$http.post("/rest/pay", order).then(resp => {
-				$scope.payment = resp.data;
-				$scope.cart.clear();
-				location.href = $scope.payment.url;
-			})
+			if ($scope.tinh != null && $scope.quan != null && $scope.duong != null) {
+				if ($scope.bankcode == "TT") {
+					var order = angular.copy(this);
+					order.trangthai = "Đã đặt hàng"
+					order.tongtien = this.tongtien();
+					order.diachinn = "Tỉnh: " + $scope.tinh + " - " + "Quận: " + $scope.quan + " - " + "Đường: " + $scope.duong;
+					$scope.order.savecart();
+					$http.post("/rest/orders", order).then(resp => {
+						/*$scope.cart.clear();
+						location.href = "/order/list";*/
+					})
+				} else if ($scope.bankcode == "NCB") {
+					var order = angular.copy(this);
+					order.trangthai = "Đơn hàng đang xử lí"
+					order.tongtien = this.tongtien();
+					order.diachinn = "Tỉnh: " + $scope.tinh + " - " + "Quận: " + $scope.quan + " - " + "Đường: " + $scope.duong;
+					$scope.order.savecart();
+					$http.post("/rest/pay", order).then(resp => {
+						$scope.payment = resp.data;
+						$scope.cart.clear();
+						location.href = $scope.payment.url;
+					})
+				} else {
+					alert("Chọn hình thức thanh toán")
+				}
+			} else {
+				alert("Chọn thông tin địa chỉ giao hàng")
+			}
 		}
 	}
 

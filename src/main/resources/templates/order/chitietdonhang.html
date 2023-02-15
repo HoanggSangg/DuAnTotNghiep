@@ -19,7 +19,7 @@
 								<th>Giá</th>
 								<th>Trạng thái</th>
 								<th>Sửa</th>
-								<th>Xóa</th>
+								<th>Hủy</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -36,7 +36,7 @@
 									class="btn btn-default"> <b
 										class="glyphicon glyphicon-search"></b>
 								</a></td>
-								<td><a th:href="@{|/order/delete/${order.id}|}"
+								<td th:if="${order.trangthai != 'Đã giao hàng'}"><a th:href="@{|/order/delete/${order.id}|}"
 									class="btn btn-default"> <b
 										class="glyphicon glyphicon-trash"></b>
 								</a></td>

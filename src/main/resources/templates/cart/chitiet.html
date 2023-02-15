@@ -40,7 +40,7 @@
 												<div class="productname">{{item.cuahang.tencuahang}}</div>
 											</div>
 										</td>
-										<td><input ng-model="item.qty" type="number" min="1" style="width: 70px" readonly></td>
+										<td><input ng-change="cart.save(item.id)" ng-model="item.qty" type="number" min="1" style="width: 70px"></td>
 										<td class="red">{{item.qty*item.price | number : 2}}</td>
 										<td>
 											<button ng-click="cart.remove(item.id)"

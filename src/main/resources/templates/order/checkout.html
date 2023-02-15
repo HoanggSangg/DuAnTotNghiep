@@ -37,14 +37,8 @@
 													<div class="form-row">
 														<label class="lebel-abs"> Số điện thoại <strong
 															class="red"> * </strong>
-														</label> <input type="text" class="input namefild"
+														</label> <input type="number" min="0" class="input namefild"
 															ng-model="order.sdt" required>
-													</div>
-													<div class="form-row">
-														<label class="lebel-abs"> Địa chỉ NN <strong
-															class="red"> * </strong>
-														</label> <input type="text" class="input namefild"
-															ng-model="order.diachinn" required>
 													</div>
 													<div class="form-row">
 														<label class="lebel-abs"> Địa chỉ <strong
@@ -53,17 +47,41 @@
 															ng-model="order.address" required>
 													</div>
 													<div class="form-row">
+														<select ng-model="tinh" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
+															<option value="">Địa chỉ giao hàng: Tỉnh thành</option>
+															<option value="Cần Thơ">Cần thơ</option>
+														</select>
+													</div>
+													<div class="form-row">
+														<select ng-model="quan" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
+															<option value=""> Địa chỉ giao hàng: Quận</option>
+															<option value="An Khánh">An Khánh</option>
+															<option value="Ninh Kiều">Ninh Kiều</option>
+														</select>
+													</div>
+													<div class="form-row">
+														<select ng-model="duong" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
+															<option value="">Địa chỉ giao hàng: Đường</option>
+															<option value="Nguyễn Văn Linh">Nguyễn Văn Linh</option>
+															<option value="3 tháng 2">3 tháng 2</option>
+														</select>
+													</div>
+													<div class="form-row">
 														<label class="lebel-abs"> Mã giảm giá <strong
 															class="red"> * </strong>
-														</label> <input type="text" class="input namefild" ng-model="order.codesale.code">
+														</label> <input type="text" class="input namefild"
+															ng-model="order.codesale.code">
 													</div>
 													<div class="form-row">
 														<div class="form-control">{{cart.amount | number}}
 															VNĐ</div>
 													</div>
 													<div class="form-row">
-														<input class="form-control" value="Ngân hàng NCB"
-															readonly="readonly">
+														<select ng-model="bankcode" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
+															<option value="">Hình thức thanh toán</option>
+															<option value="TT">Thanh toán trực tiếp</option>
+															<option value="NCB">Ngân hàng NCB</option>
+														</select>
 													</div>
 													<i class="pull-left text-danger" th:text="${pay}"></i>
 													<div class="text-right">
