@@ -1,7 +1,7 @@
 create database duan;
 USE duan;
  
-/****** Object:  Table Accounts    Script Date: 9/12/2021 5:32:14 PM ******/
+/****** Object1:  Table Accounts    Script Date: 9/12/2021 5:32:14 PM ******/
 
 CREATE TABLE Accounts(
 	Username nvarchar(50) NOT NULL,
