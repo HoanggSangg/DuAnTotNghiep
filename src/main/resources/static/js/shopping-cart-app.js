@@ -15,7 +15,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					} else {
 						item.soluong = 0;
 						this.saveToLocalStorage();
-						alert("Hết hàng !!")
+						alert("Hết hàng !!!")
 					}
 				} else {
 					if (resp.data.soluong >= 1) {
