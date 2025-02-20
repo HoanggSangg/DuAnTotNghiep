@@ -7,7 +7,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		add(id) {
 			$http.get(`/rest/products/${id}`).then(resp => {
 				var item = this.items.find(item => item.id == id);
-				alert("test github");
+				alert("test githubbb");
 				if (item) {
 					if (resp.data.soluong > item.qty) {
 						item.soluong--;
