@@ -121,8 +121,8 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					order.diachinn = "Tỉnh: " + $scope.tinh + " - " + "Quận: " + $scope.quan + " - " + "Đường: " + $scope.duong;
 					$scope.order.savecart();
 					$http.post("/rest/orders", order).then(resp => {
-						/*$scope.cart.clear();
-						location.href = "/order/list";*/
+						$scope.cart.clear();
+						location.href = "/order/list";
 					})
 				} else if ($scope.bankcode == "NCB") {
 					var order = angular.copy(this);

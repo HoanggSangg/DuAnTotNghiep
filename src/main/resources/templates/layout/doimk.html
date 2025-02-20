@@ -1,66 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
- <body>
+<body>
 	<main id="doimk">
-		<!-- <div class="container">
-			<form name="frmBonus">
-				<div class="containerForm">
-					<h2>Đổi mật khẩu</h2>
-					<div class="formBox">
-						<div class="inputBox w50">
-							<div id="username">[[${#request.remoteUser}]]</div>
-						</div>
-						<div class="inputBox w50">
-							<input type="password" ng-model="form.password" required>
-							<span>Mật khẩu cũ</span>
-						</div>
-						<div class="inputBox w50">
-							<input type="password" ng-model="form.newPass" required>
-							<span>Mật khẩu mới</span>
-						</div>
-						<div class="inputBox w50">
-							<input type="password" ng-model="form.confirm" required>
-							<span>Nhập lại mật khẩu</span>
-						</div>
-						<div class="inputBox w100">
-							<input ng-show="frmBonus.$valid" ng-click="doimk()" type="submit"
-								value="Thay đổi thông tin">
-						</div>
-						<div class="inputBox w100" style="font-size: 15px" ng-show="frmBonus.$invalid">Vui
-							lòng nhập đầy đủ thông tin</div>
-					</div>
+		<section class="get-in-touch">
+			<h1 class="title">ĐỔI MẬT KHẨU</h1>
+			<form class="contact-form row">
+				<div class="form-field col-lg-12">
+					<div id="username" class="input-text js-input">[[${#request.remoteUser}]]</div>
+
 				</div>
+				<div class="form-field col-lg-12 ">
+					<input id="password" class="input-text js-input" type="password"
+						ng-model="form.password" required> <label class="label"
+						for="email">Password</label>
+				</div>
+				<div class="form-field col-lg-12 ">
+					<input id="newPass" class="input-text js-input" type="password"
+						ng-model="form.newPass" required> <label class="label"
+						for="company">New Password</label>
+				</div>
+				<div class="form-field col-lg-12">
+					<input id="confirm" class="input-text js-input" type="password"
+						ng-model="form.confirm" required> <label class="label"
+						for="phone">Confirm</label>
+				</div>
+
+				<div class="form-field col-lg-12">
+					<input class="submit-btn" ng-click="doimk()" type="submit"
+						value="Submit">
+				</div>
+
 			</form>
-		</div> -->
-		 
-  <section class="get-in-touch">
-  <h1 class="title">ĐỔI MẬT KHẨU</h1>
-   <form class="contact-form row">
-      <div class="form-field col-lg-12">
-         <div id="username" class="input-text js-input">[[${#request.remoteUser}]]</div>
-        
-      </div>
-      <div class="form-field col-lg-12 ">
-         <input id="password" class="input-text js-input" type="password" ng-model="form.password"  required>
-         <label class="label" for="email">Password</label>
-      </div>
-      <div class="form-field col-lg-12 ">
-         <input id="newPass" class="input-text js-input" type="password" ng-model="form.newPass" required>
-         <label class="label" for="company">New Password</label>
-      </div>
-       <div class="form-field col-lg-12">
-         <input id="confirm" class="input-text js-input" type="password" ng-model="form.confirm" required>
-         <label class="label" for="phone">Confirm</label>
-      </div>
- 
-      <div class="form-field col-lg-12">
-         <input class="submit-btn"  ng-click="doimk()" type="submit"
-								value="Submit">
-      </div>
-      
-   </form>
-</section>
+		</section>
 	</main>
-</body> 
+</body>
 </html>

@@ -17,9 +17,11 @@ import DuAnTotNghiep.service.CodeqmkService;
 @RequestMapping("/rest/codeqmk")
 public class CodeqmkRestController {
 
-	@Autowired CodeqmkService codeqmkService;
-	@Autowired HttpServletRequest request;
-	
+	@Autowired
+	CodeqmkService codeqmkService;
+	@Autowired
+	HttpServletRequest request;
+
 	@PostMapping
 	public Codedmk create(@RequestBody Codedmk codedmk) {
 		return codeqmkService.create(codedmk);
