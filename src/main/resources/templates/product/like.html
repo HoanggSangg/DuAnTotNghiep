@@ -58,10 +58,12 @@
 														<th:block th:if="${#request.remoteUser}">
 															<button class="button"
 																th:unless="${#arrays.contains(like, p.product.id)}"
-																th:attr="ng-click=@{|products.like(${p.product.id})|}">Like</button>
+																th:attr="ng-click=@{|products.like(${p.product.id})|}"
+																>Like</button>
 															<button class="button"
 																th:if="${#arrays.contains(like, p.product.id)}"
-																th:attr="ng-click=@{|products.dislike(${p.product.id})|}">Dislike</button>
+																th:attr="ng-click=@{|products.dislike(${p.product.id})|}"
+																>Dislike</button>
 														</th:block>
 													</div>
 												</div>

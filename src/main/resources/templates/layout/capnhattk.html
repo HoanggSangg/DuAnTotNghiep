@@ -3,7 +3,7 @@
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
 	<main id="capnhattk">
-		<div class="container" >
+		<!-- <div class="container" >
 			<form action="" name="frmBonus">
 				<div class="containerForm">
 					<h2>Chỉnh sửa thông tin của bạn</h2>
@@ -40,7 +40,45 @@
 					</div>
 				</div>
 			</form>
-		</div>
+		</div> -->
+		
+		<div class="container contact-form">
+            <div class="contact-image">
+                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+            </div>
+            <form method="post">
+                <h3>Cập nhật thông tin</h3>
+               <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                           <div id="username">[[${#request.remoteUser}]]</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" ng-model="fullname" name="fullname" class="form-control" placeholder="Your Fullname *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" ng-model="email" name="email" class="form-control" placeholder="Your Email *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <input   ng-click="capnhattk()"
+								type="submit"  class="btnContact" value="Cập nhật" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                           <br> <br> <label for="image"> <img
+							ng-src="{{'/images/' + photo}}"
+							style="width: 200px; height: 200px">
+						</label>
+						<div>
+							<br> Hình ảnh <input type="file" class="form-control"
+								id="image"
+								onchange="angular.element(this).scope().imageChanged(this.files)">
+						</div>
+                    </div>
+                </div>
+            </form>
+</div>
 	</main>
 </body>
 </html>

@@ -4,7 +4,7 @@
 
 <body>
 	<main id="indivi">
-		<div class="container">
+		<!-- <div class="container">
 			<div class="containerForm">
 				<div class="sen">
 					<img ng-src="{{'/images/' + accounts.photo}}" width="150"
@@ -29,7 +29,48 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
+		
+		
+<section class="ready__started project__form">
+        <div class="container">
+            <h3 class="text-center">Cập nhật thông tin</h3>
+            <div class="ready__started-box">
+                <form class="main__form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                               <div id="username">[[${#request.remoteUser}]]</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="lastName" ng-model="accounts.fullname" readonly="readonly" required>
+                                <label for="lastName">Fullname*</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" ng-model="accounts.email" readonly="readonly" required>
+                                <label for="email">Email*</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control"  ng-model="accounts.trangthai?'Mở':'Khóa'" required>
+                                <label for="contactNumber">Trạng thái*</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button onclick="location.href='/account/edit'" type="submit" class=" btn btn-get"><span> Submit Now!</span></button></div>
+                </form>
+            </div>
+        </div>
+    </section>
 	</main>
 </body>
 </html>

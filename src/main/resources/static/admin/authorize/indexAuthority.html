@@ -1,14 +1,16 @@
-<center style="color: red"><h2>Phân quyền</h2></center>
 <br>
-<table ng-if="db" style="width: 100% "  border="1"class="table table-bordered table-list " >
+<center style='color:red;'><h1>Phân Quyền</h1></center>
+<br>
+<br>
+    <table ng-if="db" style="width: 100% "  border="1" class="table table-bordered table-striped table-hover" >
 	<thead >
-		<tr style="color: white">
+		<tr style="color: #833471; font-size:20px;" class="danger">
 			<th>Tài khoản</th>
 			<th ng-repeat="role in db.roles">{{role.name}} </th>
 		</tr>
 	</thead>
-	<tbody style="color: white">
-		<tr ng-repeat="acc in db.accounts">
+	<tbody style="color: #9980FA; font-size: 15px;">
+		<tr ng-repeat="acc in db.accounts" class="warning">
 			<th>{{acc.username}}</th>
 			<th ng-repeat="role in db.roles"><input type="checkbox"
 				ng-checked="index_of(acc.username, role.id) >=0"
@@ -16,3 +18,4 @@
 		</tr>
 	</tbody>
 </table>
+

@@ -279,12 +279,12 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		return $scope.likes
 			.findIndex(a => a.account.username == username && a.product.id == id);
 	}
+	$scope.load = function() {
+		$http.get('/rest/likes').then(resp => {
+			$scope.likes = resp.data;
+		});
+	}
 	$scope.products = {
-		load() {
-			$http.get('/rest/likes').then(resp => {
-				$scope.likes = resp.data;
-			});
-		},
 		like(id) {
 			var username = $("#username").text();
 			var likes = {
@@ -294,7 +294,8 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				likes: "1",
 			};
 			$http.post('/rest/likes', likes).then(resp => {
-				alert("Thích thành công")
+				alert("Thích thành công");
+				$scope.load();
 			});
 		},
 		dislike(id) {
@@ -302,12 +303,13 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			index = $scope.index_of(username, id);
 			var id = $scope.likes[index].id;
 			$http.delete(`/rest/likes/${id}`).then(resp => {
-				$scope.likes.splice(index, 1);
-				alert("Xóa thích thành công")
+				$scope.likes.splice(index, 0);
+				alert("Xóa thích thành công" + " " + $scope.likes[index].product.name);
+				$scope.load();
 			})
 		}
 	}
-	$scope.products.load();
+	$scope.load();
 
 	//-------------------------Code JS Comments---------------------------
 	$scope.now = new Date();

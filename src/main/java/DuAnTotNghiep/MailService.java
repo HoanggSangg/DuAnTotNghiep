@@ -56,6 +56,6 @@ public class MailService {
 				f++;
 			}
 		}
-		System.out.println("Thành công "+ s +", Thất bại: "+ f);
+//		System.out.println("Thành công "+ s +", Thất bại: "+ f);
 	}
 }

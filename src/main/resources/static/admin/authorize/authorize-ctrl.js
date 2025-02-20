@@ -17,12 +17,13 @@ app.controller("ctrl", function($scope, $http) {
 			var id = $scope.db.authorities[index].id;
 			var username = $scope.db.authorities[index].account.username;
 			if (username == $scope.db.user) {
-				alert("Không được xóa quyền chính mình")
+				alert("Không được xóa quyền chính mình" + $scope.db.user)
 				$scope.load();
 			}else{
 				$http.delete(`/rest/authorities/${id}`).then(resp => {
-					$scope.db.authorities.splice(index, 1);
-					alert("Xóa quyền thành công")
+					$scope.db.authorities.splice(index, 0);
+					alert("Xóa quyền " + $scope.db.authorities[index].role.name + 
+					" của tài khoản " + $scope.db.authorities[index].account.username + " thành công.");
 				})
 			}
 		} else {
@@ -32,7 +33,7 @@ app.controller("ctrl", function($scope, $http) {
 			};
 			$http.post('/rest/authority', authority).then(resp => {
 				$scope.db.authorities.push(resp.data);
-				alert("Thêm quyền thành công")
+				alert("Thêm quyền thành công");
 			});
 		}
 	}
