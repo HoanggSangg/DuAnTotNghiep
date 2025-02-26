@@ -22,10 +22,12 @@ app.controller("post-ctrl", function($scope, $http) {
 			account:{username: $scope.user}
 		};
 	}
+	
 	$scope.edit = function(item) {
 		$scope.form = angular.copy(item);
 		$(".nav-tabs a:eq(0)").tab('show')
 	}
+	
 	$scope.create = function() {
 		var item = angular.copy($scope.form);
 		$http.post(`/rest/post`, item).then(resp => {

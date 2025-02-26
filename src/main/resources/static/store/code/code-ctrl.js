@@ -1,35 +1,39 @@
 app.controller("code-ctrl", function($scope, $http) {
 	$scope.items = [];
-	$scope.form = {};
-	$scope.id = {};
-	$scope.code = {};
+	var user;
+	var idStore;
+	const codeRamdom = Math.floor(((Math.random() * 8999999999) + 1000000000));
 
 	$scope.initialize = function() {
 		$http.get("/rest/accounts/user").then(resp => {
-			var user = resp.data.user;
+			 user = resp.data.user;
 			$http.get("/rest/store/find/" + user).then(resp => {
-				$scope.id = resp.data;
+				idStore = resp.data;
 			})
-			$scope.code = Math.floor(((Math.random() * 8999999999) + 1000000000));
+			
 			$http.get("/rest/code/" + user).then(resp => {
-				console.log(resp.data)
 				$scope.items = resp.data;
 			})
 		})
 	}
 	$scope.initialize();
-	$scope.edit = function() {
+	
+	$scope.edit = function(item) {
+		$scope.form = angular.copy(item);
 		$(".nav-tabs a:eq(0)").tab('show')
 	}
+	
 	$scope.create = function() {
-		var item = angular.copy($scope.form);
-		item.cuahang = $scope.id;
-		item.trangthai = true;
-		item.code = $scope.code;
-		$http.post(`/rest/code`, item).then(resp => {
+		var itemCode = angular.copy($scope.form);
+		
+		itemCode.cuahang = idStore;
+		itemCode.trangthai = true;
+		itemCode.code = codeRamdom;
+		
+		$http.post(`/rest/code`, itemCode).then(resp => {
 			$scope.items.push(resp.data);
-			$scope.initialize();
 			alert("Thêm mới thành công");
+			window.location.href = '/store/indexStore.html#!/code';
 		}).catch(error => {
 			alert("Lỗi thêm mới sản phẩm");
 			console.log("Error", error);

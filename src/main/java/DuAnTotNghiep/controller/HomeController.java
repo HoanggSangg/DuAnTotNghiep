@@ -11,7 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DuAnTotNghiep.MailService;
@@ -48,12 +48,12 @@ public class HomeController {
 	@Autowired
 	tintucService tintucService;
 
-	@RequestMapping("/security/dangky")
+	@GetMapping("/security/dangky")
 	public String dangky() {
 		return "layout/_registration";
 	}
 
-	@RequestMapping("/home/index")
+	@GetMapping("/home/index")
 	public String home(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
 			if (request.getRemoteUser() != null) {
@@ -83,77 +83,77 @@ public class HomeController {
 		return "layout/_sanpham";
 	}
 
-	@RequestMapping("/home/contact")
+	@GetMapping("/home/contact")
 	public String contact() {
 		return "layout/contact";
 	}
 
-	@RequestMapping("/home/hotro")
+	@GetMapping("/home/hotro")
 	public String hotro() {
 		return "layout/hotro";
 	}
 	
-	@RequestMapping("/home/huongdan")
+	@GetMapping("/home/huongdan")
 	public String huongdan() {
 		return "layout/huongdan";
 	}
 
-	@RequestMapping("/account/edit")
+	@GetMapping("/account/edit")
 	public String edit() {
 		return "layout/capnhattk";
 	}
 
-	@RequestMapping("/home/gioithieu")
+	@GetMapping("/home/gioithieu")
 	public String gioithieu() {
 		return "layout/gioithieu";
 	}
 
-	@RequestMapping("/account/quenmk")
+	@GetMapping("/account/quenmk")
 	public String quemk() {
 		return "layout/quenmk";
 	}
 
-	@RequestMapping("/account/doimk")
+	@GetMapping("/account/doimk")
 	public String doimk() {
 		return "layout/doimk";
 	}
 
-	@RequestMapping("/order/lsmua")
+	@GetMapping("/order/lsmua")
 	public String lsmua() {
 		return "order/lsmuahang";
 	}
 
-	@RequestMapping({ "/admin", "/admin/home/index" })
+	@GetMapping({ "/admin", "/admin/home/index" })
 	public String admin(Model m) {
 		String name = request.getRemoteUser();
 		m.addAttribute("name", name);
-		return "redirect:/admin/indexAdmin.html";
+		return "redirect:/admin/indexAdmin";
 	}
 
-	@RequestMapping("/store/home/index")
+	@GetMapping("/store/home/index")
 	public String store(Model m) {
-		return "redirect:/store/indexStore.html";
+		return "redirect:/store/indexStore";
 	}
 
-	@RequestMapping("/account/individual")
+	@GetMapping("/account/individual")
 	public String individual() {
 		return "/layout/individual";
 	}
 
-	@RequestMapping("/codeqmk")
+	@GetMapping("/codeqmk")
 	public String codeqmk() {
 		return "/layout/code";
 	}
 	
-	@RequestMapping("/home/tintuc")
+	@GetMapping("/home/tintuc")
 	public String tintuc(Model m) {
 		List<tintuc> item = tintucService.findAll();
 		m.addAttribute("items", item);
 		return "layout/show_post";
 	}
 	
-	@RequestMapping("/tintuc/post")
-	public String post() {
+	@GetMapping("/tintuc/post")
+	public String postNews() {
 		return "layout/post_bai";
 	}
 }

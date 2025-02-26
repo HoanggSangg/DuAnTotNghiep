@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import DuAnTotNghiep.MailService;
 
@@ -15,15 +15,18 @@ public class GuimailController {
 	HttpServletRequest req;
 	@Autowired
 	MailService mail;
+	String email = "taolasang2k1@gmail.com";
 	
-	@RequestMapping("/hotro/guimail")
-	public String hotro() {
-		String ho = req.getParameter("ho");
-		String ten = req.getParameter("ten");
-		String email = "taolasang2k1@gmail.com";
-		String sdt = req.getParameter("sdt");
-		String tinnhan = req.getParameter("tinnhan");
-		
+	public void mailInfo(String ho, String ten, String sdt, String tinnhan) {
+		ho = req.getParameter("ho");
+		ten = req.getParameter("ten");
+		sdt = req.getParameter("sdt");
+		tinnhan = req.getParameter("tinnhan");
+	}
+	
+	@GetMapping("/hotro/guimail")
+	public String hotro(String ho, String ten, String sdt, String tinnhan) {
+		this.mailInfo(ho, ten, sdt, tinnhan);
 		try {
 			mail.send(email,"Mail Hỗ Trợ","Tên: "+ ho + " "+ ten + "<br>" + "Số điện thoại: " + sdt + "<br>" + "Tin nhắn: "+ tinnhan);
 		} catch (Exception e) {
@@ -31,12 +34,9 @@ public class GuimailController {
 		}
 		return "redirect:/home/hotro";
 	}
-	@RequestMapping("/lienhe/guimail")
-	public String lienhe() {
-		String ten = req.getParameter("ten");
-		String email = "taolasang2k1@gmail.com";
-		String tinnhan = req.getParameter("tinnhan");
-		
+	@GetMapping("/lienhe/guimail")
+	public String lienhe(String ho, String ten, String sdt, String tinnhan) {
+		this.mailInfo(ho, ten, sdt, tinnhan);
 		try {
 			mail.send(email,"Mail Liên Hệ","Tên: "+ ten + "<br>" + "Tin nhắn: "+ tinnhan);
 		} catch (Exception e) {

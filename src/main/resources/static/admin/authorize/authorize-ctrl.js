@@ -1,4 +1,5 @@
 app.controller("ctrl", function($scope, $http) {
+	
 	$scope.load = function() {
 		$http.get("/rest/authorities").then(resp => {
 			$scope.db = resp.data;
