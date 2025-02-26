@@ -80,7 +80,7 @@ public class AccountServiceImpl implements AccountService {
 					cdao.deleteById(dmk.get(i).getId());
 				}else {
 					try {
-						mail.send(acc.getEmail(), "Mật khẩu mới của bạn", "Code đã hết hạn sử dụng. Mời bạn thử lại !!!");
+						mail.send(acc.getEmail(), "Thông báo", "Code đã hết hạn sử dụng. Mời bạn thử lại !!!");
 					} catch (Exception e) {
 						// TODO: handle exception
 					}
