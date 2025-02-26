@@ -14,15 +14,15 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 @Configuration
 public class ResourceConfig implements WebMvcConfigurer{
 
-	@Bean("messageSource")
-	public MessageSource getMassageSource() {
-		ReloadableResourceBundleMessageSource ms = new ReloadableResourceBundleMessageSource();
-		ms.setDefaultEncoding("utf-8");
-		ms.setBasenames("classpath:i18n/message", "classpath:i18n/global");
-		return ms;
-	}
+    @Bean("messageSource")
+    MessageSource getMassageSource() {
+        ReloadableResourceBundleMessageSource ms = new ReloadableResourceBundleMessageSource();
+        ms.setDefaultEncoding("utf-8");
+        ms.setBasenames("classpath:i18n/message", "classpath:i18n/global");
+        return ms;
+    }
 	@Bean("localeResolver")
-	public LocaleResolver getLocaleResolver() {
+	LocaleResolver getLocaleResolver() {
 		CookieLocaleResolver resolver = new CookieLocaleResolver();
 		resolver.setDefaultLocale(new Locale("vi"));
 		resolver.setCookieMaxAge(10*24*60*60);

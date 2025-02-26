@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import DuAnTotNghiep.dto.forgot;
 import DuAnTotNghiep.entity.Account;
-import DuAnTotNghiep.entity.Codedmk;
-import DuAnTotNghiep.entity.Product;
 import DuAnTotNghiep.service.AccountService;
 
 @CrossOrigin("*")

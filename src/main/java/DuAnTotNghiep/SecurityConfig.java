@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired HttpSession session;
 
 	@Bean
-	public BCryptPasswordEncoder getPasswordEncoder() {
+	BCryptPasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
