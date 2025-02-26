@@ -89,7 +89,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/home/hotro")
-	public String hotro() {
+	public String hotro(HttpServletRequest req) {
 		return "layout/hotro";
 	}
 	

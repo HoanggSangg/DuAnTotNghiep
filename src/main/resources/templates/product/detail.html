@@ -16,7 +16,7 @@
 									</div>
 									<div class="thum-image">
 										<ul id="gallery_01" class="prev-thum">
-											<th:block th:each="i : ${image}">
+											<th:block th:each="i : ${list}">
 												<li><a
 													th:href="@{|/product/detail/${i.id}?cid=${i.catesmall.category.id}|}">
 														<img th:src="@{|../../images/${i.image}|}" alt="">

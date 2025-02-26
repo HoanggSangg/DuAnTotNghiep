@@ -11,8 +11,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import DuAnTotNghiep.entity.Catesmall;
@@ -58,14 +58,12 @@ public class ProductController {
 	@Autowired
 	CmtstoreService cmtstoreService;
 
-	@RequestMapping("/product/list")
+	@GetMapping("/product/list")
 	public String list(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
+			this.liked(m);
 			if (req.getRemoteUser() != null) {
 				String username = req.getRemoteUser();
-				List<Integer> like = likeService.findUsername(username);
-				m.addAttribute("like", like);
-
 				Pageable pa = PageRequest.of(p.orElse(0), 2);
 				Page<Likes> list = likeService.findByUser(username, pa);
 				int t = list.getTotalPages();
@@ -77,25 +75,20 @@ public class ProductController {
 				m.addAttribute("items", list);
 			}
 		} catch (Exception e) {
-			System.out.println(e);
 			return "redirect:/product/list?p=0";
 		}
 		return "/product/like";
 	}
 
-	@RequestMapping("/product/detail/{id}")
+	@GetMapping("/product/detail/{id}")
 	public String detail(Model m, @PathVariable("id") Integer id, @RequestParam("cid") Optional<String> cid) {
-		if (req.getRemoteUser() != null) {
-			String username = req.getRemoteUser();
-			List<Integer> like = likeService.findUsername(username);
-			m.addAttribute("like", like);
-		}
+		this.liked(m);
 		Product item = productService.findById(id);
 		m.addAttribute("items", item);
 		List<Specification> spe = specificationService.findByIdProduct(id);
 		m.addAttribute("spe", spe);
 		List<Product> list = productService.findByCategoryId(cid.get());
-		m.addAttribute("image", list);
+		m.addAttribute("list", list);
 		List<Image> image = imagesService.findByIdProduct(id);
 		m.addAttribute("images", image);
 		List<Cmtproduct> cmtproduct = cmtproductService.findByIdProduct(id);
@@ -105,13 +98,9 @@ public class ProductController {
 		return "/product/detail";
 	}
 	
-	@RequestMapping("/product/store/{id}")
+	@GetMapping("/product/store/{id}")
 	public String store(Model m, @PathVariable("id") Integer id) {
-		if (req.getRemoteUser() != null) {
-			String username = req.getRemoteUser();
-			List<Integer> like = likeService.findUsername(username);
-			m.addAttribute("like", like);
-		}
+		this.liked(m);
 		List<Product> item = productService.findByStoreId(id);
 		m.addAttribute("items", item);
 		List<Cmtstore> cmtstore = cmtstoreService.findByIdStore(id);
@@ -121,13 +110,9 @@ public class ProductController {
 		return "/product/store";
 	}
 
-	@RequestMapping("/products/cate/{name}")
+	@GetMapping("/products/cate/{name}")
 	public String cates(Model m, @PathVariable("name") String name, @RequestParam("cateid") Optional<String> cateid) {
-		if (req.getRemoteUser() != null) {
-			String username = req.getRemoteUser();
-			List<Integer> like = likeService.findUsername(username);
-			m.addAttribute("like", like);
-		}
+		this.liked(m);
 		List<Catesmall> list1 = catesmallService.findByCate(cateid.get());
 		m.addAttribute("catesmall", list1);
 		List<Product> list = productService.findByCateNameAndCateId(name, cateid.get());
@@ -135,13 +120,9 @@ public class ProductController {
 		return "/product/listsp";
 	}
 
-	@RequestMapping("/products/tkname")
+	@GetMapping("/products/tkname")
 	public String getName(Model m, @RequestParam("name") String name) {
-		if (req.getRemoteUser() != null) {
-			String username = req.getRemoteUser();
-			List<Integer> like = likeService.findUsername(username);
-			m.addAttribute("like", like);
-		}
+		this.liked(m);
 		if(name != "") {
 			List<Product> list = productService.findByName("%" + name + "%");
 			m.addAttribute("items", list);
@@ -149,18 +130,22 @@ public class ProductController {
 		return "/product/list";
 	}
 
-	@RequestMapping("/products/tkprice")
+	@GetMapping("/products/tkprice")
 	public String search(Model m, @RequestParam("min") Optional<Double> min,
 			@RequestParam("max") Optional<Double> max) {
-		if (req.getRemoteUser() != null) {
-			String username = req.getRemoteUser();
-			List<Integer> like = likeService.findUsername(username);
-			m.addAttribute("like", like);
-		}
+		this.liked(m);
 		double minPrice = min.orElse(Double.MIN_VALUE);
 		double maxPrice = max.orElse(Double.MAX_VALUE);
 		List<Product> list = productService.findByPriceBetween(minPrice, maxPrice);
 		m.addAttribute("items", list);
 		return "/product/list";
+	}
+	
+	public void liked(Model m) {
+		if (req.getRemoteUser() != null) {
+			String username = req.getRemoteUser();
+			List<Integer> like = likeService.findUsername(username);
+			m.addAttribute("like", like);
+		}
 	}
 }
