@@ -13,6 +13,8 @@ public interface ProductService {
 
 	Product findById(Integer id);
 
+	Page<Product> findByCategoryId(String cid, Pageable pa);
+	
 	List<Product> findByCategoryId(String cid);
 
 	Product create(Product product);

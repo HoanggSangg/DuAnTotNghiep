@@ -7,7 +7,7 @@
 			<div class="container">
 				<div class="hot-products">
 					<div class="row">
-						<div class="col-md-3 col-sm-6" th:each="p: ${items.content}">
+						<div class="col-md-3" th:each="p: ${items.content}">
 							<div class="products">
 								<div class="thumbnail">
 									<a
@@ -47,7 +47,6 @@
 									[[${items.totalPages}]]</a> <a
 									th:href="@{|/home/index?p=${items.number+1}|}"
 									class="next-page"> <i class="fa fa-angle-right"> </i></a> 
-								<!-- <a th:href="@{|/home/index?p=${items.totalPages-1}|}">Cuối</a> -->
 							</div>
 						</div>
 					</div>

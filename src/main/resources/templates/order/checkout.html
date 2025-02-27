@@ -9,8 +9,8 @@
 					<div class="col-md-12">
 						<div class="checkout-page">
 							<ol class="checkout-steps">
-								<li class="steps"><a href="/security/login"
-									class="step-title"> 01. Đăng nhập </a></li>
+								<li class="steps"><a href="#" class="step-title"> 01.
+										Đăng nhập </a></li>
 								<li class="steps active"><a href="/order/checkout"
 									class="step-title"> 02. Thông tin thanh toán </a>
 									<div class="step-description">
@@ -47,20 +47,24 @@
 															ng-model="order.address" required>
 													</div>
 													<div class="form-row">
-														<select ng-model="tinh" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
+														<select ng-model="tinh" id="bankcode" class="form-control"
+															style="margin-bottom: 10px; margin-left: 0px">
 															<option value="">Địa chỉ giao hàng: Tỉnh thành</option>
 															<option value="Cần Thơ">Cần thơ</option>
 														</select>
 													</div>
 													<div class="form-row">
-														<select ng-model="quan" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
-															<option value=""> Địa chỉ giao hàng: Quận</option>
+														<select ng-model="quan" id="bankcode" class="form-control"
+															style="margin-bottom: 10px; margin-left: 0px">
+															<option value="">Địa chỉ giao hàng * Quận</option>
 															<option value="An Khánh">An Khánh</option>
 															<option value="Ninh Kiều">Ninh Kiều</option>
 														</select>
 													</div>
 													<div class="form-row">
-														<select ng-model="duong" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
+														<select ng-model="duong" id="bankcode"
+															class="form-control"
+															style="margin-bottom: 10px; margin-left: 0px">
 															<option value="">Địa chỉ giao hàng: Đường</option>
 															<option value="Nguyễn Văn Linh">Nguyễn Văn Linh</option>
 															<option value="3 tháng 2">3 tháng 2</option>
@@ -73,11 +77,15 @@
 															ng-model="order.codesale.code">
 													</div>
 													<div class="form-row">
-														<div class="form-control">{{cart.amount | number}}
-															VNĐ</div>
+														<div class="form-control">
+															Số tiền tại tính:<strong class="red"> * </strong>
+															{{cart.amount | number}} VNĐ
+														</div>
 													</div>
 													<div class="form-row">
-														<select ng-model="bankcode" id="bankcode" class="form-control" style="margin-bottom: 10px; margin-left: 0px">
+														<select ng-model="bankcode" id="bankcode"
+															class="form-control"
+															style="margin-bottom: 10px; margin-left: 0px">
 															<option value="">Hình thức thanh toán</option>
 															<option value="TT">Thanh toán trực tiếp</option>
 															<option value="NCB">Ngân hàng NCB</option>

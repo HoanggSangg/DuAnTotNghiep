@@ -64,7 +64,7 @@ public class ProductController {
 			this.liked(m);
 			if (req.getRemoteUser() != null) {
 				String username = req.getRemoteUser();
-				Pageable pa = PageRequest.of(p.orElse(0), 2);
+				Pageable pa = PageRequest.of(p.orElse(0), 4);
 				Page<Likes> list = likeService.findByUser(username, pa);
 				int t = list.getTotalPages();
 				if(list.getNumber() != 0) {
@@ -113,8 +113,8 @@ public class ProductController {
 	@GetMapping("/products/cate/{name}")
 	public String cates(Model m, @PathVariable("name") String name, @RequestParam("cateid") Optional<String> cateid) {
 		this.liked(m);
-		List<Catesmall> list1 = catesmallService.findByCate(cateid.get());
-		m.addAttribute("catesmall", list1);
+		List<Catesmall> catesmall = catesmallService.findByCate(cateid.get());
+		m.addAttribute("catesmall", catesmall);
 		List<Product> list = productService.findByCateNameAndCateId(name, cateid.get());
 		m.addAttribute("items", list);
 		return "/product/listsp";

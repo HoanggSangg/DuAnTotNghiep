@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import DuAnTotNghiep.MailService;
 import DuAnTotNghiep.entity.Catesmall;
@@ -53,19 +54,43 @@ public class HomeController {
 		return "layout/_registration";
 	}
 
+	public void load(Model m) {
+		int pValues = 0;
+		if (request.getRemoteUser() != null) {
+			String username = request.getRemoteUser();
+			List<Integer> like = likeService.findUsername(username);
+			m.addAttribute("like", like);
+		}
+		
+		String currentUrl = ServletUriComponentsBuilder.fromRequestUri(request).build().toString();
+		String cidValues = request.getParameter("cid");
+		if(request.getParameter("p") != null) {
+			pValues = Integer.parseInt(request.getParameter("p"));
+		}
+		
+		m.addAttribute("currentUrl", currentUrl);
+		m.addAttribute("cidValues", cidValues);
+		m.addAttribute("pValues", pValues);
+		
+
+	}
+
 	@GetMapping("/home/index")
 	public String home(Model m, @RequestParam("p") Optional<Integer> p, @RequestParam("cid") Optional<String> cid) {
 		try {
-			if (request.getRemoteUser() != null) {
-				String username = request.getRemoteUser();
-				List<Integer> like = likeService.findUsername(username);
-				m.addAttribute("like", like);
-			}
+			this.load(m);
 			if (cid.isPresent()) {
-				List<Product> list = productService.findByCategoryId(cid.get());
+				Pageable pa = PageRequest.of(p.orElse(0), 4);
+				Page<Product> list = productService.findByCategoryId(cid.get(), pa);
+				int t = list.getTotalPages();
+				if (list.getNumber() == t) {
+					return "redirect:/home/index?p=0";
+				}
 				m.addAttribute("items", list);
-				List<Catesmall> list1 = catesmallService.findByCate(cid.get());
-				m.addAttribute("catesmall", list1);
+				m.addAttribute("cid", cid.get());
+
+				List<Catesmall> catesmall = catesmallService.findByCate(cid.get());
+				m.addAttribute("catesmall", catesmall);
 				return "/product/listsp";
 			} else {
 				Pageable pa = PageRequest.of(p.orElse(0), 8);
@@ -92,7 +117,7 @@ public class HomeController {
 	public String hotro(HttpServletRequest req) {
 		return "layout/hotro";
 	}
-	
+
 	@GetMapping("/home/huongdan")
 	public String huongdan() {
 		return "layout/huongdan";
@@ -144,14 +169,14 @@ public class HomeController {
 	public String codeqmk() {
 		return "/layout/code";
 	}
-	
+
 	@GetMapping("/home/tintuc")
 	public String tintuc(Model m) {
 		List<tintuc> item = tintucService.findAll();
 		m.addAttribute("items", item);
 		return "layout/show_post";
 	}
-	
+
 	@GetMapping("/tintuc/post")
 	public String postNews() {
 		return "layout/post_bai";

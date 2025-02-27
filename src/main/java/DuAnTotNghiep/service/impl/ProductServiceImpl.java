@@ -52,11 +52,6 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Product> findByCategoryId(String cid) {
-		return pdao.findByCategoryId(cid);
-	}
-
-	@Override
 	public List<Product> findByCateNameAndCateId(String name, String cateid) {
 		return pdao.findByCateNameAndCateId(name, cateid);
 	}
@@ -75,6 +70,17 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> findByStoreId(Integer id) {
 		// TODO Auto-generated method stub
 		return pdao.findByStoreId(id);
+	}
+	
+	@Override
+	public List<Product> findByCategoryId(String cid) {
+		return pdao.findByCategoryId(cid);
+	}
+
+	@Override
+	public Page<Product> findByCategoryId(String cid, Pageable pa) {
+		// TODO Auto-generated method stub
+		return pdao.findByCategoryId(cid, pa);
 	}
 
 }
