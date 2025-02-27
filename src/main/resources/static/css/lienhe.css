@@ -141,7 +141,7 @@ form{
     background: #0f3959;
     color: #fff;
     border: none;
-    max-width: 150px;
+    width: 150px;
     padding: 12px;
 }
 #form .container .containerForm .formBox .inputBox input[type="submit"]:hover{
@@ -162,7 +162,7 @@ form{
 #form .container .containerForm .formBox .inputBox input:valid ~ span,
 #form .container .containerForm .formBox .inputBox textarea:valid ~ span{
     transform: translateY(-20px);
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     letter-spacing: 1px;
     color: #ff568c

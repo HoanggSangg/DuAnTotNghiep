@@ -5,7 +5,6 @@ import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import DuAnTotNghiep.entity.Order;
-import DuAnTotNghiep.entity.Orderdetail;
 import DuAnTotNghiep.entity.Reportdetail;
 
 public interface OrderService {

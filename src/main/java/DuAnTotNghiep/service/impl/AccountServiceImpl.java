@@ -57,18 +57,17 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		Account acc = adao.findById(session.get("sUser")).get();
 		List<Codedmk> dmk = cdao.findUsername(acc.getUsername());
-		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
+		String alphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 6; i++) {
-			int index = (int) (AlphaNumericString.length() * Math.random());
-			sb.append(AlphaNumericString.charAt(index));
+			int index = (int) (alphaNumericString.length() * Math.random());
+			sb.append(alphaNumericString.charAt(index));
 		}
 		String password = sb.toString();
 		
 		Date now = new Date();
 
 		for(int i = 0; i < dmk.size(); i++) {
-			System.err.println(dmk.get(i).getDate().getTime());
 			if(dmk.get(i).getDate().getTime()+900000 > now.getTime()) {
 				if(dmk.get(i).getCode().equals(forgot.getCodeqmk()) && dmk.get(i).isTrangthai()) {
 					acc.setPassword(password);

@@ -2,51 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
 <body>
-	<main id = "quenmk">
-		<div class="container1">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-md-offset-4">
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<div class="text-center">
-									<h3>
-										<i class="fa fa-lock fa-4x"></i>
-									</h3>
-									<h2 class="text-center">Quên mật khẩu?</h2>
-									<p>Bạn có thể khôi phục lại mật khẩu ở đây.</p>
-									<div class="panel-body">
-										<div id="register-form" role="form" autocomplete="off"
-											class="form" method="post">
-											<div class="form-group">
+	<main id="quenmk">
+		<form name="quenmk">
+			<div class="container1">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="text-center">
+										<div class="contact-image">
+											<img class="border-bottom border-danger p-3"
+												src="../../images/logo1-test.png" />
+										</div>
+										<h2 class="text-center">Quên mật khẩu?</h2>
+										<p>Bạn có thể khôi phục lại mật khẩu ở đây.</p>
+										<div class="panel-body">
+											<div id="register-form" role="form" autocomplete="off"
+												class="form" method="POST">
 												<div class="form-group">
-													<div class="input-group">
-														<span class="input-group-addon"><i
-															class="glyphicon glyphicon-user color-blue"></i></span>
-														<div class="inputBox w50">
-															<input ng-model="username" name="username" required
-																placeholder="Username" class="form-control" type="text">
+													<div class="form-group">
+														<div class="input-group">
+															<span class="input-group-addon"><i
+																class="glyphicon glyphicon-user color-blue"></i></span>
+															<div class="inputBox w50">
+																<input ng-model="username" name="username" required
+																	placeholder="Username" class="form-control" type="text">
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-											<div class="form-group">
 												<div class="form-group">
-													<div class="input-group">
-														<span class="input-group-addon"><i
-															class="glyphicon glyphicon-envelope color-blue"></i></span>
-														<div class="inputBox w50">
-															<input ng-model="email" name="email" required
-																placeholder="Email address" class="form-control"
-																type="email">
+													<div class="form-group">
+														<div class="input-group">
+															<span class="input-group-addon"><i
+																class="glyphicon glyphicon-envelope color-blue"></i></span>
+															<div class="inputBox w50">
+																<input ng-model="email" name="email" required
+																	placeholder="Email address" class="form-control"
+																	type="email">
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
-											<div class="form-group">
-												<input name="recover-submit" ng-click="accounts.quenmk()"
-													class="btn btn-lg btn-primary btn-block"
-													value="Reset Password" type="submit">
+												<div class="panel-footer form-group">
+													<div class="text-right">
+														<i class="pull-left text-danger mb-2">{{message}}</i>
+														<button ng-show="quenmk.$valid" type="submit"
+															ng-click="accounts.quenmk()">Reset Password</button>
+													</div>
+													<div class="text-center" ng-show="quenmk.$invalid">Vui lòng nhập đầy đủ thông tin !!!</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -56,7 +62,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</main>
 </body>
 </html>

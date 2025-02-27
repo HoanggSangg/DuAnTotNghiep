@@ -1,7 +1,8 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	th:replace="~{/layout/index :: dynamic(~{::main})}">
- <body>
+<body>
 	<main>
 		<div class="content-wrapper">
 			<div class="content">
@@ -54,12 +55,14 @@
 										</label>
 									</p>
 									<hr>
-									<div class="panel-footer text-right">
-										<button ng-show="frmBonus.$valid" ng-click="accounts.dangky()">Đăng
-											ký</button>
+									<div class="panel-footer ">
+										<div class="text-right">
+											<button ng-show="frmBonus.$valid"
+												ng-click="accounts.dangky()">Đăng ký</button>
+										</div>
+										<div ng-show="frmBonus.$invalid">Vui
+											lòng nhập đầy đủ thông tin</div>
 									</div>
-									<div class="panel-footer" ng-show="frmBonus.$invalid">Vui
-										lòng nhập đầy đủ thông tin</div>
 								</form>
 							</div>
 						</div>
@@ -68,6 +71,6 @@
 			</div>
 		</div>
 	</main>
-</body> 
-</html> 
+</body>
+</html>
 

@@ -4,73 +4,34 @@
 
 <body>
 	<main id="indivi">
-		<!-- <div class="container">
-			<div class="containerForm">
-				<div class="sen">
-					<img ng-src="{{'/images/' + accounts.photo}}" width="150"
-						height="150" border="1"><br> <br>
+		<section class="get-in-touch">
+			<form class="contact-form row">
+				<div class="contact-image">
+					<img class="border-bottom border-danger p-3" ng-src="../../images/{{accounts.photo}}"/>
 				</div>
-				<div class="formBox">
-					<div class="inputBox w50">
-						<div id="username">[[${#request.remoteUser}]]</div>
-					</div>
-					<div class="inputBox w50">
-						<input ng-model="accounts.fullname" readonly="readonly">
-					</div>
-					<div class="inputBox w50">
-						<input ng-model="accounts.email" readonly="readonly">
-					</div>
-					<div class="inputBox w50">
-						<input ng-model="accounts.trangthai?'Mở':'Khóa'">
-					</div>
-					<div class="inputBox w100">
-						<input onclick="location.href='/account/edit'" type="submit"
-							value="Chỉnh sửa thông tin">
-					</div>
+				<div class="title form-field">
+					<div id="username" class="input-text">Tài Khoản --[[${#request.remoteUser}]]--</div>
 				</div>
-			</div>
-		</div> -->
-		
-		
-<section class="ready__started project__form">
-        <div class="container">
-            <h3 class="text-center">Cập nhật thông tin</h3>
-            <div class="ready__started-box">
-                <form class="main__form">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                               <div id="username">[[${#request.remoteUser}]]</div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="lastName" ng-model="accounts.fullname" readonly="readonly" required>
-                                <label for="lastName">Fullname*</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" ng-model="accounts.email" readonly="readonly" required>
-                                <label for="email">Email*</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control"  ng-model="accounts.trangthai?'Mở':'Khóa'" required>
-                                <label for="contactNumber">Trạng thái*</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center">
-                        <button onclick="location.href='/account/edit'" type="submit" class=" btn btn-get"><span> Submit Now!</span></button></div>
-                </form>
-            </div>
-        </div>
-    </section>
+				<div class="form-field col-lg-12 ">
+					<input type="text" ng-model="accounts.fullname" readonly="readonly">
+					<span>Fullname*</span>
+				</div>
+				<div class="form-field col-lg-12 ">
+					<input type="text" ng-model="accounts.email" readonly="readonly">
+					<span>Email*</span>
+				</div>
+				<div class="form-field col-lg-12">
+					<input type="text" value="{{ accounts.trangthai ? 'Mở' : 'Khóa' }}"
+						readonly="readonly"> <span>Trạng thái tài khoản*</span>
+				</div>
+				<div class="text-center">
+					<button onclick="location.href='/account/edit'" type="submit"
+						class="btn btn-get">
+						<span>Đổi thông tin</span>
+					</button>
+				</div>
+			</form>
+		</section>
 	</main>
 </body>
 </html>

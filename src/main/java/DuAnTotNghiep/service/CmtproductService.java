@@ -3,7 +3,6 @@ package DuAnTotNghiep.service;
 import java.util.List;
 
 import DuAnTotNghiep.entity.Cmtproduct;
-import DuAnTotNghiep.entity.Product;
 
 public interface CmtproductService {
 

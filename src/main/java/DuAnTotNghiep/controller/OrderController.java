@@ -18,6 +18,7 @@ public class OrderController {
 	public String checkout() {
 		return "order/checkout";
 	}
+	
 	@GetMapping("/order/list")
 	public String list(Model m, HttpServletRequest req) {
 		String username = req.getRemoteUser();

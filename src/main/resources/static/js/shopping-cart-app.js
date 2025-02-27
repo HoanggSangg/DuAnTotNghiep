@@ -170,12 +170,12 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 		dangky() {
 			var accounts = angular.copy(this);
 			accounts.trangthai = true;
-			$http.post(`/rest/accounts`, accounts).then(resp => {
+			$http.post(`/rest/accounts`, accounts).then(() => {
 				var authority = {
 					account: { username: accounts.username },
-					role: { id: "KH" }
+					role: { id: "KH" },
 				};
-				$http.post(`/rest/authority`, authority).then(resp => {
+				$http.post(`/rest/authority`, authority).then(() => {
 					alert("Đăng ký thành công")
 					location.href = ('/security/login');
 				}).catch(error => {
@@ -193,27 +193,28 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				account: { username: $scope.username },
 				date: new Date(),
 				trangthai: true
-			}
-			$http.get(`/rest/accounts/` + $scope.username).then(resp => {
-				if (resp.data.email == $scope.email) {
-					$http.post(`/rest/codeqmk`, codeqmk).then(resp => {
-						location.href = "/codeqmk"
-					})
-				} else {
-					alert("Sai mail")
-				}
-			}).catch(error => {
-				alert("Không tìm thấy tài khoản");
-				console.log("Error", error);
-			})
+			};
+			$http.get(`/rest/accounts/` + $scope.username)
+				.then(resp => {
+					if (resp.data.email == $scope.email) {
+						$http.post(`/rest/codeqmk`, codeqmk).then(() => {
+							location.href = "/codeqmk";
+						})
+					} else {
+						$scope.message = "Mail của bạn không chính xác !!!";
+					}
+				})
+				.catch(error => {
+					$scope.message = "Không tìm thấy tài khoản" + error;
+				});
 		},
 		codeqmk() {
 			var forgot = {
 				codeqmk: $scope.code
 			}
-			$http.put(`/rest/accounts/forgot`, forgot).then(resp => {
-				alert("Mời bạn xem lại email");
-				location.href = "/security/login"
+			$http.put(`/rest/accounts/forgot`, forgot).then(() => {
+				alert("Mời bạn xem lại email !!!");
+				location.href = "/security/login";
 			})
 		}
 
@@ -228,16 +229,16 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			if (item.password == $scope.form.password) {
 				if ($scope.form.newPass == $scope.form.confirm) {
 					item.password = $scope.form.newPass;
-					$http.put(`/rest/accounts/${username}`, item).then(resp => {
-						alert("Đổi mật khẩu thành công")
-						location.href = ('/security/logoff');
+					$http.put(`/rest/accounts/${username}`, item).then(() => {
+						alert("Đổi mật khẩu thành công");
+						location.href = ("/security/logoff");
 					})
 				} else {
-					alert("Nhập lại mật khẩu không đúng")
+					$scope.message = "Nhập lại mật khẩu không đúng !!!";
 					$scope.form = {};
 				}
 			} else {
-				alert("Sai mật khẩu hoặc tài khoản")
+				$scope.message = "Sai tài khoản hoặc mật khẩu !!!";
 				$scope.form = {};
 			}
 		})
@@ -255,6 +256,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			console.log("Error", error);
 		})
 	}
+
 	$scope.capnhattk = function() {
 		var username = $("#username").text();
 		$http.get(`/rest/accounts/${username}`).then(resp => {
@@ -264,13 +266,16 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				fullname: $scope.fullname,
 				email: $scope.email,
 				photo: $scope.photo,
-				trangthai: resp.data.trangthai
+				trangthai: resp.data.trangthai,
 			}
-			$http.put(`/rest/accounts/` + username, item).then(resp => {
-				alert("Cập nhật thành công")
+			$http.put(`/rest/accounts/` + username, item).then(() => {
+				alert('Cập nhật thành công !!!');
+				location.href = '/account/individual';
 			})
 			this.item = {};
-		})
+		}).catch(error => {
+			$scope.message = error;
+		});
 	}
 
 	//---------------------------Code JS Likes--------------------------
@@ -293,19 +298,19 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				date: new Date(),
 				likes: "1",
 			};
-			$http.post('/rest/likes', likes).then(resp => {
-				alert("Thích thành công");
+			$http.post('/rest/likes', likes).then(() => {
 				$scope.load();
+				location.reload();
 			});
 		},
 		dislike(id) {
 			var username = $("#username").text();
 			index = $scope.index_of(username, id);
 			var id = $scope.likes[index].id;
-			$http.delete(`/rest/likes/${id}`).then(resp => {
+			$http.delete(`/rest/likes/${id}`).then(() => {
 				$scope.likes.splice(index, 0);
-				alert("Xóa thích thành công" + " " + $scope.likes[index].product.name);
 				$scope.load();
+				location.reload();
 			})
 		}
 	}
@@ -319,14 +324,14 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				account: { username: $("#username").text() },
 				product: { id: id },
 				date: new Date(),
-				comment: $scope.cmtproduct.comment
+				comment: $scope.cmtproduct.comment,
 			};
 			if (cmtproduct.account.username == "") {
 				location.href = "/security/login";
 			} else {
-				$http.post(`/rest/cmtproduct`, cmtproduct).then(resp => {
-					$http.get(`/rest/products/${id}`).then(resp => {
-						location.href = "/product/detail/" + id + "?cid=" + resp.data.catesmall.category.id;
+				$http.post(`/rest/cmtproduct`, cmtproduct).then(() => {
+					$http.get(`/rest/products/${id}`).then(() => {
+						location.reload();
 					})
 				}).catch(error => {
 					console.log("Error", error);
@@ -347,8 +352,8 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 			if (cmtstore.account.username == "") {
 				location.href = "/security/login";
 			} else {
-				$http.post(`/rest/cmtstore`, cmtstore).then(resp => {
-					location.href = "/product/store/" + id;
+				$http.post(`/rest/cmtstore`, cmtstore).then(() => {
+					location.reload();
 				}).catch(error => {
 					console.log("Error", error);
 				})

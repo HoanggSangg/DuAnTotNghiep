@@ -6,6 +6,14 @@ quenmk {
 	min-height: 100vh;
 	background: #e40cc0;
 }
+#quenmk .contact-image{
+    text-align: center;
+}
+#quenmk .contact-image img{
+    width: 40%;
+    border-radius: 100rem;
+    margin-bottom: 15px;
+}
 #quenmk .container1 {
 	position: relative;
 	margin-top: 100px;

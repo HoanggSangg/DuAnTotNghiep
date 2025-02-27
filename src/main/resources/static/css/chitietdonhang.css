@@ -1,4 +1,4 @@
-chitietdonhang {
+/* chitietdonhang {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
@@ -65,7 +65,7 @@ form::before {
 	opacity: 0.5;
 	font-size: 20px;
 }
-/*Hiệu Ứng Hover Cho Thẻ Li*/
+Hiệu Ứng Hover Cho Thẻ Li
 #chitietdonhang .container .containerinfo li:hover span {
 	opacity: 1;
 }
@@ -86,7 +86,7 @@ form::before {
 	color: #fff;
 	font-size: 32px;
 }
-/*Hiệu Ứng Hover Icon*/
+Hiệu Ứng Hover Icon
 #chitietdonhang .container .containerinfo .sci li:hover a {
 	opacity: 1;
 }
@@ -207,4 +207,4 @@ form::before {
 
 .table {
 	text-align: center;
-}
+} */

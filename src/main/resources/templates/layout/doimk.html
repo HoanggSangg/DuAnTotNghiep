@@ -4,33 +4,32 @@
 <body>
 	<main id="doimk">
 		<section class="get-in-touch">
-			<h1 class="title">ĐỔI MẬT KHẨU</h1>
-			<form class="contact-form row">
-				<div class="form-field col-lg-12">
-					<div id="username" class="input-text js-input">[[${#request.remoteUser}]]</div>
-
+			<form name="doimk" class="contact-form row">
+				<div class="contact-image">
+					<img class="border-bottom border-danger p-3" src="../../images/logo1-test.png" />
+				</div>
+				<div class="title form-field">
+					<div id="username" class="input-text js-input">Tài Khoản --[[${#request.remoteUser}]]--</div>
 				</div>
 				<div class="form-field col-lg-12 ">
-					<input id="password" class="input-text js-input" type="password"
-						ng-model="form.password" required> <label class="label"
-						for="email">Password</label>
+					<input id="password" type="password" ng-model="form.password"
+						required> <span>Password</span>
 				</div>
 				<div class="form-field col-lg-12 ">
-					<input id="newPass" class="input-text js-input" type="password"
-						ng-model="form.newPass" required> <label class="label"
-						for="company">New Password</label>
+					<input id="newPass" type="password" ng-model="form.newPass"
+						required> <span>New Password</span>
 				</div>
 				<div class="form-field col-lg-12">
-					<input id="confirm" class="input-text js-input" type="password"
-						ng-model="form.confirm" required> <label class="label"
-						for="phone">Confirm</label>
+					<input id="confirm" type="password" ng-model="form.confirm"
+						required> <span>Confirm</span>
 				</div>
-
-				<div class="form-field col-lg-12">
-					<input class="submit-btn" ng-click="doimk()" type="submit"
-						value="Submit">
+				<div class="text-center">
+					<button ng-show="doimk.$valid" ng-click="doimk()" type="submit"
+						class="btn btn-get">
+						<span>Đổi mật khẩu</span>
+					</button>
 				</div>
-
+				<div class="panel-footer text-center" ng-show="doimk.$invalid">Vui lòng nhập đầy đủ thông tin !!!</div>
 			</form>
 		</section>
 	</main>

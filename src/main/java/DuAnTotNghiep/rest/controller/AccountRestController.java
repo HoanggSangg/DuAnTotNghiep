@@ -48,7 +48,7 @@ public class AccountRestController {
 		return accountService.update(account);
 	}
 	@PutMapping("/forgot")
-	public Account update1(@RequestBody forgot forgot) {
+	public Account forgot(@RequestBody forgot forgot) {
 		return accountService.update(forgot);
 	}
 	@DeleteMapping("{username}")
