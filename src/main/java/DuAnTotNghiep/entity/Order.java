@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,11 +46,11 @@ public class Order  implements Serializable{
 	boolean hoanthanh;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.REMOVE)
 	List<Orderdetail> orderDetails;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.REMOVE)
 	List<prepay> prepay;
 	
 	@ManyToOne

@@ -3,6 +3,7 @@ package DuAnTotNghiep.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -22,6 +23,6 @@ public class Role  implements Serializable{
 	private String name;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "role")
+	@OneToMany(mappedBy = "role", cascade = CascadeType.REMOVE)
 	List<Authority> authorities;
 }

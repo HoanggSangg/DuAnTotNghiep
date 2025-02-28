@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,11 +45,11 @@ public class Codesale implements Serializable{
 	boolean trangthai;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "codesale")
+	@OneToMany(mappedBy = "codesale", cascade = CascadeType.REMOVE)
 	List<Order> order;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "codesale")
+	@OneToMany(mappedBy = "codesale", cascade = CascadeType.REMOVE)
 	List<Saleuser> sale;
 	
 	@ManyToOne

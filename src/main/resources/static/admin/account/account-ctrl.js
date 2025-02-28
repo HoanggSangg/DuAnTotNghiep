@@ -10,6 +10,7 @@ app.controller("account-ctrl", function($scope, $http) {
 		$http.get("/rest/accounts/user").then(resp => {
 			$scope.acc = resp.data;
 		})
+		$scope.reset();
 	}
 	$scope.reset = function() {
 		$scope.form = {
@@ -22,76 +23,61 @@ app.controller("account-ctrl", function($scope, $http) {
 	}
 	$scope.create = function() {
 		var item = angular.copy($scope.form);
-		$http.post(`/rest/accounts`, item).then(resp => {
-			$scope.items.push(resp.data);
-			$scope.reset();
+		$http.post(`/rest/accounts`, item).then(() => {
 			$scope.initialize();
-			alert("Thêm mới thành công");
+			$scope.message = "Thêm mới thành công !!!";
 		}).catch(error => {
-			alert("Lỗi thêm mới tài khoản");
+			alert("Lỗi thêm mới tài khoản !!!");
 			console.log("Error", error);
 		});
 	}
 	$scope.update = function() {
-		if ($scope.acc.user == $scope.form.username) {
-			alert("Không được sửa thông tin tài khoản đang đăng nhập")
-		} else {
-			var item = angular.copy($scope.form);
-			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
-				var index = $scope.items.findIndex(p => p.id == item.id);
-				$scope.items[index] = item;
-				$scope.initialize();
-				alert("Cập nhật thành công");
-			}).catch(error => {
-				alert("Lỗi cập nhật tài khoản");
-				console.log("Error", error);
-			});
-		}
+		var item = angular.copy($scope.form);
+		/*var index = $scope.items.findIndex(p => p.id == item.id);
+		$scope.items[index] = item;*/
+		$http.put(`/rest/accounts/${item.username}`, item).then(() => {
+			$scope.initialize();
+			$scope.message = "Cập nhật thành công !!!";
+		}).catch(error => {
+			alert("Lỗi cập nhật tài khoản !!!");
+			console.log("Error", error);
+		});
 	}
 	$scope.delete = function(item) {
 		if ($scope.acc.user == item.username) {
 			alert("Không được xóa tài khoản đang đăng nhập")
 		} else {
-			$http.delete(`/rest/accounts/${item.username}`).then(resp => {
-				var index = $scope.items.findIndex(p => p.id == item.username);
-				$scope.items.splice(index, 1);
-				$scope.reset();
+			$http.delete(`/rest/accounts/${item.username}`).then(() => {
 				$scope.initialize();
-				alert("Xóa thành công");
+				alert("Xóa tài khoản thành công !!!");
 			}).catch(error => {
-				alert("Lỗi xóa tài khoản");
+				alert("Lỗi xóa tài khoản !!!");
 				console.log("Error", error);
 			});
 		}
 	}
 	$scope.stttrue = function(item) {
 		if ($scope.acc.user == item.username) {
-			alert("Không được chuyển trạng thái tài khoản đang đăng nhập")
+			alert("Không được chuyển trạng thái tài khoản đang đăng nhập !!!")
 		} else {
 			item.trangthai = true;
-			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
-				var index = $scope.items.findIndex(p => p.id == item.id);
-				$scope.items[index] = item;
+			$http.put(`/rest/accounts/${item.username}`, item).then(() => {
 				$scope.initialize();
-				alert("Chuyển trạng thái thành công");
+				alert("Chuyển trạng thái thành công !!!");
 			}).catch(error => {
-				alert("Lỗi cập nhật tài khoản");
 				console.log("Error", error);
 			});
 		}
 	}
 	$scope.sttfalse = function(item) {
 		if ($scope.acc.user == item.username) {
-			alert("Không được chuyển trạng thái tài khoản đang đăng nhập")
+			alert("Không được chuyển trạng thái tài khoản đang đăng nhập !!!")
 		} else {
 			item.trangthai = false;
-			$http.put(`/rest/accounts/${item.username}`, item).then(resp => {
-				var index = $scope.items.findIndex(p => p.id == item.id);
-				$scope.items[index] = item;
+			$http.put(`/rest/accounts/${item.username}`, item).then(() => {
 				$scope.initialize();
-				alert("Chuyển trạng thái thành công");
+				alert("Chuyển trạng thái thành công !!!");
 			}).catch(error => {
-				alert("Lỗi cập nhật tài khoản");
 				console.log("Error", error);
 			});
 		}
@@ -105,13 +91,12 @@ app.controller("account-ctrl", function($scope, $http) {
 		}).then(resp => {
 			$scope.form.photo = resp.data.name;
 		}).catch(error => {
-			alert("Lỗi upload hình ảnh");
 			console.log("Error", error);
 		})
 	}
 	$scope.pager = {
 		page: 0,
-		size: 10,
+		size: 8,
 		get items() {
 			var start = this.page * this.size;
 			return $scope.items.slice(start, start + this.size);

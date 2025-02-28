@@ -3,6 +3,7 @@ package DuAnTotNghiep.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -36,18 +37,18 @@ public class Store implements Serializable {
 	String image;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
+	@OneToMany(mappedBy = "cuahang", cascade = CascadeType.REMOVE)
 	List<Order> order;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
+	@OneToMany(mappedBy = "cuahang", cascade = CascadeType.REMOVE)
 	List<Product> product;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
+	@OneToMany(mappedBy = "cuahang", cascade = CascadeType.REMOVE)
 	List<Cmtstore> cmtstore;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "cuahang")
+	@OneToMany(mappedBy = "cuahang", cascade = CascadeType.REMOVE)
 	List<Codesale> codesale;
 }

@@ -3,6 +3,7 @@ package DuAnTotNghiep.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -32,34 +33,34 @@ public class Account  implements Serializable{
 	List<Order> orders;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	List<Authority> authorities;
 	
 	@JsonIgnore
-	@OneToOne(mappedBy = "account")
+	@OneToOne(mappedBy = "account", cascade = CascadeType.REMOVE)
 	Store cuahang;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "account")
+	@OneToMany(mappedBy = "account", cascade = CascadeType.REMOVE)
 	List<tintuc> tintuc;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "account")
+	@OneToMany(mappedBy = "account", cascade = CascadeType.REMOVE)
 	List<Likes> likes;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "account")
+	@OneToMany(mappedBy = "account", cascade = CascadeType.REMOVE)
 	List<Cmtstore> cmtstore;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "account")
+	@OneToMany(mappedBy = "account", cascade = CascadeType.REMOVE)
 	List<Cmtproduct> cmtproduct;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "account")
+	@OneToMany(mappedBy = "account", cascade = CascadeType.REMOVE)
 	List<Codedmk> codedmk;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "account")
+	@OneToMany(mappedBy = "account", cascade = CascadeType.REMOVE)
 	List<Saleuser> sale;
 }

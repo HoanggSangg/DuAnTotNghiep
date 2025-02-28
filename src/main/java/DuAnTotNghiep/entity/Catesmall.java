@@ -3,6 +3,7 @@ package DuAnTotNghiep.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -23,7 +24,7 @@ public class Catesmall implements Serializable{
 	String name;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "catesmall")
+	@OneToMany(mappedBy = "catesmall", cascade = CascadeType.REMOVE)
 	List<Product> products;
 	
 	public int getSize() {

@@ -66,11 +66,11 @@
 									</div></li>
 								<li
 									th:if="${#request.isUserInRole('AD')}">
-									<a th:href="@{/admin/home/index}">Quản Lý</a>
+									<a th:href="@{/admin/indexAdmin#!/account}">Quản Lý</a>
 								</li>
 								<li
 									th:if="${#request.isUserInRole('CH')}">
-									<a th:href="@{/store/home/index}">Quản Lý CH</a>
+									<a th:href="@{/store/indexStore#!/infostore}">Quản Lý CH</a>
 								</li>
 								<li
 									th:if="${#request.isUserInRole('AD')} or ${#request.isUserInRole('CH')}">
