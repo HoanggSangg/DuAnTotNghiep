@@ -21,6 +21,7 @@ public class Category implements Serializable{
 	String name;
 	
 	@JsonIgnore
+	
 	@OneToMany(mappedBy = "category")
 	List<Catesmall> catesmall;
 	

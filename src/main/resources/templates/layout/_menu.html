@@ -35,7 +35,7 @@
 								<form action="/products/tkname">
 									<button class="search-submit"></button><input
 										class="search-input" placeholder="Nhập sản phẩm bạn tìm kiếm ..."
-										type="text" name="name">
+										type="text" name="cid">
 								</form>
 							</li>
 							<li class="option-cart"><a href="#" class="cart-icon"> <span
@@ -85,7 +85,7 @@
 											<li><a href="/account/doimk">Đổi MK</a></li>
 											<li><a href="/account/edit">Cập nhật TK</a></li>
 											<li><a th:href="@{/order/list}">LS mua hàng</a></li>
-											<li><a th:href="@{/product/list}">SP đã thích</a></li>
+											<li><a th:href="@{/product/like}">SP đã thích</a></li>
 											<li><a href="/security/logoff">Đăng Xuất</a></li>
 										</ul>
 									</div>

@@ -24,12 +24,18 @@ public interface ProductService {
 	void delete(Integer id);
 	
 	List<Product> findByName(String name);
+	
+	Page<Product> findByName(String name, Pageable pa);
 
 	Page<Product> findAvailable(Pageable pa);
 
 	List<Product> findByCateNameAndCateId(String name, String cateid);
+	
+	Page<Product> findByCateNameAndCateId(String name, String cateid, Pageable pa);
 
 	List<Product> findByPriceBetween(double minPrice, double maxPrice);
+	
+	Page<Product> findByPriceBetweenPage(double minPrice, double maxPrice, Pageable pa);
 
 	List<Product> findByStore(String store);
 

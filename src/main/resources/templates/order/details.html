@@ -30,14 +30,14 @@
 										<div class="col-md-6">
 											<div class="form-row">
 												<div class="form-control">
-													Tài khoản <strong class="red"> * </strong>
-													[[${order.account.username}]]
+													Trạng thái <strong class="red"> * </strong>
+													[[${order.trangthai}]]
 												</div>
 											</div>
 											<div class="form-row">
 												<div class="form-control">
 													Địa chỉ <strong class="red"> * </strong>
-													[[${order.address}]]
+													[[${order.diachinn}]]
 												</div>
 											</div>
 										</div>
@@ -52,6 +52,7 @@
 								<tr>
 									<th>No.</th>
 									<th>Tên sản phẩm</th>
+									<th>Hình ảnh</th>
 									<th>Tên cửa hàng</th>
 									<th>Giá</th>
 									<th>Số lượng</th>
@@ -70,16 +71,19 @@
 											<div class="productname">[[*{product.name}]]</div>
 										</div>
 									</td>
+									<td class="w-25"><a
+										th:href="@{|/product/detail/*{product.id}?cid=*{product.catesmall.category.id}|}"><img
+											class="w-50" th:src="@{/images/{img}(img=*{product.image})}"></a></td>
 									<td>
 										<div class="shop-details">
 											<div class="productname">[[*{product.cuahang.tencuahang}]]</div>
 										</div>
 									</td>
 									<td>[[*{#numbers.formatDecimal(price, 0, 'COMMA', 0,
-										'POINT')}]]</td>
+										'POINT')}]] VNĐ</td>
 									<td>[[*{quantity}]]</td>
-									<td>[[*{#numbers.formatDecimal(price*quantity, 0, 'COMMA',
-										0, 'POINT')}]]</td>
+									<td class="red">[[*{#numbers.formatDecimal(price*quantity,
+										0, 'COMMA', 0, 'POINT')}]] VNĐ</td>
 								</tr>
 							</tbody>
 						</table>

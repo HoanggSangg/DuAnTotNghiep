@@ -48,6 +48,11 @@ public class HomeController {
 	CmtproductService cmtproductService;
 	@Autowired
 	tintucService tintucService;
+	
+	String currentUrl;
+	String cidValues;
+	String cidValuesbefore;
+	int pValues = 0;
 
 	@GetMapping("/security/dangky")
 	public String dangky() {
@@ -55,17 +60,25 @@ public class HomeController {
 	}
 
 	public void load(Model m) {
-		int pValues = 0;
 		if (request.getRemoteUser() != null) {
 			String username = request.getRemoteUser();
 			List<Integer> like = likeService.findUsername(username);
 			m.addAttribute("like", like);
 		}
 		
-		String currentUrl = ServletUriComponentsBuilder.fromRequestUri(request).build().toString();
-		String cidValues = request.getParameter("cid");
-		if(request.getParameter("p") != null) {
-			pValues = Integer.parseInt(request.getParameter("p"));
+		currentUrl = ServletUriComponentsBuilder.fromRequestUri(request).build().toString();
+		cidValues = request.getParameter("cid");
+		
+		String referer = request.getHeader("Referer");
+		if (referer != null && referer.contains("cid=")) {
+		    cidValuesbefore = referer.split("cid=")[1].split("&")[0];
+		    if(!cidValuesbefore.equals(cidValues)) {
+				pValues = 0;
+			}else {
+				if(request.getParameter("p") != null) {
+					pValues = Integer.parseInt(request.getParameter("p"));
+				}
+			}
 		}
 		
 		m.addAttribute("currentUrl", currentUrl);
@@ -84,10 +97,9 @@ public class HomeController {
 				Page<Product> list = productService.findByCategoryId(cid.get(), pa);
 				int t = list.getTotalPages();
 				if (list.getNumber() == t) {
-					return "redirect:/home/index?p=0";
+					return "redirect:" + currentUrl + "?cid=" + cidValues + "&p=0";
 				}
 				m.addAttribute("items", list);
-				m.addAttribute("cid", cid.get());
 
 				List<Catesmall> catesmall = catesmallService.findByCate(cid.get());
 				m.addAttribute("catesmall", catesmall);
@@ -103,7 +115,7 @@ public class HomeController {
 			}
 		} catch (Exception e) {
 			System.out.println(e);
-			return "redirect:/home/index?p=0";
+			return "redirect:/home/index";
 		}
 		return "layout/_sanpham";
 	}

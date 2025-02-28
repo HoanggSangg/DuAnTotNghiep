@@ -15,11 +15,11 @@
 								<thead>
 									<tr>
 										<th>Hình ảnh</th>
-										<th>Tên sản phẩm</th>
+										<th class="w-25">Tên sản phẩm</th>
 										<th>Giá</th>
 										<th>Tên cửa hàng</th>
 										<th>Số lượng</th>						
-										<th>Tổng tiền</th>
+										<th class="w-25">Tổng tiền</th>
 										<th>Xóa</th>
 									</tr>
 								</thead>
@@ -27,7 +27,7 @@
 									<tr ng-repeat="item in cart.items">
 										<td><a th:href="@{|/product/detail/{{item.id}}?cid={{item.catesmall.category.id}}|}">
 											<img ng-src="../../images/{{item.image}}"></a></td>
-										<td>
+										<td class="w-25">
 											<div class="shop-details">
 												<div class="productname">{{item.name}}</div>
 											</div>
@@ -41,7 +41,7 @@
 											</div>
 										</td>
 										<td><input ng-change="cart.save(item.id)" ng-model="item.qty" type="number" min="1" style="width: 70px"></td>
-										<td class="red">{{item.qty*item.price | number : 0}}</td>
+										<td class="red w-25" style="font-size: 20px; font-weight: bold;">{{item.qty*item.price | number : 0}} VNĐ</td>
 										<td>
 											<button ng-click="cart.remove(item.id)"
 												class="btn btn-sm btn-danger">

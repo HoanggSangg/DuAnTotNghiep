@@ -71,17 +71,19 @@
 										</li>
 									</ul>
 								</div>
-								<div class="toolbar">
-									<div class="pager">
-										<a
-											th:href="@{|${currentUrl}?${queryString}&p=${pValues+1}|}"
-											class="prev-page"> <i class="fa fa-angle-left"></i>
-										</a> <a class="active">[[${items.number+1}]] /
-											[[${items.totalPages}]]</a> <a
-											th:href="@{|${currentUrl}?cid=${cidValues}&p=${pValues+1}|}"
-											class="next-page"> <i class="fa fa-angle-right"> </i></a>
+								<th:block th:unless="${priceValue}">
+									<div class="toolbar">
+										<div class="pager">
+											<a
+												th:href="@{|${currentUrl}?cid=${cidValues}&p=${pValues-1}|}"
+												class="prev-page"> <i class="fa fa-angle-left"></i>
+											</a> <a class="active">[[${items.number+1}]] /
+												[[${items.totalPages}]]</a> <a
+												th:href="@{|${currentUrl}?cid=${cidValues}&p=${pValues+1}|}"
+												class="next-page"> <i class="fa fa-angle-right"> </i></a>
+										</div>
 									</div>
-								</div>
+								</th:block>
 							</div>
 						</div>
 					</div>

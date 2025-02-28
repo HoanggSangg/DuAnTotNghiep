@@ -22,7 +22,7 @@
 							</div>
 							<div class="clearfix"></div>
 							<div class="products-list">
-								<div th:each="p: ${items.content}">
+								<div th:each="p: ${items}">
 									<ul class="products-listItem" th:fragment="product_list">
 										<li class="products">
 											<div class="thumbnail">
@@ -74,11 +74,11 @@
 							</div>
 							<div class="toolbar">
 								<div class="pager">
-									<a th:href="@{|/product/list?p=${items.number-1}|}"
+									<a th:href="@{|/product/like?p=${items.number-1}|}"
 										class="prev-page"> <i class="fa fa-angle-left"></i>
 									</a> <a class="active">[[${items.number+1}]] /
 										[[${items.totalPages}]]</a> <a
-										th:href="@{|/product/list?p=${items.number+1}|}"
+										th:href="@{|/product/like?p=${items.number+1}|}"
 										class="next-page"> <i class="fa fa-angle-right"> </i></a>
 								</div>
 							</div>

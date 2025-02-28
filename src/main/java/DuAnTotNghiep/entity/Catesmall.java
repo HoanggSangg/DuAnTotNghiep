@@ -26,6 +26,10 @@ public class Catesmall implements Serializable{
 	@OneToMany(mappedBy = "catesmall")
 	List<Product> products;
 	
+	public int getSize() {
+        return products != null ? products.size() : 0;
+    }
+	
 	@ManyToOne
 	@JoinColumn(name = "Categoryid")
 	Category category;

@@ -108,7 +108,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					price: item.price,
 					qty: item.qty
 				}
-				$http.post(`/rest/cart`, carttest).then(resp => {
+				$http.post(`/rest/cart`, carttest).then(() => {
 				})
 			});
 		},
@@ -120,12 +120,12 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					order.tongtien = this.tongtien();
 					order.diachinn = "Tỉnh: " + $scope.tinh + " - " + "Quận: " + $scope.quan + " - " + "Đường: " + $scope.duong;
 					$scope.order.savecart();
-					$http.post("/rest/orders", order).then(resp => {
+					$http.post("/rest/orders", order).then(() => {
 						$scope.cart.clear();
 						location.href = "/order/list";
 					})
 				} else if ($scope.bankcode == "NCB") {
-					var order = angular.copy(this);
+					/*var order = angular.copy(this);
 					order.trangthai = "Đơn hàng đang xử lí"
 					order.tongtien = this.tongtien();
 					order.diachinn = "Tỉnh: " + $scope.tinh + " - " + "Quận: " + $scope.quan + " - " + "Đường: " + $scope.duong;
@@ -134,7 +134,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 						$scope.payment = resp.data;
 						$scope.cart.clear();
 						location.href = $scope.payment.url;
-					})
+					})*/
 				} else {
 					alert("Chọn hình thức thanh toán")
 				}
@@ -176,13 +176,13 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					role: { id: "KH" },
 				};
 				$http.post(`/rest/authority`, authority).then(() => {
-					alert("Đăng ký thành công")
+					alert("Đăng ký thành công");
 					location.href = ('/security/login');
 				}).catch(error => {
 					console.log("Error", error);
 				})
 			}).catch(error => {
-				alert("Lỗi thêm mới tài khoản");
+				$scope.message = "Lỗi thêm mới tài khoản !!!";
 				console.log("Error", error);
 			});
 		},
@@ -221,7 +221,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 	}
 	$scope.accounts.loadtk();
 
-	$scope.doimk = function() {
+	$scope.doiMk = function() {
 		var item = angular.copy($scope.form);
 		var username = $("#username").text();
 		$http.get(`/rest/accounts/${username}`).then(resp => {

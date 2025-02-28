@@ -6,7 +6,7 @@
 			<h3 class="title">Nhãn hiệu</h3>
 			<ul th:each="c : ${catesmall}">
 				<li><a
-					th:href="@{|/products/cate/${c.name}?cateid=${c.category.id}|}">[[${c.name}]]</a></li>
+					th:href="@{|/products/cate/${c.name}?cid=${c.category.id}|}">[[${c.name}]] ([[${c.size}]])</a></li>
 			</ul>
 		</div>
 		<div class="price-filter leftbar">
