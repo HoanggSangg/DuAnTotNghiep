@@ -34,6 +34,7 @@ public class AccountRestController {
 	public List<Account> getAll(){
 		return accountService.findAll();
 	}
+	
 	@GetMapping("/user")
 	public Map<String, Object> getAuthorities(){
 		Map<String, Object> data = new HashMap<>();

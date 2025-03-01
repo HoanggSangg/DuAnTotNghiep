@@ -15,7 +15,11 @@ app.controller("account-ctrl", function($scope, $http) {
 	$scope.reset = function() {
 		$scope.form = {
 			photo: 'cloud-upload.jpg',
+			trangthai: true,
 		};
+	}
+	$scope.backTable = function() {
+		$(".nav-tabs a:eq(1)").tab('show')
 	}
 	$scope.edit = function(item) {
 		$scope.form = angular.copy(item);
@@ -25,6 +29,7 @@ app.controller("account-ctrl", function($scope, $http) {
 		var item = angular.copy($scope.form);
 		$http.post(`/rest/accounts`, item).then(() => {
 			$scope.initialize();
+			$scope.backTable();
 			$scope.message = "Thêm mới thành công !!!";
 		}).catch(error => {
 			alert("Lỗi thêm mới tài khoản !!!");
@@ -37,6 +42,7 @@ app.controller("account-ctrl", function($scope, $http) {
 		$scope.items[index] = item;*/
 		$http.put(`/rest/accounts/${item.username}`, item).then(() => {
 			$scope.initialize();
+			$scope.backTable();
 			$scope.message = "Cập nhật thành công !!!";
 		}).catch(error => {
 			alert("Lỗi cập nhật tài khoản !!!");
@@ -49,6 +55,7 @@ app.controller("account-ctrl", function($scope, $http) {
 		} else {
 			$http.delete(`/rest/accounts/${item.username}`).then(() => {
 				$scope.initialize();
+				$scope.backTable();
 				alert("Xóa tài khoản thành công !!!");
 			}).catch(error => {
 				alert("Lỗi xóa tài khoản !!!");

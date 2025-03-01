@@ -11,63 +11,62 @@ app.controller("store-ctrl", function($scope, $http) {
 		$http.get("/rest/accounts/user").then(resp => {
 			$scope.acc = resp.data;
 		})
+		$scope.reset();
 	}
-	$scope.initialize();
-
 	$scope.reset = function() {
 		$scope.form = {
 			image: 'cloud-upload.jpg',
-			available: true,
+			trangthai: true,
 		};
 	}
 	$scope.edit = function(item) {
 		$scope.form = angular.copy(item);
 		$(".nav-tabs a:eq(0)").tab('show')
 	}
-	$scope.create = function() {
-		var item = angular.copy($scope.form);
-		$http.post(`/rest/store`, item).then(resp => {
-			resp.data.createDate = new Date(resp.data.createDate)
-			$scope.items.push(resp.data);
-			$scope.reset();
-			alert("Thêm mới thành công");
-		}).catch(error => {
-			alert("Lỗi thêm mới sản phẩm");
-			console.log("Error", error);
-		});
-		$scope.reset();
+	$scope.backTable = function() {
+		$(".nav-tabs a:eq(1)").tab('show')
 	}
 	$scope.update = function() {
-		if ($scope.acc.user == $scope.form.account.username) {
-			alert("Không được sửa thông tin tài khoản đang đăng nhập")
-		} else {
-			var item = angular.copy($scope.form);
-			$http.put(`/rest/store/${item.id}`, item).then(resp => {
-				var index = $scope.items.findIndex(p => p.id == item.id);
-				$scope.items[index] = item;
-				alert("Cập nhật thành công");
-			}).catch(error => {
-				alert("Lỗi cập nhật sản phẩm");
-				console.log("Error", error);
-			});
-			$scope.reset();
-		}
+		var item = angular.copy($scope.form);
+		$http.put(`/rest/store/${item.id}`, item).then(() => {
+			$scope.initialize();
+			$scope.backTable();
+			$scope.message = "Cập nhật thành công !!!";
+		}).catch(error => {
+			alert("Lỗi cập nhật sản phẩm !!!");
+			console.log("Error", error);
+		});
 	}
 	$scope.delete = function(item) {
 		if ($scope.acc.user == item.account.username) {
-			alert("Không được xóa tài khoản đang đăng nhập")
+			alert("Không được xóa tài khoản đang đăng nhập !!!")
 		} else {
-			$http.delete(`/rest/store/${item.id}`).then(resp => {
-				var index = $scope.items.findIndex(p => p.id == item.id);
-				$scope.items.splice(index, 1);
-				$scope.reset();
-				alert("Xóa thành công");
+			$http.delete(`/rest/store/${item.id}`).then(() => {
+				$scope.initialize();
+				$scope.backTable();
+				$scope.message = "Xóa tài khoản thành công !!!";
 			}).catch(error => {
-				alert("Lỗi xóa sản phẩm");
 				console.log("Error", error);
 			});
-			$scope.reset();
 		}
+	}
+	$scope.stttrue = function(item) {
+		item.trangthai = true;
+		$http.put(`/rest/store/${item.id}`, item).then(() => {
+			$scope.initialize();
+			alert("Chuyển trạng thái thành công !!!");
+		}).catch(error => {
+			console.log("Error", error);
+		});
+	}
+	$scope.sttfalse = function(item) {
+		item.trangthai = false;
+		$http.put(`/rest/store/${item.id}`, item).then(() => {
+			$scope.initialize();
+			alert("Chuyển trạng thái thành công !!!");
+		}).catch(error => {
+			console.log("Error", error);
+		});
 	}
 	$scope.imageChanged = function(files) {
 		var data = new FormData();
@@ -84,7 +83,7 @@ app.controller("store-ctrl", function($scope, $http) {
 	}
 	$scope.pager = {
 		page: 0,
-		size: 10,
+		size: 8,
 		get items() {
 			var start = this.page * this.size;
 			return $scope.items.slice(start, start + this.size);
@@ -111,6 +110,8 @@ app.controller("store-ctrl", function($scope, $http) {
 			this.page = this.count - 1;
 		}
 	}
+	$scope.initialize();
+
 	$scope.timkiem = function() {
 		var item = angular.copy($scope.form);
 		if (item.name != null) {

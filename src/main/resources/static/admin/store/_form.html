@@ -1,60 +1,67 @@
-<div>
-	<div class="panel panel-default">
-		<div class="panel-heading"
-			style="color: white; background-color: #0066CC">QUẢN LÝ CỬA
-			HÀNG</div>
-		<div class="panel-body">
-			<div class="row" style="background-color: white;">
-				<div class="col-sm-3 text-center">
-					<label for="image"> <img
-						ng-src="{{'/images/' + form.image}}"
-						style="width: 195px; height: 195px">
-					</label>
-				</div>
-				<div class="col-sm-9">
-					<div class="row">
-						<div class="form-group col-sm-6">
-							<div>Tên cửa hàng</div>
-							<input ng-model="form.tencuahang" class="form-control">
+<div class="container" id="a">
+	<div class="row">
+		<h3 class="title text-center">Quản lý cửa hàng</h3>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="row">
+					<form action="">
+						<div class="col-sm-3 text-center">
+							<label for="image"> <img
+								ng-src="{{'/images/' + form.image}}"
+								style="width: 195px; height: 195px">
+							</label>
 						</div>
-						<div class="form-group col-sm-6">
-							<div>Hình</div>
-							<input type="file" class="form-control" id="image"
-								onchange="angular.element(this).scope().imageChanged(this.files)">
-						</div>
-						<div class="form-group col-sm-6">
-							<div>Tên tài khoản</div>
-							<input ng-model="form.account.username" class="form-control"> 
-						</div>
-						<div class="form-group col-sm-6">
-							<div>Trạng thái?</div>
-							<div class="form-control">
-								<label class="radio-inline"> <input
-									ng-model="form.trangthai" ng-value="true" name="available"
-									type="radio">Có
-								</label> <label class="radio-inline"> <input
-									ng-model="form.trangthai" ng-value="false" name="available"
-									type="radio">Không
-								</label>
+						<div class="col-sm-9">
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<div>Tên cửa hàng</div>
+									<input ng-model="form.tencuahang" class="form-control"
+										name="account">
+								</div>
+								<div class="form-group col-sm-6">
+									<div>Tên tài khoản</div>
+									<input ng-model="form.account.username" class="form-control"
+										readonly="readonly">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<div>Hình</div>
+									<input type="file" class="form-control" ng-model="form.photo"
+										onchange="angular.element(this).scope().imageChanged(this.files)">
+								</div>
+								<div class="form-group col-sm-6">
+									<div>Trạng thái?</div>
+									<div class="form-control" ng-init="form.trangthai = true">
+										<label class="radio-inline"> <input
+											ng-model="form.trangthai" ng-value="true" name="available"
+											type="radio">Mở khóa
+										</label> <label class="radio-inline"> <input
+											ng-model="form.trangthai" ng-value="false" name="available"
+											type="radio">Đóng tài khoản
+										</label>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
-		</div>
-		<div class="panel-footer text-center">
-			<button ng-click="create()" class="btn btn-primary">
-				<b class="glyphicon glyphicon-plus"></b>Thêm
-			</button>
-			<button ng-click="update()" class="btn btn-success">
-				<b class="glyphicon glyphicon-save"></b>Sửa
-			</button>
-			<button ng-click="delete(form)" class="btn btn-danger">
-				<b class="glyphicon glyphicon-trash"></b>Xóa
-			</button>
-			<button ng-click="reset()" class="btn btn-info">
-				<b class="glyphicon glyphicon-refresh"></b>Làm mới
-			</button>
+			<div class="panel-footer text-center">
+				<i class="pull-left text-danger mb-2" style="font-size: 20px;">{{message}}</i>
+				<button disabled="disabled">
+					<b class="glyphicon glyphicon-floppy-saved"></b> Create
+				</button>
+				<button ng-click="update()">
+					<b class="glyphicon glyphicon-save"></b> Update
+				</button>
+				<button ng-click="delete(form)">
+					<b class="glyphicon glyphicon-trash"></b> Delete
+				</button>
+				<button ng-click="reset()">
+					<b class="glyphicon glyphicon-refresh"></b> Reset
+				</button>
+			</div>
 		</div>
 	</div>
 </div>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.entity.Store;
 import DuAnTotNghiep.service.StoreService;
 
@@ -27,6 +28,7 @@ public class StoreRestController {
 	public List<Store> getAll(){
 		return storeService.findAll();
 	}
+	
 	@GetMapping("{id}")
 	public Store getOne(@PathVariable("id") Integer id) {
 		return storeService.findById(id);
