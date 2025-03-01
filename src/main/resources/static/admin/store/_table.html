@@ -11,12 +11,12 @@
 					<form>
 						<div class="your-details">
 							<div class="form-group col-sm-10">
-								<div class="pt-3">
+								<div>
 									<input placeholder="Nhập tên cửa hàng bạn cần tìm !!!"
 										ng-model="form.name" class="form-control">
 								</div>
 							</div>
-							<div class="panel-footer text-right">
+							<div class="form-group col-sm-2">
 								<button ng-click="timkiem()">
 									<i class="glyphicon glyphicon-search mr-1"></i>Tìm Kiếm
 								</button>
@@ -74,7 +74,7 @@
 									<i class="glyphicon glyphicon-ok-circle"></i>
 								</button>
 								<button ng-click="sttfalse(item)" ng:if="item.trangthai">
-									<i class="glyphicon glyphicon-remove-circle"></i>
+									<i class="glyphicon glyphicon-remove-circle btn-danger"></i>
 								</button>
 							</div>
 						</td>

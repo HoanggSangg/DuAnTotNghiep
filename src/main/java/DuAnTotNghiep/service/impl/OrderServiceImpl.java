@@ -79,6 +79,7 @@ public class OrderServiceImpl implements OrderService {
 		String id = "";
 		double tong = 0;
 		int giam = 0;
+		
 		List<Total> total = cartservice.getTotalByUser(user);
 		List<Codesale> kiemtra = codedao.findAll();
 
@@ -144,7 +145,7 @@ public class OrderServiceImpl implements OrderService {
 				detail.setPrice(c.getPrice());
 				detail.setQuantity(c.getQty());
 				ddao.save(detail);
-				cdao.deleteById(c.getId());
+//				cdao.deleteById(c.getId());
 
 				String detailsid = detail.getProduct().getId().toString();
 				Product pro1 = pdao.findById(Integer.parseInt(detailsid)).get();

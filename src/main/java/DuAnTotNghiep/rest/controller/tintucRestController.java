@@ -50,6 +50,6 @@ public class tintucRestController {
 	}
 	@GetMapping("/timkiem/{name}")
 	public List<tintuc> getName(@PathVariable("name") String name) {
-		return tintucService.findByName("%" + name + "%");
+		return tintucService.findByContent("%" + name + "%");
 	}
 }

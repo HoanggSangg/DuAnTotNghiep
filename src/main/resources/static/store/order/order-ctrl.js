@@ -13,17 +13,17 @@ app.controller("order-ctrl", function($scope, $http) {
 		var order = this.items.find(order => order.id == id);
 		if (order.trangthai == "Đã đặt hàng") {
 			order.trangthai = "Đang chuẩn bị đơn hàng";
-			$http.post("/rest/orders/trangthai", order).then(resp => {
+			$http.post("/rest/orders/trangthai", order).then(() => {
 				$scope.initialize();
 			})
 		}else if(order.trangthai == "Đang chuẩn bị đơn hàng"){
 			order.trangthai = "Đang giao hàng";
-			$http.post("/rest/orders/trangthai", order).then(resp => {
+			$http.post("/rest/orders/trangthai", order).then(() => {
 				$scope.initialize();
 			})
 		}else if(order.trangthai == "Đang giao hàng"){
 			order.trangthai = "Đã giao hàng";
-			$http.post("/rest/orders/trangthai", order).then(resp => {
+			$http.post("/rest/orders/trangthai", order).then(() => {
 				$scope.initialize();
 			})
 		}else if(order.trangthai == "Đã giao hàng"){
@@ -62,6 +62,18 @@ app.controller("order-ctrl", function($scope, $http) {
 		},
 		last() {
 			this.page = this.count - 1;
+		}
+	}
+	
+	$scope.timkiem = function() {
+		var item = angular.copy($scope.form);
+		if (item.username != null) {
+			$http.get(`/rest/orders/timkiem/${item.username}`).then(resp => {
+				$scope.items = angular.copy(resp.data);
+				console.log($scope.items);
+			})
+		}else{
+			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")
 		}
 	}
 });

@@ -50,7 +50,7 @@ public class Order  implements Serializable{
 	List<Orderdetail> orderDetails;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "order", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "order")
 	List<prepay> prepay;
 	
 	@ManyToOne

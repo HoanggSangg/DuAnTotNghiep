@@ -13,7 +13,7 @@ public interface tintucDao extends JpaRepository<tintuc, Integer>{
 	List<tintuc> findByUser(String user);
 
 	@Query("SELECT p FROM tintuc p WHERE p.noidung LIKE ?1")
-	List<tintuc> findByName(String name);
+	List<tintuc> findByContent(String name);
 
 	
 }

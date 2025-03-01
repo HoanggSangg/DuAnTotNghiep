@@ -1,53 +1,75 @@
 <body>
-	<div class="container" style="padding: 20px">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default panel-table">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col col-xs-6">
-								<h3 class="panel-title">Thống kê</h3>
-							</div>
+	<div class="container_fullwidth">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="title text-center">
+						Danh sách bài đăng ({{items.length}}<i
+							class="glyphicon glyphicon-user ml-2"></i>)
+					</h3>
+					<div class="checkout-page">
+						<div class="step-description">
+							<form>
+								<div class="your-details">
+									<div class="form-group col-sm-5">
+										<div>
+											<input type="number" min="0" max="12"
+												placeholder="Nhập tháng đơn hàng bạn cần tìm !!!"
+												ng-model="thang" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-5">
+										<div>
+											<input placeholder="Nhập năm đơn hàng bạn cần tìm !!!"
+												ng-model="nam" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<button ng-click="timkiem()">
+											<i class="glyphicon glyphicon-search mr-1"></i>Tìm Kiếm
+										</button>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
-					<div class="panel-body">
-						<div>
-							<div class="form-group col-sm-5">
-								<div style="padding-top: 10px">
-									<input type="number" min="0" max="12" placeholder="Nhập tháng đơn hàng bạn cần tìm !!!"
-										ng-model="thang" class="form-control">
-								</div>
-							</div>
-							<div class="form-group col-sm-5">
-								<div style="padding-top: 10px">
-									<input type="number" min="2000" placeholder="Nhập năm đơn hàng bạn cần tìm !!!"
-										ng-model="nam" class="form-control">
-								</div>
-							</div>
-							<div class="panel-footer text-right">
-								<button ng-click="timkiem()" class="btn btn-success">Tìm
-									Kiếm</button>
-							</div>
-						</div>
-						<table class="table table-striped table-bordered table-list">
-							<thead>
-								<tr>
-									<th>Tên tài khoản</th>
-									<th>Doanh thu</th>
-									<th>Số lượng</th>
-									<th>Ngày</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr ng-repeat="item in items">
-									<td>{{item.name}}</td>
-									<td>{{item.doanhThu}}</td>
-									<td>{{item.soLuong}}</td>
-									<td>{{item.date | date: 'dd-MM-yyyy'}}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+				</div>
+				<div class="col-md-12">
+					<table class="table table-bordered text-center table-hover">
+						<thead class="table-info">
+							<tr class="table-th">
+								<th>Tài khoản</th>
+								<th>Tổng doanh thu</th>
+								<th>Số lượng</th>
+								<th>Ngày mua</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in items">
+								<td>
+									<div class="shop-details">
+										<div class="productname">{{item.name}}</div>
+									</div>
+								</td>
+								<td>
+									<div class="shop-details">
+										<div class="productname">{{item.doanhThu | number: 0}}</div>
+									</div>
+								</td>
+								<td>
+									<div class="shop-details">
+										<div class="productname">{{item.soLuong}}</div>
+									</div>
+								</td>
+								<td>
+									<div class="shop-details">
+										<div class="productname">{{item.date | date:
+											'dd/MM/yyyy'}}</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

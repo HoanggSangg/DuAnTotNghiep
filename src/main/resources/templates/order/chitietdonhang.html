@@ -48,12 +48,12 @@
 										<td class="red">[[${#numbers.formatDecimal(order.tongtien,
 											0, 'COMMA', 0, 'POINT')}]]</td>
 										<td><a th:href="@{|/order/detail/${order.id}|}"
-											class="btn btn-sm btn-primary"> <b
+											class="btn btn-primary"> <b
 												class="glyphicon glyphicon-search"></b>
 										</a></td>
-										<td th:if="${order.trangthai != 'Đã giao hàng'}"><a
+										<td th:if="${order.trangthai != 'ÄÃ£ giao hÃ ng'}"><a
 											th:href="@{|/order/delete/${order.id}|}"
-											class="btn btn-sm btn-danger"> <b
+											class="btn btn-danger"> <b
 												class="glyphicon glyphicon-trash"></b>
 										</a></td>
 									</tr>

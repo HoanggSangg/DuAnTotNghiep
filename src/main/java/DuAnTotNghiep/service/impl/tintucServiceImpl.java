@@ -45,9 +45,9 @@ public class tintucServiceImpl implements tintucService{
 	}
 
 	@Override
-	public List<tintuc> findByName(String name) {
+	public List<tintuc> findByContent(String name) {
 		// TODO Auto-generated method stub
-		return dao.findByName(name);
+		return dao.findByContent(name);
 	}
 	
 	

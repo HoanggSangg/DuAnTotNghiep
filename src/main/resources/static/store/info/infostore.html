@@ -1,28 +1,26 @@
 <body>
 	<main id="indivi">
-		<div class="container">
-			<div class="containerForm">
-				<div>
-					<div class="sen">
-						<img ng-src="{{'/images/' + store.image}}" width="150" height="150"
-							border="1"><br> <br>
-					</div>
-					<div class="formBox">
-						<div class="inputBox w50">
-							<input ng-model="store.account.username"
-								readonly="readonly">
-						</div>
-						<div class="inputBox w50">
-							<input ng-model="store.tencuahang"
-								readonly="readonly">
-						</div>
-						<div class="inputBox w50">
-							<input ng-model="store.trangthai"
-								readonly="readonly">
-						</div>
-					</div>
+		<section class="get-in-touch">
+			<form class="contact-form row">
+				<div class="contact-image">
+					<img class="border-bottom border-danger p-3" ng-src="../../images/{{store.image}}"/>
 				</div>
-			</div>
-		</div>
+				<div class="title form-field">
+					<div id="username" class="input-text">Tài Khoản  --{{store.account.username}}--</div>
+				</div>
+				<div class="form-field col-lg-12">
+					<input type="text" ng-model="store.tencuahang"  readonly="readonly">
+					<span>Tên cửa hàng</span>
+				</div>
+				<div class="form-field col-lg-12">
+					<input type="text" ng-model="store.account.email"  readonly="readonly">
+					<span>Email</span>
+				</div>
+				<div class="form-field col-lg-12">
+					<input type="text" value="{{ store.trangthai ? 'Đang hoạt động' : 'Đã bị khóa' }}"
+						readonly="readonly"> <span>Trạng thái tài khoản*</span>
+				</div>
+			</form>
+		</section>
 	</main>
 </body>
