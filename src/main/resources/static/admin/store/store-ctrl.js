@@ -118,6 +118,8 @@ app.controller("store-ctrl", function($scope, $http) {
 			$http.get(`/rest/store/timkiem/${item.name}`).then(resp => {
 				$scope.items = angular.copy(resp.data);
 			})
+		}else{
+			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")
 		}
 	}
 });

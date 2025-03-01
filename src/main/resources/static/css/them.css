@@ -25,3 +25,12 @@
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
+.form-check-input.form-check-lg {
+    width: 2rem;
+    height: 1rem;
+}
+
+.table-info .table-th {
+	font-size: 18px;
+    font-weight: bold;
+}

@@ -138,6 +138,8 @@ app.controller("account-ctrl", function($scope, $http) {
 			$http.get(`/rest/accounts/timkiem/${item.name}`).then(resp => {
 				$scope.items = angular.copy(resp.data);
 			})
+		}else{
+			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")
 		}
 	}
 });
