@@ -38,6 +38,8 @@ public interface ProductService {
 	Page<Product> findByPriceBetweenPage(double minPrice, double maxPrice, Pageable pa);
 
 	List<Product> findByStore(String store);
+	
+	List<Product> findManageByStore(String store);
 
 	List<Product> findByStoreId(Integer id);
 

@@ -80,6 +80,11 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> findByStore(String store) {
 		return pdao.findByStore(store);
 	}
+	
+	@Override
+	public List<Product> findManageByStore(String store) {
+		return pdao.findManageByStore(store);
+	}
 
 	@Override
 	public List<Product> findByStoreId(Integer id) {

@@ -28,13 +28,20 @@ public class ProductRestController {
 	public Product getOne(@PathVariable("id") Integer id) {
 		return productService.findById(id);
 	}
+	
 	@GetMapping("/find/{store}")
 	public List<Product> getStore(@PathVariable("store") String store) {
 		return productService.findByStore(store);
 	}
 	
+	@GetMapping("/findmanage/{store}")
+	public List<Product> getManageStore(@PathVariable("store") String store) {
+		return productService.findManageByStore(store);
+	}
+	
 	@GetMapping()
 	public List<Product> getAll() {
+		System.err.println("Chào em");
 		return productService.findAll();
 	}
 

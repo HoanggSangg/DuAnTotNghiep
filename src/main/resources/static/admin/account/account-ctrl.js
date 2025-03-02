@@ -12,6 +12,32 @@ app.controller("account-ctrl", function($scope, $http) {
 		})
 		$scope.reset();
 	}
+	
+	//--------------- Delete Modal --------------------------------
+	$scope.setDeleteId = function(username) {
+		$scope.deleteId = username;
+	};
+
+	$scope.deleteModal = function() {
+		if ($scope.deleteId) {
+			$http.get("/rest/accounts/" + $scope.deleteId).then(resp => {
+				if ($scope.acc.user == resp.data.username) {
+					alert("Không được xóa tài khoản đang đăng nhập !!!");
+					$('#delete-modal').modal('hide');
+				} else {
+					$http.delete(`/rest/accounts/${$scope.deleteId}`)
+						.then(() => {
+							alert("Xóa thành công!!!");
+							$scope.initialize();
+						})
+						.catch(error => {
+							console.error("Lỗi khi xóa:", error);
+						});
+				}
+			});
+		}
+	};
+	
 	$scope.reset = function() {
 		$scope.form = {
 			photo: 'cloud-upload.jpg',
@@ -28,9 +54,16 @@ app.controller("account-ctrl", function($scope, $http) {
 	$scope.create = function() {
 		var item = angular.copy($scope.form);
 		$http.post(`/rest/accounts`, item).then(() => {
-			$scope.initialize();
-			$scope.backTable();
-			$scope.message = "Thêm mới thành công !!!";
+			var authority = {
+				account: { username: item.username },
+				role: { id: "KH" },
+			};
+			$http.post(`/rest/authority`, authority).then(() => {
+				$scope.initialize();
+				$scope.message = "Thêm mới thành công !!!";
+			}).catch(error => {
+				console.log("Error", error);
+			})
 		}).catch(error => {
 			alert("Lỗi thêm mới tài khoản !!!");
 			console.log("Error", error);
@@ -38,8 +71,6 @@ app.controller("account-ctrl", function($scope, $http) {
 	}
 	$scope.update = function() {
 		var item = angular.copy($scope.form);
-		/*var index = $scope.items.findIndex(p => p.id == item.id);
-		$scope.items[index] = item;*/
 		$http.put(`/rest/accounts/${item.username}`, item).then(() => {
 			$scope.initialize();
 			$scope.backTable();
@@ -139,7 +170,7 @@ app.controller("account-ctrl", function($scope, $http) {
 				$scope.items = angular.copy(resp.data);
 				console.log($scope.items);
 			})
-		}else{
+		} else {
 			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")
 		}
 	}

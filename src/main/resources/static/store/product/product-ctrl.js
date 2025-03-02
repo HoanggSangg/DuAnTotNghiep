@@ -9,7 +9,7 @@ app.controller("product-ctrl", function($scope, $http) {
 	$scope.initialize = function() {
 		$http.get("/rest/accounts/user").then(resp => {
 			var user = resp.data.user;
-			$http.get("/rest/products/find/" + user).then(resp => {
+			$http.get("/rest/products/findmanage/" + user).then(resp => {
 				$scope.items = resp.data;
 				$scope.items.forEach(item => {
 					item.createDate = new Date(item.createDate)
@@ -28,6 +28,24 @@ app.controller("product-ctrl", function($scope, $http) {
 		})
 		$scope.reset();
 	}
+	
+	//--------------- Delete Modal --------------------------------
+	$scope.setDeleteId = function(id) {
+		$scope.deleteId = id;
+	};
+
+	$scope.deleteModal = function() {
+		if ($scope.deleteId) {
+			$http.delete(`/rest/products/${$scope.deleteId}`)
+				.then(() => {
+					alert("Xóa thành công!!!");
+					$scope.initialize();
+				})
+				.catch(error => {
+					console.error("Lỗi khi xóa:", error);
+				});
+		}
+	};
 
 	$scope.reset = function() {
 		$scope.form = {

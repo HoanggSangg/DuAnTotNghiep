@@ -1,10 +1,16 @@
 app.controller("store-ctrl", function($scope, $http) {
 	$scope.items = [];
 	$scope.cates = [];
+	$scope.db = [];
 	$scope.acc = [];
 	$scope.form = {};
+	$scope.deleteId = null;
+	var index = 0;
 
 	$scope.initialize = function() {
+		$http.get("/rest/authorities").then(resp => {
+			$scope.db = resp.data;
+		})
 		$http.get("/rest/store").then(resp => {
 			$scope.items = resp.data;
 		})
@@ -13,6 +19,41 @@ app.controller("store-ctrl", function($scope, $http) {
 		})
 		$scope.reset();
 	}
+
+	$scope.index_of = function(username, role) {
+		return $scope.db.authorities
+			.findIndex(a => a.account.username == username && a.role.id == role);
+	}
+
+	//--------------- Delete Modal --------------------------------
+	$scope.setDeleteId = function(id) {
+		$scope.deleteId = id;
+	};
+
+	$scope.deleteModal = function() {
+		if ($scope.deleteId) {
+			$http.get("/rest/store/" + $scope.deleteId).then(resp => {
+				
+				index = $scope.index_of(resp.data.account.username, 'CH');
+				var idAuth = $scope.db.authorities[index].id;
+
+				if ($scope.acc.user == resp.data.account.username) {
+					alert("Không được xóa tài khoản đang đăng nhập !!!");
+				} else {
+					$http.delete(`/rest/store/${$scope.deleteId}`).then(() => {
+
+						$http.delete(`/rest/authorities/` + idAuth).then(() => {
+							alert("Xóa thành công!!!");
+							$scope.initialize();
+						})
+					}).catch(error => {
+						console.error("Lỗi khi xóa:", error);
+					});
+				}
+			});
+		}
+	};
+
 	$scope.reset = function() {
 		$scope.form = {
 			image: 'cloud-upload.jpg',
@@ -118,7 +159,7 @@ app.controller("store-ctrl", function($scope, $http) {
 			$http.get(`/rest/store/timkiem/${item.name}`).then(resp => {
 				$scope.items = angular.copy(resp.data);
 			})
-		}else{
+		} else {
 			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")
 		}
 	}

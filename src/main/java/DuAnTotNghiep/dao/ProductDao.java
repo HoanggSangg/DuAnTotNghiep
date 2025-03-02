@@ -42,6 +42,9 @@ public interface ProductDao extends JpaRepository<Product, Integer>{
 
 	@Query("SELECT p FROM Product p WHERE p.cuahang.account.username=?1 and p.available=true and p.soluong>0 and p.cuahang.trangthai=true")
 	List<Product> findByStore(String store);
+	
+	@Query("SELECT p FROM Product p WHERE p.cuahang.account.username=?1")
+	List<Product> findManageByStore(String store);
 
 	@Query("SELECT p FROM Product p WHERE p.cuahang.id=?1 and p.available=true and p.soluong>0 and p.cuahang.trangthai=true")
 	List<Product> findByStoreId(Integer id);

@@ -11,6 +11,9 @@ app.controller("code-ctrl", function($scope, $http) {
 			$http.get("/rest/store/find/" + user).then(resp => {
 				idStore = resp.data;
 				tencuahang = resp.data.tencuahang;
+				$scope.form = {
+					cuahang: { tencuahang: resp.data.tencuahang },
+				};
 			})
 
 			$http.get("/rest/code/" + user).then(resp => {
@@ -20,15 +23,33 @@ app.controller("code-ctrl", function($scope, $http) {
 		$scope.reset();
 	};
 
+	//--------------- Delete Modal --------------------------------
+	$scope.setDeleteId = function(id) {
+		$scope.deleteId = id;
+	};
+
+	$scope.deleteModal = function() {
+		if ($scope.deleteId) {
+			$http.delete(`/rest/code/${$scope.deleteId}`)
+				.then(() => {
+					alert("Xóa thành công!!!");
+					$scope.initialize();
+				})
+				.catch(error => {
+					console.error("Lỗi khi xóa:", error);
+				});
+		}
+	};
+
 	$scope.changeStatus = function(id) {
 		$http.get(`/rest/code/changeStatus/` + id).then(resp => {
-			
-			if(resp.data.trangthai == false){
+
+			if (resp.data.trangthai == false) {
 				resp.data.trangthai = true;
-			}else{
+			} else {
 				resp.data.trangthai = false;
 			}
-			
+
 			$http.put(`/rest/code`, resp.data).then(() => {
 				$scope.initialize();
 			}).catch(error => {
@@ -139,8 +160,8 @@ app.controller("code-ctrl", function($scope, $http) {
 			this.page = this.count - 1;
 		}
 	}
-	
-	
+
+
 	$scope.timkiem = function() {
 		var item = angular.copy($scope.form);
 		if (item.code != null) {
@@ -148,7 +169,7 @@ app.controller("code-ctrl", function($scope, $http) {
 				$scope.items = angular.copy(resp.data);
 				console.log($scope.items);
 			})
-		}else{
+		} else {
 			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")
 		}
 	}

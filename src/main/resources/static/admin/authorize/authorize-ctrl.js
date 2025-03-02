@@ -19,7 +19,7 @@ app.controller("ctrl", function($scope, $http) {
 		var id = $scope.db.authorities[index].id;
 		var username = $scope.db.authorities[index].account.username;
 		if (username == $scope.db.user) {
-			alert("Không được xóa quyền chính mình !!!" + $scope.db.user)
+			alert("Không được xóa quyền chính mình !!! " + $scope.db.user)
 			$scope.load();
 		} else {
 			$http.delete(`/rest/authorities/${id}`).then(() => {

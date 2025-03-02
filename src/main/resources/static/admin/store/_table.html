@@ -87,7 +87,7 @@
 						</td>
 						<td>
 							<div>
-								<button ng-click="delete(item)">
+								<button ng-click="setDeleteId(item.id)" data-bs-toggle="modal" data-bs-target="#delete-modal">
 									<i class="glyphicon glyphicon-trash"></i>
 								</button>
 							</div>
@@ -109,6 +109,24 @@
 				<button ng-click="pager.last()">
 					<b class="glyphicon glyphicon-hand-down"></b>
 				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="delete-modal" tabindex="-1"
+	aria-labelledby="delete-modal">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title" id="exampleModalLabel">Xóa cửa hàng?</h3>
+				<button type="button" data-bs-dismiss="modal"
+					aria-label="Close"><i class="glyphicon glyphicon-remove-circle"></i></button>
+			</div>
+			<div class="modal-body">Bạn có chắc muốn xóa?</div>
+			<div class="modal-footer">
+				<button type="button" data-bs-dismiss="modal">Hủy</button>
+				<button id="btn-delete" data-bs-dismiss="modal" ng-click="deleteModal()">Xóa bỏ</button>
 			</div>
 		</div>
 	</div>

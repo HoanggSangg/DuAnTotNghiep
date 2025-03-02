@@ -2,16 +2,38 @@ app.controller("post-ctrl", function($scope, $http) {
 	$scope.items = [];
 	$scope.form = {};
 	$scope.user = {};
+	$scope.deleteId = null;
 
 	$scope.initialize = function() {
 		$http.get("/rest/accounts/user").then(resp => {
 			$scope.user = resp.data.user;
+			$scope.form = {
+				account: { username: $scope.user }
+			};
 			$http.get("/rest/post/" + $scope.user).then(resp => {
 				$scope.items = resp.data;
 			})
 		})
 		$scope.reset();
 	}
+
+	//--------------- Delete Modal --------------------------------
+	$scope.setDeleteId = function(id) {
+		$scope.deleteId = id;
+	};
+
+	$scope.deleteModal = function() {
+		if ($scope.deleteId) {
+			$http.delete(`/rest/post/${$scope.deleteId}`)
+				.then(() => {
+					alert("Xóa thành công!!!");
+					$scope.initialize();
+				})
+				.catch(error => {
+					console.error("Lỗi khi xóa:", error);
+				});
+		}
+	};
 
 	$scope.reset = function() {
 		$scope.form = {
@@ -53,6 +75,7 @@ app.controller("post-ctrl", function($scope, $http) {
 	$scope.delete = function(item) {
 		$http.delete(`/rest/post/${item.id}`).then(() => {
 			$scope.initialize();
+			$scope.backTable();
 			alert("Xóa thành công !!!");
 		}).catch(error => {
 			console.log("Error", error);
@@ -111,4 +134,8 @@ app.controller("post-ctrl", function($scope, $http) {
 			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")
 		}
 	}
+
+
+
+
 });

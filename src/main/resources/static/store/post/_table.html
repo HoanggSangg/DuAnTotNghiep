@@ -2,7 +2,10 @@
 <div>
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="title text-center">Danh sách bài đăng ({{items.length}}<i class="glyphicon glyphicon-user ml-2"></i>)</h3>
+			<h3 class="title text-center">
+				Danh sách bài đăng ({{items.length}}<i
+					class="glyphicon glyphicon-user ml-2"></i>)
+			</h3>
 			<div class="checkout-page">
 				<div class="step-description">
 					<form>
@@ -66,7 +69,7 @@
 						</td>
 						<td>
 							<div>
-								<button ng-click="delete(item)">
+								<button ng-click="setDeleteId(item.id)" data-bs-toggle="modal" data-bs-target="#delete-modal">
 									<i class="glyphicon glyphicon-trash"></i>
 								</button>
 							</div>
@@ -81,14 +84,31 @@
 				<button ng-click="pager.prev()">
 					<b class="glyphicon glyphicon-hand-left"></b>
 				</button>
-				<button>{{pager.page + 1}} of
-					{{pager.count}}</button>
+				<button>{{pager.page + 1}} of {{pager.count}}</button>
 				<button ng-click="pager.next()">
 					<b class="glyphicon glyphicon-hand-right"></b>
 				</button>
 				<button ng-click="pager.last()">
 					<b class="glyphicon glyphicon-hand-down"></b>
 				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="delete-modal" tabindex="-1"
+	aria-labelledby="delete-modal">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title" id="exampleModalLabel">Xóa bài viết?</h3>
+				<button type="button" data-bs-dismiss="modal"
+					aria-label="Close"><i class="glyphicon glyphicon-remove-circle"></i></button>
+			</div>
+			<div class="modal-body">Bạn có chắc muốn xóa?</div>
+			<div class="modal-footer">
+				<button type="button" data-bs-dismiss="modal">Hủy</button>
+				<button id="btn-delete" data-bs-dismiss="modal" ng-click="deleteModal()">Xóa bỏ</button>
 			</div>
 		</div>
 	</div>
