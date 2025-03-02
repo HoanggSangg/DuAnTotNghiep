@@ -43,6 +43,18 @@ public class CodeServiceImpl implements CodeService{
 		// TODO Auto-generated method stub
 		dao.deleteById(id);
 	}
+
+	@Override
+	public Codesale findById(Integer id) {
+		// TODO Auto-generated method stub
+		return dao.findById(id).get();
+	}
+
+	@Override
+	public List<Codesale> findByCode(String code) {
+		// TODO Auto-generated method stub
+		return dao.findByCode(code);
+	}
 	
 	
 }

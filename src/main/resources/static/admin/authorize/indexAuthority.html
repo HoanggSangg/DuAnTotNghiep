@@ -1,57 +1,67 @@
-<div class="container_fullwidth">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h3 class="title text-center">
-					Phân quyền tài khoản ({{db.accounts.length}}<i
-						class="glyphicon glyphicon-user ml-2"></i>)
-				</h3>
-				<div class="checkout-page">
-					<div class="step-description">
-						<form>
-							<div class="your-details">
-								<div class="form-group col-sm-10">
-									<div>
-										<input placeholder="Nhập tên tài khoản bạn cần tìm !!!"
-											ng-model="name" class="form-control">
+<div class="my-5 mx-4">
+	<div class="container_fullwidth">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="title text-center">
+						Phân quyền tài khoản ({{db.accounts.length}}<i
+							class="glyphicon glyphicon-user ml-2"></i>)
+					</h3>
+					<div class="checkout-page">
+						<div class="step-description">
+							<form>
+								<div class="your-details">
+									<div class="form-group col-sm-10">
+										<div>
+											<input placeholder="Nhập tên tài khoản bạn cần tìm !!!"
+												ng-model="name" class="form-control">
+										</div>
+									</div>
+									<div class="form-group col-sm-2">
+										<button ng-click="timkiem()">
+											<i class="glyphicon glyphicon-search mr-1"></i>Tìm Kiếm
+										</button>
 									</div>
 								</div>
-								<div class="form-group col-sm-2">
-									<button ng-click="timkiem()">
-										<i class="glyphicon glyphicon-search mr-1"></i>Tìm Kiếm
-									</button>
-								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-12">
-				<table class="table table-bordered text-center table-hover"
-					ng-if="db">
-					<thead class="table-info">
-						<tr class="table-th">
-							<th>Tài khoản</th>
-							<th ng-repeat="role in db.roles">{{role.name}}</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="acc in db.accounts">
-							<td>
-								<div class="shop-details">
-									<div class="productname">{{acc.username}}</div>
-								</div>
-							</td>
-							<td ng-repeat="role in db.roles">
-								<div class="form-check form-switch">
-									<input class="form-check-input form-check-lg" type="checkbox"
-										ng-checked="index_of(acc.username, role.id) >=0"
-										ng-click="update(acc.username, role.id)">
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="col-md-12">
+					<table class="table table-bordered text-center table-hover"
+						ng-if="db">
+						<thead class="table-info">
+							<tr class="table-th">
+								<th>Tài khoản</th>
+								<th ng-repeat="role in db.roles">{{role.name}}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="acc in db.accounts">
+								<td>
+									<div class="shop-details">
+										<div class="productname">{{acc.username}}</div>
+									</div>
+								</td>
+								<td ng-repeat="role in db.roles">
+									<div class="form-check">
+										<div class="form-switch">
+											<input class="form-check-input form-check-lg" type="checkbox"
+												ng-checked="index_of(acc.username, role.id) >=0"
+												ng-click="update(acc.username, role.id)">
+
+										</div>
+										<div>
+											<span ng-show="index_of(acc.username,role.id)>=0">
+												Vai trò đang mở </span> <span class="red"
+												ng-show="index_of(acc.username,role.id)<0"> Vai trò đang đóng </span>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

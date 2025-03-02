@@ -137,6 +137,7 @@ app.controller("account-ctrl", function($scope, $http) {
 		if (item.name != null) {
 			$http.get(`/rest/accounts/timkiem/${item.name}`).then(resp => {
 				$scope.items = angular.copy(resp.data);
+				console.log($scope.items);
 			})
 		}else{
 			alert("Vui lòng nhập dữ liệu vào thanh tìm kiếm !!!")

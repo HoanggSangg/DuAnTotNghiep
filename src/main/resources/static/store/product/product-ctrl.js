@@ -4,6 +4,7 @@ app.controller("product-ctrl", function($scope, $http) {
 	$scope.catesmall = [];
 	$scope.store = [];
 	$scope.form = {};
+	var idStore;
 
 	$scope.initialize = function() {
 		$http.get("/rest/accounts/user").then(resp => {
@@ -14,6 +15,10 @@ app.controller("product-ctrl", function($scope, $http) {
 					item.createDate = new Date(item.createDate)
 				})
 			})
+			$http.get("/rest/store/find/" + user).then(resp => {
+				$scope.store = resp.data;
+				idStore = resp.data.id;
+			})
 		})
 		$http.get("/rest/categories").then(resp => {
 			$scope.cates = resp.data;
@@ -21,57 +26,55 @@ app.controller("product-ctrl", function($scope, $http) {
 		$http.get("/rest/catesmall").then(resp => {
 			$scope.catesmall = resp.data;
 		})
-		$http.get("/rest/store").then(resp => {
-			$scope.store = resp.data;
-		})
+		$scope.reset();
 	}
-	$scope.initialize();
 
 	$scope.reset = function() {
 		$scope.form = {
+			cuahang: { id: idStore },
 			createDate: new Date(),
 			image: 'cloud-upload.jpg',
 			available: true,
 		};
 	}
+	
 	$scope.edit = function(item) {
 		$scope.form = angular.copy(item);
 		$(".nav-tabs a:eq(0)").tab('show')
 	}
+	
+	$scope.backTable = function() {
+		$(".nav-tabs a:eq(1)").tab('show')
+	};
+	
 	$scope.create = function() {
 		var item = angular.copy($scope.form);
-		$http.post(`/rest/products`, item).then(resp => {
-			resp.data.createDate = new Date(resp.data.createDate)
-			$scope.items.push(resp.data);
-			$scope.reset();
+		console.log(item);
+		item.cuahang.id = idStore;
+		$http.post(`/rest/products`, item).then(() => {
 			$scope.initialize();
-			alert("Thêm mới thành công");
+			$scope.backTable();
+			alert("Thêm mới thành công !!!");
 		}).catch(error => {
-			alert("Lỗi thêm mới sản phẩm");
+			alert("Lỗi thêm mới sản phẩm !!!");
 			console.log("Error", error);
 		});
 	}
 	$scope.update = function() {
 		var item = angular.copy($scope.form);
-		$http.put(`/rest/products/${item.id}`, item).then(resp => {
-			var index = $scope.items.findIndex(p => p.id == item.id);
-			$scope.items[index] = item;
+		$http.put(`/rest/products/${item.id}`, item).then(() => {
 			$scope.initialize();
-			alert("Cập nhật thành công");
+			$scope.backTable();
 		}).catch(error => {
-			alert("Lỗi cập nhật sản phẩm");
+			alert("Lỗi cập nhật sản phẩm !!!");
 			console.log("Error", error);
 		});
 	}
 	$scope.delete = function(item) {
-		$http.delete(`/rest/products/${item.id}`).then(resp => {
-			var index = $scope.items.findIndex(p => p.id == item.id);
-			$scope.items.splice(index, 1);
-			$scope.reset();
+		$http.delete(`/rest/products/${item.id}`).then(() => {
 			$scope.initialize();
-			alert("Xóa thành công");
+			alert("Xóa thành công !!!");
 		}).catch(error => {
-			alert("Lỗi xóa sản phẩm");
 			console.log("Error", error);
 		});
 	}
@@ -90,7 +93,7 @@ app.controller("product-ctrl", function($scope, $http) {
 	}
 	$scope.pager = {
 		page: 0,
-		size: 10,
+		size: 8,
 		get items() {
 			var start = this.page * this.size;
 			return $scope.items.slice(start, start + this.size);
@@ -117,6 +120,9 @@ app.controller("product-ctrl", function($scope, $http) {
 			this.page = this.count - 1;
 		}
 	}
+
+	$scope.initialize();
+
 	$scope.timkiem = function() {
 		var item = angular.copy($scope.form);
 		$http.get(`/rest/products/timkiem/${item.name}`).then(resp => {

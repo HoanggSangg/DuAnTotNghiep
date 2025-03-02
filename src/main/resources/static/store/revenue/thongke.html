@@ -1,75 +1,77 @@
 <body>
-	<div class="container_fullwidth">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="title text-center">
-						Danh sách bài đăng ({{items.length}}<i
-							class="glyphicon glyphicon-user ml-2"></i>)
-					</h3>
-					<div class="checkout-page">
-						<div class="step-description">
-							<form>
-								<div class="your-details">
-									<div class="form-group col-sm-5">
-										<div>
-											<input type="number" min="0" max="12"
-												placeholder="Nhập tháng đơn hàng bạn cần tìm !!!"
-												ng-model="thang" class="form-control">
+	<div class="my-5 mx-4">
+		<div class="container_fullwidth">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="title text-center">
+							Thống kê ({{items.length}}<i
+								class="glyphicon glyphicon-object-align-bottom ml-2"></i>)
+						</h3>
+						<div class="checkout-page">
+							<div class="step-description">
+								<form>
+									<div class="your-details">
+										<div class="form-group col-sm-5">
+											<div>
+												<input type="number" min="0" max="12"
+													placeholder="Nhập tháng đơn hàng bạn cần tìm !!!"
+													ng-model="thang" class="form-control">
+											</div>
+										</div>
+										<div class="form-group col-sm-5">
+											<div>
+												<input placeholder="Nhập năm đơn hàng bạn cần tìm !!!"
+													ng-model="nam" class="form-control">
+											</div>
+										</div>
+										<div class="form-group col-sm-2">
+											<button ng-click="timkiem()">
+												<i class="glyphicon glyphicon-search mr-1"></i>Tìm Kiếm
+											</button>
 										</div>
 									</div>
-									<div class="form-group col-sm-5">
-										<div>
-											<input placeholder="Nhập năm đơn hàng bạn cần tìm !!!"
-												ng-model="nam" class="form-control">
-										</div>
-									</div>
-									<div class="form-group col-sm-2">
-										<button ng-click="timkiem()">
-											<i class="glyphicon glyphicon-search mr-1"></i>Tìm Kiếm
-										</button>
-									</div>
-								</div>
-							</form>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-12">
-					<table class="table table-bordered text-center table-hover">
-						<thead class="table-info">
-							<tr class="table-th">
-								<th>Tài khoản</th>
-								<th>Tổng doanh thu</th>
-								<th>Số lượng</th>
-								<th>Ngày mua</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="item in items">
-								<td>
-									<div class="shop-details">
-										<div class="productname">{{item.name}}</div>
-									</div>
-								</td>
-								<td>
-									<div class="shop-details">
-										<div class="productname">{{item.doanhThu | number: 0}}</div>
-									</div>
-								</td>
-								<td>
-									<div class="shop-details">
-										<div class="productname">{{item.soLuong}}</div>
-									</div>
-								</td>
-								<td>
-									<div class="shop-details">
-										<div class="productname">{{item.date | date:
-											'dd/MM/yyyy'}}</div>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="col-md-12">
+						<table class="table table-bordered text-center table-hover">
+							<thead class="table-info">
+								<tr class="table-th">
+									<th>Tài khoản</th>
+									<th>Tổng doanh thu</th>
+									<th>Số lượng</th>
+									<th>Ngày mua</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in items">
+									<td>
+										<div class="shop-details">
+											<div class="productname">{{item.name}}</div>
+										</div>
+									</td>
+									<td>
+										<div class="shop-details">
+											<div class="productname">{{item.doanhThu | number: 0}}</div>
+										</div>
+									</td>
+									<td>
+										<div class="shop-details">
+											<div class="productname">{{item.soLuong}}</div>
+										</div>
+									</td>
+									<td>
+										<div class="shop-details">
+											<div class="productname">{{item.date | date:
+												'dd/MM/yyyy'}}</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

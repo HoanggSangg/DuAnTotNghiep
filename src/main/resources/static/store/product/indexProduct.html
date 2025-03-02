@@ -1,17 +1,21 @@
+
 <body>
-	<div class="container">
+	<div class="m-5">
 		<div class="row">
-			<ul class="nav nav-tabs">
-				<li><a data-toggle="tab" data-target="#edit">QUẢN
-						LÝ SẢN PHẨM</a></li>
-				<li class="active"><a data-toggle="tab" data-target='#list'>DANH SÁCH SẢN PHẨM</a></li>
+			<ul class="nav nav-tabs nav-pills">
+				<li class="nav-item"><a data-toggle="tab" data-target="#edit"
+					href="">QUẢN LÝ SẢN PHẨM</a></li>
+				<li class="nav-item active"><a data-toggle="tab"
+					data-target='#list' href="">DANH SÁCH SẢN PHẨM</a></li>
 			</ul>
-			<div class="tab-content">
-				<div id="edit" class="tab-pane fade">
-					<div ng-include="'/store/product/_form.html'"></div>
-				</div>
-				<div id="list" class="tab-pane fade in active">
-					<div ng-include="'/store/product/_table.html'"></div>
+			<div class="container_fullwidth">
+				<div class="tab-content">
+					<div id="edit" class="tab-pane fade">
+						<div ng-include="'/store/product/_form.html'"></div>
+					</div>
+					<div id="list" class="tab-pane fade in active">
+						<div ng-include="'/store/product/_table.html'"></div>
+					</div>
 				</div>
 			</div>
 		</div>

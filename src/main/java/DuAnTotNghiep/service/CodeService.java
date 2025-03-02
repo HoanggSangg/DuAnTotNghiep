@@ -16,5 +16,9 @@ public interface CodeService {
 
 	void delete(Integer id);
 
+	Codesale findById(Integer id);
+
+	List<Codesale> findByCode(String code);
+
 
 }

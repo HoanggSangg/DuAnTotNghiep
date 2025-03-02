@@ -108,7 +108,7 @@ public class OrderServiceImpl implements OrderService {
 			if (order.getCodesale() != null) {
 				Saleuser saleuser = saledao.findByUser(t.getUsername(), order.getCodesale().getCode());
 				if (saleuser == null) {
-					code = codedao.findByCode(order.getCodesale().getCode());
+					code = codedao.findByCodePay(order.getCodesale().getCode());
 					if (code != null) {
 						if (code.isTrangthai() && store.getId() == code.getCuahang().getId()) {
 							Saleuser sale = new Saleuser();

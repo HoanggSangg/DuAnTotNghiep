@@ -9,8 +9,11 @@ import DuAnTotNghiep.entity.Codesale;
 
 public interface CodesaleDao extends JpaRepository<Codesale, Integer>{
 
-	@Query("SELECT p FROM Codesale p WHERE p.code=?1 ")
-	Codesale findByCode(String code);
+	@Query("SELECT p FROM Codesale p WHERE p.code LIKE ?1")
+	List<Codesale> findByCode(String code);
+	
+	@Query("SELECT p FROM Codesale p WHERE p.code LIKE ?1")
+	Codesale findByCodePay(String code);
 
 	@Query("SELECT p FROM Codesale p WHERE p.cuahang.account.username=?1 ")
 	List<Codesale> findByUser(String user);

@@ -46,7 +46,7 @@ public class Order  implements Serializable{
 	boolean hoanthanh;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "order", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "order")
 	List<Orderdetail> orderDetails;
 	
 	@JsonIgnore
