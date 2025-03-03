@@ -99,19 +99,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				}
 			});
 		},
-		savecart() {
-			return $scope.cart.items.map(item => {
-				var carttest = {
-					productid: item.id,
-					username: this.account.username,
-					cuahang: item.cuahang.tencuahang,
-					price: item.price,
-					qty: item.qty
-				}
-				$http.post(`/rest/cart`, carttest).then(() => {
-				})
-			});
-		},
 		pay() {
 			if ($scope.tinh != null && $scope.quan != null && $scope.duong != null) {
 				if ($scope.bankcode == "TT") {
@@ -119,22 +106,27 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 					order.trangthai = "Đã đặt hàng"
 					order.tongtien = this.tongtien();
 					order.diachinn = "Tỉnh: " + $scope.tinh + " - " + "Quận: " + $scope.quan + " - " + "Đường: " + $scope.duong;
-					$scope.order.savecart();
-					$http.post("/rest/orders", order).then(() => {
+
+					$scope.savecart().then(() => { 
+						return $http.post("/rest/orders", order);
+					}).then(() => {
 						$scope.cart.clear();
 						location.href = "/order/list";
-					})
+					}).catch(error => {
+						console.error("Lỗi khi đặt hàng:", error);
+					});
+					
 				} else if ($scope.bankcode == "NCB") {
-					/*var order = angular.copy(this);
+					var order = angular.copy(this);
 					order.trangthai = "Đơn hàng đang xử lí"
 					order.tongtien = this.tongtien();
 					order.diachinn = "Tỉnh: " + $scope.tinh + " - " + "Quận: " + $scope.quan + " - " + "Đường: " + $scope.duong;
-					$scope.order.savecart();
+					$scope.savecart();
 					$http.post("/rest/pay", order).then(resp => {
 						$scope.payment = resp.data;
 						$scope.cart.clear();
 						location.href = $scope.payment.url;
-					})*/
+					})
 				} else {
 					alert("Chọn hình thức thanh toán")
 				}
@@ -142,6 +134,21 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 				alert("Chọn thông tin địa chỉ giao hàng")
 			}
 		}
+	}
+
+	$scope.savecart = function() {
+		let promises = $scope.cart.items.map(item => {
+			let carttest = {
+				productid: item.id,
+				username: $("#username").text(),
+				cuahang: item.cuahang.tencuahang,
+				price: item.price,
+				qty: item.qty
+			};
+			return $http.post(`/rest/cart`, carttest);
+		});
+
+		return Promise.all(promises);
 	}
 
 	//-----------------------------Code JS Accounts------------------------------

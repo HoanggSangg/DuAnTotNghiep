@@ -9,8 +9,11 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -147,4 +150,13 @@ public class Config {
         }
         return sb.toString();
     }
+    
+    //Local date trong order
+    public static LocalDateTime toLocalDateTime(Date date) {
+    	if (date instanceof java.sql.Date) {
+            // Ép kiểu về java.util.Date trước
+            date = new Date(date.getTime());
+        }
+		return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+	}
 }

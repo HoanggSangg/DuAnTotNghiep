@@ -20,4 +20,11 @@ public class Total implements Serializable{
 	String username;
 	double tong;
 	long soluong;
+	
+	public Total(String cuahang, String username, double tong, int soluong) {
+        this.cuahang = cuahang;
+        this.username = username;
+        this.tong = tong;
+        this.soluong = soluong;
+    }
 }

@@ -1,9 +1,13 @@
 package DuAnTotNghiep.service.impl;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -12,10 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import DuAnTotNghiep.Config;
 import DuAnTotNghiep.MailService;
 import DuAnTotNghiep.dao.AccountDao;
 import DuAnTotNghiep.dao.CartDao;
@@ -25,7 +29,6 @@ import DuAnTotNghiep.dao.OrderDetailDao;
 import DuAnTotNghiep.dao.ProductDao;
 import DuAnTotNghiep.dao.SaleuserDao;
 import DuAnTotNghiep.dao.StoreDao;
-import DuAnTotNghiep.entity.Account;
 import DuAnTotNghiep.entity.Cart;
 import DuAnTotNghiep.entity.Codesale;
 import DuAnTotNghiep.entity.Order;
@@ -71,99 +74,115 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public Order create(JsonNode orderData) {
-		String user = req.getRemoteUser();
 
 		ObjectMapper mapper = new ObjectMapper();
 		Order order = mapper.convertValue(orderData, Order.class);
 
-		String id = "";
-		double tong = 0;
-		int giam = 0;
+		String user = req.getRemoteUser().trim().toLowerCase();
 		
+		System.err.println(user);
+		String id = "";
+		Codesale codeSale = null;
+
 		List<Total> total = cartservice.getTotalByUser(user);
+		System.err.println(total);
 		List<Codesale> kiemtra = codedao.findAll();
 
-		Codesale code = null;
-
-		String pattern = "ddMMyyyy";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-
+		LocalDateTime now = Config.toLocalDateTime(order.getCreateDate());
 		for (Codesale c1 : kiemtra) {
-			int now = Integer.parseInt(simpleDateFormat.format(order.getCreateDate()));
-			int end = Integer.parseInt(simpleDateFormat.format(c1.getEndday()));
-			int star = Integer.parseInt(simpleDateFormat.format(c1.getStarday()));
-			if (star <= now && end >= now) {
-				c1.setTrangthai(true);
-				codedao.save(c1);
-			} else {
-				c1.setTrangthai(false);
-				codedao.save(c1);
-			}
+			LocalDateTime start = Config.toLocalDateTime(c1.getStarday());
+			LocalDateTime end = Config.toLocalDateTime(c1.getEndday());
+			boolean isActive = !now.isBefore(start) && !now.isAfter(end);
+			c1.setTrangthai(isActive);
+			codedao.save(c1);
 		}
 
 		for (Total t : total) {
-			tong = t.getTong();
+			
+			// Kiểm tra cửa hàng
 			Store store = sdao.findByTen(t.getCuahang());
-			Order order1 = new Order();
+			if (store == null) {
+				System.err.println("Cửa hàng không tồn tại: " + t.getCuahang());
+				throw new RuntimeException("Cửa hàng không tồn tại: " + t.getCuahang());
+			}
+
+			// Tính tổng tiền
+			double tong = t.getTong();
+			int giam = 0;
+
+			Order orderSale = new Order();
 			if (order.getCodesale() != null) {
-				Saleuser saleuser = saledao.findByUser(t.getUsername(), order.getCodesale().getCode());
-				if (saleuser == null) {
-					code = codedao.findByCodePay(order.getCodesale().getCode());
-					if (code != null) {
-						if (code.isTrangthai() && store.getId() == code.getCuahang().getId()) {
-							Saleuser sale = new Saleuser();
-							sale.setAccount(order.getAccount());
-							sale.setCodesale(code);
-							sale.setDate(order.getCreateDate());
-							saledao.save(sale);
-							giam = (int) t.getTong() * code.getPercents() / 100;
-							tong = t.getTong() - giam;
-							order1.setCodesale(code);
-						}
+				Saleuser saleUser = saledao.findByUser(t.getUsername(), order.getCodesale().getCode());
+				if (saleUser == null) {
+					codeSale = codedao.findByCodePay(order.getCodesale().getCode());
+					if (codeSale != null && codeSale.isTrangthai() && store.getId() == codeSale.getCuahang().getId()) {
+						Saleuser sale = new Saleuser();
+						sale.setAccount(order.getAccount());
+						sale.setCodesale(codeSale);
+						sale.setDate(order.getCreateDate());
+						saledao.save(sale);
+
+						giam = (int) (t.getTong() * codeSale.getPercents() / 100);
+						tong = t.getTong() - giam;
+						orderSale.setCodesale(codeSale);
 					}
 				}
 			}
-			order1.setAccount(order.getAccount());
-			order1.setCreateDate(new Date());
-			order1.setAddress(order.getAddress());
-			order1.setNguoinhan(order.getNguoinhan());
-			order1.setSdt(order.getSdt());
-			order1.setDiachinn(order.getDiachinn());
-			order1.setTrangthai(order.getTrangthai());
-			order1.setTongtien(tong + "");
-			order1.setCuahang(store);
-			order1.setHoanthanh(true);
-			Order or = odao.save(order1);
+
+			// Tạo đơn hàng
+			orderSale.setAccount(order.getAccount());
+			orderSale.setCreateDate(new Date());
+			orderSale.setAddress(order.getAddress());
+			orderSale.setNguoinhan(order.getNguoinhan());
+			orderSale.setSdt(order.getSdt());
+			orderSale.setDiachinn(order.getDiachinn());
+			orderSale.setTrangthai(order.getTrangthai());
+			orderSale.setTongtien(String.valueOf(tong));
+			orderSale.setCuahang(store);
+			orderSale.setHoanthanh(true);
+
+			Order or = odao.save(orderSale);
 			id += or.getId() + "-";
 
+			// Lấy toàn bộ sản phẩm trong giỏ hàng
 			List<Cart> cart = cartservice.getfindUserAndStore(t.getUsername(), t.getCuahang());
 			for (Cart c : cart) {
 				Product pro = pdao.getById(c.getProductid());
+
+				// Kiểm tra số lượng tồn kho
+				if (pro.getSoluong() < c.getQty()) {
+					System.err.println("Không đủ hàng: " + pro.getName());
+					throw new RuntimeException("Không đủ hàng: " + pro.getName());
+				}
+
+				// Tạo chi tiết đơn hàng
 				Orderdetail detail = new Orderdetail();
 				detail.setOrder(or);
 				detail.setProduct(pro);
 				detail.setPrice(c.getPrice());
 				detail.setQuantity(c.getQty());
 				ddao.save(detail);
-//				cdao.deleteById(c.getId());
 
-				String detailsid = detail.getProduct().getId().toString();
-				Product pro1 = pdao.findById(Integer.parseInt(detailsid)).get();
-				pro1.setSoluong(pro1.getSoluong() - detail.getQuantity());
-				pdao.save(pro1);
+				// Xóa giỏ hàng
+				cdao.deleteById(c.getId());
 
+				// Cập nhật số lượng sản phẩm
+				pro.setSoluong(pro.getSoluong() - detail.getQuantity());
+				pdao.save(pro);
 			}
 
-			List<String> stringList = Pattern.compile("-").splitAsStream(id).collect(Collectors.toList());
-			stringList.forEach(s -> {
-				NumberFormat currentLocale = NumberFormat.getInstance();
-				String tongtien = currentLocale.format(Double.parseDouble(or.getTongtien()));
-				try {
-					mail.send(or.getAccount().getEmail(), "Tổng tiền bạn thanh toán", tongtien);
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-			});
+			// Gửi email xác nhận
+//			Set<String> stringSet = Arrays.stream(id.split("-")).filter(s -> !s.isEmpty()).collect(Collectors.toSet());
+//
+//			stringSet.forEach(s -> {
+//				NumberFormat currentLocale = NumberFormat.getInstance();
+//				String tongtien = currentLocale.format(new BigDecimal(or.getTongtien()));
+//				try {
+//					mail.send(or.getAccount().getEmail(), "Tổng tiền bạn thanh toán", tongtien);
+//				} catch (Exception e) {
+//					System.err.println("Gửi email thất bại: " + e.getMessage());
+//				}
+//			});
 		}
 
 		return order;

@@ -10,7 +10,7 @@ import DuAnTotNghiep.entity.Total;
 
 public interface CartDao extends JpaRepository<Cart, Integer>{
 
-	@Query("SELECT new Total(d.cuahang, d.username, sum(d.price * d.qty), sum(d.qty)) FROM Cart d where d.username=?1 GROUP BY d.cuahang, d.username")
+	@Query("SELECT NEW Total(d.cuahang, d.username, sum(d.price * d.qty), sum(d.qty)) FROM Cart d WHERE d.username = ?1 GROUP BY d.cuahang, d.username")
 	List<Total> getTotalByUser(String user);
 
 	@Query("SELECT p FROM Cart p WHERE p.username=?1 and p.cuahang=?2")
