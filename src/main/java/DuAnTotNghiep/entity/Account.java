@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -26,6 +27,8 @@ public class Account  implements Serializable{
 	String fullname;
 	String email;
 	String photo;
+	
+	@Column(columnDefinition = "TINYINT(1)")
 	Boolean trangthai;
 	
 	@JsonIgnore
