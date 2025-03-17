@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: localhost    Database: DUANTOTNGHIEP
+-- Host: localhost    Database: railway
 -- ------------------------------------------------------
 -- Server version	8.0.16
 SET SQL_MODE = "";
