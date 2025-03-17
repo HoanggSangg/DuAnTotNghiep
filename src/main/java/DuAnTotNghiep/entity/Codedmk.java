@@ -29,6 +29,7 @@ public class Codedmk implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date")
 	Date date = new Date();
+	
 	boolean trangthai;
 	
 	String code;
