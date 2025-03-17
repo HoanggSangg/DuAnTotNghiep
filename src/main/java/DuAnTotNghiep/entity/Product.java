@@ -35,6 +35,8 @@ public class Product  implements Serializable{
 	@Column(name = "Createdate")
 	Date createDate = new Date();
 	String image;
+	
+	@Column(columnDefinition = "TINYINT(1)")
 	Boolean available;
 	
 	@ManyToOne

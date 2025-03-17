@@ -28,7 +28,6 @@ public class Account  implements Serializable{
 	String email;
 	String photo;
 	
-	@Column(columnDefinition = "TINYINT(1)")
 	Boolean trangthai;
 	
 	@JsonIgnore
