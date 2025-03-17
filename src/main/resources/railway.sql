@@ -1,39 +1,19 @@
--- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
 -- Host: localhost    Database: railway
 -- ------------------------------------------------------
 -- Server version	8.0.16
-SET SQL_MODE = "";
-SET GLOBAL sql_mode='';
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8 ;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `accounts`
---
-
-DROP TABLE IF EXISTS `accounts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `accounts` (
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Fullname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Photo` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `TrangThai` bit(1) NOT NULL,
-  PRIMARY KEY (`Username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `accounts`
@@ -46,21 +26,6 @@ INSERT INTO `accounts` VALUES ('1','dscxmn','122662','taolasang2k1@gmail.com','c
 UNLOCK TABLES;
 
 --
--- Table structure for table `authorities`
---
-
-DROP TABLE IF EXISTS `authorities`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `authorities` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `RoleId` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `authorities`
 --
 
@@ -71,24 +36,6 @@ INSERT INTO `authorities` VALUES (1013,'hsang','KH'),(1015,'hsang','CH'),(1097,'
 UNLOCK TABLES;
 
 --
--- Table structure for table `cart`
---
-
-DROP TABLE IF EXISTS `cart`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `cart` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Productid` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `cuahang` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `price` float NOT NULL,
-  `qty` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `cart`
 --
 
@@ -96,20 +43,6 @@ LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `categories`
---
-
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `categories` (
-  `Id` char(4) NOT NULL,
-  `Name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categories`
@@ -122,21 +55,6 @@ INSERT INTO `categories` VALUES ('dhtm','ĐH Thông Minh'),('dt','Điện Thoạ
 UNLOCK TABLES;
 
 --
--- Table structure for table `catesmall`
---
-
-DROP TABLE IF EXISTS `catesmall`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `catesmall` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `CategoryId` char(4) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1034 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `catesmall`
 --
 
@@ -145,23 +63,6 @@ LOCK TABLES `catesmall` WRITE;
 INSERT INTO `catesmall` VALUES (3,'Iphone','dt'),(4,'Samsung','dt'),(5,'Realme','dt'),(8,'Vivo','dt'),(9,'Vsmart','dt'),(10,'Xiaomi','dt'),(11,'Oppo','dt'),(12,'Apple','dhtm'),(13,'BeU','dhtm'),(14,'garmin','dhtm'),(15,'kidcare','dhtm'),(16,'oppo','dhtm'),(17,'SamSung','dhtm'),(18,'Acer','mt'),(19,'ASUS','mt'),(20,'Dell','mt'),(21,'HP','mt'),(22,'Lenovo','mt'),(24,'LG','mt'),(25,'MacBook','mt'),(26,'MSI','mt'),(1005,'Huawei','tb'),(1006,'iPad','tb'),(1007,'Lenovo','tb'),(1008,'Masstel','tb'),(1009,'Samsung','tb'),(1018,'Tai nghe','pk'),(1019,'Gậy chụp ảnh','pk'),(1022,'Giá đỡ điện thoại','pk'),(1023,'Loa điện thoại','pk'),(1024,'Sạc dự phòng','pk'),(1026,'Loa đồng hồ','pk'),(1027,'Sạc dự phòng đồng hồ','pk'),(1028,'Tai nghe bluetooth đồng hồ','pk'),(1029,'Bàn Phím','pk'),(1030,'Chuột','pk'),(1031,'Headphone','pk'),(1032,'Ổ cứng di động','pk'),(1033,'USB','pk');
 /*!40000 ALTER TABLE `catesmall` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `cmtproduct`
---
-
-DROP TABLE IF EXISTS `cmtproduct`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `cmtproduct` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Comment` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `ProductId` int(11) NOT NULL,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cmtproduct`
@@ -174,23 +75,6 @@ INSERT INTO `cmtproduct` VALUES (1,'ccccc',12,'1','2020-02-02'),(2,'ngu vl',12,'
 UNLOCK TABLES;
 
 --
--- Table structure for table `cmtstore`
---
-
-DROP TABLE IF EXISTS `cmtstore`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `cmtstore` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Comment` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Store` int(11) NOT NULL,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `cmtstore`
 --
 
@@ -199,23 +83,6 @@ LOCK TABLES `cmtstore` WRITE;
 INSERT INTO `cmtstore` VALUES (1,'12',4,'hsang','2021-12-07'),(2,'1234',4,'hsang','2021-12-07'),(3,'1244555',4,'hsang','2021-12-07'),(4,'cửa hàng lừa đảo',4,'hsang','2021-12-07'),(5,'cửa hàng lừa đâỏ',4,'2','2025-02-27'),(6,'thấy ghét lắm mn đừng muua',4,'2','2025-02-27');
 /*!40000 ALTER TABLE `cmtstore` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `codedmk`
---
-
-DROP TABLE IF EXISTS `codedmk`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `codedmk` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Code` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `date` datetime NOT NULL,
-  `trangthai` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `codedmk`
@@ -228,25 +95,6 @@ INSERT INTO `codedmk` VALUES (6,'329213','6','2025-02-26 22:13:01','1'),(7,'1148
 UNLOCK TABLES;
 
 --
--- Table structure for table `codesale`
---
-
-DROP TABLE IF EXISTS `codesale`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `codesale` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Code` char(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `starday` date NOT NULL,
-  `endday` date NOT NULL,
-  `percents` int(11) NOT NULL,
-  `trangthai` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `CuaHangid` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `codesale`
 --
 
@@ -255,23 +103,6 @@ LOCK TABLES `codesale` WRITE;
 INSERT INTO `codesale` VALUES (15,'8127359389','2025-02-24','2025-03-03',10,'0',1),(16,'9677603888','2025-02-27','2025-03-01',12,'0',1),(19,'9059807891','2025-03-02','2025-03-14',100,'1',1);
 /*!40000 ALTER TABLE `codesale` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `cuahang`
---
-
-DROP TABLE IF EXISTS `cuahang`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `cuahang` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `TenCuaHang` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `TrangThai` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Image` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cuahang`
@@ -284,21 +115,6 @@ INSERT INTO `cuahang` VALUES (1,'young hero','hsang','1','6f3429cc.jpg'),(4,'sho
 UNLOCK TABLES;
 
 --
--- Table structure for table `image`
---
-
-DROP TABLE IF EXISTS `image`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `image` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nameimage` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `ProductId` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1262 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `image`
 --
 
@@ -307,21 +123,6 @@ LOCK TABLES `image` WRITE;
 INSERT INTO `image` VALUES (4,'iphone-12-xanh-duong-600x600.jpg',9),(10,'iphone-12-pro-max-xanh-duong-new.jpg',10),(11,'iphone-12-pro-bac-new.jpg',12),(16,'iphone-12-mini-den-15-600x600.jpg',13),(18,'iphone-xr-hopmoi-den-600x600.jpg',16),(20,'iphone-se-128gb-2020-do-600x600.jpg',17),(21,'iphone-se-2020-trang-600x600-600x600.jpg',19),(22,'iphone-xi-xanhla-600x600.jpg',20),(23,'oppo-reno6-z-5g-aurora-1-600x600.jpg',58),(24,'oppo-reno6-5g-aurora-600x600.jpg',59),(25,'oppo-a74-blue-9-600x600.jpg',60),(27,'oppo-find-x3-pro-black-001-1-600x600.jpg',61),(28,'oppo-reno5-5g-thumb-600x600.jpg',62),(32,'realme-c21y-black-600x600.jpg',28),(34,'realme-c25s-grey-7-600x600.jpg',31),(36,'realme-8-pro-vang-600x600.jpg',34),(37,'realme-8-pro-balck-600x600.jpg',35),(38,'realme-8-silver-600x600.jpg',37),(39,'samsung-galaxy-z-fold-3-silver-600x600.jpg',23),(41,'samsung-galaxy-a52-5g-thumb-black.jpg',24),(43,'samsung-galaxy-z-flip-3-cream-600x600.jpg',25),(44,'samsung-galaxy-z-fold-2-den-600x600.jpg',26),(45,'samsung-galaxy-s21-tim-600x600.jpg',27),(46,'vivo-y12s-den-new-600x600-600x600.jpg',38),(47,'vivo-y53s-xanh-600x600.jpg',39),(48,'vivo-v21-5g-xanh-den-600x600.jpg',41),(49,'vivov202021den-600x600.jpg',42),(50,'vivo-v20-600-xanh-hong-2-600x600.jpg',44),(51,'vsmart-star-5-thumb-black-600x600.jpg',45),(52,'vsmart-aris-pro-green-600jpg-600x600.jpg',46),(53,'vsmart-aris-xam-600x600-600x600.jpg',47),(54,'vsmart-live-4-xanh-la-600x600.jpg',48),(55,'vsmart-joy-4-6gb-trang-600x600-600x600.jpg',50),(57,'xiaomi-mi-11-lite-4g-blue-600x600.jpg',52),(59,'xiaomi-redmi-note-10-5g-xanh-bong-dem.jpg',54),(60,'xiaomi-mi-11-xanhduong.jpg',55),(61,'xiaomi-mi-10t-pro-den-600x600.jpg',56),(62,'xiaomi-redmi-note-10-pro-thumb-xam.jpg',57),(63,'Apple Watch S3 GPS.jpg',63),(64,'Apple Watch S5 LTE 44mm viền thép dây thép bạc.jpg',64),(65,'Apple Watch S6 40mm viền nhôm dây cao su hồng.jpg',65),(66,'Apple Watch S6 LTE.jpg',66),(67,'Apple Watch SE LTE.jpg',67),(68,'Apple Watch SE',68),(69,'BeU Active 1.jpg',69),(70,'BeU PT1.jpg',70),(71,'BeU PT2.jpg',72),(72,'BeU Sporty 1.jpg',73),(73,'BeU Watch KW09.jpg',74),(74,'Đồng hồ thông minh BeU B2.jpg',75),(75,'Garmin Enduro.jpg',76),(76,'Garmin Fenix 6 Pro Solar.jpg',77),(77,'Garmin Fenix 6.jpg',78),(78,'Garmin Fenix 6X Sapphire.jpg',79),(79,'Garmin Forerunner 945.jpg',80),(80,'Garmin Lily.jpg',81),(81,'Kidcare 06S.jpg',82),(82,'Kidcare 08S.jpg',83),(83,'Kidcare 26.jpg',84),(84,'Kidcare S6 Xanh.jpg',85),(85,'Kidcare S6.jpg',86),(86,'Kidcare S8.jpg',87),(87,'Oppo Band.jpg',88),(88,'Oppo Watch 41mm dây silicone đen.jpg',89),(89,'Oppo Watch 41mm dây silicone.jpg',90),(90,'Oppo Watch 41mm.jpg',91),(91,'Oppo Watch 46mm dây silicone đen.jpg',92),(92,'Oppo Watch 46mm.jpg',93),(93,'Samsung Galaxy Watch 3 45mm titanium.jpg',95),(95,'Samsung Galaxy Watch 3 LTE.jpg',97),(96,'Samsung Galaxy Watch 3.jpg',98),(100,'Samsung Galaxy Watch 4 LTE.jpg',99),(101,'Samsung Galaxy Watch 4.jpg',100),(102,'Samsung Galaxy Watch Active 2.jpg',101),(103,'20.490.000.jpg',102),(104,'11.690.000.jpg',103),(105,'20.690.000.jpg',104),(106,'18.990.000.jpg',105),(107,'28.990.000.jpg',106),(108,'Asus TUF Gaming FX506LH i5.jpg',108),(109,'Asus VivoBook A515EA i3.jpg',109),(110,'39.490.000Đ.jpg',110),(111,'32.490.000Đ.jpg',111),(112,'20.390.000Đ.jpg',112),(113,'31.290.000.jpg',113),(114,'27.290.000.jpg',114),(115,'41.490.000.jpg',115),(116,'30.590.000.jpg',116),(117,'29.990.000.jpg',117),(118,'18.590.000Đ.jpg',118),(119,'17.590.000Đ.jpg',119),(120,'51.740.000Đ.jpg',120),(121,'49.090.000.jpg',121),(122,'28.890.000.jpg',122),(123,'18.090.000.jpg',123),(124,'17.590.000.jpg',124),(125,'20.590.000.jpg',125),(126,'24.990.000.jpg',129),(127,'47.990.000.jpg',130),(128,'50.890.000.jpg',133),(129,'48.890.000.jpg',1007),(130,'48.890.000.jpg',1008),(131,'28.990.000.jpg',1009),(132,'MacBook Pro M1 2020.jpg',1010),(133,'MacBook Air M1 2020.jpg',1011),(135,'MacBook Air M1 2020 8GB512GBSilver.jpg',1013),(136,'MacBook Pro M1 2020 8GB512GBSilver.jpg',1014),(137,'MacBook Pro M1 2020 16GB1TB SSDSpace Grey.jpg',1015),(138,'31.990.000.jpg',1016),(139,'29.490.000.jpg',1017),(140,'52.490.00.jpg',1018),(141,'39.490.000.jpg',1019),(142,'32.490.000.jpg',1020),(143,'28.590.000.jpg',1021),(144,'24.490.000.jpg',1022),(145,'huawei-t10s-600x600-600x600.jpg',1023),(146,'huawei-matepad-xanh-600x600-600x600.jpg',1024),(147,'huawei-matepad-xam-128gb-600x600.jpg',1025),(149,'huawei-matepad-t8-xanh-600x600.jpg',1026),(150,'ipad-pro-2021-129-inch-silver-600x600.jpg',1027),(151,'ipad-pro-2021-11-inch-silver-600x600.jpg',1028),(152,'ipad-pro-12-9-inch-wifi-128gb-2020-xam.jpg',1029),(153,'ipad-pro-11-inch-wifi-cellular-128gb-2020-xam.jpg',1030),(155,'ipad-air-4-wifi-64gb-2020-xanhla.jpg',1031),(157,'ipad-mini-79-inch-wifi-cellular-64gb-2019.jpg',1032),(160,'ipad-gen-8-cellular-vang-new.jpg',1034),(161,'tab-m10-fhd-plus-600-600x600.jpg',1035),(162,'tab-m10-gen-2-600x600-600x600.jpg',1036),(163,'lenovo-tab-a22-xam-600x600.jpg',1037),(164,'lenovo-tab-m7-600x600-1-600x600.jpg',1038),(165,'lenovo-tab-e7-tb-7104i-600x600-600x600.jpg',1039),(166,'masstel-tab-10-ultra-vangdong-600x600-600x600.jpg',1040),(167,'masstel-tab-10-den-600x600-600x600.jpg',1041),(168,'masstel-tab10-pro-vang-new-600x600.jpg',1042),(169,'samsung-galaxy-tab-s7-fe-green-600x600.jpg',1043),(170,'samsung-galaxy-tab-a7-lite-sliver-600x600.jpg',1044),(171,'samsung-galaxy-tab-s7- ld-new-600x600.jpg',1045),(173,'samsung-galaxy-tab-a8-t295-2019-black-1.jpg',1046),(174,'samsung-galaxy-tab-s6-lite-600x600-2-600x600.jpg',1047),(175,'AirPods Pro Wireless Charge Apple MWP22(3).jpg',1091),(176,'AirPods Pro Wireless Charge Apple MWP22(4).jpg',1091),(177,'AirPods Pro Wireless Charge Apple MWP22.jpg',1091),(178,'Beats Flex MYMC2 MYMD2(3).jpg',1092),(179,'Beats Flex MYMC2 MYMD2(4).jpg',1092),(180,'Beats Flex MYMC2 MYMD2(5).jpg',1092),(181,'Beats Flex MYMC2 MYMD2.jpg',1092),(182,'True wireless Belkin Soundform Move PAC001(3).jpg',1094),(183,'True wireless Belkin Soundform Move PAC001(4).jpg',1094),(184,'True wireless Belkin Soundform Move PAC001(5).jpg',1094),(185,'True wireless Belkin Soundform Move PAC001(6).jpg',1094),(186,'True wireless Belkin Soundform Move PAC001.jpg',1094),(187,'True Wireless Mozard TS13(3).jpg',1095),(188,'True Wireless Mozard TS13(4).jpg',1095),(189,'True Wireless Mozard TS13.jpg',1095),(190,'True Wireless Rezo T206(3).jpg',1096),(191,'True Wireless Rezo T206(4).jpg',1096),(192,'True Wireless Rezo T206(5).jpg',1096),(193,'True Wireless Rezo T206(6).jpg',1096),(194,'True Wireless Rezo T206.jpg',1096),(195,'Bluetooth Cosano HD-P7(3).jpg',1099),(196,'Bluetooth Cosano HD-P7(4).jpg',1099),(197,'Bluetooth Cosano HD-P7(5).jpg',1099),(198,'Bluetooth Cosano HD-P7(6).jpg',1099),(199,'Bluetooth Cosano HD-P7.jpg',1099),(200,'Bluetooth Tripod Xmobile K06(3).jpg',1100),(201,'Bluetooth Tripod Xmobile K06(4).jpg',1100),(202,'Bluetooth Tripod Xmobile K06(5).jpg',1100),(203,'Bluetooth Tripod Xmobile K06(6).jpg',1100),(204,'Bluetooth Tripod Xmobile K06.jpg',1100),(205,'Mini Cosano CW1(3).jpg',1101),(206,'Mini Cosano CW1(4).jpg',1101),(207,'Mini Cosano CW1.jpg',1101),(208,'Osmia OW2(3).jpg',1102),(209,'Osmia OW2(4).jpg',1102),(210,'Osmia OW2.jpg',1102),(211,'Osmia OW4(3).jpg',1103),(212,'Osmia OW4(4).jpg',1103),(213,'Osmia OW4(5).jpg',1103),(214,'Osmia OW4(6).jpg',1103),(215,'Osmia OW4.jpg',1103),(216,'Cosano PH-Z1(3).jpg',1105),(217,'Cosano PH-Z1(4).jpg',1105),(218,'Cosano PH-Z1(5).jpg',1105),(219,'Cosano PH-Z1.jpg',1105),(220,'Esaver JHD -278(3).jpg',1106),(221,'Esaver JHD -278(4).jpg',1106),(222,'Esaver JHD -278(5).jpg',1106),(224,'Esaver JHD -278.jpg',1106),(225,'Esaver JHD-40HD12(3).jpg',1107),(226,'Esaver JHD-40HD12(4).jpg',1107),(227,'Esaver JHD-40HD12(5).jpg',1107),(228,'Esaver JHD-40HD12(6).jpg',1107),(229,'Esaver JHD-40HD12.jpg',1107),(230,'Esaver JHD-171(3).jpg',1108),(231,'Esaver JHD-171(4).jpg',1108),(232,'Esaver JHD-171(5).jpg',1108),(233,'Esaver JHD-171.jpg',1108),(234,'Harman Kardon Aura Studio 3(3).jpg',1109),(235,'Harman Kardon Aura Studio 3.jpg',1109),(236,'Loa JBL Clip 4(3).jpg',1110),(237,'Loa JBL Clip 4(4).jpg',1110),(238,'Loa JBL Clip 4.jpg',1110),(239,'Loa JBL   3(3).jpg',1112),(240,'Loa JBL   3.jpg',1112),(241,'Loa JBL Gred(4).jpg',1112),(242,'Sony SRS-XB13(2).jpg',1113),(243,'Sony SRS-XB13(3).jpg',1113),(244,'Sony SRS-XB13(4).jpg',1113),(245,'Sony SRS-XB13(5).jpg',1113),(246,'Sony SRS-XB13.jpg',1113),(247,'Anker PowerCore Slim A1231(3).jpg',1114),(248,'Anker PowerCore Slim A1231.jpg',1114),(249,'AVA+ PB100S(3).jpg',1115),(250,'AVA+ PB100S.jpg',1115),(251,'Belkin Pocket Power BPB001(2).jpg',1116),(252,'Belkin Pocket Power BPB001(3).jpg',1116),(253,'Belkin Pocket Power BPB001(4).jpg',1116),(254,'Belkin Pocket Power BPB001(5).jpg',1116),(255,'Energizer UE10054BK(3).jpg',1117),(256,'Energizer UE10054BK(4).jpg',1117),(257,'Energizer UE10054BK(5).jpg',1117),(258,'Energizer UE10054BK.jpg',1117),(259,'eValu PA Croco(3).jpg',1118),(260,'eValu PA Croco(4).jpg',1118),(261,'eValu PA Croco.jpg',1118),(262,'Xmobile PowerSlim PJ JP213(3).jpg',1119),(263,'Xmobile PowerSlim PJ JP213(4).jpg',1119),(264,'Xmobile PowerSlim PJ JP213(5).jpg',1119),(265,'Xmobile PowerSlim PJ JP213.jpg',1119),(266,'iphone 12 xanh dương(2).jpg',9),(267,'iphone 12 xanh dương(3).jpg',9),(268,'iphone 12 xanh dương(4).jpg',9),(269,'iphone 12 xanh dương(5).jpg',9),(270,'iPhone 12 Pro xanh dương(2).jpg',10),(271,'iPhone 12 Pro xanh dương(3).jpg',10),(272,'iPhone 12 Pro xanh dương(4).jpg',10),(273,'iPhone 12 Pro xanh dương(5).jpg',10),(274,'iPhone 12 Pro bạc(2).jpg',12),(275,'iPhone 12 Pro bạc(3).jpg',12),(276,'iPhone 12 Pro bạc(4).jpg',12),(277,'iPhone 12 Pro bạc(5).jpg',12),(278,'iphone-12-mini-den-2-org.jpg',13),(279,'iphone-12-mini-den-3-org(2).jpg',13),(280,'iphone-12-mini-den-5-1-org(3).jpg',13),(281,'iphone-12-mini-den-7-org(4).jpg',13),(282,'iphone-12-mini-den-10-org(5).jpg',13),(283,'iPhone XR 64GB(2).jpg',16),(284,'iPhone XR 64GB(3).jpg',16),(285,'iPhone XR 64GB(4).jpg',16),(286,'iPhone XR 64GB(5).jpg',16),(287,'iPhone SE 128GB(2).jpg',17),(288,'iPhone SE 128GB(3).jpg',17),(289,'iPhone SE 128GB(4).jpg',17),(290,'iPhone SE 128GB(5).jpg',17),(291,'iPhone SE 256GB(2).jpg',19),(292,'iPhone SE 256GB(3).jpg',19),(293,'iPhone SE 256GB(4).jpg',19),(294,'iPhone SE 256GB(5).jpg',19),(295,'iPhone 11 64GB(2).jpg',20),(296,'iPhone 11 64GB(3).jpg',20),(297,'iPhone 11 64GB(4).jpg',20),(298,'iPhone 11 64GB(5).jpg',20),(299,'OPPO Reno6 Z 5G(2).jpg',58),(300,'OPPO Reno6 Z 5G(3).jpg',58),(301,'OPPO Reno6 Z 5G(4).jpg',58),(302,'OPPO Reno6 Z 5G(5).jpg',58),(303,'OPPO Reno6 5G(2).jpg',59),(304,'OPPO Reno6 5G(3).jpg',59),(305,'OPPO Reno6 5G(4).jpg',59),(306,'OPPO Reno6 5G(5).jpg',59),(307,'OPPO A74(2).jpg',60),(308,'OPPO A74(3).jpg',60),(309,'OPPO A74(4).jpg',60),(310,'OPPO A74(5).jpg',60),(311,'OPPO Find X3 Pro 5G(2).jpg',61),(312,'OPPO Find X3 Pro 5G(3).jpg',61),(313,'OPPO Find X3 Pro 5G(4).jpg',61),(314,'OPPO Find X3 Pro 5G(5).jpg',61),(315,'OPPO Reno5 5G(2).jpg',62),(316,'OPPO Reno5 5G(3).jpg',62),(317,'OPPO Reno5 5G(4).jpg',62),(318,'OPPO Reno5 5G(5).jpg',62),(319,'Realme C21Y(2).jpg',28),(320,'Realme C21Y(3).jpg',28),(321,'Realme C25s(2).jpg',31),(322,'Realme C25s(3).jpg',31),(323,'Realme 8 Pro Vàng(2).jpg',34),(324,'Realme 8 Pro Vàng(3).jpg',34),(325,'Realme 8 Pro(2).jpg',35),(327,'Realme 8 Pro(3).jpg',35),(329,'Realme 8 Pro(4).jpg',35),(330,'Realme 8 Pro(5).jpg',35),(331,'Realme 7 Pro(2).jpg',37),(332,'Realme 7 Pro(3).jpg',37),(333,'Realme 7 Pro(4).jpg',37),(334,'Realme 7 Pro(5).jpg',37),(335,'Samsung Galaxy Z Fold3 bạc(2).jpg',23),(336,'Samsung Galaxy Z Fold3 bạc(3).jpg',23),(337,'Samsung Galaxy Z Fold3 bạc(4).jpg',23),(338,'Samsung Galaxy Z Fold3 bạc(5).jpg',23),(339,'Samsung Galaxy A52(2).jpg',24),(340,'Samsung Galaxy A52(3).jpg',24),(341,'Samsung Galaxy A52(4).jpg',24),(342,'Samsung Galaxy A52(5).jpg',24),(343,'Samsung Galaxy Z Fold2(2).jpg',26),(344,'Samsung Galaxy Z Fold2(3).jpg',26),(345,'Samsung Galaxy Z Fold2(4).jpg',26),(346,'Samsung Galaxy Z Fold2(5).jpg',26),(347,'Samsung Galaxy Z Fold2(6).jpg',26),(348,'Samsung Galaxy Z Fold3 xanh(2).jpg',25),(349,'Samsung Galaxy Z Fold3 xanh(3).jpg',25),(350,'Samsung Galaxy Z Fold3 xanh(4).jpg',25),(351,'Samsung Galaxy Z Fold3 xanh(5).jpg',25),(352,'Vivo Y12s(2).jpg',38),(353,'Vivo Y12s(3).jpg',38),(354,'Vivo Y12s(4).jpg',38),(355,'Vivo Y12s(5).jpg',38),(356,'Vivo Y53s(2).jpg',39),(357,'Vivo Y53s(3).jpg',39),(358,'Vivo Y53s(4).jpg',39),(359,'Vivo Y53s(5).jpg',39),(360,'Vivo V21(2).jpg',41),(361,'Vivo V21(3).jpg',41),(362,'Vivo V21(4).jpg',41),(363,'Vivo V21(5).jpg',41),(364,'Vivo V20 đen(2).jpg',42),(365,'Vivo V20 đen(3).jpg',42),(366,'Vivo V20 đen(4).jpg',42),(367,'Vivo V20 đen(5).jpg',42),(368,'Vivo V20(2).jpg',44),(369,'Vivo V20(3).jpg',44),(370,'Vivo V20(3).jpg',44),(371,'Vivo V20(4).jpg',44),(372,'Vivo V20(5).jpg',44),(373,'Harman Kardon Aura Studio 3(3).jpg',1120),(374,'Harman Kardon Aura Studio 3.jpg',1120),(375,'Loa JBL Clip 4(3).jpg',1122),(376,'Loa JBL Clip 4(4).jpg',1122),(377,'Loa JBL Clip 4.jpg',1122),(378,'Loa JBL   3(3).jpg',1123),(379,'Loa JBL   3.jpg',1123),(380,'Loa JBL Gred(4).jpg',1123),(381,'Sony SRS-XB13(3).jpg',1124),(382,'Sony SRS-XB13(4).jpg',1124),(383,'Sony SRS-XB13(5).jpg',1124),(384,'Sony SRS-XB13.jpg',1124),(385,'Anker PowerCore Slim A1231(3).jpg',1125),(386,'Anker PowerCore Slim A1231.jpg',1125),(387,'AVA+ PB100S(3).jpg',1126),(388,'AVA+ PB100S.jpg',1126),(389,'Belkin Pocket Power BPB001(2).jpg',1127),(390,'Belkin Pocket Power BPB001(3).jpg',1127),(391,'Belkin Pocket Power BPB001(4).jpg',1127),(392,'Belkin Pocket Power BPB001(5).jpg',1127),(393,'Energizer UE10054BK(3).jpg',1128),(394,'Energizer UE10054BK(4).jpg',1128),(395,'Energizer UE10054BK(5).jpg',1128),(396,'Energizer UE10054BK.jpg',1128),(397,'eValu PA Croco(3).jpg',1129),(398,'eValu PA Croco(4).jpg',1129),(399,'eValu PA Croco.jpg',1129),(400,'Xmobile PowerSlim PJ JP213(2).jpg',1130),(401,'Xmobile PowerSlim PJ JP213(3).jpg',1130),(402,'Xmobile PowerSlim PJ JP213(4).jpg',1130),(403,'Xmobile PowerSlim PJ JP213(5).jpg',1130),(404,'AirPods Pro Wireless Charge Apple MWP22(3).jpg',1133),(405,'AirPods Pro Wireless Charge Apple MWP22(4).jpg',1133),(406,'AirPods Pro Wireless Charge Apple MWP22.jpg',1133),(407,'Beats Flex MYMC2 MYMD2(3).jpg',1134),(408,'Beats Flex MYMC2 MYMD2(4).jpg',1134),(409,'Beats Flex MYMC2 MYMD2(5).jpg',1134),(410,'Beats Flex MYMC2 MYMD2.jpg',1134),(411,'True wireless Belkin Soundform Move PAC001(3).jpg',1135),(412,'True wireless Belkin Soundform Move PAC001(4).jpg',1135),(413,'True wireless Belkin Soundform Move PAC001(5).jpg',1135),(414,'True wireless Belkin Soundform Move PAC001(6).jpg',1135),(415,'True wireless Belkin Soundform Move PAC001.jpg',1135),(416,'True Wireless Mozard TS13(3).jpg',1136),(417,'True Wireless Mozard TS13(4).jpg',1136),(418,'True Wireless Mozard TS13.jpg',1136),(419,'True Wireless Rezo T206(3).jpg',1137),(420,'True Wireless Rezo T206(4).jpg',1137),(421,'True Wireless Rezo T206(5).jpg',1137),(422,'True Wireless Rezo T206(6).jpg',1137),(423,'True Wireless Rezo T206.jpg',1137),(424,'Vsmart Star 5(2).jpg',45),(425,'Vsmart Star 5(3).jpg',45),(426,'Vsmart Star 5(4).jpg',45),(427,'Vsmart Star 5(5).jpg',45),(428,'Vsmart Aris Pro(2).jpg',46),(429,'Vsmart Aris Pro(3).jpg',46),(430,'Vsmart Aris Pro(4).jpg',46),(431,'Vsmart Aris Pro(5).jpg',46),(432,'Vsmart Aris(2).jpg',47),(433,'Vsmart Aris(3).jpg',47),(434,'Vsmart Aris(4).jpg',47),(435,'Vsmart Aris(5).jpg',47),(436,'Vsmart Live 4(2).jpg',48),(437,'Vsmart Live 4(3).jpg',48),(438,'Vsmart Live 4(4).jpg',48),(439,'Vsmart Live 4(5).jpg',48),(440,'Vsmart Joy 4(2).jpg',50),(441,'Vsmart Joy 4(3).jpg',50),(442,'Vsmart Joy 4(4).jpg',50),(443,'Vsmart Joy 4(5).jpg',50),(444,'Xiaomi Mi 11 Lite(2).jpg',52),(445,'Xiaomi Mi 11 Lite(3).jpg',52),(446,'Xiaomi Mi 11 Lite(4).jpg',52),(447,'Xiaomi Mi 11 Lite(5).jpg',52),(448,'Xiaomi Redmi Note 10(2).jpg',54),(449,'Xiaomi Redmi Note 10(3).jpg',54),(450,'Xiaomi Redmi Note 10(4).jpg',54),(451,'Xiaomi Redmi Note 10(5).jpg',54),(452,'Xiaomi Mi 11 Lite(2).jpg',55),(453,'Xiaomi Mi 11 Lite(3).jpg',55),(454,'Xiaomi Mi 11 Lite(4).jpg',55),(455,'Xiaomi Mi 11 Lite(5).jpg',55),(456,'Xiaomi Mi 10T Pro(2).jpg',56),(457,'Xiaomi Mi 10T Pro(3).jpg',56),(458,'Xiaomi Mi 10T Pro(4).jpg',56),(459,'Xiaomi Mi 10T Pro(5).jpg',56),(460,'Xiaomi Redmi Note 10 Pro(2).jpg',57),(461,'Xiaomi Redmi Note 10 Pro(3).jpg',57),(462,'Xiaomi Redmi Note 10 Pro(4).jpg',57),(463,'Xiaomi Redmi Note 10 Pro(5).jpg',57),(464,'Apple Watch S3 GPS2.jpg',63),(465,'Apple Watch S3 GPS3.jpg',63),(466,'Apple Watch S3 GPS4.jpg',63),(467,'Apple Watch S3 GPS5.jpg',63),(468,'Apple Watch S5 LTE 44mm viền thép dây thép bạc.jpg',64),(470,'Apple Watch S5 LTE 44mm viền  thép bạc2.jpg',64),(471,'Apple Watch S5 LTE 44mm viền  thép bạc3.jpg',64),(472,'Apple Watch S6 LTE2.jpg',65),(473,'Apple Watch S6 LTE3.jpg',65),(474,'Apple Watch SE2.jpeg',66),(475,'Apple Watch SE3.jpg',66),(476,'Apple Watch SE LTE2.jpg',67),(477,'Apple Watch SE LTE3.jpg',67),(478,'Apple Watch SE2.jpeg',68),(479,'Apple Watch SE3.jpg',68),(480,'BeU Active 1(2).jpg',69),(481,'BeU Active 1(3).jpg',69),(482,'BeU Active 1(4).jpg',69),(483,'BeU Active 1(5).jpg',69),(484,'BeU Active 1(6).jpg',69),(485,'BeU PT1(2).jpg',70),(486,'BeU PT1(3).jpg',70),(487,'BeU PT1(4).jpg',70),(488,'BeU PT2(2).jpg',72),(489,'BeU PT2(3).jpg',72),(490,'BeU PT2(4).jpg',72),(491,'BeU Sporty 1(2).jpg',73),(492,'BeU Sporty 1(3).jpg',73),(493,'BeU Sporty 1(4).jpg',73),(494,'BeU Sporty 1(5).jpg',73),(495,'BeU Watch KW09(2).jpg',74),(496,'BeU Watch KW09(3).jpg',74),(497,'BeU B2(2).jpg',75),(498,'BeU B2(3).jpg',75),(499,'BeU B2(4).jpg',75),(500,'Garmin Enduro2.jpg',76),(501,'Garmin Enduro3.jpg',76),(502,'Garmin Enduro4.jpg',76),(503,'Garmin Enduro5.jpg',76),(504,'Garmin Enduro6.jpg',76),(505,'Garmin Fenix 6 Pro Solar2.jpg',77),(506,'Garmin Fenix 6 Pro Solar3.jpg',77),(507,'Garmin Fenix 6 Pro Solar4.jpg',77),(508,'Garmin Fenix 6 Pro Solar5.jpg',77),(509,'Garmin Fenix 6 Pro Solar6.jpg',77),(510,'Garmin Fenix 6(2).jpg',78),(511,'Garmin Fenix 6(3).jpg',78),(512,'Garmin Fenix 6(4).jpg',78),(513,'Garmin Fenix 6(5).jpg',78),(514,'Garmin Fenix 6(6).jpg',78),(515,'Garmin Fenix 6X Sapphire2.jpg',79),(516,'Garmin Fenix 6X Sapphire3.jpg',79),(517,'Garmin Fenix 6X Sapphire4.jpg',79),(518,'Garmin Fenix 6X Sapphire5.jpg',79),(519,'Garmin Fenix 6X Sapphire6.jpg',79),(520,'Garmin Forerunner 945(2).jpg',80),(521,'Garmin Forerunner 945(3).jpg',80),(522,'Garmin Forerunner 945(4).jpg',80),(523,'Garmin Forerunner 945(5).jpg',80),(524,'Garmin Forerunner 945(6).jpg',80),(525,'Garmin Lily2.jpg',81),(526,'Garmin Lily3.jpg',81),(527,'Garmin Lily5.jpg',81),(528,'Kidcare 06S(2).jpg',82),(529,'Kidcare 06S(3).jpg',82),(530,'Kidcare 06S(4).jpg',82),(531,'Kidcare 06S(5).jpg',82),(532,'Kidcare 06S(6).jpg',82),(533,'Kidcare 08S(2).jpg',83),(534,'Kidcare 08S(3).jpg',83),(535,'Kidcare 08S(4).jpg',83),(536,'Kidcare 08S(5).jpg',83),(537,'Kidcare 08S(6).jpg',83),(538,'Kidcare 26(2).jpg',84),(539,'Kidcare 26(3).jpg',84),(540,'Kidcare 26(4).jpg',84),(541,'Kidcare 26(5).jpg',84),(542,'Kidcare 26(6).jpg',84),(543,'Kidcare S6 Xanh2.jpg',85),(544,'Kidcare S6 Xanh3.jpg',85),(545,'Kidcare S6 Xanh4.jpg',85),(546,'Kidcare S6 Xanh5.jpg',85),(547,'Kidcare S6 Xanh6.jpg',85),(548,'Kidcare S6(2).jpg',86),(549,'Kidcare S6(3).jpg',86),(551,'Kidcare S6(4).jpg',86),(552,'Kidcare S6(5).jpg',86),(553,'Kidcare S6(6).jpg',86),(554,'Kidcare S8(2).jpg',87),(555,'Kidcare S8(3).jpg',87),(556,'Kidcare S8(4).jpg',87),(557,'Kidcare S8(5).jpg',87),(558,'Kidcare S8(6).jpg',87),(559,'Oppo Band2.jpg',88),(560,'Oppo Band3.jpg',88),(561,'Oppo Band4.jpg',88),(562,'Oppo Watch 41mm dây silicone đen2.jpg',89),(563,'Oppo Watch 41mm dây silicone đen3.jpg',89),(564,'Oppo Watch 41mm dây silicone đen4.jpg',89),(565,'Oppo Watch 41mm dây silicone đen5.jpg',89),(566,'Oppo Watch 41mm dây silicone đen6.jpg',89),(567,'Oppo Watch 41mm dây silicone2.png',90),(568,'Oppo Watch 41mm dây silicone3.png',90),(569,'Oppo Watch 41mm dây silicone4.png',90),(570,'Oppo Watch 41mm(2).jpg',91),(571,'Oppo Watch 41mm(3).jpg',91),(572,'Oppo Watch 41mm(4).jpg',91),(573,'Oppo Watch 41mm(5).jpg',91),(574,'Oppo Watch 41mm(6).jpg',91),(575,'Oppo Watch 46mm dây silicone đen2.jpg',92),(576,'Oppo Watch 46mm dây silicone đen3.jpg',92),(577,'Oppo Watch 46mm dây silicone đen4.jpg',92),(578,'Oppo Watch 46mm dây silicone đen5.jpg',92),(579,'Oppo Watch 46mm dây silicone đen6.jpg',92),(580,'Oppo Watch 46mm(2).jpg',93),(581,'Oppo Watch 46mm(3).jpg',93),(582,'Oppo Watch 46mm(4).jpg',93),(583,'Oppo Watch 46mm(5).jpg',93),(584,'Oppo Watch 46mm(6).jpg',93),(585,'Oppo Watch 46mm.jpg',93),(586,'a2.jpg',1141),(587,'a3.jpg',1141),(588,'a4.jpg',1141),(589,'a5.jpg',1141),(590,'a6.jpg',1141),(591,'a8.jpg',1142),(592,'a9.jpg',1142),(593,'a10.jpg',1142),(594,'a11.jpg',1142),(595,'a12.jpg',1142),(596,'a14.jpg',1143),(597,'a15.jpg',1143),(598,'a16.jpg',1143),(599,'a17.jpg',1143),(600,'a18.jpg',1143),(601,'a20.jpg',1144),(602,'a21.jpg',1144),(603,'a22.jpg',1144),(604,'a23.jpg',1144),(605,'a24.jpg',1144),(606,'a25.jpg',1144),(608,'a27.jpg',1146),(609,'a28.jpg',1146),(610,'a29.jpg',1146),(611,'a30.jpg',1146),(612,'a31.jpg',1146),(613,'b2.jpg',1147),(614,'b3.jpg',1147),(615,'b4.jpg',1147),(616,'b5.jpg',1147),(617,'b7.jpg',1148),(618,'b8.jpg',1148),(619,'b9.jpg',1148),(620,'b10.jpg',1148),(621,'b12.jpg',1149),(622,'b13.jpg',1149),(623,'b14.jpg',1149),(624,'b15.jpg',1149),(625,'b17.jpg',1150),(626,'b18.jpg',1150),(627,'b19.jpg',1150),(628,'b21.jpg',1151),(629,'b22.jpg',1151),(630,'b23.jpg',1151),(631,'b24.jpg',1151),(632,'b25.jpg',1151),(633,'c2.jpg',1152),(634,'c3.jpg',1152),(635,'c4.jpg',1152),(636,'c5.jpg',1152),(637,'c6.jpg',1152),(638,'c8.jpg',1157),(639,'c9.jpg',1157),(640,'c10.jpg',1157),(641,'c12.jpg',1158),(642,'c13.jpg',1158),(643,'c14.jpg',1158),(644,'c15.jpg',1158),(645,'c16.jpg',1158),(646,'c18.jpg',1159),(647,'c19.jpg',1159),(648,'c20.jpg',1159),(649,'c21.jpg',1159),(650,'c22.jpg',1159),(651,'c24.jpg',1160),(652,'c25.jpg',1160),(653,'c26.jpg',1160),(654,'c27.jpg',1160),(655,'c28.jpg',1160),(656,'c29.jpg',1160),(657,'c30.jpg',1160),(658,'d2.jpg',1163),(659,'d3.jpg',1163),(660,'d4.jpg',1163),(661,'d5.jpg',1163),(662,'d6.jpg',1163),(663,'d8.jpg',1164),(664,'d9.jpg',1164),(665,'d10.jpg',1164),(666,'d11.jpg',1164),(667,'d12.jpg',1164),(668,'d14.jpg',1165),(669,'d15.jpg',1165),(670,'d16.jpg',1165),(671,'d17.jpg',1165),(672,'d18.jpg',1165),(673,'d19.jpg',1165),(674,'d21.jpg',1169),(675,'d22.jpg',1169),(676,'d23.jpg',1169),(677,'d24.jpg',1169),(678,'d25.jpg',1169),(679,'d27.jpg',1170),(680,'d28.jpg',1170),(681,'d29.jpg',1170),(682,'d30.jpg',1170),(683,'d31.jpg',1170),(684,'e2.jpg',1171),(686,'e3.jpg',1171),(687,'e4.jpg',1171),(688,'e5.jpg',1171),(689,'e6.jpg',1171),(690,'e8.jpg',1172),(691,'e9.jpg',1172),(692,'e10.jpg',1172),(693,'e12.jpg',1173),(694,'e13.jpg',1173),(695,'e14.jpg',1173),(696,'e15.jpg',1173),(697,'e17.jpg',1175),(699,'e18.jpg',1175),(700,'e20.jpg',1175),(701,'e21.jpg',1175),(702,'e23.jpg',1176),(703,'e24.jpg',1176),(704,'e25.jpg',1176),(705,'e26.jpg',1176),(706,'1.jpg',102),(707,'2.jpg',102),(708,'3.jpg',102),(710,'4.jpg',102),(711,'5.jpg',102),(712,'6.jpg',102),(713,'7.jpg',102),(714,'8.jpg',102),(715,'9.jpg',102),(716,'1.1.jpg',103),(717,'1.2.jpg',103),(718,'1.3.jpg',103),(719,'1.4.jpg',103),(720,'1.5.jpg',103),(721,'1.6.jpg',103),(722,'1.7.jpg',103),(723,'1.8.jpg',103),(724,'1.9.jpg',103),(725,'1.10.jpg',103),(726,'1.11.jpg',104),(727,'1.12.jpg',104),(728,'1.13.jpg',104),(729,'1.14.jpg',104),(730,'1.15.jpg',104),(731,'1.16.jpg',104),(732,'1.17.jpg',104),(733,'1.18.jpg',104),(734,'1.19.jpg',104),(735,'1.20.jpg',105),(736,'1.21.jpg',105),(737,'1.22.jpg',105),(738,'1.23.jpg',105),(739,'1.24.jpg',105),(740,'1.25.jpg',105),(741,'1.26.jpg',105),(742,'1.27.jpg',106),(743,'1.28.jpg',106),(744,'1.29.jpg',106),(745,'1.30.jpg',106),(746,'1.31.jpg',106),(747,'1.32.jpg',106),(748,'1.33.jpg',106),(749,'1.34.jpg',106),(750,'1.35.jpg',106),(751,'2.1.jpg',108),(752,'2.2.jpg',108),(753,'2.3.jpg',108),(754,'2.4.jpg',108),(755,'2.5.jpg',108),(756,'2.6.jpg',108),(757,'2.7.jpg',108),(758,'2.8.jpg',108),(759,'2.9.jpg',108),(760,'2.10.jpg',109),(761,'2.11.jpg',109),(762,'2.12.jpg',109),(763,'2.13.jpg',109),(764,'2.14.jpg',109),(765,'2.15.jpg',109),(766,'2.16.jpg',109),(767,'2.17.jpg',109),(768,'2.18.jpg',109),(769,'2.19.jpg',110),(771,'2.20.jpg',110),(772,'2.21.jpg',110),(773,'2.22.jpg',110),(774,'2.23.jpg',110),(775,'2.24.jpg',110),(776,'2.25.jpg',110),(777,'2.26.jpg',110),(778,'2.27.jpg',110),(779,'2.28.jpg',111),(780,'2.29.jpg',111),(781,'2.30.jpg',112),(782,'2.31.jpg',111),(783,'2.32.jpg',111),(784,'2.33.jpg',111),(785,'2.34.jpg',111),(786,'2.35.jpg',111),(787,'2.36.jpg',111),(788,'2.37.jpg',112),(789,'2.38.jpg',112),(790,'2.39.jpg',112),(791,'2.40.jpg',112),(792,'2.41.jpg',112),(793,'2.42.jpg',112),(794,'2.43.jpg',112),(795,'2.44.jpg',112),(796,'2.45.jpg',112),(797,'2.46.jpg',112),(798,'3.1.jpg',113),(800,'3.2.jpg',113),(801,'3.3.jpg',113),(802,'3.4.jpg',113),(803,'3.5.jpg',113),(804,'3.6.jpg',113),(806,'3.7.jpg',113),(807,'3.8.jpg',113),(808,'3.9.jpg',113),(809,'3.10.jpg',114),(810,'3.11.jpg',114),(811,'3.12.jpg',114),(812,'3.13.jpg',114),(813,'3.14.jpg',114),(814,'3.15.jpg',114),(815,'3.16.jpg',114),(816,'3.17.jpg',114),(818,'3.18.jpg',114),(819,'3.19.jpg',115),(820,'3.20.jpg',115),(821,'3.21.jpg',115),(822,'3.22.jpg',115),(823,'3.23.jpg',115),(824,'3.24.jpg',115),(825,'3.25.jpg',115),(826,'3.26.jpg',116),(827,'3.27.jpg',116),(828,'3.28.jpg',116),(829,'3.29.jpg',116),(830,'3.30.jpg',116),(831,'3.31.jpg',116),(832,'3.32.jpg',116),(833,'3.33.jpg',116),(835,'3.34.jpg',116),(836,'3.35.jpg',116),(837,'3.36.jpg',117),(838,'3.37.jpg',117),(839,'3.38.jpg',117),(841,'3.39.jpg',117),(842,'3.40.jpg',117),(843,'3.41.jpg',117),(844,'3.42.jpg',117),(845,'4.1.jpg',118),(846,'4.2.jpg',118),(847,'4.3.jpg',118),(848,'4.4.jpg',118),(849,'4.5.jpg',118),(850,'4.6.jpg',118),(851,'4.7.jpg',118),(852,'4.8.jpg',118),(853,'4.9.jpg',118),(854,'4.10.jpg',119),(855,'4.11.jpg',119),(856,'4.12.jpg',119),(857,'4.13.jpg',119),(858,'4.14.jpg',119),(859,'4.15.jpg',119),(860,'4.16.jpg',119),(861,'4.17.jpg',120),(862,'4.18.jpg',120),(863,'4.19.jpg',120),(864,'4.20.jpg',120),(865,'4.21.jpg',120),(866,'4.21.jpg',120),(867,'4.22.jpg',120),(868,'4.23.jpg',120),(869,'4.24.jpg',120),(870,'4.25.jpg',120),(871,'4.26.jpg',121),(872,'4.27.jpg',121),(873,'4.28.jpg',121),(874,'4.29.jpg',121),(875,'4.30.jpg',121),(876,'4.31.jpg',121),(877,'4.32.jpg',121),(878,'4.33.jpg',121),(879,'4.34.jpg',121),(880,'4.35.jpg',121),(882,'4.36.jpg',121),(883,'4.37.jpg',121),(884,'4.38.jpg',122),(885,'4.39.jpg',122),(886,'4.40.jpg',122),(887,'4.41.jpg',122),(888,'4.42.jpg',122),(890,'4.43.jpg',122),(891,'4.44.jpg',122),(892,'4.45.jpg',122),(893,'4.46.jpg',122),(894,'4.47.jpg',122),(895,'5.1.jpg',123),(896,'5.2.jpg',123),(897,'5.3.jpg',123),(898,'5.4.jpg',123),(899,'5.5.jpg',123),(900,'5.6.jpg',123),(901,'5.7.jpg',123),(902,'5.8.jpg',123),(903,'5.9.jpg',123),(904,'5.10.jpg',123),(905,'5.11.jpg',124),(906,'5.12.jpg',124),(907,'5.13.jpg',124),(908,'5.14.jpg',124),(909,'5.15.jpg',124),(910,'5.16.jpg',124),(911,'5.17.jpg',124),(912,'5.18.jpg',124),(913,'5.19.jpg',124),(914,'5.20.jpg',124),(915,'5.21.jpg',125),(916,'5.22.jpg',125),(917,'5.23.jpg',125),(918,'5.24.jpg',125),(919,'5.25.jpg',125),(920,'5.26.jpg',125),(921,'5.27.jpg',125),(922,'5.28.jpg',125),(923,'5.29.jpg',125),(924,'5.30.jpg',129),(925,'5.31.jpg',129),(926,'5.32.jpg',129),(927,'5.33.jpg',129),(928,'5.34.jpg',129),(929,'5.35.jpg',129),(930,'5.36.jpg',129),(931,'5.37.jpg',129),(932,'5.38.jpg',129),(933,'5.39.jpg',129),(934,'5.40.jpg',129),(935,'5.41.jpg',130),(936,'5.42.jpg',130),(937,'5.43.jpg',130),(938,'5.44.jpg',130),(939,'5.45.jpg',130),(940,'5.46.jpg',130),(941,'5.47.jpg',130),(942,'5.48.jpg',130),(943,'5.49.jpg',130),(944,'5.50.jpg',130),(945,'5.51.jpg',130),(946,'5.52.jpg',130),(948,'5.53.jpg',130),(949,'6.1.jpg',133),(950,'6.2.jpg',133),(951,'6.3.jpg',133),(952,'6.4.jpg',133),(953,'6.5.jpg',133),(954,'6.6.jpg',133),(955,'6.7.jpg',133),(956,'6.8.jpg',133),(957,'6.9.jpg',133),(958,'6.10.jpg',133),(959,'6.11.jpg',133),(960,'6.12.jpg',1007),(961,'6.13.jpg',1007),(962,'6.14.jpg',1007),(963,'6.15.jpg',1007),(964,'6.16.jpg',1007),(965,'6.17.jpg',1007),(966,'6.18.jpg',1007),(967,'6.19.jpg',1007),(968,'6.20.jpg',1007),(969,'6.21.jpg',1007),(970,'6.23.jpg',1008),(971,'6.24.jpg',1008),(972,'6.25.jpg',1008),(973,'6.26.jpg',1008),(974,'6.27.jpg',1008),(975,'6.28.jpg',1008),(976,'6.29.jpg',1008),(977,'6.30.jpg',1008),(978,'6.31.jpg',1008),(979,'6.32.jpg',1009),(980,'6.33.jpg',1009),(981,'6.34.jpg',1009),(982,'6.35.jpg',1009),(983,'6.36.jpg',1009),(984,'6.37.jpg',1009),(985,'6.38.jpg',1009),(986,'6.39.jpg',1009),(987,'6.40.jpg',1009),(988,'6.41.jpg',1009),(989,'7.1.jpg',1010),(990,'7.2.jpg',1010),(991,'7.3.jpg',1010),(992,'7.4.jpg',1010),(993,'7.5.jpg',1010),(994,'7.6.jpg',1010),(995,'7.7.jpg',1010),(996,'7.8.jpg',1011),(997,'7.9.jpg',1011),(998,'7.10.jpg',1011),(999,'7.11.jpg',1011),(1000,'7.12.jpg',1011),(1001,'7.13.jpg',1011),(1002,'7.14.jpg',1013),(1003,'7.15.jpg',1013),(1004,'7.16.jpg',1013),(1005,'7.17.jpg',1013),(1006,'7.18.jpg',1013),(1007,'7.19.jpg',1014),(1008,'7.20.jpg',1014),(1009,'7.21.jpg',1014),(1010,'7.22.jpg',1014),(1011,'7.23.jpg',1014),(1012,'7.24.jpg',1014),(1013,'7.25.jpg',1015),(1014,'7.26.jpg',1015),(1015,'7.27.jpg',1015),(1016,'7.28.jpg',1015),(1017,'7.29.jpg',1015),(1018,'8.1.jpg',1016),(1019,'8.2.jpg',1016),(1020,'8.3.jpg',1016),(1021,'8.4.jpg',1016),(1022,'8.5.jpg',1016),(1023,'8.6.jpg',1016),(1024,'8.7.jpg',1016),(1025,'8.8.jpg',1016),(1026,'8.9.jpg',1016),(1027,'8.10.jpg',1016),(1028,'8.11.jpg',1017),(1029,'8.12.jpg',1017),(1030,'8.13.jpg',1017),(1031,'8.14.jpg',1017),(1032,'8.15.jpg',1017),(1033,'8.16.jpg',1017),(1034,'8.17.jpg',1017),(1035,'8.18.jpg',1017),(1036,'8.19.jpg',1017),(1037,'8.20.jpg',1017),(1038,'8.21.jpg',1018),(1039,'8.22.jpg',1018),(1040,'8.23.jpg',1018),(1041,'8.24.jpg',1018),(1042,'8.25.jpg',1018),(1043,'8.26.jpg',1018),(1044,'8.27.jpg',1018),(1045,'8.28.jpg',1018),(1046,'8.29.jpg',1019),(1047,'8.30.jpg',1019),(1048,'8.31.jpg',1019),(1049,'8.32.jpg',1019),(1050,'8.33.jpg',1019),(1051,'8.34.jpg',1019),(1052,'8.35.jpg',1019),(1053,'8.36.jpg',1019),(1054,'8.37.jpg',1019),(1055,'8.38.jpg',1019),(1056,'8.39.jpg',1020),(1057,'8.40.jpg',1020),(1058,'8.41.jpg',1020),(1059,'8.42.jpg',1020),(1060,'8.43.jpg',1020),(1061,'8.44.jpg',1020),(1062,'8.45.jpg',1020),(1063,'8.46.jpg',1020),(1064,'8.47.jpg',1020),(1065,'8.48.jpg',1020),(1066,'8.49.jpg',1021),(1067,'8.50.jpg',1021),(1068,'8.51.jpg',1021),(1070,'8.52.jpg',1021),(1071,'8.53.jpg',1021),(1072,'8.54.jpg',1021),(1073,'8.55.jpg',1021),(1074,'8.56.jpg',1021),(1075,'8.57.jpg',1021),(1076,'8.58.jpg',1021),(1077,'8.59.jpg',1022),(1078,'8.60.jpg',1022),(1079,'8.61.jpg',1022),(1080,'8.62.jpg',1022),(1081,'8.63.jpg',1022),(1082,'8.64.jpg',1022),(1083,'8.65.jpg',1022),(1084,'8.66.jpg',1022),(1086,'8.67.jpg',1022),(1088,'8.68.jpg',1022),(1089,'9.1.jpg',1023),(1090,'9.2.jpg',1023),(1091,'9.3.jpg',1023),(1092,'9.4.jpg',1023),(1093,'9.5.jpg',1023),(1094,'9.6.jpg',1023),(1095,'9.7.jpg',1024),(1096,'9.8.jpg',1024),(1097,'9.9.jpg',1024),(1098,'9.10.jpg',1024),(1099,'9.11.jpg',1024),(1100,'9.12.jpg',1024),(1101,'9.13.jpg',1024),(1102,'9.14.jpg',1024),(1103,'9.15.jpg',1024),(1104,'9.16.jpg',1025),(1105,'9.17.jpg',1025),(1106,'9.18.jpg',1025),(1107,'9.19.jpg',1025),(1108,'9.20.jpg',1025),(1109,'9.21.jpg',1025),(1110,'9.22.jpg',1025),(1111,'9.23.jpg',1025),(1112,'9.24.jpg',1025),(1113,'9.25.jpg',1026),(1114,'9.26.jpg',1026),(1115,'9.27.jpg',1026),(1116,'9.28.jpg',1026),(1117,'9.29.jpg',1026),(1118,'9.30.jpg',1026),(1119,'10.1.jpg',1027),(1120,'10.2.jpg',1027),(1121,'10.3.jpg',1027),(1122,'10.4.jpg',1027),(1123,'10.5.jpg',1027),(1124,'10.6.jpg',1027),(1125,'10.7.jpg',1028),(1126,'10.8.jpg',1028),(1127,'10.9.jpg',1028),(1128,'10.10.jpg',1028),(1129,'10.11.jpg',1028),(1130,'10.12.jpg',1028),(1131,'10.13.jpg',1028),(1132,'10.14.jpg',1028),(1133,'10.15.jpg',1029),(1134,'10.16.jpg',1029),(1135,'10.17.jpg',1029),(1136,'10.18.jpg',1029),(1137,'10.19.jpg',1029),(1138,'10.20.jpg',1029),(1139,'10.21.jpg',1030),(1140,'10.22.jpg',1030),(1141,'10.23.jpg',1030),(1142,'10.24.jpg',1030),(1143,'10.25.jpg',1030),(1144,'10.26.jpg',1031),(1145,'10.27.jpg',1031),(1146,'10.28.jpg',1031),(1147,'10.29.jpg',1031),(1148,'10.30.jpg',1031),(1149,'10.31.jpg',1031),(1150,'10.32.jpg',1032),(1151,'10.33.jpg',1032),(1152,'10.34.jpg',1032),(1153,'10.35.jpg',1032),(1154,'10.36.jpg',1032),(1155,'10.37.jpg',1032),(1156,'10.38.jpg',1032),(1157,'10.39.jpg',1034),(1158,'10.40.jpg',1034),(1159,'10.41.jpg',1034),(1160,'10.42.jpg',1034),(1161,'10.43.jpg',1034),(1162,'10.44.jpg',1034),(1163,'11.1.jpg',1035),(1164,'11.2.jpg',1035),(1165,'11.3.jpg',1035),(1166,'11.4.jpg',1035),(1167,'11.5.jpg',1035),(1168,'11.6.jpg',1035),(1169,'11.7.jpg',1035),(1170,'11.8.jpg',1035),(1171,'11.9.jpg',1035),(1172,'11.10.jpg',1035),(1173,'11.11.jpg',1035),(1175,'11.12.jpg',1035),(1176,'11.13.jpg',1036),(1177,'11.14.jpg',1036),(1178,'11.15.jpg',1036),(1179,'11.16.jpg',1036),(1180,'11.17.jpg',1036),(1181,'11.18.jpg',1036),(1182,'11.19.jpg',1037),(1183,'11.20.jpg',1037),(1184,'11.21.jpg',1037),(1185,'11.22.jpg',1037),(1186,'11.23.jpg',1037),(1187,'11.24.jpg',1037),(1188,'11.25.jpg',1038),(1189,'11.26.jpg',1038),(1190,'11.27.jpg',1038),(1191,'11.28.jpg',1038),(1192,'11.29.jpg',1038),(1193,'11.30.jpg',1038),(1194,'11.31.jpg',1038),(1195,'11.32.jpg',1039),(1196,'11.33.jpg',1039),(1197,'11.34.jpg',1039),(1198,'11.35.jpg',1039),(1199,'11.36.jpg',1039),(1200,'11.37.jpg',1039),(1201,'12.1.jpg',1040),(1202,'12.2.jpg',1040),(1203,'12.3.jpg',1040),(1204,'12.4.jpg',1040),(1205,'12.5.jpg',1040),(1206,'12.6.jpg',1040),(1207,'12.7.jpg',1040),(1208,'12.8.jpg',1040),(1209,'12.9.jpg',1041),(1210,'12.10.jpg',1041),(1211,'12.11.jpg',1041),(1212,'12.12.jpg',1041),(1213,'12.13.jpg',1041),(1214,'12.14.jpg',1041),(1215,'12.15.jpg',1041),(1216,'12.16.jpg',1041),(1217,'12.17.jpg',1042),(1218,'12.18.jpg',1042),(1219,'12.19.jpg',1042),(1220,'12.20.jpg',1042),(1221,'12.21.jpg',1042),(1222,'12.22.jpg',1042),(1223,'12.23.jpg',1042),(1224,'13.1.jpg',1043),(1225,'13.2.jpg',1043),(1226,'13.3.jpg',1043),(1227,'13.4.jpg',1043),(1228,'13.5.jpg',1043),(1229,'13.6.jpg',1043),(1230,'13.7.jpg',1044),(1231,'13.8.jpg',1044),(1232,'13.9.jpg',1044),(1233,'13.10.jpg',1044),(1234,'13.11.jpg',1044),(1235,'13.12.jpg',1044),(1236,'13.13.jpg',1044),(1237,'13.14.jpg',1044),(1238,'13.15.jpg',1045),(1239,'13.16.jpg',1045),(1240,'13.17.jpg',1045),(1241,'13.18.jpg',1045),(1242,'13.19.jpg',1045),(1243,'13.20.jpg',1045),(1244,'13.21.jpg',1045),(1245,'13.22.jpg',1046),(1246,'13.23.jpg',1046),(1247,'13.24.jpg',1046),(1248,'13.25.jpg',1046),(1249,'13.26.jpg',1046),(1250,'13.27.jpg',1046),(1251,'13.28.jpg',1046),(1253,'13.29.jpg',1046),(1254,'13.30.jpg',1047),(1255,'13.31.jpg',1047),(1256,'13.32.jpg',1047),(1257,'13.33.jpg',1047),(1258,'13.34.jpg',1047),(1259,'13.35.jpg',1047),(1260,'13.36.jpg',1047),(1261,'13.37.jpg',1047);
 /*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `introduce`
---
-
-DROP TABLE IF EXISTS `introduce`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `introduce` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `ProductId` int(11) NOT NULL,
-  `data` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `introduce`
@@ -334,23 +135,6 @@ INSERT INTO `introduce` VALUES (1,118,'Hiệu năng làm việc và học tập 
 UNLOCK TABLES;
 
 --
--- Table structure for table `likes`
---
-
-DROP TABLE IF EXISTS `likes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `likes` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `ProductId` int(11) NOT NULL,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `date` date NOT NULL,
-  `Likes` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `likes`
 --
 
@@ -359,23 +143,6 @@ LOCK TABLES `likes` WRITE;
 INSERT INTO `likes` VALUES (51,9,'5','2021-12-06',1),(122,24,'2','2025-02-27',1),(123,23,'2','2025-02-27',1),(124,16,'2','2025-02-27',1),(132,38,'hsang','2025-02-27',1),(136,19,'hsang','2025-02-28',1),(138,23,'hsang','2025-02-28',1),(139,25,'hsang','2025-02-28',1),(140,1039,'hsang','2025-02-28',1),(141,1101,'hsang','2025-02-28',1),(143,24,'hsang','2025-02-28',1),(144,17,'hsang','2025-02-28',1),(145,16,'hsang','2025-02-28',1),(146,13,'hsang','2025-02-28',1),(147,10,'hsang','2025-02-28',1),(148,28,'hsang','2025-02-28',1),(149,27,'hsang','2025-02-28',1),(150,31,'hsang','2025-02-28',1),(151,34,'hsang','2025-02-28',1),(152,35,'hsang','2025-02-28',1),(153,37,'hsang','2025-02-28',1);
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `orderdetails`
---
-
-DROP TABLE IF EXISTS `orderdetails`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `orderdetails` (
-  `Id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `OrderId` bigint(20) NOT NULL,
-  `ProductId` int(11) NOT NULL,
-  `Price` float NOT NULL,
-  `Quantity` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `orderdetails`
@@ -388,30 +155,6 @@ INSERT INTO `orderdetails` VALUES (1,1,12,27990000,2),(2,1,9,20490000,1),(3,2,13
 UNLOCK TABLES;
 
 --
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `orders` (
-  `Id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `CreateDate` datetime NOT NULL,
-  `Address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `NguoiNhan` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `SDT` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `DiaChiNN` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `TrangThai` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Codeid` int(11) DEFAULT NULL,
-  `CHid` int(11) DEFAULT NULL,
-  `TongTien` float NOT NULL,
-  `hoanthanh` bit(1) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `orders`
 --
 
@@ -422,23 +165,6 @@ INSERT INTO `orders` VALUES (1,'hsang','2025-03-03 17:04:36','6','6','6','Tỉnh
 UNLOCK TABLES;
 
 --
--- Table structure for table `prepay`
---
-
-DROP TABLE IF EXISTS `prepay`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `prepay` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `percents` int(11) NOT NULL,
-  `tien` float NOT NULL,
-  `date` date NOT NULL,
-  `Orderid` bigint(20) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `prepay`
 --
 
@@ -446,27 +172,6 @@ LOCK TABLES `prepay` WRITE;
 /*!40000 ALTER TABLE `prepay` DISABLE KEYS */;
 /*!40000 ALTER TABLE `prepay` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `products` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Price` float NOT NULL,
-  `SoLuong` int(11) NOT NULL,
-  `CreateDate` date NOT NULL,
-  `Image` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Available` bit(1) NOT NULL,
-  `CategoryId` int(11) NOT NULL,
-  `CuaHangId` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1181 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `products`
@@ -479,20 +184,6 @@ INSERT INTO `products` VALUES (9,'Iphone12_Xanh',20490000,4,'2021-09-25','iphone
 UNLOCK TABLES;
 
 --
--- Table structure for table `roles`
---
-
-DROP TABLE IF EXISTS `roles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `roles` (
-  `Id` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `roles`
 --
 
@@ -501,22 +192,6 @@ LOCK TABLES `roles` WRITE;
 INSERT INTO `roles` VALUES ('AD','ADMIN'),('CH','Chủ cửa hàng'),('KH','Khách Hàng');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `saleuser`
---
-
-DROP TABLE IF EXISTS `saleuser`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `saleuser` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Codeid` int(11) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `saleuser`
@@ -529,22 +204,6 @@ INSERT INTO `saleuser` VALUES (20,'hsang',19,'2025-03-03');
 UNLOCK TABLES;
 
 --
--- Table structure for table `specification`
---
-
-DROP TABLE IF EXISTS `specification`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `specification` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `TenThuocTinh` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `GiaTri` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `ProductId` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1192 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `specification`
 --
 
@@ -553,22 +212,6 @@ LOCK TABLES `specification` WRITE;
 INSERT INTO `specification` VALUES (1,'Màn hình','OLED',9),(5,'Hệ điều hành','iOS 14',9),(6,'Camera sau','2 camera 12 MP',9),(7,'Camera trước','12 MP',9),(8,'Chip xử lý','Apple A14 Bionic 6 nhân',9),(9,'RAM','4 GB',9),(10,'Bộ nhớ trong','64 GB',9),(11,'SIM','1 Nano SIM & 1 eSIM',9),(12,'Loại pin','Li-Ion',9),(13,'Dung lượng pin','2815 mAh',9),(14,'Hỗ trợ sạc tối đa','20 W',9),(16,'Màn hình','OLED',10),(17,'Hệ điều hành','iOS 14',10),(18,'Camera sau','3 camera 12 MP',10),(19,'Camera trước','12 MP',10),(20,'Chip xử lý','Apple A14 Bionic 6 nhân',10),(21,'RAM','6 GB',10),(22,'Bộ nhớ trong','128 GB',10),(23,'SIM','1 Nano SIM & 1 eSIM',10),(24,'Loại pin','Li-Ion',10),(25,'Dung lượng pin','3687 mAh',10),(26,'Hỗ trợ sạc tối đa','20 W',10),(27,'Màn hình','OLED',12),(28,'Hệ điều hành','iOS 14',12),(29,'Camera sau','3 camera 12 MP',12),(31,'Camera trước','12 MP',12),(32,'Chip xử lý ','Apple A14 Bionic 6 nhân',12),(33,'RAM','6 GB',12),(34,'Bộ nhớ trong','128 GB',12),(35,'SIM','1 Nano SIM & 1 eSIM',12),(36,'Loại pin','Li-Ion',12),(37,'Dung lượng pin','2815 mAh',12),(38,'Hỗ trợ sạc tối đa','20 W',12),(39,'Màn hình','OLED',13),(40,'Hệ điều hành','\niOS 14',13),(41,'Camera sau','2 camera 12 MP',13),(42,'Camera trước','12 MP',13),(43,'Chip xử lý','Apple A14 Bionic 6 nhân',13),(44,'RAM','4 GB',13),(45,'Bộ nhớ trong','64 GB',13),(46,'SIM','1 Nano SIM & 1 eSIM',13),(47,'Loại pin','\nLi-Ion',13),(48,'Dung lượng pin','2227 mAh',13),(49,'Hỗ trợ sạc tối đa','20 W',13),(50,'Màn hình','828 x 1792 Pixels',16),(51,'Hệ điều hành','iOS 14',16),(52,'Camera sau','12 MP',16),(53,'Camera trước','7 MP',16),(54,'Chip xử lý','Apple A12 Bionic 6 nhân',16),(55,'RAM','3 GB',16),(56,'Bộ nhớ trong','64 GB',16),(57,'SIM','1 Nano SIM & 1 eSIM',16),(58,'Loại pin','Li-Ion',16),(59,'Dung lượng pin','2942 mAh',16),(60,'Hỗ trợ sạc tối đa:','15 W',16),(61,'Màn hình','IPS LCD',17),(62,'Hệ điều hành','iOS 14',17),(63,'Camera sau','12 MP',17),(64,'Camera trước','7 MP',17),(65,'RAM','3 GB',17),(66,'Bộ nhớ trong','128 GB',17),(67,'Chip xử lý ','Apple A13 Bionic 6 nhân',17),(68,'SIM','1 Nano SIM & 1 eSIM',17),(69,'Loại pin','Li-Ion',17),(70,'Dung lượng pin','1821 mAh',17),(71,'Hỗ trợ sạc tối đa','18 W',17),(72,'Màn hình','OLED',19),(73,'\nHệ điều hành','iOS 14',19),(74,'Camera sau','3 camera 12 MP',19),(75,'Camera trước','12 MP',19),(77,'Chip xử lý','Apple A14 Bionic 6 nhân',19),(78,'RAM','6 GB',19),(79,'Bộ nhớ trong','128 GB',19),(80,'SIM','1 Nano SIM & 1 eSIM',19),(81,'Loại pin','Li-Ion',19),(82,'Dung lượng pin','2815 mAh',19),(83,'Hỗ trợ sạc tối đa','20 W',19),(84,'Màn hình','IPS LCD',20),(85,'Hệ điều hành','iOS 14',20),(86,'Camera sau','2 camera 12 MP',20),(87,'Camera trước','12 MP',20),(88,'RAM','4 GB',20),(89,'Bộ nhớ trong','64 GB',20),(90,'Chip xử lý','\nApple A13 Bionic 6 nhân',20),(91,'SIM','1 Nano SIM & 1 eSIM',20),(92,'Loại pin','Li-Ion',20),(93,'Dung lượng pin','3110 mAh',20),(94,'Hỗ trợ sạc tối đa','18 W',20),(95,'Màn hình','Dynamic AMOLED 2X',23),(96,'Hệ điều hành','Android 11',23),(97,'Camera sau','2 camera 12 MP',23),(98,'Camera trước','10 MP',23),(99,'RAM','8 GB',23),(100,'Bộ nhớ trong','128 GB',23),(101,'SIM','1 Nano SIM & 1 eSIM',23),(102,'Loại pin','Li-Ion',23),(103,'Dung lượng pin','3300 mAh',23),(104,'Hỗ trợ sạc tối đa','15 W',23),(105,'Màn hình','Super AMOLED',24),(106,'Hệ điều hành','\nAndroid 11',24),(107,'Camera sau','Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP',24),(109,'\nCamera trước','32 MP',24),(110,'RAM','8 GB',24),(111,'Bộ nhớ trong','128 GB',24),(112,'Chip xử lý','Snapdra n 750G 5G 8 nhân',24),(113,'SIM','2 Nano SIM',24),(114,'Loại pin','Li-Ion',24),(115,'Dung lượng pin','4500 mAh',24),(116,'Hỗ trợ sạc tối đa','25 W',24),(117,'Màn hình','Dynamic AMOLED 2X',25),(118,'Hệ điều hành','Android 11',25),(120,'Camera sau','2 camera 12 MP',25),(121,'Camera trước','10 MP',25),(122,'RAM','8 GB',25),(123,'Bộ nhớ trong','128 GB',25),(124,'SIM','1 Nano SIM & 1 eSIM',25),(125,'Loại pin','Li-Ion',25),(126,'Dung lượng pin','3300 mAh',25),(128,'Hỗ trợ sạc tối đa','15 W',25),(129,'Màn hình','\nChính: Dynamic AMOLED, Phụ: Super AMOLED',26),(130,'Hệ điều hành','Android 10',26),(131,'Camera trước','Trong 10 MP & N ài 10 MP',26),(132,'Camera sau','3 camera 12 MP',26),(133,'\nRAM','12 GB',26),(134,'Bộ nhớ trong','256 GB',26),(135,'Chip xử lý','\nSnapdra n 865+ 8 nhân',26),(136,'SIM','1 Nano SIM & 1 eSIM',26),(138,'Loại pin','Li-Po',26),(139,'Hỗ trợ sạc tối đa','\n25 W',26),(140,'Màn hình\n','Dynamic AMOLED 2X',27),(141,'Hệ điều hành','Android 11',27),(142,'Camera sau','Chính 12 MP & Phụ 64 MP, 12 MP',27),(143,'Camera trước','10 MP',27),(144,'RAM','8 GB',27),(145,'Bộ nhớ trong','128 GB',27),(146,'SIM','\n2 Nano SIM hoặc 1 Nano SIM + 1 eSIM',27),(147,'Loại pin','Li-Ion',27),(148,'Hỗ trợ sạc tối đa','25 W',27),(149,'Màn hình','IPS LCD',28),(150,'Hệ điều hành','Android 11',28),(151,'Camera trước','5 MP',28),(152,'Camera sau','Chính 13 MP & Phụ 2 MP, 2 MP',28),(153,'RAM','4 GB',28),(154,'Bộ nhớ trong','64 GB',28),(155,'Chip xử lý','Spreadtrum T610 8 nhân',28),(156,'SIM','\n2 Nano SIM',28),(157,'Loại pin','Li-Po',28),(158,'Hỗ trợ sạc tối đa','10 W',28),(159,'Chip xử lý','Exynos 2100 8 nhân',27),(160,'Màn hình','IPS LCD',31),(161,'Hệ điều hành','\nAndroid 11',31),(162,'Camera sau','\nChính 48 MP & Phụ 2 MP, 2 MP',31),(163,'Camera trước','8 MP',31),(164,'RAM','4 GB',31),(165,'Bộ nhớ trong','128 GB',31),(166,'Chip xử lý','MediaTek Helio G85 8 nhân',31),(167,'SIM','2 Nano SIM',31),(168,'Loại pin','Li-Po',31),(169,'Hỗ trợ sạc tối đa','18 W',31),(170,'Màn hình','Super AMOLED',34),(171,'Hệ điều hành','Android 11',34),(172,'Camera trước','16 MP',34),(173,'Camera sau','Chính 108 MP & Phụ 8 MP, 2 MP, 2 MP',34),(175,'RAM','8 GB',34),(176,'Bộ nhớ trong','128 GB',34),(178,'Chip xử lý','Snapdra n 720G 8 nhân',34),(179,'SIM','2 Nano SIM',34),(180,'Loại pin','Li-Po',34),(181,'Hỗ trợ sạc tối đa','50 W',34),(182,'Màn hình','Super AMOLED',35),(183,'Hệ điều hành','Android 11',35),(184,'Camera trước','16 MP',35),(185,'Camera sau','Chính 108 MP & Phụ 8 MP, 2 MP, 2 MP',35),(186,'\nRAM','8 GB',35),(187,'Bộ nhớ trong','128 GB',35),(188,'Chip xử lý ','Snapdra n 720G 8 nhân',35),(189,'SIM','2 Nano SIM',35),(190,'Loại pin','\nLi-Po',35),(191,'Hỗ trợ sạc tối đa','50 W',35),(192,'Màn hình','\nSuper AMOLED',37),(193,'\nHệ điều hành','Android 11',37),(194,'Camera trước','16 MP',37),(195,'Camera sau','Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP',37),(196,'RAM','8 GB',37),(197,'Bộ nhớ trong','128 GB',37),(198,'Chip xử lý','MediaTek Helio G95 8 nhân',37),(199,'SIM','\n2 Nano SIM',37),(200,'Loại pin','Li-Po',37),(201,'Hỗ trợ sạc tối đa','30 W',37),(202,'Màn hình','IPS LCD',38),(203,'Hệ điều hành','Android 10',38),(205,'Camera trước','8 MP',38),(206,'Camera sau','Chính 13 MP & Phụ 2 MP',38),(207,'RAM','4 GB',38),(208,'Bộ nhớ trong','128 GB',38),(210,'Chip xử lý','\nMediaTek Helio P35 8 nhân',38),(211,'SIM','2 Nano SIM',38),(212,'Loại pin','Li-Po',38),(213,'Hỗ trợ sạc tối đa','10 W',38),(224,'Màn hình','AMOLED',41),(225,'Hệ điều hành','Android 11',41),(227,'Camera trước','44 MP',41),(228,'Camera sau','Chính 64 MP & Phụ 8 MP, 2 MP',41),(229,'RAM','8 GB',41),(230,'Bộ nhớ trong','128 GB',41),(231,'Chip xử lý','MediaTek Dimensity 800U 5G 8 nhân',41),(232,'SIM','2 Nano SIM',41),(233,'Loại pin','Li-Po',41),(234,'Hỗ trợ sạc tối đa','33 W',41),(235,'Màn hình','AMOLED',42),(236,'Hệ điều hành','Android 11',42),(237,'Camera trước','44 MP',42),(238,'Camera sau','Chính 64 MP & Phụ 8 MP, 2 MP',42),(239,'RAM','8 GB',42),(240,'Bộ nhớ trong','128 GB',42),(241,'Chip xử lý ','Snapdra n 730 8 nhân',42),(242,'SIM','2 Nano SIM',42),(243,'Loại pin','Li-Po',42),(244,'Hỗ trợ sạc tối đa','\n33 W',42),(245,'Màn hình','AMOLED',44),(246,'Hệ điều hành','Android 11',44),(247,'Camera trước','44 MP',44),(248,'Camera sau','Chính 64 MP & Phụ 8 MP, 2 MP',44),(249,'RAM','8 GB',44),(250,'Bộ nhớ trong','128 GB',44),(251,'Chip xử lý','Snapdra n 720G 8 nhân',44),(252,'SIM','\n2 Nano SIM',44),(253,'Loại pin','Li-Po',44),(254,'Hỗ trợ sạc tối đa','33 W',44),(255,'Màn hình','IPS LCD',45),(256,'Hệ điều hành','Android 11',45),(257,'Camera trước','8 MP',45),(258,'Camera sau\n','Chính 13 MP & Phụ 2 MP, 2 MP',45),(259,'RAM','4 GB',45),(261,'Bộ nhớ trong','64 GB',45),(262,'Chip xử lý ','MediaTek Helio G35 8 nhân',45),(263,'SIM','2 Nano SIM',45),(264,'Loại pin','Li-Po',45),(265,'Hỗ trợ sạc tối đa','15 W',45),(266,'Màn hình','AMOLED',46),(267,'Hệ điều hành','Android 10',46),(268,'Camera trước','20 MP',46),(269,'Camera sau','Chính 64 MP & Phụ 8 MP, 8 MP, 2 MP',46),(270,'RAM','8 GB',46),(271,'Bộ nhớ trong','128 GB',46),(272,'Chip xử lý ','Snapdra n 730 8 nhân',46),(273,'SIM','2 Nano SIM',46),(274,'Loại pin','Li-Po',46),(276,'Hỗ trợ sạc tối đa','18 W',46),(277,'Màn hình','AMOLED',47),(278,'Hệ điều hành','Android 10',47),(279,'Camera trước','20 MP',47),(280,'Camera sau','Chính 64 MP & Phụ 8 MP, 8 MP, 2 MP',47),(281,'RAM','8 GB',47),(282,'Bộ nhớ trong','128 GB',47),(283,'Chip xử lý','Snapdra n 730 8 nhân',47),(284,'SIM','2 Nano SIM',47),(285,'Loại pin','Li-Po',47),(286,'Hỗ trợ sạc tối đa','18 W',47),(287,'Màn hình','LTPS IPS LCD',48),(288,'\nHệ điều hành','Android 10',48),(289,'Camera trước','13 MP',48),(290,'Camera sau','Chính 16 MP & Phụ 8 MP, 2 MP, 2 MP',48),(291,'RAM','4 GB',48),(292,'Bộ nhớ trong','64 GB',48),(293,'Chip xử lý ','Snapdra n 665 8 nhân',48),(294,'SIM','2 Nano SIM',48),(295,'Loại pin','Li-Po',48),(296,'Hỗ trợ sạc tối đa','18 W',48),(297,'Màn hình','LTPS IPS LCD',50),(298,'Hệ điều hành','Android 10',50),(299,'Camera trước','13 MP',50),(300,'Camera sau','Chính 16 MP & Phụ 8 MP, 2 MP, 2 MP',50),(301,'Chip xử lý','\nSnapdra n 665 8 nhân',50),(302,'SIM','2 Nano SIM',50),(303,'Loại pin','Li-Po',50),(304,'Hỗ trợ sạc tối đa','18 W',50),(305,'Màn hình','\nAMOLED',52),(306,'Hệ điều hành','Android 11',52),(307,'Camera trước','16 MP',52),(308,'Camera sau','Chính 64 MP & Phụ 8 MP, 5 MP',52),(309,'RAM','8 GB',52),(310,'Bộ nhớ trong','128 GB',52),(311,'Chip xử lý ','Snapdra n 732G 8 nhân',52),(312,'SIM','2 Nano SIM (SIM 2 chung khe thẻ nhớ)',52),(313,'Loại pin','Li-Po',52),(314,'Hỗ trợ sạc tối đa','33 W',52),(315,'Màn hình','IPS LCD',54),(316,'Hệ điều hành','Android 11',54),(317,'Camera trước','8 MP',54),(318,'Camera sau','Chính 48 MP & Phụ 2 MP, 2 MP',54),(319,'Chip xử lý','MediaTek Dimensity 700 5G 8 nhân',54),(320,'SIM','2 Nano SIM',54),(321,'Loại pin','Li-Po',54),(322,'Hỗ trợ sạc tối đa','18 W',54),(323,'RAM','8 GB',54),(325,'Bộ nhớ trong','128 GB',54),(326,'Màn hình','AMOLED',55),(327,'Hệ điều hành','Android 11',55),(328,'Camera trước','20 MP',55),(329,'Camera sau','Chính 108 MP & Phụ 13 MP, 5 MP',55),(330,'RAM','8 GB',55),(331,'Bộ nhớ trong','256 GB',55),(332,'Chip xử lý','Snapdra n 888 8 nhân',55),(333,'SIM','2 Nano SIM',55),(334,'Loại pin','Li-Ion',55),(335,'Hỗ trợ sạc tối đa','55 W',55),(336,'Màn hình','IPS LCD',56),(337,'Hệ điều hành','Android 10',56),(338,'Camera trước','20 MP',56),(339,'Camera sau','Chính 108 MP & Phụ 13 MP, 5 MP',56),(340,'RAM','8 GB',56),(341,'Bộ nhớ trong','256 GB',56),(342,'Chip xử lý','Snapdra n 865 8 nhân',56),(343,'SIM','2 Nano SIM',56),(344,'Loại pin','Li-Ion',56),(345,'Hỗ trợ sạc tối đa','33 W',56),(346,'Màn hình','AMOLED',57),(347,'Hệ điều hành','Android 11',57),(348,'Camera trước','16 MP',57),(349,'Camera sau','Chính 108 MP & Phụ 8 MP, 5 MP, 2 MP',57),(350,'RAM','8 GB',57),(351,'Bộ nhớ trong','128 GB',57),(352,'Chip xử lý ','\nSnapdra n 732G 8 nhân',57),(353,'SIM','2 Nano SIM',57),(354,'Loại pin','Li-Ion',57),(355,'Hỗ trợ sạc tối đa','33 W',57),(356,'Màn hình','AMOLED',58),(357,'Hệ điều hành','Android 11',58),(358,'Camera trước','32 MP',58),(359,'Camera sau','Chính 64 MP & Phụ 8 MP, 2 MP',58),(360,'RAM','8 GB',58),(361,'Bộ nhớ trong','128 GB',58),(362,'Chip xử lý','MediaTek Dimensity 800U 5G 8 nhân',58),(363,'SIM','2 Nano SIM',58),(364,'Loại pin','Li-Po',58),(365,'Hỗ trợ sạc tối đa','30 W',58),(366,'Màn hình','AMOLED',59),(367,'Hệ điều hành','Android 11',59),(368,'Camera trước','32 MP',59),(369,'Camera sau','Chính 64 MP & Phụ 8 MP, 2 MP',59),(371,'RAM','8 GB',59),(372,'Bộ nhớ trong','128 GB',59),(373,'Chip xử lý','MediaTek Dimensity 900 5G',59),(374,'SIM','2 Nano SIM',59),(375,'Loại pin','Li-Po',59),(376,'Hỗ trợ sạc tối đa','65 W',59),(377,'Màn hình','AMOLED',60),(378,'Hệ điều hành','Android 11',60),(379,'Camera trước','16 MP',60),(380,'Camera sau','Chính 48 MP & Phụ 2 MP, 2 MP',60),(381,'RAM','8 GB',60),(382,'Bộ nhớ trong','128 GB',60),(383,'Chip xử lý','Snapdra n 662 8 nhân',60),(384,'SIM','2 Nano SIM',60),(385,'Loại pin','Li-Po',60),(386,'Hỗ trợ sạc tối đa','33 W',60),(387,'Màn hình\n','AMOLED',61),(388,'Hệ điều hành','Android 11',61),(389,'Camera trước','32 MP',61),(391,'Camera sau','Chính 50 MP & Phụ 50 MP, 13 MP, 3 MP',61),(392,'RAM','12 GB',61),(393,'Bộ nhớ trong','256 GB',61),(394,'Chip xử lý','Snapdra n 888 8 nhân',61),(395,'SIM','2 Nano SIM',61),(396,'Loại pin','Li-Po',61),(397,'Hỗ trợ sạc tối đa','65 W',61),(398,'Màn hình','AMOLED',62),(399,'Hệ điều hành','Android 11',62),(402,'Camera trước','32 MP',62),(403,'Camera sau','Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP',62),(404,'RAM','8 GB',62),(405,'Bộ nhớ trong','128 GB',62),(406,'Chip xử lý','Snapdra n 765G 8 nhân',62),(407,'SIM','\n2 Nano SIM',62),(408,'Loại pin','Li-Po',62),(409,'Hỗ trợ sạc tối đa','65 W',62),(410,'Màn hình','OLED 1.65 inch',63),(411,'Thời lượng pin','Khoảng 1.5 ngày',63),(412,'Kết nối với hệ điều hành','iOS 13 trở lên',63),(413,'Mặt','Ion-X strengthened glass42 mm',63),(416,'Tính năng cho sức khỏe','Chế độ luyện tập, Tính lượng calories tiêu thụ',63),(417,'Hãng','Apple',63),(418,'Màn hình','OLED 1.78 inch',64),(419,'Thời lượng pin','Khoảng 1.5 ngày',64),(420,'Kết nối với hệ điều hành','iOS 13 trở lên',64),(421,'Mặt','Kính cường lực Sapphire 44 mm',64),(422,'Tính năng cho sức khỏe','Chế độ luyện tập, Tính lượng calories tiêu thụ',64),(423,'Hãng','Apple',64),(424,'Màn hình','OLED 1.57 inch',65),(425,'Thời lượng pin','Khoảng 1.5 ngày',65),(426,'Kết nối với hệ điều hành','iOS 14 trở lên',65),(427,'Mặt','Ion-X strengthened glass 40 mm',65),(428,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',65),(429,'Hãng','Apple',65),(430,'Màn hình','OLED 1.78 inch',66),(431,'Thời lượng pin','Khoảng 1.5 ngày',66),(432,'Kết nối với hệ điều hành','iOS 14 trở lên',66),(433,'Mặt','Kính cường lực Sapphire 44 mm',66),(434,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',66),(435,'Hãng','Apple',66),(436,'Màn hình','OLED 1.57 inch',67),(437,'Thời lượng pin','Khoảng 1.5 ngày',67),(438,'Kết nối với hệ điều hành','iOS 14 trở lên',67),(439,'Mặt',' Ion-X strengthened glass 40 mm',67),(440,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',67),(441,'Hãng','Apple',67),(442,'Màn hình','OLED 1.57 inch',68),(443,'Thời lượng pin','Khoảng 1.5 ngày',68),(444,'Kết nối với hệ điều hành','iOS 14 trở lên',68),(445,'Mặt','Ion-X strengthened glass 40 mm',68),(446,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',68),(447,'Hãng','Apple',68),(468,'Màn hình','Khoảng 10 ngày',69),(473,'Hệ điều hành','Android 11',39),(474,'Camera trước','16 MP',39),(475,'Camera sau','Chính 64 MP & Phụ 2 MP, 2 MP',39),(476,'RAM','8 GB',39),(477,'Bộ nhớ trong','128 GB',39),(478,'Chip xử lý ','MediaTek Helio G80 8 nhân',39),(479,'SIM','2 Nano SIM',39),(480,'Loại pin','Li-Po',39),(481,'Hỗ trợ sạc tối đa','33 W',39),(482,'Màn hình','IPS LCD',39),(483,'Thời lượng pin','Khoảng 10 ngày',69),(484,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 11 trở lên',69),(485,'Mặt','Mặt kính nhựa 45 mm',69),(486,'Tính năng cho sức khỏe','Nhắc nhở ít vận động, Theo dõi nhịp tim 24h',69),(488,'Hãng','BeU',69),(489,'Màn hình','IPS 1.3 inch',70),(490,'Thời lượng pin','Khoảng 5 ngày',70),(491,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 11 trở lên',70),(492,'Mặt','Mặt kính nhựa50 mm',70),(493,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ,',70),(494,'Hãng','BeU',70),(495,'Màn hình','IPS 1.4 inch',72),(496,'Thời lượng pin','Khoảng 7 ngày',72),(497,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 11 trở lên',72),(498,'Mặt','Mặt kính nhựa 51 mm',72),(499,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',72),(500,'Hãng','BeU',72),(501,'Màn hình','IPS 1.32 inch',73),(502,'Thời lượng pin','Khoảng 10 ngày',73),(503,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 11 trở lên',73),(504,'Mặt','Mặt kính nhựa 46 mm',73),(505,'Tính năng cho sức khỏe','Nhắc nhở ít vận động, Theo dõi nhịp tim 24h',73),(506,'Hãng','BeU',73),(507,'Màn hình','TFT 1.2 inch',74),(508,'Thời lượng pin','Khoảng 12 ngày',74),(509,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 9 trở lên',74),(510,'Mặt','Mặt kính nhựa 55.5 mm',74),(511,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',74),(512,'Hãng','BeU',74),(513,'Màn hình','IPS 1.54 inch',75),(514,'Thời lượng pin','Khoảng 7 ngày',75),(515,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 11 trở lên',75),(516,'Mặt','Mặt kính nhựa53 mm',75),(518,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',75),(519,'Hãng','BeU',75),(520,'Màn hình','MIP 1.4 inch',76),(521,'Thời lượng pin','Khoảng 50 ngày, Khoảng 70 giờ khi sử dụng GPS',76),(523,'Kết nối với hệ điều hành','Android, iOS',76),(524,'Mặt','Kính cường lực 51 mm',76),(525,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi chu kì kinh nguyệt',76),(526,'Hãng','Garmin',76),(527,'Màn hình','MIP 1.3 inch',77),(528,'Thời lượng pin','Khoảng 16 ngày, Khoảng 40 giờ khi sử dụng GPS',77),(529,'Kết nối với hệ điều hành','Android, iOS',77),(530,'Mặt','Kính cường lực  rilla Glass 347 mm',77),(531,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',77),(532,'Hãng','Garmin',77),(533,'Màn hình','MIP 1.3 inch',78),(534,'Thời lượng pin',' Khoảng 13 ngày, Khoảng 36 giờ khi sử dụng GPS',78),(535,'Kết nối với hệ điều hành','Android, iOS',78),(536,'Mặt','Kính cường lực  rilla Glass 347 mm',78),(537,'Tính năng cho sức khỏe',' Chế độ luyện tập, Theo dõi chu kì kinh nguyệt',78),(538,'Hãng','Garmin',78),(539,'Màn hình','MIP 1.3 inch',79),(540,'Thời lượng pin','Khoảng 21 ngày, Khoảng 60 giờ khi sử dụng GPS',79),(541,'Kết nối với hệ điều hành','Android, iOS',79),(542,'Mặt','Kính Sapphire 51 mm',79),(543,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi chu kì kinh nguyệt',79),(544,'Hãng','Garmin',79),(545,'Màn hình','MIP 1.2 inch',80),(547,'Thời lượng pin','Khoảng 10 giờ khi sử dụng GPS và Âm Nhạc',80),(548,'Kết nối với hệ điều hành','Android, iOS',80),(549,'Mặt','Kính cường lực  rilla Glass 347 mm',80),(550,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi chu kì kinh nguyệt',80),(551,'Hãng','Garmin',80),(552,'Màn hình','LCD 1 inch',81),(553,'Thời lượng pin','Khoảng 5 ngày',81),(554,'Kết nối với hệ điều hành','Android, iOS',81),(555,'Mặt','Kính cường lực  rilla Glass 335 mm',81),(556,'Tính năng cho sức khỏe','Theo dõi giấc ngủ, Đo nhịp tim',81),(557,'Hãng','Garmin',81),(558,'Màn hình','TFT 1.3 inch',82),(559,'Thời lượng pin','Khoảng 1 ngày, Khoảng 12 tiếng (sử dụng liên tục)',82),(560,'Mặt','Mặt kính nhựa 33 mm',82),(561,'Dây','Silicone',82),(562,'Kết nối',' Android 4.3 trở lên, iOS 10 trở lên',82),(563,'Ngôn ngữ','Tiếng Việt',82),(564,'Tiện ích','Báo thức, Có nghe gọi, Cài đặt vùng an toàn',82),(565,'Hãng','Kidcare',82),(566,'Màn hình','TFT 1.3 inch',83),(567,'Thời lượng pin','Khoảng 1 ngày, Khoảng 12 tiếng (sử dụng liên tục)',83),(568,'Mặt','Mặt kính nhựa 33 mm',83),(569,'Kết nối','Android 4.3 trở lên, iOS 10 trở lên',83),(570,'Tiện ích khác','Chụp ảnh, Có nghe gọi, Định vị trẻ em',83),(571,'Hãng','Kidcare',83),(572,'Màn hình','TFT 1.44 inch',84),(574,'Thời lượng pin',' Khoảng 1.5 ngày, Khoảng 12 tiếng',84),(575,'Mặt','Mặt kính nhựa 36 mm',84),(576,'Kết nối','Android 4.3 trở lên, iOS 10 trở lên',84),(578,'Tiện ích khác','Cuộc gọi khẩn cấp SOS, Chụp ảnh',84),(579,'Hãng','Kidcare',84),(580,'Màn hình','TFT 1.3 inch',85),(581,'Thời lượng pin','Khoảng 1.5 ngày, Khoảng 12 tiếng',85),(582,'Kết nối với hệ điều hành','Android 4.3 trở lên, iOS 10 trở lên',85),(583,'Mặt','Kính cường lực 41.5 mm',85),(584,'Tính năng cho sức khỏe','Đếm số bước chân',85),(585,'Hãng','Kidcare',85),(586,'Màn hình','TFT 1.3 inch',86),(587,'Thời lượng pin','Khoảng 1.5 ngày, Khoảng 12 tiếng',86),(588,'Kết nối với hệ điều hành','Android 4.3 trở lên, iOS 10 trở lên',86),(589,'Mặt','Kính cường lực 41.5 mm',86),(590,'Tính năng cho sức khỏe','Tính năng cho sức khỏe',86),(591,'Hãng','Kidcare',86),(592,'Màn hình','TFT 1.4 inch',87),(593,'Kết nối với hệ điều hành','Android 4.3 trở lên, iOS 10 trở lên',87),(594,'Mặt','Kính cường lực 43.4 mm',87),(595,'Tính năng cho sức khỏe','Đếm số bước chân',87),(597,'Hãng','Kidcare',87),(598,'Màn hình','AMOLED 1.1 inch',88),(599,'Thời lượng pin','Khoảng 12 ngày',88),(600,'Kết nối với hệ điều hành','Android 6.0 trở lên, iOS 10 trở lên',88),(601,'Tính năng cho sức khỏe','Theo dõi giấc ngủ, Đo nhịp tim',88),(602,'Tiện ích','Từ chối cuộc gọi, Điều khiển chơi nhạc',88),(603,'Màn hình','AMOLED 1.6 inch',89),(604,'Thời lượng pin','Khoảng 14 ngày',89),(605,'Kết nối với hệ điều hành','Android 6.0 trở lên, iOS 12 trở lên',89),(606,'Mặt','Kính cường lực 41 mm',89),(607,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',89),(608,'Màn hình','AMOLED 1.6 inch',90),(609,'Thời lượng pin','Khoảng 14 ngày',90),(610,'Kết nối với hệ điều hành','Android 6.0 trở lên, iOS 12 trở lên',90),(611,'Mặt','Kính cường lực 41 mm',90),(612,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',90),(614,'Hãng','Oppo Watch 46mm',91),(615,'Màn hình','AMOLED 1.91 inch',91),(616,'Thời lượng pin','Khoảng 21 ngày',91),(617,'Kết nối với hệ điều hành','Android 6.0 trở lên, iOS 12 trở lên',91),(618,'Mặt','Kính cường lực 46 mm',91),(619,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',91),(620,'Hãng','Watch 46mm',92),(621,'Màn hình','AMOLED 1.91 inch',92),(622,'Thời lượng pin','Khoảng 21 ngày',92),(623,'Kết nối với hệ điều hành','Android 6.0 trở lên, iOS 12 trở lên',92),(624,'Mặt','Kính cường lực 46 mm',92),(625,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',92),(626,'Màn hình','AMOLED 1.91 inch',93),(627,'Thời lượng pin','Khoảng 21 ngày',93),(628,'Kết nối với hệ điều hành','Android 6.0 trở lên, iOS 12 trở lên',93),(629,'Mặt','Kính cường lực 46 mm',93),(631,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',93),(632,'Màn hình','SUPER AMOLED 1.4 inch',95),(633,'Thời lượng pin','Khoảng 2 ngày',95),(634,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 9 trở lên',95),(635,'Mặt','Kính cường lực  rrilla Glass Dx+ 45 mm',95),(636,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',95),(637,'Hãng','Samsung',95),(638,'Màn hình','SUPER AMOLED 1.4 inch',95),(640,'Màn hình','SUPER AMOLED 1.4 inch',97),(641,'Thời lượng pin','Khoảng 2 ngày',97),(642,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 9 trở lên',97),(643,'Mặt','Kính cường lực  rrilla Glass Dx+ 45 mm',97),(644,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',97),(645,'Hãng','Samsung',97),(646,'Màn hình','SUPER AMOLED 1.4 inch',98),(647,'Thời lượng pin','Khoảng 2 ngày',98),(648,'Kết nối với hệ điều hành','Android 5.0 trở lên, iOS 9 trở lên',98),(649,'Mặt','Kính cường lực  rrilla Glass Dx+ 45 mm',98),(650,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',98),(651,'Hãng','Samsung',98),(652,'Màn hình','SUPER AMOLED 1.19 inch',99),(653,'Thời lượng pin','Khoảng 1.5 ngày',99),(654,'Kết nối với hệ điều hành','Android dùng  ogle Mobile Service',99),(655,'Mặt','Kính cường lực  rrilla Glass Dx+ 42 mm',99),(656,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',99),(657,'Hãng','Samsung',99),(658,'Màn hình','SUPER AMOLED 1.36 inch',100),(659,'Thời lượng pin','Khoảng 1.5 ngày',100),(660,'Kết nối với hệ điều hành','Android dùng  ogle Mobile Service',100),(661,'Mặt','Kính cường lực  rrilla Glass Dx+ 46 mm',100),(662,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',100),(663,'Hãng','Samsung',100),(664,'Màn hình','SUPER AMOLED 1.4 inch',101),(665,'Thời lượng pin','Khoảng 1.5 ngày',101),(666,'Kết nối với hệ điều hành','Android 5.0iOS 10 trở lên',101),(667,'Mặt','Kính cường lực  rrilla Glass Dx+ 44 mm',101),(668,'Tính năng cho sức khỏe','Chế độ luyện tập, Theo dõi giấc ngủ',101),(669,'Hãng','Samsung',101),(670,'Màn hình','15.6 inch',102),(671,'RAM','8 GB',102),(672,'Ổ cứng','SSD 512 GB NVMe PCIe',102),(673,'Card màn hình','Card rời - NVIDIA GeForce GTX 1650Ti 4 GB',102),(674,'Cổng giao tiếp','Jack tai nghe 3.5 mm',102),(675,'Kết nối không dây','\nBluetooth 5.0Wi-Fi 6 (802.11ax)',102),(676,'Chất liệu','Vỏ nhựa',102),(677,'Hệ điều hành','Windows 10 Home SL',102),(678,'Màn hình','15.6 inch',103),(680,'RAM','4 GB',103),(681,'Ổ cứng','SSD 256 GB NVMe PCIeHỗ trợ khe cắm HDD SATA',103),(682,'Card màn hình','\nCard tích hợp - Intel UHD Graphics',103),(683,'Cổng giao tiếp','HDMI',103),(684,'Kết nối không dây','\nBluetooth 5.0Wi-Fi 802.11 a/b/g/n/ac',103),(685,'Hệ điều hành','Windows 10 Home SL',103),(686,'Màn hình','14 inch',104),(687,'RAM','16 GB',104),(689,'Ổ cứng','SSD 512 GB NVMe PCIe',104),(690,'Card màn hình','\nCard tích hợp - Intel Iris Xe Graphics',104),(691,'Cổng giao tiếp','Thunderbolt 4 USB-C',104),(692,'Kết nối không dây','Wi-Fi 6 (802.11ax)Bluetooth 5.1',104),(693,'Chất liệu','Vỏ kim loại',104),(694,'Hệ điều hành','\nWindows 10 Home SL',104),(695,'Màn hình','15.6 inch',105),(696,'RAM','8 GB',105),(697,'Ổ cứng','SSD 256 GB NVMe PCIe',105),(698,'Card màn hình','Card rời - NVIDIA GeForce GTX 1650 4 GB',105),(699,'Cổng giao tiếp','Jack tai nghe 3.5 mm',105),(700,'Kết nối không dây','\nBluetooth 5.0Wi-Fi 6 (802.11ax)',105),(701,'Chất liệu','Vỏ nhựa',105),(702,'Hệ điều hành','Windows 10 Home SL',105),(703,'Màn hình','15.6 inch',106),(704,'RAM','8 GB',106),(705,'Ổ cứng','SSD 512 GB NVMe PCIe',106),(706,'Card màn hình','Card rời - NVIDIA GeForce RTX3050Ti, 4 GB',106),(707,'Cổng giao tiếp','Jack tai nghe 3.5 mm',106),(709,'Kết nối không dây','Wi-Fi 6 (802.11ax)Bluetooth 5.1',106),(710,'Chất liệu','Vỏ nhựa',106),(711,'Hệ điều hành','Windows 10 Home SL',106),(713,'Màn hình','15.6 inch',108),(715,'RAM','8 GB',108),(716,'Ổ cứng','SSD 512 GB NVMe PCIe',108),(717,'Card màn hình','Card rời - NVIDIA GeForce GTX 1650 4 GB',108),(718,'Cổng giao tiếp','Jack tai nghe 3.5 mm',108),(719,'Kết nối không dây','\nBluetooth 5.0Wi-Fi 6 (802.11ax)',108),(720,'Chất liệu','Vỏ nhựa - nắp lưng bằng kim loại',108),(721,'Hệ điều hành','Windows 10 Home SL',108),(722,'Màn hình','15.6 inch',109),(723,'RAM','8 GB',109),(724,'Ổ cứng','SSD 512 GB NVMe PCIeHỗ trợ khe cắm HDD SATA',109),(725,'Card màn hình','Card tích hợp - Intel UHD Graphics',109),(726,'Cổng giao tiếp','Jack tai nghe 3.5 mm',109),(727,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',109),(728,'Chất liệu','\nVỏ nhựa - nắp lưng bằng kim loại',109),(729,'Hệ điều hành','Windows 10 Home SL',109),(730,'Màn hình','13.3 inch',110),(731,'RAM','16 GB',110),(732,'Ổ cứng','SSD 1 TB M.2 PCIe',110),(733,'Card màn hình','Card tích hợp - Intel Iris Xe Graphics',110),(734,'Cổng giao tiếp','2 x Thunderbolt 4 USB-C',110),(735,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',110),(736,'Chất liệu','Vỏ kim loại nguyên khối',110),(738,'Hệ điều hành','Windows 10 Home SL + Office Home',110),(739,'Màn hình','15.6 inch',111),(740,'RAM','16 GB',111),(741,'Ổ cứng','\nSSD 512 GB NVMe PCIe',111),(742,'Card màn hình','Card rời - NVIDIA GeForce RTX 3060, 6 GB',111),(743,'Cổng giao tiếp','Jack tai nghe 3.5 mm',111),(744,'Kết nối không dây','\nWi-Fi 6 (802.11ax)Bluetooth 5.1',111),(745,'Chất liệu','Vỏ nhựa - nắp lưng bằng kim loại',111),(746,'Hệ điều hành','Windows 10 Home SL',111),(747,'Màn hình','15.6 inch',112),(748,'RAM','8 GB',112),(749,'Ổ cứng','\nSSD 512 GB NVMe PCIeHỗ trợ khe cắm HDD SATA',112),(750,'Card màn hình','Card rời - NVIDIA GeForce MX330, 2 GB',112),(751,'\nCổng giao tiếp','Jack tai nghe 3.5 mm',112),(752,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',112),(753,'Chất liệu','Vỏ nhựa - nắp lưng bằng kim loại',112),(754,'Hệ điều hành','Windows 10 Home SL',112),(755,'Màn hình','15.6 inch',113),(756,'RAM','16 GB',113),(758,'Ổ cứng','SSD 512 GB NVMe PCIe',113),(759,'Card màn hình','Card rời - NVIDIA GeForce GTX 1660Ti, 6 GB',113),(760,'Cổng giao tiếp','Jack tai nghe 3.5 mm',113),(761,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',113),(762,'Chất liệu','Vỏ nhựa',113),(763,'Hệ điều hành','Windows 10 Home SL',113),(764,'\nMàn hình','15.6 inch',114),(765,'RAM','16 GB',114),(766,'Ổ cứng','\nSSD 256 GB NVMe PCIe',114),(767,'Card màn hình','\nCard rời - NVIDIA GeForce GTX 1650Ti 4 GB',114),(768,'Cổng giao tiếp','Jack tai nghe 3.5 mm',114),(769,'Kết nối không dây','\nBluetooth 5.0Wi-Fi 802.11 a/b/g/n/ac',114),(770,'Chất liệu','Vỏ nhựa',114),(771,'Hệ điều hành','Windows 10 Home SL',114),(772,'Màn hình','13.4 inch',115),(773,'RAM','8 GB',115),(774,'Ổ cứng','SSD 256 GB NVMe PCIe',115),(775,'Card màn hình','Card tích hợp - Intel Iris Xe Graphics',115),(776,'Cổng giao tiếp','Jack tai nghe 3.5 mm2 x Thunderbolt 4 USB-C',115),(777,'Kết nối không dây','Wi-Fi 6 (802.11ax)Bluetooth 5.1',115),(778,'Chất liệu','Vỏ kim loại nguyên khối',115),(779,'Hệ điều hành','\nWindows 10 Home SL',115),(780,'Màn hình','\n15.6 inch',116),(781,'RAM','8 GB',116),(782,'Ổ cứng','SSD 512 GB NVMe PCIe',116),(783,'Card màn hình','\nCard rời - NVIDIA GeForce GTX 1660Ti, 6 GB',116),(784,'Cổng giao tiếp','Jack tai nghe 3.5 mm',116),(785,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',116),(786,'Chất liệu','Vỏ nhựa',116),(787,'Hệ điều hành','Windows 10 Home SL',116),(788,'\nMàn hình','15.6 inch',117),(789,'RAM','8 GB',117),(790,'Ổ cứng','SSD 512 GB NVMe PCIe',117),(791,'Card màn hình','Card rời - NVIDIA GeForce GTX 1650Ti 4 GB',117),(792,'Cổng giao tiếp','Jack tai nghe 3.5 mm',117),(793,'Kết nối không dây','Wi-Fi 6 (802.11ax)Bluetooth 5.1',117),(794,'Chất liệu','Vỏ kim loại',117),(795,'Hệ điều hành','Windows 10 Home SL',117),(796,'Màn hình','15.6 inch',118),(797,'RAM','8 GB',118),(798,'Ổ cứng','SSD 512 GB NVMe PCIe',118),(799,'Card màn hình','Card tích hợp - Intel Iris Xe Graphics',118),(800,'Cổng giao tiếp','2 x USB 3.1',118),(801,'Kết nối không dây','Bluetooth 5.0Wi-Fi 802.11 a/b/g/n/ac',118),(802,'Chất liệu','Nắp lưng và chiếu nghỉ tay bằng kim loại',118),(803,'Hệ điều hành','Windows 10 Home SL',118),(805,'Màn hình','15.6 inch',119),(806,'RAM','8 GB',119),(807,'Ổ cứng','SSD 512 GB NVMe PCIe',119),(808,'Card màn hình','Card tích hợp - Intel Iris Xe Graphics',119),(809,'Cổng giao tiếp','Jack tai nghe 3.5 mm',119),(810,'Kết nối không dây','Bluetooth 5.0Wi-Fi 802.11 a/b/g/n/ac',119),(811,'Chất liệu','Vỏ nhựa',119),(812,'Hệ điều hành','Windows 10 Home SL',119),(813,'Màn hình','15.6 inch',120),(814,'RAM','16 GB',120),(815,'Ổ cứng','SSD 1 TB M.2 PCIe',120),(818,'\nCard màn hình','Card rời - NVIDIA GeForce RTX2070',120),(819,'Cổng giao tiếp','Jack tai nghe 3.5 mm',120),(820,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',120),(821,'Chất liệu','Kim loại và polycarbonate',120),(822,'Hệ điều hành','\nWindows 10 Home SL + Office Home',120),(823,'Màn hình','14 inch',121),(824,'RAM','16 GB',121),(825,'Ổ cứng','SSD 512 GB NVMe PCIe',121),(826,'Card màn hình','Card tích hợp - Intel Iris Xe Graphics',121),(827,'Cổng giao tiếp','\nJack tai nghe 3.5 mm',121),(828,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',121),(829,'Chất liệu','Vỏ kim loại nguyên khối',121),(830,'Hệ điều hành','Windows 10 Pro',121),(831,'Màn hình','13.3 inch',122),(832,'RAM','8 GB',122),(833,'Ổ cứng','SSD 512 GB NVMe PCIe',122),(834,'Card màn hình','\nCard tích hợp - Intel Iris Xe Graphics',122),(835,'Cổng giao tiếp','\nThunderbolt 4 USB-C2 x USB 3.1',122),(836,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',122),(837,'Chất liệu','Vỏ kim loại nguyên khối',122),(838,'Hệ điều hành','Windows 10 Home SL + Office Home',122),(839,'Màn hình','13.3 inch',1010),(840,'RAM','8 GB',1010),(841,'Ổ cứng','SSD 256 GB',1010),(842,'Card màn hình','Card tích hợp - 8 nhân GPU',1010),(843,'Cổng giao tiếp','Jack tai nghe 3.5 mm2 x Thunderbolt 3 ',1010),(844,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6',1010),(845,'Chất liệu','Vỏ kim loại nguyên khối',1010),(846,'Hệ điều hành','Mac OS',1010),(847,'Màn hình','13.3 inch',1011),(848,'RAM','8 GB',1011),(849,'Ổ cứng','SSD 256 GB',1011),(850,'Card màn hình','Card tích hợp - 7 nhân GPU',1011),(851,'Cổng giao tiếp','2 x Thunderbolt 3',1011),(852,'\nKết nối không dây','Bluetooth 5.0Wi-Fi 6',1011),(853,'Chất liệu','Vỏ kim loại nguyên khối',1011),(854,'Hệ điều hành','Mac OS',1011),(855,'Màn hình','13.3 inch',1013),(856,'RAM','8 GB',1013),(857,'Ổ cứng','SSD 512 GB',1013),(858,'Card màn hình','Card tích hợp - 8 nhân GPU',1013),(859,'Cổng giao tiếp','2 x Thunderbolt 3 (USB-C)',1013),(860,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',1013),(862,'Chất liệu','Vỏ kim loại nguyên khối',1013),(863,'Hệ điều hành','Mac OS',1013),(864,'Màn hình','13.3 inch',1014),(865,'RAM','8 GB',1014),(866,'Ổ cứng','SSD 512 GB',1014),(867,'\nCard màn hình','Card tích hợp - 8 nhân GPU',1014),(868,'Cổng giao tiếp','2 x Thunderbolt 3 (USB-C)Jack tai nghe 3.5 mm',1014),(869,'Kết nối không dây','Bluetooth 5.0Wi-Fi 6 (802.11ax)',1014),(870,'Chất liệu','Vỏ kim loại nguyên khối',1014),(871,'Hệ điều hành','Mac OS',1014),(872,'Màn hình','13.3 inch',1015),(873,'RAM','16 GB',1015),(874,'Ổ cứng','SSD 1 TB',1015),(875,'Card màn hình','Card tích hợp - 8 nhân GPU',1015),(876,'Cổng giao tiếp','2 x Thunderbolt 3 (USB-C)',1015),(877,'Kết nối không dây','\nBluetooth 5.0Wi-Fi 6 (802.11ax)',1015),(878,'Chất liệu','Vỏ kim loại nguyên khối',1015),(879,'Hệ điều hành','Mac OS',1015),(880,'Màn hình','15.6 inch',1016),(881,'RAM','16 GB',1016),(882,'Ổ cứng','SSD 512 GB NVMe PCIe',1016),(883,'Card màn hình','Card rời - NVIDIA GeForce RTX 3060 Max-Q, 6 GB',1016),(884,'Cổng giao tiếp','Jack tai nghe 3.5 mm',1016),(885,'Kết nối không dây','Wi-Fi 6 (802.11ax)Bluetooth 5.1',1016),(886,'Chất liệu','Vỏ nhựa - nắp lưng bằng kim loại',1016),(887,'Hệ điều hành','Windows 10 Home SL',1016),(888,'Màn hình','15.6 inch',1017),(889,'RAM','8 GB',1017),(890,'Ổ cứng','SSD 512 GB NVMe PCIe',1017),(891,'Card màn hình','Card rời - NVIDIA GeForce RTX3050, 4 GB',1017),(892,'Cổng giao tiếp','Jack tai nghe 3.5 mm',1017),(893,'Kết nối không dây','Bluetooth 5.2Wi-Fi 6 (802.11ax)',1017),(894,'Chất liệu','Vỏ nhựa',1017),(895,'Hệ điều hành','Windows 10 Home SL',1017),(896,'Màn hình','17.3 inch',1018),(897,'RAM','16 GB',1018),(898,'Ổ cứng','SSD 1 TB M.2 PCIe',1018),(899,'Card màn hình','\nCard rời - NVIDIA GeForce RTX 3070, 8 GB',1018),(900,'Cổng giao tiếp','Jack tai nghe 3.5 mm',1018),(901,'Kết nối không dây','Bluetooth 5.2Wi-Fi 6 (802.11ax)',1018),(902,'Chất liệu','Vỏ kim loại',1018),(903,'Hệ điều hành','Windows 10 Home SL',1018),(904,'Màn hình','13.4 inch',1019),(905,'RAM','16 GB',1019),(907,'Ổ cứng','SSD 1 TB NVMe PCIe Gen4x4',1019),(908,'Card màn hình','Card tích hợp - Intel Iris Xe Graphics',1019),(909,'Cổng giao tiếp','Jack tai nghe 3.5 mm',1019),(910,'Kết nối không dây','Bluetooth 5.2Wi-Fi 6E (802.11ax)',1019),(911,'Chất liệu','\nVỏ kim loại nguyên khối',1019),(912,'Hệ điều hành','Windows 10 Home SL',1019),(913,'Màn hình','15.6 inch',1020),(914,'RAM','16 GB',1020),(915,'Ổ cứng','\nSSD 512 GB NVMe PCIeHỗ trợ khe cắm HDD SATA',1020),(916,'Card màn hình','\nCard rời - NVIDIA GeForce GTX 1660Ti, 6 GB',1020),(917,'Cổng giao tiếp','Jack tai nghe 3.5 mm',1020),(918,'Kết nối không dây','\nWi-Fi 6 (802.11ax)Bluetooth 5.1',1020),(919,'Chất liệu:\n','Vỏ nhựa',1020),(920,'Hệ điều hành','Windows 10 Home SL',1020),(921,'Màn hình','15.6 inch',1020),(922,'Màn hình','15.6 inch',1021),(923,'RAM','16 GB',1021),(924,'Ổ cứng','SSD 512 GB NVMe PCIe',1021),(926,'Card màn hình','Card rời - NVIDIA GeForce RTX 3060 Max-Q, 6 GB',1021),(927,'\nCổng giao tiếp','Jack tai nghe 3.5 mm',1021),(928,'Kết nối không dây','\nWi-Fi 6 (802.11ax)Bluetooth 5.1',1021),(929,'Chất liệu','Vỏ nhựa',1021),(930,'Hệ điều hành','Windows 10 Home SL',1021),(931,'Màn hình','15.6 inch',1022),(932,'RAM','8 GB',1022),(933,'Ổ cứng','SSD 512 GB NVMe PCIeHỗ trợ khe cắm HDD SATA',1022),(934,'Card màn hình','\nCard rời - NVIDIA GeForce GTX 1650 4 GB',1022),(935,'Cổng giao tiếp','Jack tai nghe 3.5 mm',1022),(936,'Kết nối không dây','Wi-Fi 6 (802.11ax)Bluetooth 5.1',1022),(938,'Chất liệu','Nắp lưng và chiếu nghỉ tay bằng kim loại',1022),(939,'Hệ điều hành','\nWindows 10 Home SL',1022),(940,'Màn hình','10.1\"IPS LCD',1023),(941,'Hệ điều hành','Android 10 (Không có  ogle)',1023),(942,'Chip','Kirin 710A',1023),(943,'RAM','3 GB',1023),(944,'Bộ nhớ trong','64 GB',1023),(945,'Kết nối','Hỗ trợ 4GCó nghe gọi',1023),(946,'SIM','1 Nano SIM',1023),(947,'Camera sau','5 MP',1023),(948,'Camera trước','2 MP',1023),(949,'Pin, Sạc','5100 mAh10 W',1023),(950,'Màn hình','10.4\"IPS LCD',1024),(951,'Hệ điều hành','Android 10 (Không có  ogle)',1024),(952,'Chip','Kirin 810',1024),(953,'RAM','4 GB',1024),(954,'Bộ nhớ trong','64 GB',1024),(955,'Camera sau','8 MP',1024),(956,'Camera trước','8 MP',1024),(957,'Pin, Sạc','7250 mAh10 W',1024),(958,'Màn hình','10.4\"IPS LCD',1025),(959,'Hệ điều hành','Android 10 (Không có  ogle)',1025),(961,'Chip','Kirin 820 8 nhân',1025),(962,'RAM','4 GB',1025),(963,'Bộ nhớ trong','128 GB',1025),(964,'Camera sau','8 MP',1025),(965,'Camera trước','8 MP',1025),(966,'Pin, Sạc','7250 mAh22.5 W',1025),(967,'Màn hình','8\"IPS LCD',1026),(968,'Hệ điều hành','Android 10',1026),(969,'Chip','MediaTek MT8768',1026),(970,'RAM','2 GB',1026),(971,'Bộ nhớ trong','32 GB',1026),(972,'Kết nối','Hỗ trợ 4GCó nghe gọi',1026),(973,'SIM','1 Nano SIM',1026),(975,'Camera sau','5 MP',1026),(976,'Camera trước','2 MP',1026),(977,'Pin, Sạc','5100 mAh5 W',1026),(978,'Màn hình','12.9\"Liquid Retina XDR mini-LED LCD',1027),(979,'Hệ điều hành','iPadOS 14',1027),(980,'Chip','Apple M1 8 nhân',1027),(981,'RAM','8 GB',1027),(982,'Bộ nhớ trong','256 GB',1027),(983,'Kết nối','5GNghe gọi qua FaceTime',1027),(984,'SIM','1 Nano SIM hoặc 1 eSIM',1027),(985,'Camera sau','Chính 12 MP & Phụ 10 MP, TOF 3D LiDAR',1027),(986,'Camera trước','12 MP',1027),(987,'Pin, Sạc','40.88 Wh (~ 10.835 mAh)20 W',1027),(988,'Màn hình','11\"Liquid Retina',1028),(989,'Hệ điều hành','iPadOS 14',1028),(990,'Chip','Apple M1 8 nhân',1028),(991,'RAM','8 GB',1028),(992,'Bộ nhớ trong','256 GB',1028),(993,'Kết nối','5GNghe gọi qua FaceTime',1028),(994,'SIM','1 Nano SIM hoặc 1 eSIM',1028),(995,'Camera sau','Chính 12 MP & Phụ 10 MP, TOF 3D LiDAR',1028),(997,'Camera trước','12 MP',1028),(998,'Pin, Sạc','28.65 Wh (~ 7538 mAh)20 W',1028),(999,'Màn hình','12.9\"Liquid Retina',1029),(1000,'Hệ điều hành','iPadOS 14',1029),(1001,'Chip','Apple A12Z Bionic',1029),(1002,'RAM','6 GB',1029),(1003,'Bộ nhớ trong','128 GB',1029),(1004,'Kết nối','Nghe gọi qua FaceTime',1029),(1005,'Camera sau','Chính 12 MP & Phụ 10 MP, TOF 3D LiDAR',1029),(1006,'Camera trước','7 MP',1029),(1007,'Pin, Sạc:','36.71 Wh (~ 9720 mAh)20 W',1029),(1008,'Màn hình','11\"Liquid Retina',1030),(1009,'Hệ điều hành','iPadOS 14',1030),(1010,'Chip','Apple A12Z Bionic',1030),(1011,'RAM','6 GB',1030),(1012,'Bộ nhớ trong','128 GB',1030),(1013,'Kết nối','Hỗ trợ 4GNghe gọi qua FaceTime',1030),(1014,'SIM','1 Nano SIM hoặc 1 eSIM',1030),(1015,'Camera sau','Chính 12 MP & Phụ 10 MP, TOF 3D LiDAR',1030),(1016,'Camera trước','7 MP',1030),(1017,'Pin, Sạc','28.65 Wh (~ 7600 mAh)20 W',1030),(1018,'Màn hình','10.9\"Liquid Retina',1031),(1019,'Hệ điều hành','iPadOS 14',1031),(1020,'Chip','Apple A14 Bionic',1031),(1021,'RAM','4 GB',1031),(1022,'Bộ nhớ trong','256 GB',1031),(1023,'Kết nối','Nghe gọi qua FaceTime',1031),(1024,'Camera sau','12 MP',1031),(1025,'Camera trước','7 MP',1031),(1026,'Pin, Sạc','28.65 Wh (~ 7600 mAh)20 W',1031),(1028,'Màn hình','7.9\"LED-backlit IPS LCD',1032),(1029,'Hệ điều hành','iPadOS 14',1032),(1031,'Chip','Apple A12 Bionic',1032),(1032,'RAM','3 GB',1032),(1033,'Bộ nhớ trong','64 GB',1032),(1034,'Kết nối','Hỗ trợ 4GNghe gọi qua FaceTime',1032),(1035,'SIM','1 Nano SIM & 1 eSIM',1032),(1036,'Camera sau','8 MP',1032),(1038,'Camera trước','7 MP',1032),(1039,'Pin, Sạc','19.1 Wh (~ 5124 mAh)10 W',1032),(1041,'Màn hình','10.2\"Retina IPS LCD',1034),(1042,'Hệ điều hành','iPadOS 14',1034),(1043,'Chip','Apple A12 Bionic',1034),(1044,'RAM','3 GB',1034),(1045,'Bộ nhớ trong','128 GB',1034),(1046,'Kết nối','Hỗ trợ 4GNghe gọi qua FaceTime',1034),(1047,'SIM','1 Nano SIM hoặc 1 eSIM',1034),(1048,'Camera sau','8 MP',1034),(1049,'Camera trước','1.2 MP',1034),(1050,'Pin, Sạc','32.4 Wh (~ 8600 mAh)',1034),(1052,'Màn hình','10.3\"IPS LCD',1035),(1053,'Hệ điều hành','Android 9',1035),(1054,'Chip','MediaTek Helio P22T',1035),(1055,'RAM','4 GB',1035),(1056,'Bộ nhớ trong','64 GB',1035),(1057,'Kết nối','Hỗ trợ 4G',1035),(1058,'SIM','1 Nano SIM',1035),(1059,'Camera sau','8 MP',1035),(1060,'Camera trước','5 MP',1035),(1061,'Pin, Sạc','5000 mAh10 W',1035),(1062,'Màn hình','10\"IPS LCD',1036),(1063,'Hệ điều hành','Android 10',1036),(1064,'Chip','MediaTek Helio P22T',1036),(1065,'RAM','2 GB',1036),(1066,'Bộ nhớ trong','32 GB',1036),(1067,'Kết nối','Hỗ trợ 4G',1036),(1068,'SIM','1 Nano SIM',1036),(1069,'Camera sau','8 MP',1036),(1070,'Camera trước','5 MP',1036),(1071,'Pin, Sạc','5000 mAh10 W',1036),(1072,'Màn hình','8\"IPS LCD',1037),(1073,'Hệ điều hành','Android 9',1037),(1074,'Chip','MediaTek Helio A22',1037),(1075,'RAM','3 GB',1037),(1076,'Bộ nhớ trong','32 GB',1036),(1077,'Bộ nhớ trong','32 GB',1037),(1078,'Kết nối','Hỗ trợ 4GCó nghe gọi',1037),(1079,'SIM','1 Nano SIM',1037),(1080,'Camera sau','5 MP',1037),(1081,'Camera trước','2 MP',1037),(1082,'Pin, Sạc','5000 mAh5 W',1037),(1083,'Màn hình','7\"IPS LCD',1038),(1084,'Hệ điều hành','Android 9',1038),(1085,'Chip','MediaTek MT8765',1038),(1086,'RAM','2 GB',1038),(1087,'Bộ nhớ trong','32 GB',1038),(1088,'Kết nối','Hỗ trợ 4GCó nghe gọi',1038),(1089,'SIM','1 Nano SIM',1038),(1090,'Camera sau','2 MP',1038),(1091,'Camera trước','2 MP',1038),(1092,'Pin, Sạc','3500 mAh5 W',1038),(1093,'Màn hình','7\"IPS LCD',1039),(1094,'Hệ điều hành','Android 8 (  Edition)',1039),(1095,'Chip','Mediatek MT8167D',1039),(1096,'RAM','1 GB',1039),(1097,'Bộ nhớ trong','16 GB',1039),(1098,'Kết nối','3GCó nghe gọi',1039),(1099,'SIM','1 SIM thường',1039),(1100,'Camera sau','2 MP',1039),(1101,'Camera trước','0.3 MP',1039),(1102,'Pin, Sạc','2750mAh5 W',1039),(1103,'Màn hình','10.1\"IPS LCD',1040),(1104,'Hệ điều hành','Android 10',1040),(1105,'Chip','Spreadtrum SC9863A',1040),(1106,'RAM','3 GB',1040),(1107,'Bộ nhớ trong','32 GB',1040),(1108,'Kết nối','Hỗ trợ 4GCó nghe gọi',1040),(1109,'SIM','2 Nano SIM (SIM 2 chung khe thẻ nhớ)',1040),(1110,'Camera sau','8 MP',1040),(1111,'Camera trước','2 MP',1040),(1112,'Pin, Sạc','6000 mAh',1040),(1113,'Màn hình','10.1\"IPS LCD',1041),(1114,'Hệ điều hành','Android 10',1041),(1115,'Chip','Spreadtrum SC9863A',1041),(1116,'RAM','2 GB',1041),(1118,'Bộ nhớ trong','32 GB',1041),(1119,'Kết nối','Hỗ trợ 4GCó nghe gọi',1041),(1120,'SIM','2 Nano SIM (SIM 2 chung khe thẻ nhớ)',1041),(1121,'Camera sau','5 MP',1041),(1122,'Camera trước','2 MP',1041),(1123,'Pin, Sạc','6000 mAh10 W',1041),(1124,'Màn hình','10.1\"IPS LCD',1042),(1125,'Hệ điều hành','Android 9',1042),(1126,'Chip','MediaTek MT6580',1042),(1127,'RAM','2 GB',1042),(1128,'Bộ nhớ trong','16 GB',1042),(1129,'Kết nối','3GCó nghe gọi',1042),(1130,'SIM','2 SIM thường',1042),(1131,'Camera sau','5 MP',1042),(1132,'Camera trước','2 MP',1042),(1133,'Pin, Sạc','5000 mAh10 W',1042),(1134,'Màn hình','12.4\"TFT LCD',1043),(1135,'Hệ điều hành','Android 11',1043),(1136,'Chip','Snapdra n 750G',1043),(1137,'RAM','4 GB',1043),(1139,'Bộ nhớ trong','64 GB',1043),(1140,'Kết nối','Hỗ trợ 4G, Có nghe gọi',1043),(1141,'SIM','1 Nano SIM',1043),(1142,'Camera sau','8 MP',1043),(1143,'Camera trước','5 MP',1043),(1144,'Pin, Sạc','10090 mAh, 45 W',1043),(1145,'Hãng','Samsung',1043),(1147,'Màn hình','8.7\"TFT LCD',1044),(1148,'Hệ điều hành','Android 11',1044),(1149,'Chip','MediaTek MT8768T 8 nhân',1044),(1150,'RAM','3 GB',1044),(1151,'Bộ nhớ trong','32 GB',1044),(1152,'Kết nối','Hỗ trợ 4G, Có nghe gọi',1044),(1153,'SIM','1 Nano SIM',1044),(1154,'Camera sau','8 MP',1044),(1155,'Camera trước','2 MP',1044),(1156,'Pin, Sạc','5100 mAh, 15 W',1044),(1157,'Hãng','Samsung.\n',1044),(1158,'Màn hình','11\"LTPS IPS LCD',1045),(1159,'Hệ điều hành','Android 10',1045),(1160,'Chip','Snapdra n 865+',1045),(1161,'RAM','6 GB',1045),(1162,'Bộ nhớ trong','128 GB',1045),(1163,'Kết nối','Hỗ trợ 4G, Có nghe gọi',1045),(1164,'SIM','1 Nano SIM (chung thẻ nhớ)',1045),(1165,'Camera sau','Chính 13 MP & Phụ 5 MP',1045),(1166,'Camera trước','8 MP',1045),(1167,'Pin, Sạc','8000 mAh, 45 W',1045),(1168,'Hãng','Samsung',1045),(1169,'Màn hình','8\"TFT LCD',1046),(1170,'Hệ điều hành','Android 10',1046),(1171,'Chip','Snapdra n 429',1046),(1172,'RAM','2 GB',1046),(1173,'Bộ nhớ trong','32 GB',1046),(1174,'Kết nối','Hỗ trợ 4GCó nghe gọi',1046),(1175,'SIM','1 Nano SIM',1046),(1176,'Camera sau','8 MP',1046),(1177,'Camera trước','2 MP',1046),(1178,'Pin, Sạc','5100 mAh10 W',1046),(1179,'Hãng','Samsung',1046),(1180,'Màn hình','10.4\"PLS LCD',1047),(1181,'Hệ điều hành','Android 10',1047),(1182,'Chip','Exynos 9611',1047),(1183,'RAM','4 GB',1047),(1184,'Bộ nhớ trong','64 GB',1047),(1185,'Kết nối','Hỗ trợ 4GCó nghe gọi',1047),(1186,'SIM','1 Nano SIM',1047),(1188,'Camera sau','8 MP',1047),(1189,'Camera trước','5 MP',1047),(1190,'Pin, Sạc','7040 mAh10 W',1047),(1191,'Hãng','Samsung',1047);
 /*!40000 ALTER TABLE `specification` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `tintuc`
---
-
-DROP TABLE IF EXISTS `tintuc`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `tintuc` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `noidung` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `image` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tintuc`
@@ -589,4 +232,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-04 13:43:36
+-- Dump completed on 2025-03-17 20:18:37
