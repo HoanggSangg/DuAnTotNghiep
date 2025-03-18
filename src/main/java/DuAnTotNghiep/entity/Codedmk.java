@@ -31,7 +31,7 @@ public class Codedmk implements Serializable {
 	Date date = new Date();
 		
 	@Column(columnDefinition = "TINYINT(1)")
-	Boolean trangthai;
+	boolean trangthai;
 	
 	String code;
 
