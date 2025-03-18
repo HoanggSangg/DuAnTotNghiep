@@ -42,7 +42,9 @@ public class Codesale implements Serializable{
 	Date endday;
 	
 	Integer percents;
-	boolean trangthai;
+	
+	@Column(columnDefinition = "TINYINT(1)")
+	Boolean trangthai;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "codesale", cascade = CascadeType.REMOVE)

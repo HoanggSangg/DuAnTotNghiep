@@ -43,7 +43,9 @@ public class Order  implements Serializable{
 	String diachinn;
 	String trangthai;
 	String tongtien;
-	boolean hoanthanh;
+	
+	@Column(columnDefinition = "TINYINT(1)")
+	Boolean hoanthanh;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "order")

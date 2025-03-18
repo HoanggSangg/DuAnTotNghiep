@@ -31,9 +31,11 @@ public class Product  implements Serializable{
 	String name;
 	Double price;
 	Integer soluong;
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Createdate")
 	Date createDate = new Date();
+	
 	String image;
 	
 	@Column(columnDefinition = "TINYINT(1)")
