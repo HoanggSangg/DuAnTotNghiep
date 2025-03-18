@@ -103,7 +103,7 @@ public class HomeController {
 
 				List<Catesmall> catesmall = catesmallService.findByCate(cid.get());
 				m.addAttribute("catesmall", catesmall);
-				return "/product/listsp";
+				return "product/listsp";
 			} else {
 				Pageable pa = PageRequest.of(p.orElse(0), 8);
 				Page<Product> list = productService.findAvailable(pa);
