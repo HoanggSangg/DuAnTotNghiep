@@ -174,12 +174,12 @@ public class HomeController {
 
 	@GetMapping("/account/individual")
 	public String individual() {
-		return "/layout/individual";
+		return "layout/individual";
 	}
 
 	@GetMapping("/codeqmk")
 	public String codeqmk() {
-		return "/layout/code";
+		return "layout/code";
 	}
 
 	@GetMapping("/home/tintuc")

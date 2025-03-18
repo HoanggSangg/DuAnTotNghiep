@@ -146,6 +146,6 @@ public class PayController {
 			odao.save(order);
 		});
 		model.addAttribute("pay", "Giao dịch thất bại mời bạn thử lại - Mã đơn hàng: " + id);
-		return "/order/checkout";
+		return "order/checkout";
 	}
 }

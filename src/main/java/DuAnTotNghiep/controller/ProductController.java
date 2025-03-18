@@ -83,7 +83,7 @@ public class ProductController {
 		} catch (Exception e) {
 			return "redirect:/product/like?p=0";
 		}
-		return "/product/like";
+		return "product/like";
 	}
 
 	@GetMapping("/product/detail/{id}")
@@ -108,7 +108,7 @@ public class ProductController {
 		List<Introduce> introduce = introduceService.findByIdProduct(id);
 		m.addAttribute("introduce", introduce);
 		
-		return "/product/detail";
+		return "product/detail";
 	}
 	
 	@GetMapping("/product/store/{id}")
@@ -122,7 +122,7 @@ public class ProductController {
 		
 		Store store = storeservice.findById(id);
 		m.addAttribute("store", store);
-		return "/product/store";
+		return "product/store";
 	}
 
 	@GetMapping("/products/cate/{name}")
@@ -138,7 +138,7 @@ public class ProductController {
 			return "redirect:" + currentUrl + "?cid=" + cidValues + "&p=0";
 		}
 		m.addAttribute("items", list);
-		return "/product/listsp";
+		return "product/listsp";
 	}
 
 	@GetMapping("/products/tkname")
@@ -153,7 +153,7 @@ public class ProductController {
 			}
 			m.addAttribute("items", list);
 		}
-		return "/product/list";
+		return "product/list";
 	}
 
 	@GetMapping("/products/tkprice")
@@ -170,7 +170,7 @@ public class ProductController {
 		m.addAttribute("items", list);
 		m.addAttribute("priceValue", priceValue);
 		
-		return "/product/list";
+		return "product/list";
 	}
 	
 	public void liked(Model m) {
